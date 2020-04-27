@@ -1,0 +1,25 @@
+@startuml
+
+    adoactivity <|-- FindActorsAndUseCases
+    activity <|-- PrioritizeUseCases
+    activity <|-- DetailUseCases
+    activity <|-- PrototypeUI
+    activity <|-- StructureUseCaseModel
+
+    role <|-- SistemAnalist
+    role <|-- Arquitect
+    role <|-- UserCaseSpecificator
+    role <|-- UIDesigner
+
+    SistemAnalist --> "do" FindActorsAndUseCases
+    Arquitect --> "do" PrioritizeUseCases
+    Arquitect --> "do" StructureUseCaseModel
+    UserCaseSpecificator --> "do 1..N"  DetailUseCases
+    UIDesigner --> "do" PrototypeUI
+
+    FindActorsAndUseCases <-- "depends on" PrioritizeUseCases
+    PrioritizeUseCases <-- "depends on" DetailUseCases
+    DetailUseCases <-- "depends on" PrototypeUI
+    DetailUseCases <-- "depends on" StructureUseCaseModel
+
+@enduml

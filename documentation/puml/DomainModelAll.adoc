@@ -1,0 +1,41 @@
+= RUP MANAGER
+
+== Domain model
+
+=== Resources Diagram
+
+plantuml::ResourcesDiagramDomainModel.puml[format=svg,alt="resources",width=800,height=800]
+
+=== Disciplines
+
+plantuml::Disciplines.puml[format=svg,alt="resources",width=800,height=800]
+
+=== Activity FindActorsAndUserCases Diagram
+
+plantuml::FindActorsAndUserCases.puml[format=svg,alt="resources",width=800,height=800]
+
+=== Requirements Discipline Process Diagram
+
+plantuml::RequirementsDisciplineProcessDiagram.puml[format=svg,alt="resources",width=800,height=800]
+
+=== Disciplines
+
+plantuml::Disciplines.puml[format=svg,alt="resources",width=800,height=800]
+
+=== Activities
+
+plantuml::Activities.puml[format=svg,alt="resources"]
+
+=== Phases Diagram
+
+plantuml::Phases.puml[format=svg,alt="resources"]
+
+=== Use Case states
+
+plantuml::UserCaseState.puml[format=svg,alt="resources"]
+
+=== AnalysisModel states
+
+plantuml::AnalysisModel.puml[format=svg,alt="resources"]
+
+

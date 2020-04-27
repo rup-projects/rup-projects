@@ -1,0 +1,7 @@
+@startuml
+scale 350 width
+[*] --> UseCaseIdentified : EncontrarActoresyCasosdeUso
+UseCaseIdentified --> UseCasePrioritized : PriorizarCasosdeUso
+UseCasePrioritized --> UseCaseDetailed : DetallarCasodeUso
+UseCaseDetailed --> UseCaseStructured : EstructurarCasosdeUso
+@enduml

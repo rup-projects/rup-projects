@@ -1,0 +1,26 @@
+@startuml
+
+activity <|-[#374F6B]- FindActorsAndUseCases
+activity <|-[#374F6B]- PrioritizeUseCases
+
+role <|-[#374F6B]- SistemAnalist
+role <|-[#374F6B]- Arquitect
+
+artifact <|-- FeaturesList
+artifact <|-- NonFuncionalRequirements
+artifact <|-- DomainModelArtifact
+artifact <|-- UserCaseModel
+artifact <|-- Glossary
+
+SistemAnalist --> "do" FindActorsAndUseCases
+Arquitect --> "do" PrioritizeUseCases
+
+FindActorsAndUseCases "depends on" <--  PrioritizeUseCases
+
+FindActorsAndUseCases o-- "requires" FeaturesList
+FindActorsAndUseCases o-- "requires" NonFuncionalRequirements
+FindActorsAndUseCases o-- "requires" DomainModelArtifact
+FindActorsAndUseCases --> "generate" UserCaseModel
+FindActorsAndUseCases --> "generate" Glossary
+
+@enduml

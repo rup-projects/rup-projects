@@ -1,0 +1,75 @@
+@startuml
+
+Class Discipline
+Class DomainModelDiscipline
+Class RequirementsDiscipline
+Class AnalysisDiscipline
+Class DesignDiscipline
+Class ImplementationDiscipline
+Class TestDiscipline
+
+Class Activity
+Class EncontrarActoresyCasosdeUso
+Class PriorizarCasosdeUso
+Class DetallarCasodeUso
+Class EstructurarCasosdeUso
+Class PrototiparInterfazdeUsuario
+Class AnalisisdelaArquitectura
+Class AnalisisdeCasodeUso
+Class AnalisisdeClase
+Class AnalisisdePaquete
+Class DisenyodelaArquitectura
+Class DisenyodeCasodeUso
+Class DisenyodeClase
+Class DisenyodePaquete
+Class ImplementarlaArquitectura
+Class IntegraciondeSistemas
+Class ImplementarClase
+Class PruebasUnitarias
+Class ImplementarSubsistema
+Class PlanificarPruebas
+Class DisenyarPruebas
+Class ImplementarPruebas
+Class RealizarPruebasdeIntegracion
+Class RealizarPruebasdeSistemas
+Class EvaluarPruebas
+
+Discipline <|-- DomainModelDiscipline
+Discipline <|-- RequirementsDiscipline
+Discipline <|-- AnalysisDiscipline
+Discipline <|-- DesignDiscipline
+Discipline <|-- ImplementationDiscipline
+Discipline <|-- TestDiscipline
+
+RequirementsDiscipline *-- EncontrarActoresyCasosdeUso
+RequirementsDiscipline *-- PriorizarCasosdeUso
+RequirementsDiscipline *-- DetallarCasodeUso
+RequirementsDiscipline *-- EstructurarCasosdeUso
+RequirementsDiscipline *-- PrototiparInterfazdeUsuario
+RequirementsDiscipline *-- EstructurarCasosdeUso
+
+AnalysisDiscipline *-- AnalisisdelaArquitectura
+AnalysisDiscipline *-- AnalisisdeCasodeUso
+AnalysisDiscipline *-- AnalisisdeClase
+AnalysisDiscipline *-- AnalisisdePaquete
+
+DesignDiscipline *-- DisenyodelaArquitectura
+DesignDiscipline *-- DisenyodeCasodeUso
+DesignDiscipline *-- DisenyodeClase
+DesignDiscipline *-- DisenyodePaquete
+
+ImplementationDiscipline *-- ImplementarlaArquitectura
+ImplementationDiscipline *-- IntegraciondeSistemas
+ImplementationDiscipline *-- ImplementarClase
+ImplementationDiscipline *-- ImplementarClase
+ImplementationDiscipline *-- PruebasUnitarias
+ImplementationDiscipline *-- ImplementarSubsistema
+
+TestDiscipline *-- PlanificarPruebas
+TestDiscipline *-- DisenyarPruebas
+TestDiscipline *-- ImplementarPruebas
+TestDiscipline *-- RealizarPruebasdeIntegracion
+TestDiscipline *-- RealizarPruebasdeSistemas
+TestDiscipline *-- EvaluarPruebas
+
+@enduml

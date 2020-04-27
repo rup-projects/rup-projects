@@ -1,0 +1,38 @@
+@startuml
+
+Class Discipline
+Class DomainModelDiscipline
+Class RequirementsDiscipline
+Class AnalysisDiscipline
+Class DesignDiscipline
+Class ImplementationDiscipline
+Class TestDiscipline
+Class UseCasesModel
+Class ImplementationModel
+Class DesignModel
+Class TestModel
+
+Discipline <|-- DomainModelDiscipline
+Discipline <|-- RequirementsDiscipline
+Discipline <|-- AnalysisDiscipline
+Discipline <|-- DesignDiscipline
+Discipline <|-- ImplementationDiscipline
+Discipline <|-- TestDiscipline
+
+RequirementsDiscipline ..> UseCasesModel
+AnalysisDiscipline ..> DesignModel
+DesignDiscipline ..> DesignModel
+ImplementationDiscipline ..> TestModel
+TestDiscipline ..> TestModel
+
+DomainModelDiscipline <-- "depends on" RequirementsDiscipline
+RequirementsDiscipline <-- "depends on" AnalysisDiscipline
+AnalysisDiscipline <-- "depends on" DesignDiscipline
+DesignDiscipline <-- "depends on" ImplementationDiscipline
+ImplementationDiscipline <-- "depends on" TestDiscipline
+
+UseCasesModel --> "realizado por" DesignModel
+DesignModel --> "implementado por" ImplementationModel
+ImplementationModel --> "Probado por" TestModel
+
+@enduml

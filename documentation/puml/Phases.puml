@@ -1,0 +1,19 @@
+@startuml
+
+Class Phase
+Class InceptionPhase
+Class ElaborationPhase
+Class ConstructionPhase
+Class TransitionPhase
+
+Phase <|-- InceptionPhase
+Phase <|-- ElaborationPhase
+Phase <|-- ConstructionPhase
+Phase <|-- TransitionPhase
+
+ElaborationPhase "depends on" -->  InceptionPhase
+ConstructionPhase "depends on" -->  ElaborationPhase
+TransitionPhase "depends on" -->  ConstructionPhase
+
+
+@enduml

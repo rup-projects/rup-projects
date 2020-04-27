@@ -1,0 +1,33 @@
+@startuml
+
+'Objects
+Class Project
+Class Phase
+Class Iteration
+Class Discipline
+Class Release
+Class Rol
+Class Team
+Class Member
+Class Calendar
+Class Artifact
+Class Activity
+
+Project *-- "1" Team
+Project *-- "4" Phase
+Phase *-- "1..*" Iteration
+Iteration *-- "1..*" Activity
+Discipline *-- "1..*" Activity
+
+Team *-- "1..*" Member
+Member o-- Rol
+Activity o-- Rol
+Activity o-- Artifact
+Calendar .[#000000].> Activity
+Calendar .[#000000].> Rol
+Calendar .[#000000].> Release
+Calendar .[#000000].> Phase
+Calendar .[#000000].> Member
+Release o-- Artifact
+
+@enduml
