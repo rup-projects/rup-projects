@@ -1,0 +1,54 @@
+@startuml
+top to bottom direction
+skinparam Linetype ortho
+'Classes
+
+'Una disciplina tiene la misma fecha inicio final, que la iteracion
+'a la que pertenece, y es un conjunto de actividades dedicadas a esa
+'disciplina
+'Quizas sea interesante cambiarle el nombre IterationDiscipline
+
+'EL problema es que si la iteracion maneja 23 objetos de actividades
+'diferentes sera jodido LUIS PREFIERE OTRO
+
+'Para el zoom de dia, seria recorrer actividades cuando empieza y acaba
+'y sumar, si una actividad no esta acabada seria fecha actual - fecha empezo
+
+Class Project
+Class Phase
+Class Iteration
+Class DisciplineType
+Class Zoom
+Class Calendar
+Class Date
+Class SpentHours
+
+Project *-- "4" Phase
+Phase *-- "1..*" Iteration
+Iteration *-- "1..*" IterationDiscipline
+IterationDiscipline *-- "enum" DisciplineType
+IterationDiscipline *-- "1..*" Activity
+Activity *-- "0..*" SpentHours
+
+Calendar --> Zoom
+Calendar *-- "1..*" Date
+Calendar ..> "0..1" Project
+Calendar ..> "0..*" Iteration
+Calendar ..> "0..*" Activity
+
+Project --> "starts" Date
+Project --> "ends" Date
+Phase --> Date
+Phase --> Date
+Iteration --> Date
+Iteration --> Date
+Activity --> Date
+Activity --> Date
+
+Zoom <|-- DayZoom
+Zoom <|-- WeekZoom
+Zoom <|-- IterationZoom
+Zoom <|-- PhaseZoom
+Zoom <|-- ProjectZoom
+
+@enduml
