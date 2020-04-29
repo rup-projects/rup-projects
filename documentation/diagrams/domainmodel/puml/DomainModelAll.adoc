@@ -4,7 +4,7 @@
 
 === Resources Diagram
 
-plantuml::ResourcesDiagramDomainModel.puml[format=svg,alt="resources",width=800,height=800]
+plantuml::time.puml[format=svg,alt="resources",width=800,height=800]
 
 === Disciplines
 

@@ -5,7 +5,7 @@
 === Resources Diagram
 [plantuml,svg,align="center"]
 ----
-include::ResourcesDiagramDomainModel.puml[]
+include::time.puml[]
 ----
 
 === Disciplines
