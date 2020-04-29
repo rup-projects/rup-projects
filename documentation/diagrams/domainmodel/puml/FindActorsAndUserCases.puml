@@ -1,4 +1,7 @@
 @startuml
+top to bottom direction
+skinparam Linetype ortho
+
 
 activity <|-[#374F6B]- FindActorsAndUseCases
 activity <|-[#374F6B]- PrioritizeUseCases
@@ -13,7 +16,6 @@ artifact <|-- UserCaseModel
 artifact <|-- Glossary
 
 SistemAnalist --> "do" FindActorsAndUseCases
-Arquitect --> "do" PrioritizeUseCases
 
 FindActorsAndUseCases "depends on" <--  PrioritizeUseCases
 
