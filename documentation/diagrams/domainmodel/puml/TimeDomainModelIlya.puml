@@ -24,31 +24,27 @@ Class Date
 Class SpentHours
 
 Project *-- "4" Phase
-Phase *-- "1..*" Iteration
+Phase *- "1..*" Iteration
 Iteration *-- "1..*" IterationDiscipline
 IterationDiscipline *-- "enum" DisciplineType
 IterationDiscipline *-- "1..*" Activity
-Activity *-- "0..*" SpentHours
+Activity *-left- "0..*" SpentHours
 
-Calendar --> Zoom
+Calendar -right-> Zoom
 Calendar *-- "1..*" Date
-Calendar ..> "0..1" Project
+Calendar .up.> "0..1" Project
+Calendar ..> "0..1" Phase
 Calendar ..> "0..*" Iteration
 Calendar ..> "0..*" Activity
 
-Project --> "starts" Date
-Project --> "ends" Date
-Phase --> Date
-Phase --> Date
-Iteration --> Date
-Iteration --> Date
-Activity --> Date
-Activity --> Date
+Project *-- "starts&ends" Date
+Phase *-- "starts&ends" Date
+Iteration *-- "starts&ends" Date
+Activity *-- "starts&ends" Date
 
 Zoom <|-- DayZoom
 Zoom <|-- WeekZoom
 Zoom <|-- IterationZoom
 Zoom <|-- PhaseZoom
 Zoom <|-- ProjectZoom
-
 @enduml
