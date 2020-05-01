@@ -1,0 +1,32 @@
+@startuml
+
+Abstract Class Discipline
+Class ProjectManagement
+Class RiskManagement
+Class ProjectOjective
+Class Risk
+Enum RiskType
+Class Impact
+Enum ImpactType
+Class ListRisk
+Class RiskProjection
+Class RiskAssessment
+Class RiskResponse
+
+Discipline <|-- ProjectManagement
+ProjectManagement o-- RiskManagement  
+ProjectOjective <.. RiskManagement 
+ListRisk <.. RiskProjection  
+
+RiskManagement o-- ListRisk
+Risk o-- ProjectOjective
+RiskType --o Risk
+Risk o--- RiskAssessment
+Risk o-- RiskResponse
+Risk --o ListRisk
+ImpactType --o Impact 
+Impact --o RiskResponse
+Impact ---o RiskAssessment
+Impact --o RiskProjection
+
+@enduml
