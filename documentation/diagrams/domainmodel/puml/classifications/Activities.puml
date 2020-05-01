@@ -1,0 +1,77 @@
+@startuml
+
+left to right direction
+skinparam Linetype ortho
+
+Class Discipline
+Class DomainModelDisciplineActivity
+Class RequirementsDisciplineActivity
+Class AnalysisDisciplineActivity
+Class DesignDisciplineActivity
+Class ImplementationDisciplineActivity
+Class TestDisciplineActivity
+
+Class EncontrarActoresyCasosdeUso
+Class PriorizarCasosdeUso
+Class DetallarCasodeUso
+Class EstructurarCasosdeUso
+Class PrototiparInterfazdeUsuario
+Class AnalisisdelaArquitectura
+Class AnalisisdeCasodeUso
+Class AnalisisdeClase
+Class AnalisisdePaquete
+Class DisenyodelaArquitectura
+Class DisenyodeCasodeUso
+Class DisenyodeClase
+Class DisenyodePaquete
+Class ImplementarlaArquitectura
+Class IntegraciondeSistemas
+Class ImplementarClase
+Class PruebasUnitarias
+Class ImplementarSubsistema
+Class PlanificarPruebas
+Class DisenyarPruebas
+Class ImplementarPruebas
+Class RealizarPruebasdeIntegracion
+Class RealizarPruebasdeSistemas
+Class EvaluarPruebas
+
+Discipline <|-- DomainModelDisciplineActivity
+Discipline <|-- RequirementsDisciplineActivity
+Discipline <|-- AnalysisDisciplineActivity
+Discipline <|-- DesignDisciplineActivity
+Discipline <|-- ImplementationDisciplineActivity
+Discipline <|-- TestDisciplineActivity
+
+RequirementsDisciplineActivity <|-- EncontrarActoresyCasosdeUso
+RequirementsDisciplineActivity <|-- PriorizarCasosdeUso
+RequirementsDisciplineActivity <|-- DetallarCasodeUso
+RequirementsDisciplineActivity <|-- EstructurarCasosdeUso
+RequirementsDisciplineActivity <|-- PrototiparInterfazdeUsuario
+RequirementsDisciplineActivity <|-- EstructurarCasosdeUso
+
+AnalysisDisciplineActivity <|-- AnalisisdelaArquitectura
+AnalysisDisciplineActivity <|-- AnalisisdeCasodeUso
+AnalysisDisciplineActivity <|-- AnalisisdeClase
+AnalysisDisciplineActivity <|-- AnalisisdePaquete
+
+DesignDisciplineActivity <|-- DisenyodelaArquitectura
+DesignDisciplineActivity <|-- DisenyodeCasodeUso
+DesignDisciplineActivity <|-- DisenyodeClase
+DesignDisciplineActivity <|-- DisenyodePaquete
+
+ImplementationDisciplineActivity <|-- ImplementarlaArquitectura
+ImplementationDisciplineActivity <|-- IntegraciondeSistemas
+ImplementationDisciplineActivity <|-- ImplementarClase
+ImplementationDisciplineActivity <|-- ImplementarClase
+ImplementationDisciplineActivity <|-- PruebasUnitarias
+ImplementationDisciplineActivity <|-- ImplementarSubsistema
+
+TestDisciplineActivity <|-- PlanificarPruebas
+TestDisciplineActivity <|-- DisenyarPruebas
+TestDisciplineActivity <|-- ImplementarPruebas
+TestDisciplineActivity <|-- RealizarPruebasdeIntegracion
+TestDisciplineActivity <|-- RealizarPruebasdeSistemas
+TestDisciplineActivity <|-- EvaluarPruebas
+
+@enduml

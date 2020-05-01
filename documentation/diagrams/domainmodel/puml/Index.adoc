@@ -1,70 +1,103 @@
 = RUP MANAGER
 
 == Domain model diagrams
+[#_index]
 
+=== Index
+<<_time>>
+
+<<_resources>>
+
+
+<<_time_resources>>
+
+
+<<_phases>>
+
+
+<<_disciplines>>
+
+
+<<_activities>>
+
+
+[#_general]
 === General
 [plantuml,svg,align="center"]
 ----
 include::General.puml[]
 ----
 
+[#_time]
 === Time
 [plantuml,svg,align="left"]
 ----
-include::Time.puml[]
+include::time/Time.puml[]
 ----
+<<_index>>
 
+[#_resources]
+=== Resources
+[plantuml,svg,align="left"]
+----
+include::resources/Resources.puml[]
+----
+<<_time_resources>>
+
+<<_index>>
+
+[#_time_resources]
 === Time & Resources
 [plantuml,svg,align="right"]
 ----
-include::Time-Resources.puml[]
+include::time/Time-Resources.puml[]
 ----
+<<_time>>
+
+[#_phases]
+=== Phases
+[plantuml,svg,align="center"]
+----
+include::classifications/Phases.puml[]
+----
+<<_index>>
 
 
+[#_disciplines]
 === Disciplines
 [plantuml,svg,align="center"]
 ----
-include::Disciplines.puml[]
+include::classifications/Disciplines.puml[]
 ----
+<<_index>>
+
+[#_activities]
+=== Activities
+[plantuml,svg,align="center"]
+----
+include::classifications/Activities.puml[]
+----
+<<_index>>
 
 === Activity FindActorsAndUserCases Diagram
 [plantuml,svg,align="center"]
 ----
-include::FindActorsAndUserCases.puml[]
+include::unclassified/FindActorsAndUserCases.puml[]
 ----
+<<_index>>
 
 === Requirements Discipline Process Diagram
 [plantuml,svg,align="center"]
 ----
-include::RequirementsDisciplineProcessDiagram.puml[]
+include::unclassified/RequirementsDisciplineProcessDiagram.puml[]
 ----
+<<_index>>
 
 === Diagrams
 [plantuml,svg,align="center"]
 ----
-include::Diagrams.puml[]
+include::classifications/Diagrams.puml[]
 ----
+<<_index>>
 
-=== Activities
-[plantuml,svg,align="center"]
-----
-include::Activities.puml[]
-----
 
-=== Phases Diagram
-[plantuml,svg,align="center"]
-----
-include::Phases.puml[]
-----
-
-=== Use Case states
-[plantuml,svg,align="center"]
-----
-include::UserCaseState.puml[]
-----
-
-=== AnalysisModel states
-[plantuml,svg,align="center"]
-----
-include::AnalysisModel.puml[]
-----

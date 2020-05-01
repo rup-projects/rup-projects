@@ -1,0 +1,28 @@
+@startuml
+
+top to bottom direction
+skinparam Linetype ortho
+
+'Objects
+Class Rol
+Class Team
+Class Cost
+Class WorkingDaysMonth
+Class WorkingHoursDays
+Class ContractType
+Class Holidays
+
+Class Activity
+Class Member
+
+Team *- JornadaLaboral
+Team *-down- "1..*" Member
+JornadaLaboral *-- WorkingDaysMonth
+JornadaLaboral *-- WorkingHoursDays
+Activity o-- "required Rol" Rol
+Member --o Activity
+Member "0..*" o- "0..* skills" Rol
+Member *-down- Cost : cost/hour
+Member *-left- ContractType
+Member *-- Holidays
+@enduml
