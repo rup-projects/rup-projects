@@ -1,12 +1,25 @@
 = RUP MANAGER
 
-== Domain model
+== Domain model diagrams
 
-=== Resources Diagram
+=== General
 [plantuml,svg,align="center"]
 ----
-include::time.puml[]
+include::General.puml[]
 ----
+
+=== Time
+[plantuml,svg,align="left"]
+----
+include::Time.puml[]
+----
+
+=== Time & Resources
+[plantuml,svg,align="right"]
+----
+include::Time-Resources.puml[]
+----
+
 
 === Disciplines
 [plantuml,svg,align="center"]

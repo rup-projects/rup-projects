@@ -1,0 +1,19 @@
+@startuml
+top to bottom direction
+skinparam Linetype ortho
+
+'¿Recurso pertenece también a la fase?
+
+Class Project
+Class Phase
+Class Activity
+Class Resource
+'Si la actividad puede ser acometida por mas de un recurso, necesitamos entidad intermedia para logear las horas
+Class WorkLog
+
+Project *--> Resource
+Phase *--> Resource
+Resource *--> WorkLog
+WorkLog --> Activity
+
+@enduml

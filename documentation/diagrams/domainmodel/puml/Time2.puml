@@ -18,9 +18,15 @@ Class Project
 Class Phase
 Class Iteration
 Class DisciplineType
+'No crearía objetos de zoom ni calentario porque creo que son
+'mas bien objetos de vista del proyecto
 Class Zoom
 Class Calendar
 Class Date
+'Igual con las horas gastadas. Creo que mas bien saldrían del
+'tiempo que cada recurso ha trabajado en una determinada actividad
+'De ahí saldría el tiempo por actividad y por disciplina, por tanto
+'yo los veo también como vistas
 Class SpentHours
 
 Project *-- "4" Phase
