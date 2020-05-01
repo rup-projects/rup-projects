@@ -1,0 +1,30 @@
+@startuml
+top to bottom direction
+skinparam shadowing false
+skinparam objectFontSize 18
+scale max 1600 width
+title Domain Model RUP Management - Environment
+ 
+Abstract Class Discipline
+Abstract Class Phase
+Abstract Class Activity
+Class ProjectManagement
+Class Environment
+Class Directive
+Class DevelopmentScript
+Class Tool
+Class ActivitiesPattern
+Class ArtifactTemplate
+
+Discipline <|-- ProjectManagement
+Discipline <|-- Environment
+ProjectManagement ..> Environment  
+Phase ..> Environment 
+Environment o-- Directive    
+Environment o-- DevelopmentScript 
+Environment --> Tool 
+ActivitiesPattern <-- Environment
+Environment --> ArtifactTemplate
+Activity --o ActivitiesPattern
+
+@enduml
