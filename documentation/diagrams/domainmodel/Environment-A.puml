@@ -22,9 +22,9 @@ ProjectManagement ..> Environment
 Phase ..> Environment 
 Environment o-- Directive    
 Environment o-- DevelopmentScript 
-Environment --> Tool 
-ActivitiesPattern <-- Environment
-Environment --> ArtifactTemplate
+Environment ..> Tool 
+ActivitiesPattern <.. Environment
+Environment ..> ArtifactTemplate
 Activity --o ActivitiesPattern
 
 @enduml
