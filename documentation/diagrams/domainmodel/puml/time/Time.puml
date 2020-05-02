@@ -1,0 +1,56 @@
+@startuml
+top to bottom direction
+skinparam Linetype ortho
+'Classes
+
+'Una disciplina tiene la misma fecha inicio final, que la iteracion
+'a la que pertenece, y es un conjunto de actividades dedicadas a esa
+'disciplina
+'Quizas sea interesante cambiarle el nombre IterationDiscipline
+
+'EL problema es que si la iteracion maneja 23 objetos de actividades
+'diferentes sera jodido LUIS PREFIERE OTRO
+
+'Para el zoom de dia, seria recorrer actividades cuando empieza y acaba
+'y sumar, si una actividad no esta acabada seria fecha actual - fecha empezo
+
+Class Project
+Class Phase
+Class Iteration
+Class DisciplineType
+'No crearía objetos de zoom ni calentario porque creo que son
+'mas bien objetos de vista del proyecto
+Class Zoom
+Class Calendar
+Class Date
+'Igual con las horas gastadas. Creo que mas bien saldrían del
+'tiempo que cada recurso ha trabajado en una determinada actividad
+'De ahí saldría el tiempo por actividad y por disciplina, por tanto
+'yo los veo también como vistas
+Class SpentHours
+
+Project *-- "4" Phase
+Phase *- "1..*" Iteration
+Iteration *-- "1..*" IterationDiscipline
+IterationDiscipline *-- "enum" DisciplineType
+IterationDiscipline *-- "1..*" Activity
+Activity *-left- "0..*" SpentHours
+
+Calendar -right-> Zoom
+Calendar *-- "1..*" Date
+Calendar .up.> "0..1" Project
+Calendar ..> "0..1" Phase
+Calendar ..> "0..*" Iteration
+Calendar ..> "0..*" Activity
+
+Project *-- "starts&ends" Date
+Phase *-- "starts&ends" Date
+Iteration *-- "starts&ends" Date
+Activity *-- "starts&ends" Date
+
+Zoom <|-- DayZoom
+Zoom <|-- WeekZoom
+Zoom <|-- IterationZoom
+Zoom <|-- PhaseZoom
+Zoom <|-- ProjectZoom
+@enduml

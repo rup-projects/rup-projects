@@ -1,0 +1,39 @@
+@startuml
+
+top to bottom direction
+skinparam Linetype ortho
+
+'Objects
+Class Project
+Class Phase
+Class Iteration
+Class IterationDiscipline
+Class Rol
+Class Team
+Class Risk
+Class Artifact
+
+
+Class Activity
+Class Member
+
+Project *- "1" Team
+Project *-- Artifact
+Project *-- "4" Phase
+Risk -* Project
+Phase *-- "1..*" Iteration
+Iteration *-- "1..*" IterationDiscipline
+IterationDiscipline *-- "enum" DisciplineType
+IterationDiscipline *- "1..*" Activity
+Team *-- "1..*" Member
+Activity "1..*" o- "1..*" Member
+Activity o-- Rol
+
+Artifact <|-- UseCaseModelView
+Artifact <|-- DesignModelView
+Artifact <|-- ImplementationView
+Artifact <|-- DeploymentView
+Artifact <|-- ProcessView
+
+
+@enduml

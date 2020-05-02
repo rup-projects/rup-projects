@@ -1,0 +1,23 @@
+@startuml
+
+skinparam Linetype ortho
+
+
+namespace Discipline {
+    Class Discipline
+    Class DomainModelDiscipline extends Discipline
+    Class RequirementsDiscipline extends Discipline
+    Class AnalysisDiscipline extends Discipline
+    Class DesignDiscipline extends Discipline
+    Class ImplementationDiscipline extends Discipline
+    Class TestDiscipline extends Discipline
+
+    DomainModelDiscipline <-- "depends on" RequirementsDiscipline
+    RequirementsDiscipline <-- "depends on" AnalysisDiscipline
+    AnalysisDiscipline <-- "depends on" DesignDiscipline
+    DesignDiscipline <-- "depends on" ImplementationDiscipline
+    ImplementationDiscipline <-- "depends on" TestDiscipline
+}
+
+
+@enduml
