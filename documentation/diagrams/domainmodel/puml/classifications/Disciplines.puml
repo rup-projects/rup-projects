@@ -1,9 +1,10 @@
 @startuml
 
+top to bottom direction
 skinparam Linetype ortho
 
 
-namespace Discipline {
+namespace Disciplines {
     Class Discipline
     Class DomainModelDiscipline extends Discipline
     Class RequirementsDiscipline extends Discipline

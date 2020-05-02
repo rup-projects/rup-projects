@@ -2,40 +2,38 @@
 
 top to bottom direction
 skinparam Linetype ortho
-skinparam shadowing false
-skinparam objectFontSize 18
-scale max 1600 width
 
 skinparam class {
   BackgroundColor<<Rol>> orchid
 }
 
-namespace role {
-    Class role <<Rol>>
-    Class SistemAnalist extends role
-    Class Arquitect extends role
-    Class UserCaseSpecificator extends role
-    Class UIDesigner extends role
+namespace Role {
+    Class Role <<Rol>>
+    Class SistemAnalist extends Role
+    Class Arquitect extends Role
+    Class UserCaseSpecificator extends Role
+    Class UIDesigner extends Role
  }
 
-namespace activity {
-    Class activity <<(A,red)>>
-    Class StructureUseCaseModel extends activity
-    Class FindActorsAndUseCases extends activity
-    Class PrioritizeUseCases extends activity
-    Class DetailUseCases extends activity
-    Class PrototypeUI extends activity
+namespace Activity {
+    Class Activity <<(A,red)>>
+    Class StructureUseCaseModel extends Activity
+    Class FindActorsAndUseCases extends Activity
+    Class PrioritizeUseCases extends Activity
+    Class DetailUseCases extends Activity
+    Class PrototypeUI extends Activity
+
+    FindActorsAndUseCases <-- "depends on" PrioritizeUseCases
+    PrioritizeUseCases <-- "depends on" DetailUseCases
+    DetailUseCases <-- "depends on" PrototypeUI
+    DetailUseCases <-- "depends on" StructureUseCaseModel
 }    
     
-    role.SistemAnalist --> "do" activity.FindActorsAndUseCases
-    role.Arquitect --> "do" activity.PrioritizeUseCases
-    role.Arquitect --> "do" activity.StructureUseCaseModel
-    role.UserCaseSpecificator --> "do 1..N"  activity.DetailUseCases
-    role.UIDesigner --> "do" activity.PrototypeUI
+    Role.SistemAnalist --> "do" Activity.FindActorsAndUseCases
+    Role.Arquitect --> "do" Activity.PrioritizeUseCases
+    Role.Arquitect --> "do" Activity.StructureUseCaseModel
+    Role.UserCaseSpecificator --> "do 1..N"  Activity.DetailUseCases
+    Role.UIDesigner --> "do" Activity.PrototypeUI
 
-    activity.FindActorsAndUseCases <-- "depends on" activity.PrioritizeUseCases
-    activity.PrioritizeUseCases <-- "depends on" activity.DetailUseCases
-    activity.DetailUseCases <-- "depends on" activity.PrototypeUI
-    activity.DetailUseCases <-- "depends on" activity.StructureUseCaseModel
 
 @enduml

@@ -5,35 +5,27 @@ skinparam Linetype ortho
 
 'Objects
 Class Project
-Class Phase
+Class Phases.Phase
 Class Iteration
 Class IterationDiscipline
 Class Rol
 Class Team
 Class Risk
-Class Artifact
-
+Class Artifacts.Artifact
 
 Class Activity
 Class Member
 
-Project *- "1" Team
-Project *-- Artifact
-Project *-- "4" Phase
-Risk -* Project
-Phase *-- "1..*" Iteration
+Project *-- Risk
+Project *-- "1" Team
+Project *-- Artifacts.Artifact
+Project *-- "4" Phases.Phase
+Phases.Phase *-- "1..*" Iteration
 Iteration *-- "1..*" IterationDiscipline
 IterationDiscipline *-- "enum" DisciplineType
 IterationDiscipline *- "1..*" Activity
 Team *-- "1..*" Member
 Activity "1..*" o- "1..*" Member
 Activity o-- Rol
-
-Artifact <|-- UseCaseModelView
-Artifact <|-- DesignModelView
-Artifact <|-- ImplementationView
-Artifact <|-- DeploymentView
-Artifact <|-- ProcessView
-
 
 @enduml

@@ -98,3 +98,19 @@ include::classifications/Diagrams.puml[]
 <<_index>>
 
 
+
+
+== State Diagrams
+=== UserCaseState
+[plantuml,svg,align="center"]
+----
+include::unclassified/UserCaseState.puml[]
+----
+<<_index>>
+
+=== AnalysisModel
+[plantuml,svg,align="center"]
+----
+include::unclassified/AnalysisModel.puml[]
+----
+<<_index>>

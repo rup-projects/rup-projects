@@ -1,0 +1,14 @@
+@startuml
+
+top to bottom direction
+
+namespace Artifacts {
+    Class Artifact
+    Class UseCaseModelView extends Artifact
+    Class DesignModelView extends Artifact
+    Class ImplementationView extends Artifact
+    Class DeploymentView extends Artifact
+    Class ProcessView extends Artifact
+}
+
+@enduml

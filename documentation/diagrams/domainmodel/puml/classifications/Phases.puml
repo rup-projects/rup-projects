@@ -1,13 +1,18 @@
 @startuml
 
-Class Phase
-Class InceptionPhase extends Phase
-Class ElaborationPhase extends Phase
-Class ConstructionPhase extends Phase
-Class TransitionPhase extends Phase
+top to bottom direction
+skinparam Linetype ortho
 
-ElaborationPhase "depends on" -->  InceptionPhase
-ConstructionPhase "depends on" -->  ElaborationPhase
-TransitionPhase "depends on" -->  ConstructionPhase
+namespace Phases {
+    Class Phase
+    Class InceptionPhase extends Phase
+    Class ElaborationPhase extends Phase
+    Class ConstructionPhase extends Phase
+    Class TransitionPhase extends Phase
+
+    InceptionPhase <-- "depends on" ElaborationPhase
+    ElaborationPhase <-- "depends on" ConstructionPhase
+    ConstructionPhase <-- "depends on" TransitionPhase
+}
 
 @enduml
