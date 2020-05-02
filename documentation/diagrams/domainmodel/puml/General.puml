@@ -5,28 +5,28 @@ skinparam Linetype ortho
 
 'Objects
 Class Project
-Class Phases.Phase
-Class Iteration
-Class IterationDiscipline
-Class Resources.Roles.Rol
+Abstract Class Time.Phase
+Class Time.Iteration
+Class Time.IterationDiscipline
+Class Resources.Rol
 Class Resources.Team
-Class Risk
+Class Risks.Risk
 Class Artifacts.Artifact
 
-Class Activities.Activity
+Abstract Class Time.Activity
 Class Resources.Member
 
-Project *-- Risk
+Project *-- Risks.Risk
 Project *-- "1" Resources.Team
 Project *-- Artifacts.Artifact
-Project *-- "4" Phases.Phase
-Phases.Phase *-- "1..*" Iteration
-Iteration *-- "1..*" IterationDiscipline
-IterationDiscipline *-- "enum" DisciplineType
-IterationDiscipline *- "1..*" Activities.Activity
+Project *-- "4" Time.Phase
+Time.Phase *-- "1..*" Time.Iteration
+Time.Iteration *-- "1..*" Time.IterationDiscipline
+Time.IterationDiscipline *-- "enum" Time.DisciplineType
+Time.IterationDiscipline *- "1..*" Time.Activity
 Resources.Team *-- "1..*" Resources.Member
-Activities.Activity "1..*" o- "1..*" Resources.Member
-Activities.Activity o-- Resources.Roles.Rol
-Resources.Member o-- Resources.Roles.Rol
+Time.Activity "1..*" o- "1..*" Resources.Member
+Time.Activity o-- Resources.Rol
+Resources.Member o-- Resources.Rol
 
 @enduml

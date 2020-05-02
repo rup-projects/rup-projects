@@ -1,20 +1,20 @@
 @startuml
 
-top to bottom direction
-skinparam Linetype ortho
-
-namespace Resources.Roles {
+namespace Resources {
   Class Rol
-  Class JefeProyecto extends Rol
-  Class SistemAnalist extends Rol
-  Class Arquitech extends Rol
-  Class UseCaseEspecificator extends Rol
-  Class ComponentEngineer extends Rol
-  Class TestEngineer extends Rol
-  Class SystemIntegrator extends Rol
-  Class IntegrationTestEngineer extends Rol
-  Class SystemTestEngineer extends Rol
-  Class UseCaseEngineer extends Rol
-  Class UIDesigner extends Rol
+ 
+  namespace Roles {
+    Class ProjectManager extends Resources.Rol
+    Class SistemAnalist extends Resources.Rol
+    Class Arquitech extends Resources.Rol
+    Class UseCaseEspecificator extends Resources.Rol
+    Class ComponentEngineer extends Resources.Rol
+    Class TestEngineer extends Resources.Rol
+    Class SystemIntegrator extends Resources.Rol
+    Class IntegrationTestEngineer extends Resources.Rol
+    Class SystemTestEngineer extends Resources.Rol
+    Class UseCaseEngineer extends Resources.Rol
+    Class UIDesigner extends Resources.Rol
+  }
 }
 @enduml

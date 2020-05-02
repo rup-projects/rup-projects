@@ -5,10 +5,6 @@ skinparam Linetype ortho
 
 namespace Resources {
     
-    namespace Roles {
-      Class Rol
-    }
-
 'Objects
 Class Team
 Class Cost
@@ -16,20 +12,25 @@ Class WorkingDaysMonth
 Class WorkingHoursDays
 Class ContractType
 Class Holidays
+Class Rol
 
 Class Activities.Activity
 Class Member
 
 Team *- JornadaLaboral
 Team *-down- "1..*" Member
+
 JornadaLaboral *-- WorkingDaysMonth
 JornadaLaboral *-- WorkingHoursDays
-Activities.Activity o-- "required Rol" Resources.Roles.Rol
+
 Member --o Activities.Activity
-Member "0..*" o- "0..* skills" Resources.Roles.Rol
+Member "0..*" o- "0..* skills" Rol
 Member *-down- Cost : cost/hour
 Member *-left- ContractType
 Member *-- Holidays
+
+Activities.Activity o-- "required Rol" Rol
+
 }
 
 @enduml

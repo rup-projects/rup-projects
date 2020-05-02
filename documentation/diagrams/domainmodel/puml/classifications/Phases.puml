@@ -3,16 +3,19 @@
 top to bottom direction
 skinparam Linetype ortho
 
-namespace Phases {
-    Class Phase
-    Class InceptionPhase extends Phase
-    Class ElaborationPhase extends Phase
-    Class ConstructionPhase extends Phase
-    Class TransitionPhase extends Phase
+namespace Time {
+  Abstract Class Phase
+    
+  namespace Phases {
+    Class InceptionPhase extends Time.Phase
+    Class ElaborationPhase extends Time.Phase
+    Class ConstructionPhase extends Time.Phase
+    Class TransitionPhase extends Time.Phase
 
     InceptionPhase <-- "depends on" ElaborationPhase
     ElaborationPhase <-- "depends on" ConstructionPhase
     ConstructionPhase <-- "depends on" TransitionPhase
+  }
 }
 
 @enduml

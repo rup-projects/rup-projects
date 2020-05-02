@@ -25,11 +25,8 @@ ComportamientoDiagram <|-- UseCaseDiagram
 ComportamientoDiagram <|-- ActivityDiagram
 ComportamientoDiagram <|-- StateDiagram
 ComportamientoDiagram <|-- InteractionDiagram
-ComportamientoDiagram <|-- SequenceDiagram
 
 InteractionDiagram <|-- CommunicationDiagram
 InteractionDiagram <|-- SequenceDiagram
-
-
 
 @enduml
