@@ -1,0 +1,20 @@
+@startuml
+
+top to bottom direction
+skinparam Linetype ortho
+
+namespace Resources.Roles {
+  Class Rol
+  Class JefeProyecto extends Rol
+  Class SistemAnalist extends Rol
+  Class Arquitech extends Rol
+  Class UseCaseEspecificator extends Rol
+  Class ComponentEngineer extends Rol
+  Class TestEngineer extends Rol
+  Class SystemIntegrator extends Rol
+  Class IntegrationTestEngineer extends Rol
+  Class SystemTestEngineer extends Rol
+  Class UseCaseEngineer extends Rol
+  Class UIDesigner extends Rol
+}
+@enduml

@@ -8,24 +8,25 @@ Class Project
 Class Phases.Phase
 Class Iteration
 Class IterationDiscipline
-Class Rol
-Class Team
+Class Resources.Roles.Rol
+Class Resources.Team
 Class Risk
 Class Artifacts.Artifact
 
-Class Activity
-Class Member
+Class Activities.Activity
+Class Resources.Member
 
 Project *-- Risk
-Project *-- "1" Team
+Project *-- "1" Resources.Team
 Project *-- Artifacts.Artifact
 Project *-- "4" Phases.Phase
 Phases.Phase *-- "1..*" Iteration
 Iteration *-- "1..*" IterationDiscipline
 IterationDiscipline *-- "enum" DisciplineType
-IterationDiscipline *- "1..*" Activity
-Team *-- "1..*" Member
-Activity "1..*" o- "1..*" Member
-Activity o-- Rol
+IterationDiscipline *- "1..*" Activities.Activity
+Resources.Team *-- "1..*" Resources.Member
+Activities.Activity "1..*" o- "1..*" Resources.Member
+Activities.Activity o-- Resources.Roles.Rol
+Resources.Member o-- Resources.Roles.Rol
 
 @enduml
