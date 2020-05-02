@@ -1,0 +1,7 @@
+@startuml
+scale 350 width
+[*] --> ModeloAnalisisEsbozo : AnalisisdelaArquitectura
+ModeloAnalisisEsbozo --> ModeloAnalisisConClasesEsboso : AnalisisdeCasodeUso
+ModeloAnalisisConClasesEsboso --> ModeloAnalisisConClases : AnalisisdeClase
+ModeloAnalisisConClases --> ModeloAnalisisConClasesyPaquetes : AnalisisdePaquete
+@enduml

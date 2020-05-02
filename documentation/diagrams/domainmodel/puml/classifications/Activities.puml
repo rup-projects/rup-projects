@@ -3,75 +3,72 @@
 left to right direction
 skinparam Linetype ortho
 
-Class Discipline
-Class DomainModelDisciplineActivity
-Class RequirementsDisciplineActivity
-Class AnalysisDisciplineActivity
-Class DesignDisciplineActivity
-Class ImplementationDisciplineActivity
-Class TestDisciplineActivity
+namespace Discipline {
+    Class DomainModelDiscipline 
+    Class RequirementsDiscipline 
+    Class AnalysisDiscipline 
+    Class DesignDiscipline 
+    Class ImplementationDiscipline 
+    Class TestDiscipline 
+}
 
-Class EncontrarActoresyCasosdeUso
-Class PriorizarCasosdeUso
-Class DetallarCasodeUso
-Class EstructurarCasosdeUso
-Class PrototiparInterfazdeUsuario
-Class AnalisisdelaArquitectura
-Class AnalisisdeCasodeUso
-Class AnalisisdeClase
-Class AnalisisdePaquete
-Class DisenyodelaArquitectura
-Class DisenyodeCasodeUso
-Class DisenyodeClase
-Class DisenyodePaquete
-Class ImplementarlaArquitectura
-Class IntegraciondeSistemas
-Class ImplementarClase
-Class PruebasUnitarias
-Class ImplementarSubsistema
-Class PlanificarPruebas
-Class DisenyarPruebas
-Class ImplementarPruebas
-Class RealizarPruebasdeIntegracion
-Class RealizarPruebasdeSistemas
-Class EvaluarPruebas
+namespace Activity {
+    Class Activity
+    Class EncontrarActoresyCasosdeUso extends Activity
+    Class PriorizarCasosdeUso extends Activity
+    Class DetallarCasodeUso extends Activity
+    Class EstructurarCasosdeUso extends Activity
+    Class PrototiparInterfazdeUsuario extends Activity
+    Class AnalisisdelaArquitectura extends Activity
+    Class AnalisisdeCasodeUso extends Activity
+    Class AnalisisdeClase extends Activity
+    Class AnalisisdePaquete extends Activity
+    Class DisenyodelaArquitectura extends Activity
+    Class DisenyodeCasodeUso extends Activity
+    Class DisenyodeClase extends Activity
+    Class DisenyodePaquete extends Activity
+    Class ImplementarlaArquitectura extends Activity
+    Class IntegraciondeSistemas extends Activity
+    Class ImplementarClase extends Activity
+    Class PruebasUnitarias extends Activity
+    Class ImplementarSubsistema extends Activity
+    Class PlanificarPruebas extends Activity
+    Class DisenyarPruebas extends Activity
+    Class ImplementarPruebas extends Activity
+    Class RealizarPruebasdeIntegracion extends Activity
+    Class RealizarPruebasdeSistemas extends Activity
+    Class EvaluarPruebas extends Activity
+}
 
-Discipline <|-- DomainModelDisciplineActivity
-Discipline <|-- RequirementsDisciplineActivity
-Discipline <|-- AnalysisDisciplineActivity
-Discipline <|-- DesignDisciplineActivity
-Discipline <|-- ImplementationDisciplineActivity
-Discipline <|-- TestDisciplineActivity
+Discipline.RequirementsDiscipline *-- Activity.EncontrarActoresyCasosdeUso
+Discipline.RequirementsDiscipline *-- Activity.PriorizarCasosdeUso
+Discipline.RequirementsDiscipline *-- Activity.DetallarCasodeUso
+Discipline.RequirementsDiscipline *-- Activity.EstructurarCasosdeUso
+Discipline.RequirementsDiscipline *-- Activity.PrototiparInterfazdeUsuario
+Discipline.RequirementsDiscipline *-- Activity.EstructurarCasosdeUso
 
-RequirementsDisciplineActivity <|-- EncontrarActoresyCasosdeUso
-RequirementsDisciplineActivity <|-- PriorizarCasosdeUso
-RequirementsDisciplineActivity <|-- DetallarCasodeUso
-RequirementsDisciplineActivity <|-- EstructurarCasosdeUso
-RequirementsDisciplineActivity <|-- PrototiparInterfazdeUsuario
-RequirementsDisciplineActivity <|-- EstructurarCasosdeUso
+Discipline.AnalysisDiscipline *-- Activity.AnalisisdelaArquitectura
+Discipline.AnalysisDiscipline *-- Activity.AnalisisdeCasodeUso
+Discipline.AnalysisDiscipline *-- Activity.AnalisisdeClase
+Discipline.AnalysisDiscipline *-- Activity.AnalisisdePaquete
 
-AnalysisDisciplineActivity <|-- AnalisisdelaArquitectura
-AnalysisDisciplineActivity <|-- AnalisisdeCasodeUso
-AnalysisDisciplineActivity <|-- AnalisisdeClase
-AnalysisDisciplineActivity <|-- AnalisisdePaquete
+Discipline.DesignDiscipline *-- Activity.DisenyodelaArquitectura
+Discipline.DesignDiscipline *-- Activity.DisenyodeCasodeUso
+Discipline.DesignDiscipline *-- Activity.DisenyodeClase
+Discipline.DesignDiscipline *-- Activity.DisenyodePaquete
 
-DesignDisciplineActivity <|-- DisenyodelaArquitectura
-DesignDisciplineActivity <|-- DisenyodeCasodeUso
-DesignDisciplineActivity <|-- DisenyodeClase
-DesignDisciplineActivity <|-- DisenyodePaquete
+Discipline.ImplementationDiscipline *-- Activity.ImplementarlaArquitectura
+Discipline.ImplementationDiscipline *-- Activity.IntegraciondeSistemas
+Discipline.ImplementationDiscipline *-- Activity.ImplementarClase
+Discipline.ImplementationDiscipline *-- Activity.ImplementarClase
+Discipline.ImplementationDiscipline *-- Activity.PruebasUnitarias
+Discipline.ImplementationDiscipline *-- Activity.ImplementarSubsistema
 
-ImplementationDisciplineActivity <|-- ImplementarlaArquitectura
-ImplementationDisciplineActivity <|-- IntegraciondeSistemas
-ImplementationDisciplineActivity <|-- ImplementarClase
-ImplementationDisciplineActivity <|-- ImplementarClase
-ImplementationDisciplineActivity <|-- PruebasUnitarias
-ImplementationDisciplineActivity <|-- ImplementarSubsistema
-
-TestDisciplineActivity <|-- PlanificarPruebas
-TestDisciplineActivity <|-- DisenyarPruebas
-TestDisciplineActivity <|-- ImplementarPruebas
-TestDisciplineActivity <|-- RealizarPruebasdeIntegracion
-TestDisciplineActivity <|-- RealizarPruebasdeSistemas
-TestDisciplineActivity <|-- EvaluarPruebas
+Discipline.TestDiscipline *-- Activity.PlanificarPruebas
+Discipline.TestDiscipline *-- Activity.DisenyarPruebas
+Discipline.TestDiscipline *-- Activity.ImplementarPruebas
+Discipline.TestDiscipline *-- Activity.RealizarPruebasdeIntegracion
+Discipline.TestDiscipline *-- Activity.RealizarPruebasdeSistemas
+Discipline.TestDiscipline *-- Activity.EvaluarPruebas
 
 @enduml

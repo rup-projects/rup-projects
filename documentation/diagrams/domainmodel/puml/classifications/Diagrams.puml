@@ -1,0 +1,36 @@
+@startuml
+
+Class Diagram
+Class ClassDiagram
+Class ObjectDiagram
+Class ComponentDiagram
+Class DeployDiagram
+Class PackageDiagram
+Class StructureDiagram
+Class UseCaseDiagram
+Class ComportamientoDiagram
+Class ActivityDiagram
+Class StateDiagram
+Class InteractionDiagram
+Class SequenceDiagram
+Class CommunicationDiagram
+
+Diagram <|-- StructureDiagram
+Diagram <|-- ComportamientoDiagram
+StructureDiagram <|-- ClassDiagram
+StructureDiagram <|-- ObjectDiagram
+StructureDiagram <|-- ComponentDiagram
+StructureDiagram <|-- DeployDiagram
+StructureDiagram <|-- PackageDiagram
+StructureDiagram <|-- PackageDiagram
+ComportamientoDiagram <|-- UseCaseDiagram
+ComportamientoDiagram <|-- ActivityDiagram
+ComportamientoDiagram <|-- StateDiagram
+ComportamientoDiagram <|-- SequenceDiagram
+ComportamientoDiagram <|-- InteractionDiagram
+InteractionDiagram <|-- CommunicationDiagram
+InteractionDiagram <|-- SequenceDiagram
+
+
+
+@enduml

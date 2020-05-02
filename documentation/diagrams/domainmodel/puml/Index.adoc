@@ -4,22 +4,19 @@
 [#_index]
 
 === Index
+<<_general>>
+
 <<_time>>
 
 <<_resources>>
 
-
 <<_time_resources>>
-
 
 <<_phases>>
 
-
 <<_disciplines>>
 
-
 <<_activities>>
-
 
 [#_general]
 === General

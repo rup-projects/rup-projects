@@ -16,6 +16,7 @@ artifact <|-- UserCaseModel
 artifact <|-- Glossary
 
 SistemAnalist --> "do" FindActorsAndUseCases
+SistemAnalist --> "do" PrioritizeUseCases
 
 FindActorsAndUseCases "depends on" <--  PrioritizeUseCases
 
