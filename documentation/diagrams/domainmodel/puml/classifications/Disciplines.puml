@@ -5,7 +5,7 @@ skinparam Linetype ortho
 
 
 namespace Disciplines {
-    Class Discipline
+    Abstract Class Discipline
     Class DomainModelDiscipline extends Discipline
     Class RequirementsDiscipline extends Discipline
     Class AnalysisDiscipline extends Discipline
@@ -18,6 +18,9 @@ namespace Disciplines {
     AnalysisDiscipline <-- "depends on" DesignDiscipline
     DesignDiscipline <-- "depends on" ImplementationDiscipline
     ImplementationDiscipline <-- "depends on" TestDiscipline
+
+   'TODO: Faltan disciplinas por poner en el diagrama de marcos
+   'existen Gestion, Despliegue, Entorno y Versionar
 }
 
 

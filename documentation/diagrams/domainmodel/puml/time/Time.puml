@@ -53,4 +53,10 @@ Zoom <|-- WeekZoom
 Zoom <|-- IterationZoom
 Zoom <|-- PhaseZoom
 Zoom <|-- ProjectZoom
+
+'TODO: en el diagrama de Marcos, existen las clases Hito, Incremento y Software 
+'que aquí no estan reflejados... que conceptos son estos???
+
+'TODO: todos los "starts&ends" Date no deberian ser una clase auxiliar "IntervaloFechas" o algo así
+
 @enduml
