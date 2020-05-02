@@ -3,39 +3,55 @@
 == Domain model
 
 === Resources Diagram
-
-plantuml::ResourcesDiagramDomainModel.puml[format=svg,alt="resources",width=800,height=800]
+[plantuml,svg,align="center"]
+----
+include::ResourcesDiagramDomainModel.puml[]
+----
 
 === Disciplines
-
-plantuml::Disciplines.puml[format=svg,alt="resources",width=800,height=800]
+[plantuml,svg,align="center"]
+----
+include::Disciplines.puml[]
+----
 
 === Activity FindActorsAndUserCases Diagram
-
-plantuml::FindActorsAndUserCases.puml[format=svg,alt="resources",width=800,height=800]
+[plantuml,svg,align="center"]
+----
+include::FindActorsAndUserCases.puml[]
+----
 
 === Requirements Discipline Process Diagram
+[plantuml,svg,align="center"]
+----
+include::RequirementsDisciplineProcessDiagram.puml[]
+----
 
-plantuml::RequirementsDisciplineProcessDiagram.puml[format=svg,alt="resources",width=800,height=800]
-
-=== Disciplines
-
-plantuml::Disciplines.puml[format=svg,alt="resources",width=800,height=800]
+=== Diagrams
+[plantuml,svg,align="center"]
+----
+include::Diagrams.puml[]
+----
 
 === Activities
-
-plantuml::Activities.puml[format=svg,alt="resources"]
+[plantuml,svg,align="center"]
+----
+include::Activities.puml[]
+----
 
 === Phases Diagram
-
-plantuml::Phases.puml[format=svg,alt="resources"]
+[plantuml,svg,align="center"]
+----
+include::Phases.puml[]
+----
 
 === Use Case states
-
-plantuml::UserCaseState.puml[format=svg,alt="resources"]
+[plantuml,svg,align="center"]
+----
+include::UserCaseState.puml[]
+----
 
 === AnalysisModel states
-
-plantuml::AnalysisModel.puml[format=svg,alt="resources"]
-
-
+[plantuml,svg,align="center"]
+----
+include::AnalysisModel.puml[]
+----

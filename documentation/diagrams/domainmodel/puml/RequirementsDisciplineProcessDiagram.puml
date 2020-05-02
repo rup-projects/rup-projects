@@ -1,25 +1,41 @@
 @startuml
 
-    adoactivity <|-- FindActorsAndUseCases
-    activity <|-- PrioritizeUseCases
-    activity <|-- DetailUseCases
-    activity <|-- PrototypeUI
-    activity <|-- StructureUseCaseModel
+top to bottom direction
+skinparam Linetype ortho
+skinparam shadowing false
+skinparam objectFontSize 18
+scale max 1600 width
 
-    role <|-- SistemAnalist
-    role <|-- Arquitect
-    role <|-- UserCaseSpecificator
-    role <|-- UIDesigner
+skinparam class {
+  BackgroundColor<<Rol>> orchid
+}
 
-    SistemAnalist --> "do" FindActorsAndUseCases
-    Arquitect --> "do" PrioritizeUseCases
-    Arquitect --> "do" StructureUseCaseModel
-    UserCaseSpecificator --> "do 1..N"  DetailUseCases
-    UIDesigner --> "do" PrototypeUI
+namespace role {
+    Class role <<Rol>>
+    Class SistemAnalist extends role
+    Class Arquitect extends role
+    Class UserCaseSpecificator extends role
+    Class UIDesigner extends role
+ }
 
-    FindActorsAndUseCases <-- "depends on" PrioritizeUseCases
-    PrioritizeUseCases <-- "depends on" DetailUseCases
-    DetailUseCases <-- "depends on" PrototypeUI
-    DetailUseCases <-- "depends on" StructureUseCaseModel
+namespace activity {
+    Class activity <<(A,red)>>
+    Class StructureUseCaseModel extends activity
+    Class FindActorsAndUseCases extends activity
+    Class PrioritizeUseCases extends activity
+    Class DetailUseCases extends activity
+    Class PrototypeUI extends activity
+}    
+    
+    role.SistemAnalist --> "do" activity.FindActorsAndUseCases
+    role.Arquitect --> "do" activity.PrioritizeUseCases
+    role.Arquitect --> "do" activity.StructureUseCaseModel
+    role.UserCaseSpecificator --> "do 1..N"  activity.DetailUseCases
+    role.UIDesigner --> "do" activity.PrototypeUI
+
+    activity.FindActorsAndUseCases <-- "depends on" activity.PrioritizeUseCases
+    activity.PrioritizeUseCases <-- "depends on" activity.DetailUseCases
+    activity.DetailUseCases <-- "depends on" activity.PrototypeUI
+    activity.DetailUseCases <-- "depends on" activity.StructureUseCaseModel
 
 @enduml

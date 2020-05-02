@@ -1,5 +1,11 @@
 @startuml
 
+top to bottom direction
+skinparam Linetype ortho
+skinparam shadowing false
+skinparam objectFontSize 18
+scale max 1600 width
+
 Class Discipline
 Class DomainModelDiscipline
 Class RequirementsDiscipline
