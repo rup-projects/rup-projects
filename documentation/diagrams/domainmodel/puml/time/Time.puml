@@ -1,26 +1,21 @@
 @startuml
 top to bottom direction
 skinparam Linetype ortho
-'Classes
-
 'Una disciplina tiene la misma fecha inicio final, que la iteracion
 'a la que pertenece, y es un conjunto de actividades dedicadas a esa
 'disciplina
-'Quizas sea interesante cambiarle el nombre IterationDiscipline
+'Cada fase finaliza con un hito. Cada hito se determina por la disponibilidad de un
+'conjunto de artefactos, es decir un conjunto de modelos o documentos que han sido
+'desarrollados hasta alcanzar un estado predefinido.
+'Milestone relacionado con los artefactos que se entregan
 
-'EL problema es que si la iteracion maneja 23 objetos de actividades
-'diferentes sera jodido LUIS PREFIERE OTRO
-
-'Para el zoom de dia, seria recorrer actividades cuando empieza y acaba
-'y sumar, si una actividad no esta acabada seria fecha actual - fecha empezo
 
 Class Project
 Class Phase
 Class Iteration
 Class DisciplineType
-'No crearía objetos de zoom ni calentario porque creo que son
+'TODO No crearía objetos de zoom ni calentario porque creo que son
 'mas bien objetos de vista del proyecto
-Class Zoom
 Class Calendar
 Class Date
 'Igual con las horas gastadas. Creo que mas bien saldrían del
@@ -41,6 +36,7 @@ Calendar *-- "1..*" Date
 Calendar .up.> "0..1" Project
 Calendar ..> "0..1" Phase
 Calendar ..> "0..*" Iteration
+Calendar ..> "0..*" IterationDiscipline
 Calendar ..> "0..*" Activity
 
 Project *-- "starts&ends" Date
@@ -48,13 +44,7 @@ Phase *-- "starts&ends" Date
 Iteration *-- "starts&ends" Date
 Activity *-- "starts&ends" Date
 
-Zoom <|-- DayZoom
-Zoom <|-- WeekZoom
-Zoom <|-- IterationZoom
-Zoom <|-- PhaseZoom
-Zoom <|-- ProjectZoom
-
-'TODO: en el diagrama de Marcos, existen las clases Hito, Incremento y Software 
+'TODO: en el diagrama de Marcos, existen las clases Hito, Incremento y Software
 'que aquí no estan reflejados... que conceptos son estos???
 
 'TODO: todos los "starts&ends" Date no deberian ser una clase auxiliar "IntervaloFechas" o algo así
