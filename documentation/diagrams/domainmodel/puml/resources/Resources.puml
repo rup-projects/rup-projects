@@ -25,6 +25,7 @@ Member "0..*" o- "0..* skills" Rol
 Member *-down- Cost : cost/hour
 Member *-left- ContractType
 Member *-- Holidays
+Member *-- WorkLog
 
 
 }
