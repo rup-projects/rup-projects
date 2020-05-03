@@ -19,7 +19,7 @@ Member "0..*" o- "0..* skills" Rol
 Member *-- Holidays
 
 'Resources - Time
-Activity *-- "required Rol" Rol
+Activity o-- "required Rol" Rol
 Member *-- "0..*" WorkLog
 Activity <- "0..*" WorkLog
 Holidays --> DateRange
