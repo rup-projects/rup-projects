@@ -3,6 +3,7 @@
 top to bottom direction
 skinparam Linetype ortho
 
+Abstract Class Time.Activity
 
 namespace Disciplines {
     Abstract Class Discipline
@@ -21,7 +22,11 @@ namespace Disciplines {
 
    'TODO: Faltan disciplinas por poner en el diagrama de marcos
    'existen Gestion, Despliegue, Entorno y Versionar
+
+    Discipline *-- Time.Activity 
 }
+
+
 
 
 @enduml

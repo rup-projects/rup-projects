@@ -1,30 +1,34 @@
 @startuml
 
-left to right direction
 skinparam Linetype ortho
 
 namespace Time {
   Abstract Class Activity
 
   namespace Activities {
+
     Class EncontrarActoresyCasosdeUso extends Time.Activity
     Class PriorizarCasosdeUso extends Time.Activity
     Class DetallarCasodeUso extends Time.Activity
     Class EstructurarCasosdeUso extends Time.Activity
     Class PrototiparInterfazdeUsuario extends Time.Activity
+    
     Class AnalisisdelaArquitectura extends Time.Activity
     Class AnalisisdeCasodeUso extends Time.Activity
     Class AnalisisdeClase extends Time.Activity
     Class AnalisisdePaquete extends Time.Activity
+    
     Class DisenyodelaArquitectura extends Time.Activity
     Class DisenyodeCasodeUso extends Time.Activity
     Class DisenyodeClase extends Time.Activity
     Class DisenyodePaquete extends Time.Activity
+    
     Class ImplementarlaArquitectura extends Time.Activity
     Class IntegraciondeSistemas extends Time.Activity
     Class ImplementarClase extends Time.Activity
     Class PruebasUnitarias extends Time.Activity
     Class ImplementarSubsistema extends Time.Activity
+    
     Class PlanificarPruebas extends Time.Activity
     Class DisenyarPruebas extends Time.Activity
     Class ImplementarPruebas extends Time.Activity
@@ -34,35 +38,33 @@ namespace Time {
   }
 }
 
-Disciplines.RequirementsDiscipline *-- Time.Activities.EncontrarActoresyCasosdeUso
-Disciplines.RequirementsDiscipline *-- Time.Activities.PriorizarCasosdeUso
-Disciplines.RequirementsDiscipline *-- Time.Activities.DetallarCasodeUso
-Disciplines.RequirementsDiscipline *-- Time.Activities.EstructurarCasosdeUso
-Disciplines.RequirementsDiscipline *-- Time.Activities.PrototiparInterfazdeUsuario
-Disciplines.RequirementsDiscipline *-- Time.Activities.EstructurarCasosdeUso
+Disciplines.RequirementsDiscipline <-down- Time.Activities.EncontrarActoresyCasosdeUso
+Disciplines.RequirementsDiscipline <-down- Time.Activities.PriorizarCasosdeUso
+Disciplines.RequirementsDiscipline <-down- Time.Activities.DetallarCasodeUso
+Disciplines.RequirementsDiscipline <-down- Time.Activities.EstructurarCasosdeUso
+Disciplines.RequirementsDiscipline <-down- Time.Activities.PrototiparInterfazdeUsuario
 
-Disciplines.AnalysisDiscipline *-- Time.Activities.AnalisisdelaArquitectura
-Disciplines.AnalysisDiscipline *-- Time.Activities.AnalisisdeCasodeUso
-Disciplines.AnalysisDiscipline *-- Time.Activities.AnalisisdeClase
-Disciplines.AnalysisDiscipline *-- Time.Activities.AnalisisdePaquete
+Disciplines.AnalysisDiscipline <-down- Time.Activities.AnalisisdelaArquitectura
+Disciplines.AnalysisDiscipline <-down- Time.Activities.AnalisisdeCasodeUso
+Disciplines.AnalysisDiscipline <-down- Time.Activities.AnalisisdeClase
+Disciplines.AnalysisDiscipline <-down- Time.Activities.AnalisisdePaquete
 
-Disciplines.DesignDiscipline *-- Time.Activities.DisenyodelaArquitectura
-Disciplines.DesignDiscipline *-- Time.Activities.DisenyodeCasodeUso
-Disciplines.DesignDiscipline *-- Time.Activities.DisenyodeClase
-Disciplines.DesignDiscipline *-- Time.Activities.DisenyodePaquete
+Disciplines.DesignDiscipline <-down- Time.Activities.DisenyodelaArquitectura
+Disciplines.DesignDiscipline <-down- Time.Activities.DisenyodeCasodeUso
+Disciplines.DesignDiscipline <-down- Time.Activities.DisenyodeClase
+Disciplines.DesignDiscipline <-down- Time.Activities.DisenyodePaquete
 
-Disciplines.ImplementationDiscipline *-- Time.Activities.ImplementarlaArquitectura
-Disciplines.ImplementationDiscipline *-- Time.Activities.IntegraciondeSistemas
-Disciplines.ImplementationDiscipline *-- Time.Activities.ImplementarClase
-Disciplines.ImplementationDiscipline *-- Time.Activities.ImplementarClase
-Disciplines.ImplementationDiscipline *-- Time.Activities.PruebasUnitarias
-Disciplines.ImplementationDiscipline *-- Time.Activities.ImplementarSubsistema
+Disciplines.ImplementationDiscipline <-down- Time.Activities.ImplementarlaArquitectura
+Disciplines.ImplementationDiscipline <-down- Time.Activities.IntegraciondeSistemas
+Disciplines.ImplementationDiscipline <-down- Time.Activities.ImplementarClase
+Disciplines.ImplementationDiscipline <-down- Time.Activities.PruebasUnitarias
+Disciplines.ImplementationDiscipline <-down- Time.Activities.ImplementarSubsistema
 
-Disciplines.TestDiscipline *-- Time.Activities.PlanificarPruebas
-Disciplines.TestDiscipline *-- Time.Activities.DisenyarPruebas
-Disciplines.TestDiscipline *-- Time.Activities.ImplementarPruebas
-Disciplines.TestDiscipline *-- Time.Activities.RealizarPruebasdeIntegracion
-Disciplines.TestDiscipline *-- Time.Activities.RealizarPruebasdeSistemas
-Disciplines.TestDiscipline *-- Time.Activities.EvaluarPruebas
+Disciplines.TestDiscipline <-down- Time.Activities.PlanificarPruebas
+Disciplines.TestDiscipline <-down- Time.Activities.DisenyarPruebas
+Disciplines.TestDiscipline <-down- Time.Activities.ImplementarPruebas
+Disciplines.TestDiscipline <-down- Time.Activities.RealizarPruebasdeIntegracion
+Disciplines.TestDiscipline <-down- Time.Activities.RealizarPruebasdeSistemas
+Disciplines.TestDiscipline <-down- Time.Activities.EvaluarPruebas
 
 @enduml
