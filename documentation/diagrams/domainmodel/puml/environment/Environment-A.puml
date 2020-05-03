@@ -1,0 +1,56 @@
+@startuml
+top to bottom direction
+skinparam shadowing false
+skinparam objectFontSize 18
+scale max 1600 width
+title Domain Model RUP Management - Environment
+ 
+Abstract Class Discipline
+'Contenedores usados para organizar las actividades del proceso que representan 
+'una partición de todos los roles, artefactos y actividades en agrupaciones 
+'lógicas por áreas de asuntos o especialidades.
+
+Abstract Class Phase
+'Estado diferenciado por el que pasa un sistema o proyecto según se desarrolla.
+
+Abstract Class Activity
+'Cada una de tareas asignadas a un flujo de trabajo en cada una de las 
+'disciplinas (requisitos, análisis, diseño, etc).
+
+Class ProjectManagement
+'Disciplina UP encargada de conseguir el equilibrio entre los objetivos, los 
+'riesgos y las restricciones para la entrega del producto software.
+
+Class Environment
+'Disciplina UP encargada de establecer el marco de desarrollo del proyecto 
+'organizando los procesos y herramientas.
+
+Class Directive
+'Norma o conjunto de normas e instrucciones que se establecen o se tienen 
+'en cuenta al proyectar una acción o un plan.
+
+Class DevelopmentScript
+'Escrito que contiene las indicaciones técnicos y descripciones necesarias 
+'para la realización de una tarea, etapa o fase de un proceso.
+
+Class Tool
+'Mecanismo o técnica necesarios para desarrollar un trabajo de manera satisfactoria.
+
+Class ActivitiesPattern
+'Conjunto de actividades coherentes y habituales en una etapa, fase o proceso.
+
+Class ArtifactTemplate
+'Artefacto genéríco preelaborado que sirve de guía para elaborar otro concreto.
+
+Discipline <|-- ProjectManagement
+Discipline <|-- Environment
+ProjectManagement ..> Environment  
+Phase ..> Environment 
+Environment o-- Directive    
+Environment o-- DevelopmentScript 
+Environment ..> Tool 
+ActivitiesPattern <.. Environment
+Environment ..> ArtifactTemplate
+Activity --o ActivitiesPattern
+
+@enduml
