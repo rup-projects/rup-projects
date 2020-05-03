@@ -13,8 +13,6 @@ Class WorkingHoursDays
 Class ContractType
 Class Holidays
 Class Rol
-
-Class Activities.Activity
 Class Member
 
 Team *- JornadaLaboral
@@ -23,13 +21,11 @@ Team *-down- "1..*" Member
 JornadaLaboral *-- WorkingDaysMonth
 JornadaLaboral *-- WorkingHoursDays
 
-Member --o Activities.Activity
 Member "0..*" o- "0..* skills" Rol
 Member *-down- Cost : cost/hour
 Member *-left- ContractType
 Member *-- Holidays
 
-Activities.Activity o-- "required Rol" Rol
 
 }
 

@@ -2,34 +2,25 @@
 top to bottom direction
 skinparam Linetype ortho
 
-Team *-down- "1..*" Member
-Team *-- JornadaLaboral
-Activity o-- "required Rol" Rol
-Member *-- "0..*" WorkLog
-Activity -o "0..*" WorkLog
-Member "0..*" o- "0..* skills" Rol
-Member *-right- Holidays
-Holidays --> Date
-
-
-Project *-- "4" Phase
-Project *-- Team
+'Time
 Phase *- "1..*" Iteration
-Iteration *-- "1..*" IterationDiscipline
-IterationDiscipline *-- "enum" DisciplineType
+Phase *- "1" Milestone
+Milestone o-- "1" DateRange
+Iteration *- "1..*" IterationDiscipline
 IterationDiscipline *-- "1..*" Activity
 
-Calendar *-- "1..*" Date
-Calendar .up[#000000].> "0..1" Project
-Calendar ..[#000000]> "0..1" Phase
-Calendar ..[#000000]> "0..*" Iteration
-Calendar ..[#000000]> "0..*" Activity
-Calendar ..[#000000]> "0..*" Holidays
-Calendar ..[#000000]> "0..*" Member
+Phase *-- "starts&ends" DateRange
+Iteration *-- "starts&ends" DateRange
+Activity *-- "starts&ends" DateRange
 
-Project *-- "starts&ends" Date
-Phase *-- "starts&ends" Date
-Iteration *-- "starts&ends" Date
-Activity *-- "starts&ends" Date
+'Resources
+Team *-- "1..*" Member
+Member "0..*" o- "0..* skills" Rol
+Member *-- Holidays
 
+'Resources - Time
+Activity *-- "required Rol" Rol
+Member *-- "0..*" WorkLog
+Activity <- "0..*" WorkLog
+Holidays --> DateRange
 @enduml
