@@ -9,6 +9,12 @@ namespace Artifacts {
     Class ImplementationView extends Artifact
     Class DeploymentView extends Artifact
     Class ProcessView extends Artifact
+
+    'TODO: del diagrama de marcos
+
+    'Class Codigo extends Artifact
+    'Class Diagrams.Diagram extends Artifact
+    
 }
 
 @enduml
