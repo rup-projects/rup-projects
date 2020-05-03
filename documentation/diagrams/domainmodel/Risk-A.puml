@@ -6,17 +6,46 @@ scale max 1600 width
 title Domain Model RUP Management - Risks
 
 Abstract Class Discipline
+'Contenedores usados para organizar las actividades del proceso que 
+'representan una partición de todos los roles, artefactos y actividades 
+'en agrupaciones lógicas por áreas de asuntos o especialidades
+
 Class ProjectManagement
+'Disciplina UP encargada de conseguir el equilibrio entre los objetivos,
+'los riesgos y las restricciones para la entrega del producto software.
+
 Class RiskManagement
+'Actividad fundamental en la gestion de un proyecto.
+
 Class ProjectOjective
+'Cada uno de los fines alcanzables en un proyecto en base a unas actividades, 
+'unas pautas y unos recursos. 
+
 Class Risk
+'Posiblidad de contratiempo o fallo en una actividad dirigida por objetivos.
+
 Enum RiskType
+'Naturaleza, contexto, origen o aspecto que determina un riesgo.
+
 Class Impact
+'Efecto o conjunto de efectos prodicidos por un riesgo en las actividades 
+'o artefactos de un proyecto.
+
 Enum ImpactType
+'Categorías de los efectos producido por un riesgo: 
+'Debilidad, Amenaza, Fortaleza, Oportudidad.
+
 Class ListRisk
+'Lista de riesgos identificados de un proyecto.
+
 Class RiskProjection
+'Lista priorizada de riesgos atendiendo a su evaluación y respuesta prevista.
+
 Class RiskAssessment
+'Ponderación y calificación de un riesgo en base al impacto en los objetivos de proyecto.
+
 Class RiskResponse
+'Reacción o reajuste previsto para gestionar, mitigar o compensar el impacto de un riesgo.
 
 Discipline <|-- ProjectManagement
 ProjectManagement o-- RiskManagement  
