@@ -3,7 +3,7 @@
 top to bottom direction
 
 namespace Artifacts {
-    Class Artifact
+    Abstract Class Artifact
     Class UseCaseModelView extends Artifact
     Class DesignModelView extends Artifact
     Class ImplementationView extends Artifact

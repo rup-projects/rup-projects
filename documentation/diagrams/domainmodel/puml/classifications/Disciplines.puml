@@ -30,6 +30,9 @@ namespace Disciplines {
 
 
     Discipline *-- Time.Activity 
+    Time.Activity o-- "uses" Artifacts.Artifact
+    Time.Activity o-- "creates" Artifacts.Artifact
+    Time.Activity o-- "modifies" Artifacts.Artifact
 }
 
 
