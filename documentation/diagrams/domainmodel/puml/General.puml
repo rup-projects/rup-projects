@@ -7,14 +7,11 @@ skinparam Linetype ortho
 Class Project
 Abstract Class Time.Phase
 Class Time.Iteration
-Class Time.IterationDiscipline
+Class Time.Discipline
 Class Resources.Rol
 Class Resources.Team
 Class Risks.Risk
 Class Artifacts.Artifact
-
-Class Process
-Class FlujoTrabajo
 
 Abstract Class Time.Activity
 Class Resources.Member
@@ -24,13 +21,15 @@ Project *-- "1" Resources.Team
 Project *-- Artifacts.Artifact
 Project *-- "4" Time.Phase
 Time.Phase *-- "1..*" Time.Iteration
-Time.Iteration *-- "1..*" Time.IterationDiscipline
-Time.IterationDiscipline *-- "enum" Time.DisciplineType
-Time.IterationDiscipline *- "1..*" Time.Activity
+Time.Iteration *-- "1..*" Time.Discipline
+'Time.Discipline *-- "enum" Time.DisciplineType
+Time.Discipline *- "1..*" Time.Activity
 Resources.Team *-- "1..*" Resources.Member
 Resources.Member *-- "1" Resources.WorkLog
-Resources.WorkLog --> "0..*" Time.Activity
-Time.Activity o-- Resources.Rol
+'Resources.WorkLog --> "0..*" Time.Activity
+'Time.Activity o-- Resources.Rol
 Resources.Member o-- Resources.Rol
+
+'TODO: añadir 4+1 vistas en Artifacts
 
 @enduml
