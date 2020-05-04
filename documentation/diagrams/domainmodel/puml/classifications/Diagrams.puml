@@ -1,32 +1,46 @@
 @startuml
 
-Class Diagram
-Class StructureDiagram extends Diagram
-Class ComportamientoDiagram extends Diagram
-Class ClassDiagram
-Class ObjectDiagram
-Class ComponentDiagram
-Class DeployDiagram
-Class PackageDiagram
-Class UseCaseDiagram
-Class ActivityDiagram
-Class StateDiagram
-Class InteractionDiagram
-Class SequenceDiagram
-Class CommunicationDiagram
+namespace Artifacts {
+  Abstract Class UMLDiagram
 
-StructureDiagram <|-- ClassDiagram
-StructureDiagram <|-- ObjectDiagram
-StructureDiagram <|-- ComponentDiagram
-StructureDiagram <|-- DeployDiagram
-StructureDiagram <|-- PackageDiagram
+    namespace UMLDiagrams {
+    
+    Class Estructural extends Artifacts.UMLDiagram
+    Class Comportamiento extends Artifacts.UMLDiagram
+    Class ClassDiagram
+    Class ObjectDiagram
+    Class ComponentDiagram
+    Class DeployDiagram
+    Class PackageDiagram
+    Class ComplexStructureDiagram
 
-ComportamientoDiagram <|-- UseCaseDiagram
-ComportamientoDiagram <|-- ActivityDiagram
-ComportamientoDiagram <|-- StateDiagram
-ComportamientoDiagram <|-- InteractionDiagram
+    Class UseCaseDiagram
+    Class ActivityDiagram
+    Class StateDiagram
+    Class InteractionDiagram
+    
+    Class SequenceDiagram
+    Class CommunicationDiagram
+    Class TimeDiagram
+    Class GeneralInteractionDiagram
 
-InteractionDiagram <|-- CommunicationDiagram
-InteractionDiagram <|-- SequenceDiagram
+    Estructural <|-- ClassDiagram
+    Estructural <|-- ObjectDiagram
+    Estructural <|-- ComponentDiagram
+    Estructural <|-- DeployDiagram
+    Estructural <|-- PackageDiagram
+    Estructural <|-- ComplexStructureDiagram
+
+    Comportamiento <|-- UseCaseDiagram
+    Comportamiento <|-- ActivityDiagram
+    Comportamiento <|-- StateDiagram
+    Comportamiento <|-- InteractionDiagram
+    
+    InteractionDiagram <|-- CommunicationDiagram
+    InteractionDiagram <|-- SequenceDiagram
+    InteractionDiagram <|-- TimeDiagram
+    InteractionDiagram <|-- GeneralInteractionDiagram
+    }
+}
 
 @enduml

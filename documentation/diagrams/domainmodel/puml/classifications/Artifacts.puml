@@ -4,17 +4,42 @@ top to bottom direction
 
 namespace Artifacts {
     Abstract Class Artifact
-    Class UseCaseModelView extends Artifact
-    Class DesignModelView extends Artifact
+    Class ArtifactTemplate extends Artifact
+
+    '4+1 vistas
+    Class DomainModel extends Artifact
+    Class UseCaseView extends Artifact
+    Class DesignView extends Artifact
     Class ImplementationView extends Artifact
-    Class DeploymentView extends Artifact
     Class ProcessView extends Artifact
+    Class DeployView extends Artifact
+    
+
+    Class TestModel extends Artifact
+    
+    Class ArquitectureDesign extends Artifact
+
+    Class UMLDiagram extends Artifact
+    
+
+
+
+    Class NormasCalidad extends Artifact
+    Class Metricas extends Artifact
+    Class ProjectManagementAndConfiguration extends Artifact
+    
+    Artifact *-- "0..*" Artifact
+
+    'TODO: Diagrama, PDF 1.Introducion hoja 22
+    'TODO: Diagrama, PDF 1.Introducion hoja 47
 
     'TODO: del diagrama de marcos
 
     'Class Codigo extends Artifact
     'Class Diagrams.Diagram extends Artifact
     
+    'TODO: Versiones de los artifacts
+    'TODO: Elementos de Entrega interna y entrega externa
 }
 
 @enduml
