@@ -7,12 +7,20 @@ Abstract Class Time.Activity
 
 namespace Disciplines {
     Abstract Class Discipline
-    Class DomainModelDiscipline extends Discipline
-    Class RequirementsDiscipline extends Discipline
-    Class AnalysisDiscipline extends Discipline
-    Class DesignDiscipline extends Discipline
-    Class ImplementationDiscipline extends Discipline
-    Class TestDiscipline extends Discipline
+    Abstract Class TechnicalDiscipline extends Discipline
+    Abstract Class SuportDiscipline extends Discipline
+    
+    Class DomainModelDiscipline extends TechnicalDiscipline
+    Class RequirementsDiscipline extends TechnicalDiscipline
+    Class AnalysisDiscipline extends TechnicalDiscipline
+    Class DesignDiscipline extends TechnicalDiscipline
+    Class ImplementationDiscipline extends TechnicalDiscipline
+    Class TestDiscipline extends TechnicalDiscipline
+
+    Class ManagementDiscipline extends SuportDiscipline
+    Class EnvironmentDiscipline extends SuportDiscipline
+    Class ConfigAndVersioningDiscipline extends SuportDiscipline
+    Class DeploymentDiscipline extends SuportDiscipline
 
     DomainModelDiscipline <-- "depends on" RequirementsDiscipline
     RequirementsDiscipline <-- "depends on" AnalysisDiscipline
@@ -20,8 +28,6 @@ namespace Disciplines {
     DesignDiscipline <-- "depends on" ImplementationDiscipline
     ImplementationDiscipline <-- "depends on" TestDiscipline
 
-   'TODO: Faltan disciplinas por poner en el diagrama de marcos
-   'existen Gestion, Despliegue, Entorno y Versionar
 
     Discipline *-- Time.Activity 
 }
