@@ -7,32 +7,29 @@ Abstract Class Time.Activity
 
 namespace Disciplines {
     Abstract Class Discipline
-    Abstract Class TechnicalDiscipline extends Discipline
-    Abstract Class SuportDiscipline extends Discipline
+    Abstract Class Technical extends Discipline
+    Abstract Class Support extends Discipline
     
-    Class DomainModelDiscipline extends TechnicalDiscipline
-    Class RequirementsDiscipline extends TechnicalDiscipline
-    Class AnalysisDiscipline extends TechnicalDiscipline
-    Class DesignDiscipline extends TechnicalDiscipline
-    Class ImplementationDiscipline extends TechnicalDiscipline
-    Class TestDiscipline extends TechnicalDiscipline
+    Class DomainModel extends Technical
+    Class Requirements extends Technical
+    Class Analysis extends Technical
+    Class Design extends Technical
+    Class Implementation extends Technical
+    Class Test extends Technical
 
-    Class ManagementDiscipline extends SuportDiscipline
-    Class EnvironmentDiscipline extends SuportDiscipline
-    Class ConfigAndVersioningDiscipline extends SuportDiscipline
-    Class DeploymentDiscipline extends SuportDiscipline
+    Class Management extends Support
+    Class Environment extends Support
+    Class ConfigAndChangeManagement extends Support
+    Class Deployment extends Support
 
-    DomainModelDiscipline <-- "depends on" RequirementsDiscipline
-    RequirementsDiscipline <-- "depends on" AnalysisDiscipline
-    AnalysisDiscipline <-- "depends on" DesignDiscipline
-    DesignDiscipline <-- "depends on" ImplementationDiscipline
-    ImplementationDiscipline <-- "depends on" TestDiscipline
+    DomainModel <-- "depends on" Requirements
+    Requirements <-- "depends on" Analysis
+    Analysis <-- "depends on" Design
+    Design <-- "depends on" Implementation
+    Implementation <-- "depends on" Test
 
 
     Discipline *-- Time.Activity 
-    Time.Activity o-- "uses" Artifacts.Artifact
-    Time.Activity o-- "creates" Artifacts.Artifact
-    Time.Activity o-- "modifies" Artifacts.Artifact
 }
 
 
