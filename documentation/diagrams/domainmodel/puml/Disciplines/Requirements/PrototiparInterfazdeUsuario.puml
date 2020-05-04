@@ -15,8 +15,6 @@
   Time.Activities.PrototiparInterfazdeUsuario .> Artifacts.UIPrototype
 
   namespace Artifacts {
-    namespace UMLDiagrams {
-    }
     UIPrototype <-- "1" Artifacts.SourceCode
     UIPrototype <-- "1..*" Artifacts.Executable
     UIPrototype <-- "1..*" UMLDiagram

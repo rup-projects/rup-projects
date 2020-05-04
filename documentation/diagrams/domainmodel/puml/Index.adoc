@@ -88,37 +88,6 @@ include::classifications/Phases.puml[]
 <<_index>>
 
 
-[#_disciplines]
-=== Disciplines
-[plantuml,svg,align="center"]
-----
-include::classifications/Disciplines.puml[]
-----
-<<_index>>
-
-[#_activities]
-=== Activities
-[plantuml,svg,align="center"]
-----
-include::classifications/Activities.puml[]
-----
-<<_index>>
-
-=== Activity FindActorsAndUserCases Diagram
-[plantuml,svg,align="center"]
-----
-include::unclassified/FindActorsAndUserCases.puml[]
-----
-<<_index>>
-
-=== Requirements Discipline Process Diagram
-[plantuml,svg,align="center"]
-----
-include::unclassified/RequirementsDisciplineProcessDiagram.puml[]
-----
-<<_index>>
-
-
 == Artifacts
 === General
 [plantuml,svg,align="center"]
@@ -136,6 +105,24 @@ include::classifications/Diagrams.puml[]
 
 
 == Disciplines
+[#_disciplines]
+=== Hierarchies
+==== Disciplines 
+[plantuml,svg,align="center"]
+----
+include::classifications/Disciplines.puml[]
+----
+<<_index>>
+
+[#_activities]
+==== Activities
+[plantuml,svg,align="center"]
+----
+include::classifications/Activities.puml[]
+----
+<<_index>>
+
+
 === Bussiness Engineering
 ==== Domain Model Activity
 [plantuml,svg,align="center"]
