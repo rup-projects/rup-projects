@@ -10,6 +10,8 @@
 
 <<_risks>>
 
+<<_scope>>
+
 <<_time>>
 
 <<_resources>>
@@ -49,6 +51,14 @@ include::environment/Environment-A.puml[]
 [plantuml,svg,align="center"]
 ----
 include::risk/Risk-A.puml[]
+----
+<<_index>>
+
+[#_scope]
+=== scope
+[plantuml,svg,align="left"]
+----
+include::scope/scope.puml[]
 ----
 <<_index>>
 
