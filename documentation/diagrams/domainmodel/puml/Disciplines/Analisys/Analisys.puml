@@ -1,0 +1,32 @@
+@startuml
+
+  set namespaceSeparator .
+  
+namespace Time {
+  Abstract Class Activity
+
+  namespace Activities {
+
+    Class AnalisisdelaArquitectura extends Time.Activity
+    Class AnalisisdeCasodeUso extends Time.Activity
+    Class AnalisisdeClase extends Time.Activity
+    Class AnalisisdePaquetes extends Time.Activity
+  }
+}
+
+  Disciplines.Analisys <-left- Time.Activities.AnalisisdelaArquitectura
+  Disciplines.Analisys <-- Time.Activities.AnalisisdeCasodeUso
+  Disciplines.Analisys <-- Time.Activities.AnalisisdeClase
+  Disciplines.Analisys <-- Time.Activities.AnalisisdePaquetes
+
+  Time.Activities.AnalisisdeCasodeUso "depends" -up-> Time.Activities.AnalisisdelaArquitectura 
+  Time.Activities.AnalisisdeClase -up-> "depends" Time.Activities.AnalisisdeCasodeUso
+  Time.Activities.AnalisisdePaquetes -up-> "depends" Time.Activities.AnalisisdeClase
+  
+
+  Roles.Arquitech .up.> Time.Activities.AnalisisdelaArquitectura
+  Roles.UseCaseEngineer .up.> Time.Activities.AnalisisdeCasodeUso
+  Roles.ComponentEngineer .up.> Time.Activities.AnalisisdeClase
+  Roles.ComponentEngineer .up.> Time.Activities.AnalisisdePaquetes
+
+@enduml

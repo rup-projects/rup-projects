@@ -26,6 +26,8 @@
 
 <<_Requirements>>
 
+<<_Analisys>>
+
 [#_general]
 === General
 [plantuml,svg,align="center"]
@@ -181,6 +183,14 @@ include::Disciplines/Requirements/PrototiparInterfazdeUsuario.puml[]
 <<_index>>
 
 
+[#_Analisys]
+=== Analisys
+==== General
+[plantuml,svg,align="center"]
+----
+include::Disciplines/Analisys/Analisys.puml[]
+----
+<<_index>>
 
 
 == State Diagrams

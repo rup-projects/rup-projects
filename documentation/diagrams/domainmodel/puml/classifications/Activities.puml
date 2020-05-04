@@ -16,7 +16,7 @@ namespace Time {
     Class AnalisisdelaArquitectura extends Time.Activity
     Class AnalisisdeCasodeUso extends Time.Activity
     Class AnalisisdeClase extends Time.Activity
-    Class AnalisisdePaquete extends Time.Activity
+    Class AnalisisdePaquetes extends Time.Activity
     
     Class DisenyodelaArquitectura extends Time.Activity
     Class DisenyodeCasodeUso extends Time.Activity
