@@ -1,0 +1,46 @@
+@startuml
+title Scope (Requirements)
+skinparam linetype ortho
+DomainModel --> FindActorUseCases.Activity : Input
+RequirementList  --> FindActorUseCases.Activity: Input
+SuplementaryRequirements --> FindActorUseCases.Activity : Input
+SuplementaryRequirements -->  PrioritizeUseCases.Activity : Input
+SuplementaryRequirements --> DetailUseCases.Activity : Input
+SuplementaryRequirements --> StructureUseCases.Activity : Input
+SuplementaryRequirements --> PrototypeUI.Activity : Input
+
+EvaluateRisks ..> RiskManagement : from 
+PrioritizeUseCases.Activity *.. EvaluateRisks
+namespace FindActorUseCases{
+    Activity --> UseCaseModel: Output (draft)
+    Activity --> Glossary: Output
+    UseCaseModel *-- UseCase
+    UseCase <- Actor
+}
+namespace PrioritizeUseCases{
+    FindActorUseCases.UseCaseModel --> Activity : Input
+    Glossary --> Activity : Input
+    Activity --> ArchitectureDescription : Output
+   
+}
+namespace DetailUseCases{
+   
+    PrioritizeUseCases.ArchitectureDescription --> Activity: Input
+    FindActorUseCases.Glossary --> Activity : Input
+    Activity --> DetailUseCase :Output
+}
+
+namespace StructureUseCases{
+    FindActorUseCases.Glossary --> Activity : Input
+    DetailUseCases.DetailUseCase --> Activity : Input
+    PrioritizeUseCases.ArchitectureDescription --> Activity : Input
+    Activity --> UseCaseModelStructured : Output
+}
+
+namespace PrototypeUI{
+ FindActorUseCases.UseCaseModel --> Activity : Input
+ FindActorUseCases.Glossary --> Activity : Input
+ DetailUseCases.DetailUseCase --> Activity : Input
+ Activity --> UIPrototype
+}
+@enduml
