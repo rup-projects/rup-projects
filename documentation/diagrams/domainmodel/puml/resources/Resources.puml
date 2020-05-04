@@ -27,7 +27,6 @@ Member *-left- ContractType
 Member *-- Holidays
 Member *-- WorkLog
 
-
 }
 
 @enduml
