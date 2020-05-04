@@ -118,10 +118,73 @@ include::unclassified/RequirementsDisciplineProcessDiagram.puml[]
 ----
 <<_index>>
 
-=== Diagrams
+
+== Artifacts
+=== General
+[plantuml,svg,align="center"]
+----
+include::classifications/Artifacts.puml[]
+----
+<<_index>>
+
+=== UMLDiagrams
 [plantuml,svg,align="center"]
 ----
 include::classifications/Diagrams.puml[]
+----
+<<_index>>
+
+
+== Disciplines
+=== Bussiness Engineering
+==== Domain Model Activity
+[plantuml,svg,align="center"]
+----
+include::Disciplines/DomainModel.puml[]
+----
+<<_index>>
+
+
+=== Requirements
+==== General
+[plantuml,svg,align="center"]
+----
+include::Disciplines/Requirements/Requirements.puml[]
+----
+<<_index>>
+
+==== 1. Encontrar Actores y Casos de Uso Activity
+[plantuml,svg,align="center"]
+----
+include::Disciplines/Requirements/EncontrarActoresyCasosdeUso.puml[]
+----
+<<_index>>
+
+==== 2. Priorizar Casos de Uso Activity
+[plantuml,svg,align="center"]
+----
+include::Disciplines/Requirements/PriorizarCasosdeUso.puml[]
+----
+<<_index>>
+
+==== 3. Detallar Caso de Uso Activity
+[plantuml,svg,align="center"]
+----
+include::Disciplines/Requirements/DetallarCasodeUso.puml[]
+----
+<<_index>>
+
+==== 4. Estructurar Casos de Uso Activity
+[plantuml,svg,align="center"]
+----
+include::Disciplines/Requirements/EstructurarCasosdeUso.puml[]
+----
+<<_index>>
+
+==== 5. Prototipar Interfaz de Usuario Activity
+[plantuml,svg,align="center"]
+----
+include::Disciplines/Requirements/PrototiparInterfazdeUsuario.puml[]
 ----
 <<_index>>
 
