@@ -1,0 +1,16 @@
+@startuml
+
+top to bottom direction
+skinparam Linetype ortho
+
+'Objects
+Class Project
+Project *-- Model
+Project *-- View
+View ..> Model
+View *-- ProcessView
+View *-- UseCaseModelView
+View *-- DesignModelView
+View *-- DeploymentView
+View *-- ImplementationView
+@enduml

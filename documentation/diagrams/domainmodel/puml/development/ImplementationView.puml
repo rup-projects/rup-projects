@@ -1,0 +1,17 @@
+@startuml
+
+top to bottom direction
+skinparam Linetype ortho
+
+View *-- ImplementationView
+
+ImplementationView *-- "1" index
+index .[#000000].> SystemView
+index .[#000000].> SubsystemView
+ImplementationView *-- "1" SystemView
+SystemView *-- "*" SubsystemView
+SystemView .[#000000].> Diagram.ComponentDiagram
+SubsystemView .[#000000].> Diagram.ComponentDiagram
+index .[#000000].> Diagram.ContentDiagram
+
+@enduml
