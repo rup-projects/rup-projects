@@ -56,6 +56,11 @@ namespace Artifacts {
     Class DetalledUseCase extends UseCaseView
     Class StructuredUseCase extends DetalledUseCase
 
+    Class AnalisysArquitectureDescription extends UseCaseView
+    Class AnalisysPackageDiagramDraft extends PackageDiagram
+    Class AnalisysClassDiagramForUseCases extends ClassDiagram
+    Class AnalisysClassDiagramDraft extends ClassDiagram
+
     Class UIPrototype extends ArtifactVersion
 
     Class SourceCode extends ArtifactVersion

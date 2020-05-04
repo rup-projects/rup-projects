@@ -1,0 +1,11 @@
+@startuml
+
+  set namespaceSeparator .
+  title "Analisis de Caso de Uso"
+
+[*] --> IdentificarClasesAnalisis
+IdentificarClasesAnalisis --> DescribirInteraccionesentreObjetosdeAnalisis
+DescribirInteraccionesentreObjetosdeAnalisis --> CapturarRequisitosEspeciales
+CapturarRequisitosEspeciales --> [*]
+
+@enduml

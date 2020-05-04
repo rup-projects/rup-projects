@@ -1,0 +1,28 @@
+@startuml
+
+  set namespaceSeparator .
+  
+  Time.Activities.AnalisisdelaArquitectura ..> "next" Time.Activities.AnalisisdeCasodeUso
+  Time.Activities.AnalisisdeCasodeUso <.right. Roles.Arquitech
+  Time.Activities.AnalisisdeCasodeUso ..> "next" Time.Activities.AnalisisdeClase
+  
+  Time.Activities.AnalisisdeCasodeUso <.. Artifacts.UseCaseView
+  Time.Activities.AnalisisdeCasodeUso <.. Artifacts.RequisitosSuplementarios
+  Time.Activities.AnalisisdeCasodeUso <.. Artifacts.DomainModel
+  Time.Activities.AnalisisdeCasodeUso <.. Artifacts.AnalisysArquitectureDescription
+
+  Time.Activities.AnalisisdeCasodeUso .> Artifacts.AnalisysClassDiagramForUseCases
+  Time.Activities.AnalisisdeCasodeUso .> Artifacts.AnalisysClassDiagramDraft
+
+
+  namespace Artifacts {
+    namespace UMLDiagrams {
+    }
+    AnalisysClassDiagramForUseCases <-- "1..*" Artifacts.UMLDiagrams.ClassDiagram
+    AnalisysClassDiagramForUseCases <-- "0..*" Artifacts.UMLDiagrams.UseCaseDiagram
+    AnalisysClassDiagramForUseCases <-- "0..*" Artifacts.UMLDiagrams.PackageDiagram
+    AnalisysClassDiagramForUseCases <-- "0..*" Artifacts.UMLDiagrams.InteractionDiagram
+    AnalisysClassDiagramForUseCases <-- "as needed" UMLDiagram
+  }
+
+@enduml

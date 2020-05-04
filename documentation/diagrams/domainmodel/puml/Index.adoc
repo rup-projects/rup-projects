@@ -192,15 +192,37 @@ include::Disciplines/Analisys/Analisys.puml[]
 ----
 <<_index>>
 
-
-== State Diagrams
-=== UserCaseState
+==== 1. Analisis de la Arquitectura
 [plantuml,svg,align="center"]
 ----
-include::unclassified/UserCaseState.puml[]
+include::Disciplines/Analisys/AnalisisdelaArquitectura.puml[]
+----
+
+[plantuml,svg,align="center"]
+----
+include::Disciplines/Analisys/AnalisisdelaArquitectura2.puml[]
+----
+
+[plantuml,svg,align="center"]
+----
+include::Disciplines/Analisys/AnalisisdelaArquitectura3.puml[]
 ----
 <<_index>>
 
+==== 2. Analisis de Caso de Uso
+[plantuml,svg,align="center"]
+----
+include::Disciplines/Analisys/AnalisisdeCasodeUso.puml[]
+----
+
+[plantuml,svg,align="center"]
+----
+include::Disciplines/Analisys/AnalisisdeCasodeUso2.puml[]
+----
+<<_index>>
+
+
+== State Diagrams
 === AnalysisModel
 [plantuml,svg,align="center"]
 ----

@@ -4,8 +4,7 @@
   
   Time.Activities.DetallarCasodeUso ..> "next" Time.Activities.EstructurarCasosdeUso
   Time.Activities.EstructurarCasosdeUso <.right. Roles.SistemAnalist
-  Time.Activities.EstructurarCasosdeUso ..> "next" Time.Activities.xxxxxx 
-  'TODO: definir el next de  Time.Activities.xxxxxx 
+  Time.Activities.EstructurarCasosdeUso .right.> "next" Disciplines.Analisys
   
   Time.Activities.EstructurarCasosdeUso <.. Artifacts.UseCaseView
   Time.Activities.EstructurarCasosdeUso <.. Artifacts.RequisitosSuplementarios

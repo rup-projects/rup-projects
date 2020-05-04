@@ -1,0 +1,11 @@
+@startuml
+
+  set namespaceSeparator .
+  title "Analisis de la Arquitectura Activity"
+
+[*] --> IdentificarClasesObvias
+IdentificarClasesObvias --> IdentificarPaquetesdeAnálisis
+IdentificarPaquetesdeAnálisis --> IdentificarRequisitosEspecialesComunes
+IdentificarRequisitosEspecialesComunes --> [*]
+
+@enduml

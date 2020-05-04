@@ -1,0 +1,18 @@
+@startuml
+
+  set namespaceSeparator .
+  
+  Disciplines.Requirements   ..> "next" Time.Activities.AnalisisdelaArquitectura
+  Time.Activities.AnalisisdelaArquitectura <.right. Roles.Arquitech
+  Time.Activities.AnalisisdelaArquitectura ..> "next" Time.Activities.AnalisisdeCasodeUso
+  
+  Time.Activities.AnalisisdelaArquitectura <.. Artifacts.UseCaseView
+  Time.Activities.AnalisisdelaArquitectura <.. Artifacts.RequisitosSuplementarios
+  Time.Activities.AnalisisdelaArquitectura <.. Artifacts.DomainModel
+  Time.Activities.AnalisisdelaArquitectura <.. Artifacts.ArquitectureDescription
+
+  Time.Activities.AnalisisdelaArquitectura .> Artifacts.AnalisysArquitectureDescription
+  Time.Activities.AnalisisdelaArquitectura .> Artifacts.AnalisysPackageDiagramDraft
+  Time.Activities.AnalisisdelaArquitectura .> Artifacts.AnalisysClassDiagramDraft
+
+@enduml

@@ -4,8 +4,7 @@
   
   Time.Activities.DetallarCasodeUso ..> "next" Time.Activities.PrototiparInterfazdeUsuario
   Time.Activities.PrototiparInterfazdeUsuario <.right. Roles.UIDesigner
-  Time.Activities.PrototiparInterfazdeUsuario ..> "next" Time.Activities.xxxxxx 
-  'TODO: definir el next de  Time.Activities.xxxxxx 
+  Time.Activities.PrototiparInterfazdeUsuario .right.> "next" Disciplines.Analisys
   
   Time.Activities.PrototiparInterfazdeUsuario <.. Artifacts.UseCaseView
   Time.Activities.PrototiparInterfazdeUsuario <.. Artifacts.RequisitosSuplementarios
