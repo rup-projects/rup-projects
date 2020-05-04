@@ -9,44 +9,36 @@ skinparam Linetype ortho
 'desarrollados hasta alcanzar un estado predefinido.
 'Milestone relacionado con los artefactos que se entregan
 
-
 Class Project
 Class Phase
 Class Iteration
 Class DisciplineType
-'TODO No crearía objetos de zoom ni calentario porque creo que son
-'mas bien objetos de vista del proyecto
 Class Calendar
-Class Date
-'Igual con las horas gastadas. Creo que mas bien saldrían del
-'tiempo que cada recurso ha trabajado en una determinada actividad
-'De ahí saldría el tiempo por actividad y por disciplina, por tanto
-'yo los veo también como vistas
-Class SpentHours
+Class WorkLog
 
 Project *-- "4" Phase
 Phase *- "1..*" Iteration
 Iteration *-- "1..*" IterationDiscipline
 IterationDiscipline *-- "enum" DisciplineType
 IterationDiscipline *-- "1..*" Activity
-Activity *-left- "0..*" SpentHours
+Activity <-right "1..*" WorkLog
 
-Calendar -right-> Zoom
-Calendar *-- "1..*" Date
+'comentar con Luis
+Calendar *-- "1..*" DateRange
 Calendar .up.> "0..1" Project
 Calendar ..> "0..1" Phase
 Calendar ..> "0..*" Iteration
 Calendar ..> "0..*" IterationDiscipline
 Calendar ..> "0..*" Activity
 
-Project *-- "starts&ends" Date
-Phase *-- "starts&ends" Date
-Iteration *-- "starts&ends" Date
-Activity *-- "starts&ends" Date
+Project *-- "starts&ends" DateRange
+Phase *-- "starts&ends" DateRange
+Iteration *-- "starts&ends" DateRange
+Activity *-- "starts&ends" DateRange
 
 'TODO: en el diagrama de Marcos, existen las clases Hito, Incremento y Software
 'que aquí no estan reflejados... que conceptos son estos???
 
-'TODO: todos los "starts&ends" Date no deberian ser una clase auxiliar "IntervaloFechas" o algo así
+'TODO: todos los "starts&ends" DateRange no deberian ser una clase auxiliar "IntervaloFechas" o algo así
 
 @enduml
