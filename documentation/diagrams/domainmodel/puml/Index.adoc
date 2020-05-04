@@ -78,13 +78,6 @@ include::time/Time-Resources.puml[]
 ----
 <<_time>>
 
-=== Time & Resources (ilya)
-[plantuml,svg,align="right"]
-----
-include::time/Time-Resources.puml[]
-----
-<<_time>>
-
 [#_phases]
 === Phases
 [plantuml,svg,align="center"]
