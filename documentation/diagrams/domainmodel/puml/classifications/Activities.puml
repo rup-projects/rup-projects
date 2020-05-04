@@ -38,33 +38,39 @@ namespace Time {
   }
 }
 
-Disciplines.RequirementsDiscipline <-down- Time.Activities.EncontrarActoresyCasosdeUso
-Disciplines.RequirementsDiscipline <-down- Time.Activities.PriorizarCasosdeUso
-Disciplines.RequirementsDiscipline <-down- Time.Activities.DetallarCasodeUso
-Disciplines.RequirementsDiscipline <-down- Time.Activities.EstructurarCasosdeUso
-Disciplines.RequirementsDiscipline <-down- Time.Activities.PrototiparInterfazdeUsuario
+Disciplines.Reruirements <-down- Time.Activities.EncontrarActoresyCasosdeUso
+Disciplines.Reruirements <-down- Time.Activities.PriorizarCasosdeUso
+Disciplines.Reruirements <-down- Time.Activities.DetallarCasodeUso
+Disciplines.Reruirements <-down- Time.Activities.EstructurarCasosdeUso
+Disciplines.Reruirements <-down- Time.Activities.PrototiparInterfazdeUsuario
 
-Disciplines.AnalysisDiscipline <-down- Time.Activities.AnalisisdelaArquitectura
-Disciplines.AnalysisDiscipline <-down- Time.Activities.AnalisisdeCasodeUso
-Disciplines.AnalysisDiscipline <-down- Time.Activities.AnalisisdeClase
-Disciplines.AnalysisDiscipline <-down- Time.Activities.AnalisisdePaquete
+Disciplines.Analysis <-down- Time.Activities.AnalisisdelaArquitectura
+Disciplines.Analysis <-down- Time.Activities.AnalisisdeCasodeUso
+Disciplines.Analysis <-down- Time.Activities.AnalisisdeClase
+Disciplines.Analysis <-down- Time.Activities.AnalisisdePaquete
 
-Disciplines.DesignDiscipline <-down- Time.Activities.DisenyodelaArquitectura
-Disciplines.DesignDiscipline <-down- Time.Activities.DisenyodeCasodeUso
-Disciplines.DesignDiscipline <-down- Time.Activities.DisenyodeClase
-Disciplines.DesignDiscipline <-down- Time.Activities.DisenyodePaquete
+Disciplines.Design <-down- Time.Activities.DisenyodelaArquitectura
+Disciplines.Design <-down- Time.Activities.DisenyodeCasodeUso
+Disciplines.Design <-down- Time.Activities.DisenyodeClase
+Disciplines.Design <-down- Time.Activities.DisenyodePaquete
 
-Disciplines.ImplementationDiscipline <-down- Time.Activities.ImplementarlaArquitectura
-Disciplines.ImplementationDiscipline <-down- Time.Activities.IntegraciondeSistemas
-Disciplines.ImplementationDiscipline <-down- Time.Activities.ImplementarClase
-Disciplines.ImplementationDiscipline <-down- Time.Activities.PruebasUnitarias
-Disciplines.ImplementationDiscipline <-down- Time.Activities.ImplementarSubsistema
+Disciplines.Implementation <-down- Time.Activities.ImplementarlaArquitectura
+Disciplines.Implementation <-down- Time.Activities.IntegraciondeSistemas
+Disciplines.Implementation <-down- Time.Activities.ImplementarClase
+Disciplines.Implementation <-down- Time.Activities.PruebasUnitarias
+Disciplines.Implementation <-down- Time.Activities.ImplementarSubsistema
 
-Disciplines.TestDiscipline <-down- Time.Activities.PlanificarPruebas
-Disciplines.TestDiscipline <-down- Time.Activities.DisenyarPruebas
-Disciplines.TestDiscipline <-down- Time.Activities.ImplementarPruebas
-Disciplines.TestDiscipline <-down- Time.Activities.RealizarPruebasdeIntegracion
-Disciplines.TestDiscipline <-down- Time.Activities.RealizarPruebasdeSistemas
-Disciplines.TestDiscipline <-down- Time.Activities.EvaluarPruebas
+Disciplines.Test <-down- Time.Activities.PlanificarPruebas
+Disciplines.Test <-down- Time.Activities.DisenyarPruebas
+Disciplines.Test <-down- Time.Activities.ImplementarPruebas
+Disciplines.Test <-down- Time.Activities.RealizarPruebasdeIntegracion
+Disciplines.Test <-down- Time.Activities.RealizarPruebasdeSistemas
+Disciplines.Test <-down- Time.Activities.EvaluarPruebas
 
+
+
+    Time.Activity o-down- "uses" Artifacts.Artifact
+    Time.Activity o-down- "creates" Artifacts.Artifact
+    Time.Activity o-down- "modifies" Artifacts.Artifact
+    
 @enduml
