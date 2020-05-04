@@ -25,7 +25,8 @@ Time.Iteration *-- "1..*" Time.IterationDiscipline
 Time.IterationDiscipline *-- "enum" Time.DisciplineType
 Time.IterationDiscipline *- "1..*" Time.Activity
 Resources.Team *-- "1..*" Resources.Member
-Time.Activity "1..*" o- "1..*" Resources.Member
+Resources.Member *-- "1" Resources.WorkLog
+Resources.WorkLog --> "0..*" Time.Activity
 Time.Activity o-- Resources.Rol
 Resources.Member o-- Resources.Rol
 

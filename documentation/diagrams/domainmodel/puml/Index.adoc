@@ -6,6 +6,10 @@
 === Index
 <<_general>>
 
+<<_environment>>
+
+<<_risks>>
+
 <<_time>>
 
 <<_resources>>
@@ -24,6 +28,23 @@
 ----
 include::General.puml[]
 ----
+<<_index>>
+
+[#_environment]
+=== Environment
+[plantuml,svg,align="center"]
+----
+include::environment/Environment-A.puml[]
+----
+<<_index>>
+
+[#_risks]
+=== Risks
+[plantuml,svg,align="center"]
+----
+include::risk/Risk-A.puml[]
+----
+<<_index>>
 
 [#_time]
 === Time
@@ -48,6 +69,13 @@ include::resources/Resources.puml[]
 [plantuml,svg,align="right"]
 ----
 include::time/Time-Resources.puml[]
+----
+<<_time>>
+
+=== Time & Resources (ilya)
+[plantuml,svg,align="right"]
+----
+include::time/Time-Resources-ilya.puml[]
 ----
 <<_time>>
 

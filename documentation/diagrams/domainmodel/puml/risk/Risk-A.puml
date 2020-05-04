@@ -28,7 +28,7 @@ Enum RiskType
 'Naturaleza, contexto, origen o aspecto que determina un riesgo.
 
 Class Impact
-'Efecto o conjunto de efectos prodicidos por un riesgo en las actividades 
+'Efecto o conjunto de efectos producidos por un riesgo en las actividades 
 'o artefactos de un proyecto.
 
 Enum ImpactType
@@ -50,17 +50,17 @@ Class RiskResponse
 Discipline <|-- ProjectManagement
 ProjectManagement o-- RiskManagement  
 ProjectOjective <.. RiskManagement 
-ListRisk <.. RiskProjection  
 
-RiskManagement o-- ListRisk
-Risk o-- ProjectOjective
 RiskType --o Risk
-Risk o--- RiskAssessment
+RiskManagement *-- ListRisk
+Risk o-- ProjectOjective
+Risk *-- RiskAssessment
 Risk o-- RiskResponse
 Risk --o ListRisk
+RiskManagement *-- RiskProjection 
 ImpactType --o Impact 
+Impact <.. RiskAssessment
 Impact --o RiskResponse
-Impact ---o RiskAssessment
-Impact --o RiskProjection
+
 
 @enduml
