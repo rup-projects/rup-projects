@@ -13,6 +13,8 @@ Class Resources.Team
 Class Risks.Risk
 Class Artifacts.Artifact
 
+Class Process
+
 Abstract Class Time.Activity
 Class Resources.Member
 
