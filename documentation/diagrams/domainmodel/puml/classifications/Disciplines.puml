@@ -10,19 +10,19 @@ namespace Disciplines {
     Abstract Class Technical extends Discipline
     Abstract Class Support extends Discipline
     
-    Class DomainModel extends Technical
+    Class BussinessEngineering extends Technical
     Class Requirements extends Technical
     Class Analysis extends Technical
     Class Design extends Technical
     Class Implementation extends Technical
     Class Test extends Technical
 
-    Class Management extends Support
+    Class ProjectManagement extends Support
     Class Environment extends Support
     Class ConfigAndChangeManagement extends Support
     Class Deployment extends Support
 
-    DomainModel <-- "depends on" Requirements
+    BussinessEngineering <-- "depends on" Requirements
     Requirements <-- "depends on" Analysis
     Analysis <-- "depends on" Design
     Design <-- "depends on" Implementation

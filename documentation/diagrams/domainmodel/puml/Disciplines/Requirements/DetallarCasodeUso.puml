@@ -1,0 +1,30 @@
+@startuml
+
+  set namespaceSeparator .
+  
+  Time.Activities.PriorizarCasosdeUso ..> "next" Time.Activities.DetallarCasodeUso
+  Time.Activities.DetallarCasodeUso <.right. Roles.UseCaseEspecificator
+  Time.Activities.DetallarCasodeUso ..> "next" Time.Activities.EstructurarCasosdeUso
+  Time.Activities.DetallarCasodeUso ..> "next" Time.Activities.PrototiparInterfazdeUsuario
+
+  Time.Activities.DetallarCasodeUso <.. Artifacts.UseCaseView
+  Time.Activities.DetallarCasodeUso <.. "uno en concreto" Artifacts.UseCaseDiagram
+  Time.Activities.DetallarCasodeUso <.. Artifacts.RequisitosSuplementarios
+  Time.Activities.DetallarCasodeUso <.. Artifacts.Glosary
+  Artifacts.UseCaseView <.left. Artifacts.UseCaseDiagram
+
+  Time.Activities.DetallarCasodeUso .> Artifacts.DetalledUseCase
+
+  namespace Artifacts {
+    namespace UMLDiagrams {
+    }
+    DetalledUseCase <-- "1..*" Artifacts.UMLDiagrams.UseCaseDiagram
+    DetalledUseCase <-- "0..*" Artifacts.UMLDiagrams.StateDiagram
+    DetalledUseCase <-- "0..*" Artifacts.UMLDiagrams.PackageDiagram
+    'DetalledUseCase <-- "0..*" Artifacts.UMLDiagrams.SequenceDiagram
+    'DetalledUseCase <-- "0..*" Artifacts.UMLDiagrams.ActivityDiagram
+    'DetalledUseCase <-- "0..*" Artifacts.UMLDiagrams.InteractionDiagram
+    DetalledUseCase <-- "as needed" UMLDiagram
+  }
+
+@enduml

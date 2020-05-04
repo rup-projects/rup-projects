@@ -35,6 +35,8 @@ namespace Time {
     Class RealizarPruebasdeIntegracion extends Time.Activity
     Class RealizarPruebasdeSistemas extends Time.Activity
     Class EvaluarPruebas extends Time.Activity
+
+    Class DefineDomainModel extends Time.Activity
   }
 }
 
@@ -67,6 +69,7 @@ Disciplines.Test <-down- Time.Activities.RealizarPruebasdeIntegracion
 Disciplines.Test <-down- Time.Activities.RealizarPruebasdeSistemas
 Disciplines.Test <-down- Time.Activities.EvaluarPruebas
 
+Disciplines.BussinessEngineering <-down- Time.Activities.DomainModel
 
 
     Time.Activity o-down- "uses" Artifacts.Artifact

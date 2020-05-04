@@ -14,6 +14,7 @@ Class Risks.Risk
 Class Artifacts.Artifact
 
 Class Process
+Class FlujoTrabajo
 
 Abstract Class Time.Activity
 Class Resources.Member

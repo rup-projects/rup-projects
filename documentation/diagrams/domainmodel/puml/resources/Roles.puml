@@ -4,6 +4,8 @@ namespace Resources {
   Class Rol
  
   namespace Roles {
+    Class DomainAnalist extends Resources.Rol
+    Class DomainExpert extends Resources.Rol
     Class ProjectManager extends Resources.Rol
     Class SistemAnalist extends Resources.Rol
     Class Arquitech extends Resources.Rol
