@@ -1,0 +1,30 @@
+@startuml
+
+top to bottom direction
+title Domain Model RUP Management - General
+
+Class Project
+Abstract Class Time.Phase
+Class Time.Iteration
+Class Time.Discipline
+Class Resources.Rol
+Class Resources.Team
+Class Risks.Risk
+Class Artifacts.Artifact
+
+Abstract Class Time.Activity
+Class Resources.Member
+
+Project *-- Risks.Risk
+Project o-- "1" Resources.Team
+Project *-- Artifacts.Artifact
+Project *-- "4" Time.Phase
+Time.Iteration o-- "1..*" Time.Phase 
+Time.Activity "1..*" --o Time.Phase
+Time.Discipline "1..*" <.. Time.Activity
+Resources.Team o-- "1..*" Resources.Member
+Resources.Member *-- "1" Resources.WorkLog
+'Time.Activity o-- Resources.Rol
+Resources.Member o-- Resources.Rol
+
+@enduml

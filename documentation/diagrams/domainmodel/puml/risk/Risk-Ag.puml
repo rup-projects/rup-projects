@@ -1,0 +1,22 @@
+@startuml
+top to bottom direction
+skinparam shadowing false
+skinparam objectFontSize 18
+scale max 1600 width
+title Domain Model RUP Management - Risks
+
+Class Risk
+'Posiblidad de contratiempo o fallo en una actividad dirigida por objetivos.
+
+Enum RiskType
+'Naturaleza, contexto, origen o aspecto que determina un riesgo.
+
+Class Impact
+'Efecto o conjunto de efectos producidos por un riesgo en las actividades 
+'o artefactos de un proyecto.
+
+Risk o-- RiskType
+Risk -- ProjectOjective
+Risk -- Impact
+
+@enduml

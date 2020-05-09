@@ -1,0 +1,23 @@
+@startuml
+top to bottom direction
+skinparam shadowing false
+skinparam objectFontSize 18
+scale max 1600 width
+title Domain Model RUP Management - Environment
+
+Abstract Class Activity
+'Cada una de tareas asignadas a un flujo de trabajo en cada una de las 
+'disciplinas (requisitos, análisis, diseño, etc).
+
+Class Environment
+'Disciplina UP encargada de establecer el marco de desarrollo del proyecto 
+'organizando los procesos y herramientas.
+
+Class Tool
+'Mecanismo o técnica necesarios para desarrollar un trabajo de manera satisfactoria.
+
+Phase ..> Environment 
+Environment ..> Tool 
+Activity --o Environment
+
+@enduml
