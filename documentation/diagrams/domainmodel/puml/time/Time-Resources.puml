@@ -3,24 +3,22 @@ top to bottom direction
 skinparam Linetype ortho
 
 'Time
-Phase *- "1..*" Iteration
-Phase *- "1" Milestone
-Milestone o-- "1" DateRange
-Iteration *- "1..*" IterationDiscipline
-IterationDiscipline *-- "1..*" Activity
+Time.Project *-- "4" Time.Phase
+Time.Phase *-- "1..*" Time.Iteration
+Time.Iteration *-- "1..*" Time.Discipline
+Time.Discipline *-- "1..*" Time.Activity
 
-Phase *-- "starts&ends" DateRange
-Iteration *-- "starts&ends" DateRange
-Activity *-- "starts&ends" DateRange
+Time.Phase *-- "2" Time.DateRange
+Time.Iteration *-- "2" Time.DateRange
+Time.Activity *- "2" Time.DateRange
 
 'Resources
-Team *-- "1..*" Member
-Member "0..*" o- "0..* skills" Rol
-Member *-- DaysOff
+Resources.Team *-down- "1..*" Resources.Member
+Resources.Member *-- "0..*" Resources.Rol : skills
+Resources.Member *-- "1" Resources.JornadaLaboral
 
 'Resources - Time
-Activity o-- "required Rol" Rol
-Member *-- "0..*" WorkLog
-Activity <- "1..*" WorkLog
-DaysOff --> DateRange
+Resources.JornadaLaboral *-- "*" Time.DateRange : Holidays
+Time.Activity ..> Resources.Rol
+Time.Activity o-- "1" Resources.Member
 @enduml

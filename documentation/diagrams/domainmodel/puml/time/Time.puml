@@ -1,44 +1,30 @@
 @startuml
 top to bottom direction
 skinparam Linetype ortho
-'Una disciplina tiene la misma fecha inicio final, que la iteracion
-'a la que pertenece, y es un conjunto de actividades dedicadas a esa
-'disciplina
+'Discipline: Intervalo de tiempo, tiene la misma fecha inicio final, que su iteración
+
 'Cada fase finaliza con un hito. Cada hito se determina por la disponibilidad de un
 'conjunto de artefactos, es decir un conjunto de modelos o documentos que han sido
 'desarrollados hasta alcanzar un estado predefinido.
+
 'Milestone relacionado con los artefactos que se entregan
 
-Class Project
-Class Phase
-Class Iteration
-Class DisciplineType
-Class Calendar
-Class WorkLog
+Class Time.Project
+Class Time.Phase
+Class Time.Iteration
+Class Time.Discipline {
+DisciplineType
+}
+Abstract Class Time.Activity {
+ spentHours
+}
 
-Project *-- "4" Phase
-Phase *- "1..*" Iteration
-Iteration *-- "1..*" IterationDiscipline
-IterationDiscipline *-- "enum" DisciplineType
-IterationDiscipline *-- "1..*" Activity
-Activity <-right "1..*" WorkLog
+Time.Project *-- "4" Time.Phase
+Time.Phase *-- "1..*" Time.Iteration
+Time.Iteration *-- "1..*" Time.Discipline
+Time.Discipline *-- "1..*" Time.Activity
 
-'comentar con Luis
-Calendar *-- "1..*" DateRange
-Calendar .up.> "0..1" Project
-Calendar ..> "0..1" Phase
-Calendar ..> "0..*" Iteration
-Calendar ..> "0..*" IterationDiscipline
-Calendar ..> "0..*" Activity
-
-Project *-- "starts&ends" DateRange
-Phase *-- "starts&ends" DateRange
-Iteration *-- "starts&ends" DateRange
-Activity *-- "starts&ends" DateRange
-
-'TODO: en el diagrama de Marcos, existen las clases Hito, Incremento y Software
-'que aquí no estan reflejados... que conceptos son estos???
-
-'TODO: todos los "starts&ends" DateRange no deberian ser una clase auxiliar "IntervaloFechas" o algo así
-
+Time.Phase *-- "2" Time.DateRange
+Time.Iteration *-- "2" Time.DateRange
+Time.Activity *- "2" Time.DateRange
 @enduml
