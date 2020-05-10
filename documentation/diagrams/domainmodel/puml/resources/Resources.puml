@@ -19,7 +19,7 @@ Class Resources.Member {
 }
 
 Resources.Team *-down- "1..*" Resources.Member
-Resources.Member o-- "0..*" Resources.Rol : skills
+Resources.Member *-- "0..*" Resources.Rol : skills
 Resources.Member *-- "1" Resources.JornadaLaboral
 }
 
