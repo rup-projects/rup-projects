@@ -10,6 +10,7 @@ Class Resources.Team
 Class Resources.JornadaLaboral {
     WorkingHoursDays
     WorkingDaysMonth
+'   VolumenDeHoras
 }
 Class Resources.Rol
 Class Resources.Member {
