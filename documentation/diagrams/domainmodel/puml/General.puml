@@ -12,7 +12,6 @@ Class Resources.Rol
 Class Resources.Team
 Class Risks.Risk
 Class Artifacts.Artifact
-
 Abstract Class Time.Activity
 Class Resources.Member
 
@@ -20,9 +19,11 @@ Project *-- Risks.Risk
 Project *-- "1" Resources.Team
 Project *-- Artifacts.Artifact
 Project *-- "4" Time.Phase
+
 Time.Phase *-- "1..*" Time.Iteration
 Time.Iteration *-- "1..*" Time.Discipline
 Time.Discipline *- "1..*" Time.Activity
+
 Resources.Team *-- "1..*" Resources.Member
 Resources.Member *-- "1" Resources.WorkLog
 Resources.Member o-- Resources.Rol
@@ -32,5 +33,4 @@ Artifacts.Artifact *-- Artifacts.DesignView
 Artifacts.Artifact *-- Artifacts.ImplementationView
 Artifacts.Artifact *-- Artifacts.DeploymentView
 Artifacts.Artifact *-- Artifacts.ProcessView
-
 @enduml
