@@ -6,27 +6,20 @@ skinparam Linetype ortho
 namespace Resources {
     
 'Objects
-Class Team
-Class Cost
-Class WorkingDaysMonth
-Class WorkingHoursDays
-Class ContractType
-Class Holidays
-Class Rol
-Class Member
+Class Resources.Team
+Class Resources.JornadaLaboral {
+    WorkingHoursDays
+    WorkingDaysMonth
+}
+Class Resources.Rol
+Class Resources.Member {
+    ContractType
+    Cost
+}
 
-Team *- JornadaLaboral
-Team *-down- "1..*" Member
-
-JornadaLaboral *-- WorkingDaysMonth
-JornadaLaboral *-- WorkingHoursDays
-
-Member "0..*" o- "0..* skills" Rol
-Member *-down- Cost : cost/hour
-Member *-left- ContractType
-Member *-- Holidays
-Member *-- WorkLog
-
+Resources.Team *-down- "1..*" Resources.Member
+Resources.Member o-- "0..*" Resources.Rol : skills
+Resources.Member *-- "1" Resources.JornadaLaboral
 }
 
 @enduml
