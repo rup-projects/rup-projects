@@ -12,29 +12,19 @@ skinparam Linetype ortho
 Class Time.Project
 Class Time.Phase
 Class Time.Iteration
-Class Time.Discipline
-Class Time.DisciplineType
-Class Time.Calendar
+Class Time.Discipline {
+DisciplineType
+}
+Abstract Class Time.Activity {
+ spentHours
+}
 
 Time.Project *-- "4" Time.Phase
-Time.Phase *- "1..*" Time.Iteration
+Time.Phase *-- "1..*" Time.Iteration
 Time.Iteration *-- "1..*" Time.Discipline
-Time.Discipline *-- "enum" Time.DisciplineType
 Time.Discipline *-- "1..*" Time.Activity
 
-Time.Calendar .up.> "0..1" Time.Project
-Time.Calendar ..> "0..1" Time.Phase
-Time.Calendar ..> "0..*" Time.Iteration
-Time.Calendar ..> "0..*" Time.Discipline
-Time.Calendar ..> "0..*" Time.Activity
-
-Time.Phase *-- "starts&ends" Time.DateRange
-Time.Iteration *-- "starts&ends" Time.DateRange
-Time.Activity *-- "starts&ends" Time.DateRange
-
-'TODO: en el diagrama de Marcos, existen las clases Hito, Incremento y Software
-'que aquí no estan reflejados... que conceptos son estos???
-
-'TODO: todos los "starts&ends" DateRange no deberian ser una clase auxiliar "IntervaloFechas" o algo así
-
+Time.Phase *-- "2" Time.DateRange
+Time.Iteration *-- "2" Time.DateRange
+Time.Activity *- "2" Time.DateRange
 @enduml
