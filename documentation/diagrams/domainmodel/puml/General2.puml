@@ -1,0 +1,25 @@
+@startuml
+top to bottom direction
+skinparam Linetype ortho
+
+Class Project
+Class Phase
+Class Iteration
+Class Activity
+Class Discipline
+Class UseOfCase
+Class Member
+Class Role
+
+Project o--> Phase
+Phase o-> Iteration
+Iteration o-> Activity
+Activity -> Discipline
+UseOfCase o--> Activity
+
+
+Project o---> Member
+Member *-> Role
+Activity o--> Role
+
+@enduml
