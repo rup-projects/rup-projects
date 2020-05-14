@@ -13,7 +13,7 @@ Enum RiskType
 
 Class Impact
 'Efecto o conjunto de efectos producidos por un riesgo en las actividades 
-'o artefactos de un proyecto.
+'y artefactos de un proyecto.
 
 Risk o-- RiskType
 Risk -- ProjectOjective
