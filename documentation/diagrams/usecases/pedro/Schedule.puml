@@ -1,0 +1,9 @@
+@startuml
+left to right direction
+
+:Manager: --> (Visualize calendar with active members)
+:Manager: --> (Visualize backlog)
+:Manager: --> (Assign task to member)
+:Manager: --> (Re-estimate task)
+
+@enduml

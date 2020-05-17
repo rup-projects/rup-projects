@@ -1,0 +1,6 @@
+@startuml
+left to right direction
+
+:Manager: --> (Crud UseOfCase)
+:Manager: --> (Visualize UseOfCases)
+@enduml

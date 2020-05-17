@@ -1,0 +1,20 @@
+@startuml
+left to right direction
+
+(Configure project dates) as (configureProjectDates)
+(Visualize planning) as (visualizePlanning)
+
+:Manager: --> (configureProjectDates)
+:Manager: --> (visualizePlanning)
+
+note right of (configureProjectDates)
+    Init, end Date, number of iterations
+    and others necessary parameters to create
+    the planning.
+end note
+
+note right of (visualizePlanning)
+    All calculated phases, dates, etc.
+end note
+
+@enduml
