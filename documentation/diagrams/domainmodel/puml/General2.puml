@@ -11,15 +11,17 @@ Class UseOfCase
 Class Member
 Class Role
 
-Project o--> Phase
-Phase o-> Iteration
-Iteration o-> Activity
-Activity -> Discipline
-UseOfCase o--> Activity
+Project *--> Phase
+Phase *-> Iteration
+Iteration *-> Activity
+Activity <-* Discipline
+UseOfCase <-- Activity
+Project *--> UseOfCase
 
-
-Project o---> Member
+Project *---> Member
 Member *-> Role
 Activity o--> Role
+
+Activity --> Member
 
 @enduml
