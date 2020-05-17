@@ -10,11 +10,9 @@ Class Time.Iteration
 Class Time.Discipline
 Class Resources.Rol
 Class Resources.Team
-Class Risks.Risk
 Abstract Class Time.Activity
 Class Resources.Member
 
-Project *-- Risks.Risk
 Project *-- "1" Resources.Team
 Project *-- "4" Time.Phase
 
@@ -26,12 +24,5 @@ Resources.Team *-- "1..*" Resources.Member
 Resources.Member *-- "1" Resources.JornadaLaboral
 Resources.Member *-- Resources.Rol
 
-Project *-- Artifacts.UseCaseView
-Project *-- Artifacts.DesignView
-Project *-- Artifacts.ImplementationView
-Project *-- Artifacts.DeploymentView
-Project *-- Artifacts.ProcessView
-
-Artifacts.DesignView -[hidden]down-> Artifacts.ImplementationView
-Artifacts.ProcessView -[hidden]down-> Artifacts.DeploymentView
+Project *-- Scope.UseCase
 @enduml

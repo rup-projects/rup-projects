@@ -1,13 +1,7 @@
 @startuml
 top to bottom direction
+title Domain Model RUP Management - Time
 skinparam Linetype ortho
-'Discipline: Intervalo de tiempo, tiene la misma fecha inicio final, que su iteración
-
-'Cada fase finaliza con un hito. Cada hito se determina por la disponibilidad de un
-'conjunto de artefactos, es decir un conjunto de modelos o documentos que han sido
-'desarrollados hasta alcanzar un estado predefinido.
-
-'Milestone relacionado con los artefactos que se entregan
 
 Class Time.Project
 Class Time.Phase
@@ -24,7 +18,9 @@ Time.Phase *-- "1..*" Time.Iteration
 Time.Iteration *-- "1..*" Time.Discipline
 Time.Discipline *-- "1..*" Time.Activity
 
-Time.Phase *-- "2" Time.DateRange
-Time.Iteration *-- "2" Time.DateRange
-Time.Activity *- "2" Time.DateRange
+Time.Phase *-- "2" Time.Interval
+Time.Iteration *-- "2" Time.Interval
+Time.Activity *- "2" Time.Interval
+
+Time.Interval *- "2" Time.Date
 @enduml
