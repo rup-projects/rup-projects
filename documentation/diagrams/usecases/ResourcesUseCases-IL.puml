@@ -1,23 +1,10 @@
 @startuml
 left to right direction
 
-(asignar rol) as (addRole)
-(consultar recursos) as (readResources)
+:Manager: --> (create resource)
+:Manager: --> (show resource)
+:Manager: --> (list resource)
+:Manager: --> (edit resource)
+:Manager: --> (delete resource)
 
-:Manager: --> (crear recurso)
-:Manager: --> (consultar recurso)
-:Manager: --> (readResources)
-:Manager: --> (modificar recurso)
-:Manager: --> (eliminar recurso)
-:Manager: --> (quitar rol)
-:Manager: --> (addRole)
-
-note right of (addRole)
-    Tambien lo veo como info basica
-    y que sea implicito en edit Resourse
-end note
-
-note right of (readResources)
-    ¿es suficiente con el de consultar 1 recurso?
-end note
 @enduml
