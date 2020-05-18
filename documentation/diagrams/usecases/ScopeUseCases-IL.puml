@@ -1,15 +1,10 @@
 @startuml
 left to right direction
 
-:Manager: --> (crear caso de uso)
-:Manager: --> (consultar caso de uso)
-:Manager: --> (edit caso de uso)
-:Manager: --> (eliminar caso de uso)
-:Manager: --> (priorizar caso de uso)
-:Manager: --> (consultar estado Disciplina del caso de uso)
-:Manager: --> (consultar diagrama de \n la Disciplina  del caso de uso)
-:Manager: --> (añadir diagrama de \n la Disciplina  del caso de uso)
-
-:Time: --> (actualizar estado Disciplina del caso de uso)
+:Manager: --> (create use case)
+:Manager: --> (list use cases)
+:Manager: --> (edit use case)
+:Manager: --> (delete use case)
+:Manager: --> (prioritize use case)
 
 @enduml

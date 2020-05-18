@@ -1,38 +1,14 @@
 @startuml
 left to right direction
-(planificar proyecto) as (planProject)
-
+(plan project) as (planProject)
 
 :Manager: --> (planProject)
-:Manager: --> (consultar zoom por Proyecto)
-:Manager: --> (editar DiasPorItetacion)
-:Manager: --> (consultar zoom por Fase)
-:Manager: --> (planificar Fase)
-:Manager: --> (consultar zoom por Iteracion)
-:Manager: --> (planificar Iteracion)
-:Manager: --> (editar Fechas de una Iteración especifica)
-:Manager: --> (consultar zoom por Semana)
-:Manager: --> (consultar vista zoom por Dia)
-:Manager: --> (consultar volumen de dias por zoom especifico)
-:Manager: --> (consultar volumen de dias transcurridos por zoom especifico)
-:Manager: --> (consultar utilización de un recurso por zoom especifico)
-:Manager: --> (consultar valumen de horas por zoom especifico)
-:Manager: --> (consultar la jornada laboral de un recurso durante una iteracion especifica)
-:Manager: --> (consultar el stock de "pastillas de horas" disponibles para asignar a un recurso)
-:Manager: --> (consultar las "pastillas de horas" asignadas a un recurso)
-:Manager: --> (asignar una "pastillas de horas" a un recurso especifico)
-:Manager: --> (editar tamaño de una pastilla de horas asignada a un recurso especifico)
-:Manager: --> (editar tamaño de una pastilla de horas sin asignar)
-:Manager: --> (editar informacion de una pastilla de horas sin asignar)
-:Manager: --> (mover una pastillas de horas asignada a un recurso especifico a otro recurso)
-:Manager: --> (mover una pastillas de horas asignada a un recurso especifico al stock de pastillas de horas)
+:Manager: --> (show project)
+:Manager: --> (plan phase)
+:Manager: --> (plan Iteration)
+:Manager: --> (move activity)
+:Manager: --> (re-size activity)
+:Manager: --> (split activity)
 
-
-:Manager: --> (consultar horas por recurso por unidad de tiempo)
-
-
-note right of (planProject)
-  Fechas y costes
-end note
 
 @enduml
