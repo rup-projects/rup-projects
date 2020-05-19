@@ -1,6 +1,10 @@
 @startuml
 left to right direction
 
-:Manager: --> (Crud UseOfCase)
+:Manager: --> (Create UseOfCase)
+:Manager: --> (Show UseOfCase)
+:Manager: --> (Update UseOfCase)
+:Manager: --> (Delete UseOfCase)
+
 :Manager: --> (Visualize UseOfCases)
 @enduml
