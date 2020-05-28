@@ -1,12 +1,20 @@
 @startuml
 
-[*] --> OPENED_PROJECT : Open project
-OPENED_PROJECT --> [*] : Close project
-USE_CASES_MANAGEMENT --> [*] : Close project
-RESOURCE_MANAGEMENT --> [*] : Close project
-OPENED_CHRONOGRAPH --> [*] : Close project
+[*] --> INITIAL_STATE
+INITIAL_STATE --> [*]
 
-[*] --> OPENED_PROJECT : Create project
+OPENED_PROJECT --> [*]
+USE_CASES_MANAGEMENT --> [*]
+RESOURCE_MANAGEMENT --> [*]
+OPENED_CHRONOGRAPH --> [*]
+
+INITIAL_STATE --> OPENED_PROJECT : Open project
+OPENED_PROJECT --> INITIAL_STATE : Close project
+USE_CASES_MANAGEMENT --> INITIAL_STATE : Close project
+RESOURCE_MANAGEMENT --> INITIAL_STATE : Close project
+OPENED_CHRONOGRAPH --> INITIAL_STATE : Close project
+
+INITIAL_STATE --> OPENED_PROJECT : Create project
 OPENED_PROJECT --> OPENED_PROJECT : Save project
 OPENED_PROJECT --> USE_CASES_MANAGEMENT : Show use cases
 USE_CASES_MANAGEMENT --> USE_CASES_MANAGEMENT : Create use case \n Edit use case \n Delete use case \n Save project
