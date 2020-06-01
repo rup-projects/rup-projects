@@ -1,0 +1,8 @@
+@startuml
+title Use case: Open iteration
+[*] --> IDENTIFIED_RISKS
+IDENTIFIED_RISKS --> PRIORITIZED_USE_CASES : Assess risks
+PRIORITIZED_USE_CASES --> ESTABLISHED_GOALS : Set iteration goals
+ESTABLISHED_GOALS --> ESTABLISHED_EVALUATION_CRITERIA : Establish evaluation criteria
+ESTABLISHED_EVALUATION_CRITERIA --> [*]
+@enduml
