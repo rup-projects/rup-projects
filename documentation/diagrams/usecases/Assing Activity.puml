@@ -1,0 +1,15 @@
+@startuml
+
+[*] --> ACTIVITY_SELECTED : Select Activity From Column (Any)
+ACTIVITY_SELECTED --> MOVING_ACTIVITY : Move Activity 
+state HasCapacity <<choice>>
+MOVING_ACTIVITY --> HasCapacity : Release Activity In Column (Any)
+HasCapacity --> MOVING_ACTIVITY : Not Has Capacity
+HasCapacity --> ACTIVITY_SET : Has Capacity
+
+
+ACTIVITY_SET --> [*]
+ACTIVITY_SELECTED --> [*] : Cancel
+MOVING_ACTIVITY --> [*] : Cancel
+
+@enduml
