@@ -1,8 +1,8 @@
 @startuml
 left to right direction
 
-(Configure projec) as (configureProjectDates)
-(Visualize planning) as (visualizePlanning)
+(Create project) as (configureProjectDates)
+(Visualize project) as (visualizePlanning)
 
 :Manager: --> (configureProjectDates)
 :Manager: --> (visualizePlanning)

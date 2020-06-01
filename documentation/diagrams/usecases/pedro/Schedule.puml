@@ -1,9 +1,0 @@
-@startuml
-left to right direction
-
-:Manager: --> (Open project)
-:Manager: --> (Assign task)
-:Manager: --> (Re-estimate task)
-:Manager: --> (Split task)
-
-@enduml
