@@ -1,0 +1,9 @@
+@startuml
+
+[*] --> IterationOpened : open iteration
+IterationOpened --> ActivityOpened : Open activity
+ActivityOpened --> IterationOpened : Close activity
+
+ActivityOpened --> ActivityOpened : Save \n Edit estimation \n Assign member
+
+@enduml

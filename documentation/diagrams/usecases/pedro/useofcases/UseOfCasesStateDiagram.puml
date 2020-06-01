@@ -1,0 +1,10 @@
+@startuml
+
+[*] --> scopeOpened : open scope
+scopeOpened --> useOfCaseOpened : create \n edit
+
+useOfCaseOpened --> useOfCaseOpened : save \n fill fields
+
+useOfCaseOpened --> scopeOpened : close
+
+@enduml

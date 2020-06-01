@@ -1,0 +1,10 @@
+@startuml
+
+[*] --> Overview
+Overview --> ProjectOpened : open project
+ProjectOpened --> Overview : close
+ProjectOpened --> ProjectOpened : Fill init date
+ProjectOpened --> ProjectOpened : Fill end date
+ProjectOpened --> ProjectOpened : Fill number iteration
+
+@enduml
