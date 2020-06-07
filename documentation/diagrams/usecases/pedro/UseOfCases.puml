@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+
+:Manager: --> (Open project)
+:Manager: --> (Plan project)
+:Manager: --> (Delete project)
+
+:Manager: --> (Open use of cases)
+:Manager: --> (Create use of case)
+:Manager: --> (Remove use of case)
+:Manager: --> (Edit use of case)
+:Manager: --> (Prioritize use of case)
+
+:Manager: --> (Create member)
+:Manager: --> (Edit member)
+:Manager: --> (Show members)
+
+:Manager: --> (Assign activity)
+:Manager: --> (Re-estimate activity)
+:Manager: --> (Split activity)
+:Manager: --> (Close activity)
+:Manager: --> (Join activity)
+
+@enduml
