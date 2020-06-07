@@ -1,8 +1,0 @@
-@startuml
-left to right direction
-
-:Manager: --> (Assign activity)
-:Manager: --> (Re-estimate activity)
-:Manager: --> (Split activity)
-
-@enduml
