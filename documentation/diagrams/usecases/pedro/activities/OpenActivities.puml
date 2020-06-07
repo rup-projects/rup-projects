@@ -1,0 +1,26 @@
+@startuml
+
+state openActivities {
+    state 1 <<choice>>
+
+    [*] --> 1 : Manager request to open activities
+    1 --> [*] : System shows all activities
+}
+
+openActivities --> assignActivity
+
+state assignActivity {
+    state 3 <<choice>>
+    state 4 <<choice>>
+    state 5 <<choice>>
+    state 6 <<choice>>
+
+    [*] --> 3 : System show all the activities
+    3 --> 4 : User request to assign an assign an activity
+    4 --> 5 : System allows \nto select a member \nto assign the assignActivity
+    5 --> 6 : User select a member
+    6 -left-> 3 : System assign \nthe activity to the \nselected member
+}
+
+
+@enduml
