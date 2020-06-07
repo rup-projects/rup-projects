@@ -1,6 +1,6 @@
 @startuml
 
-state createUseCase {
+state editUseCase {
     state 1 <<choice>>
     state 2 <<choice>>
     state 3 <<choice>>
@@ -8,7 +8,6 @@ state createUseCase {
     state 5 <<choice>>
     state 6 <<choice>>
     state 7 <<choice>>
-    state 8 <<choice>>
 
     [*] --> 1 : Manager request to open use cases
     1 --> 2 : System shows all use of cases

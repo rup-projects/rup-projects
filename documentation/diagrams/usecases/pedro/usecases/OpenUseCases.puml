@@ -1,29 +1,10 @@
 @startuml
 
-
-
 state openUseCases {
     state 1 <<choice>>
 
     [*] --> 1 : Manager request to open use cases
     1 --> [*] : System shows all use of cases
-}
-
-openUseCases --> createUseCase
-
-state createUseCase {
-  state 1 <<choice>>
-  state 2 <<choice>>
-  state 3 <<choice>>
-  state 4 <<choice>>
-  state 5 <<choice>>
-
-  [*] --> 2 : Manager request to create a new use case
-  2 --> 3 : System allows to provide the information for the use case
-  3 --> 4 : Manager provide the use case information
-  4 --> 5 : Manager request to create the use case
-  5 --> [*] : System creates the use case
-
 }
 
 @enduml
