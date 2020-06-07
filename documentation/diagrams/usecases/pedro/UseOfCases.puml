@@ -1,24 +1,34 @@
 @startuml
 left to right direction
 
-:Manager: --> (Open project)
-:Manager: --> (Plan project)
-:Manager: --> (Delete project)
+actor "Manager" as manager
 
-:Manager: --> (Open use of cases)
-:Manager: --> (Create use of case)
-:Manager: --> (Remove use of case)
-:Manager: --> (Edit use of case)
-:Manager: --> (Prioritize use of case)
+package project {
+:manager: --> (Open project)
+:manager: --> (Plan project)
+:manager: --> (Delete project)
+}
 
-:Manager: --> (Create member)
-:Manager: --> (Edit member)
-:Manager: --> (Show members)
+package UseCases {
+:manager: --> (Open use of cases)
+:manager: --> (Create use of case)
+:manager: --> (Remove use of case)
+:manager: --> (Edit use of case)
+:manager: --> (Prioritize use of case)
+}
 
-:Manager: --> (Assign activity)
-:Manager: --> (Re-estimate activity)
-:Manager: --> (Split activity)
-:Manager: --> (Close activity)
-:Manager: --> (Join activity)
+package Members {
+:manager: --> (Create member)
+:manager: --> (Edit member)
+:manager: --> (Show members)
+}
+
+package Activities {
+:manager: --> (Assign activity)
+:manager: --> (Re-estimate activity)
+:manager: --> (Split activity)
+:manager: --> (Close activity)
+:manager: --> (Join activity)
+}
 
 @enduml
