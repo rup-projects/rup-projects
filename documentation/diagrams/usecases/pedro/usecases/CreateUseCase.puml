@@ -1,0 +1,21 @@
+@startuml
+
+state createUseCase {
+    state 1 <<choice>>
+    state 2 <<choice>>
+    state 3 <<choice>>
+    state 4 <<choice>>
+    state 5 <<choice>>
+    state 6 <<choice>>
+
+    [*] --> 1 : Manager request to open use cases
+    1 --> 2 : System shows all use of cases
+    2 --> 3 : Manager request \n to create a new use case
+    3 --> 4 : System allows\nto provide the information\nfor the use case
+    4 --> 5 : Manager provide the\nuse case information
+    5 --> 6 : Manager request\nto create the use case
+    5 -left-> 2 : Manager request \nto cancel the \nuse case creation
+    6 --> 2 : System creates the use case
+}
+
+@enduml

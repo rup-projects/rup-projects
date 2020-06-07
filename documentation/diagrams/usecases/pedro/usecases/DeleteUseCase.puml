@@ -1,0 +1,17 @@
+@startuml
+
+state deleteUseCase {
+    state 1 <<choice>>
+    state 2 <<choice>>
+    state 3 <<choice>>
+    state 4 <<choice>>
+
+    [*] --> 1 : Manager request to open use cases
+    1 -> 2 : System shows all use of cases
+    2 --> 3 : Manager request delete a use of case
+    3 --> 4 : System deletes the use of case
+    4 -> 1
+}
+
+
+@enduml

@@ -1,0 +1,28 @@
+@startuml
+
+state openMembers {
+    state 1 <<choice>>
+
+    [*] --> 1 : Manager request to open Members
+    1 --> [*] : System shows all Members
+}
+
+openMembers --> createMember
+
+state createMember {
+    state 3 <<choice>>
+    state 4 <<choice>>
+    state 5 <<choice>>
+    state 6 <<choice>>
+    state 7 <<choice>>
+
+    [*] --> 3 : System show all the Members
+    3 --> 4 : Manager request to create new Member
+    4 --> 5 : System allow to provide the member information
+    5 --> 6 : Manager provides the member information
+    6 --> 7 : Manager request to create the new member
+    6 --> 3 : Manager request to cancel the member creation
+    7 --> 3 : System create the new member
+}
+
+@enduml

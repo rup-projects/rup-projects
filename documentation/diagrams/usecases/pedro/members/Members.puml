@@ -1,7 +1,0 @@
-@startuml
-:Manager: --> (Create members)
-:Manager: --> (Crud members)
-:Manager: --> (Crud members)
-:Manager: --> (Crud members)
-
-@enduml

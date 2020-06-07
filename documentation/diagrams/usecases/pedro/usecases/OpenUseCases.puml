@@ -1,0 +1,10 @@
+@startuml
+
+state openUseCases {
+    state 1 <<choice>>
+
+    [*] --> 1 : Manager request to open use cases
+    1 --> [*] : System shows all use of cases
+}
+
+@enduml
