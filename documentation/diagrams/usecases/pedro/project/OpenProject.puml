@@ -7,5 +7,5 @@ state 2 <<choice>>
 [*] --> 1 : Manager request to open project
 1 --> 2 : System show the project information
 
-2 --> [*]
+2 --> [*] : ¿Cual sería aquí la acción de salida?????
 @enduml

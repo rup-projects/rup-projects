@@ -3,7 +3,6 @@
 state 1 <<choice>>
 state 2 <<choice>>
 state 3 <<choice>>
-state 4 <<choice>>
 
 
 [*] --> 1 : Manager request to open project
@@ -11,5 +10,4 @@ state 4 <<choice>>
 2 -> 3 : Manager request to delete the project information
 3 --> 2 : System delete the project information
 
-2 --> [*]
 @enduml
