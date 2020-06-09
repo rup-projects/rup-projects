@@ -1,0 +1,27 @@
+@startuml
+
+state 1 as " "
+state 2 as " "
+state 3 <<choice>>
+state 4 as " "
+state 5 as " "
+state 6 <<choice>>
+state 7 as " "
+state 8 <<choice>>
+
+
+
+[*] --> 1 : Manager request to open project
+1 --> 2 : System allows to introduce start and end project dates \n AND allows introduce project cost
+2 --> 3 : Manager introduce requested information
+3 --> 2 : [Invalid information]
+3 --> 4 : [Valid information]
+4 --> 5 : System shows iterations days, phases start end dates \n AND allows edit iteration days \n AND allows confirm planned project
+5 --> 6 : Manager introduces another iteration days
+6 --> 4 : [Valid iteration days]
+6 --> 7 : [Invalid iteration days]
+7 --> 4 : System shows error  \n message
+5 --> 8 : Manager request confirms planned project
+8 --> 7 : [Invalid project information]
+8 --> [*] : [valid project information]
+@enduml
