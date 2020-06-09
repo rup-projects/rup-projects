@@ -1,0 +1,34 @@
+@startuml
+
+state openActivities {
+    state 1 as " "
+
+    [*] --> 1 : Manager request to open activities
+    1 --> [*] : System shows the current iteration activities, members schedule
+}
+
+openActivities --> assignActivity
+
+state assignActivity {
+    state 3 as " "
+    state 4 as " "
+    state 5 as " "
+    state 6 as " "
+    state 7 <<choice>>
+    state 8 as " "
+    state 9 as " "
+    state 11 <<choice>>
+
+    [*] --> 3 : User requests assign activity
+    3 --> 11 : User selects activity to assign
+    11 --> 4 : [Assigned activity selected]
+    11 --> 5 : [Not assigned activity selected]
+    4 --> 6 : System allows select the assign destination (not assigned stack) \n AND allows request close activity
+    5 --> 6 : System allows select the assign destination members schedule (start hour and member) \n AND allows request re-estimate activity \n AND allows request split selected activity \n AND allows request join activity
+    6 --> 7 : Manager selects the member and the start hour
+    7 --> 8 : [assign destination invalid]
+    7 --> 9 : [assign destination valid]
+    8 --> 6 : System shows invalid destination
+    9 --> 3 : System hides the activity from origin \n and shows activity in selected destination
+    }
+@enduml

@@ -1,0 +1,41 @@
+@startuml
+left to right direction
+
+actor "Manager" as manager
+
+package General {
+:manager: -down-> (startSystem)
+:manager: -down-> (closeSystem)
+:manager: -down-> (OpenProject)
+:manager: -down-> (PlanProject)
+:manager: -down-> (RefreshProject)
+:manager: -down-> (ChangeZoom)
+}
+
+package Members {
+:manager: -down-> (OpenMembers)
+:manager: -down-> (CreateMember)
+:manager: -down-> (EditMember)
+:manager: -down-> (RemoveMember)
+}
+
+package UseCases {
+:manager: -left-> (OpenUseCases)
+:manager: -left-> (CreateUseCase)
+:manager: -left-> (RemoveUseCase)
+:manager: -left-> (EditUseCase)
+:manager: -left-> (PrioritizeUseCase)
+}
+
+package Activities {
+:manager: -left-> (OpenIteration)
+:manager: -left-> (AssignActivity)
+:manager: -left-> (Re-estimateActivity)
+:manager: -left-> (SplitActivity)
+:manager: -left-> (CloseActivity)
+:manager: -left-> (JoinActivity)
+}
+
+
+
+@enduml
