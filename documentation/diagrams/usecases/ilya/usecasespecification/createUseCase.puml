@@ -1,0 +1,16 @@
+@startuml
+
+state 1 as " "
+state 2 as " "
+state 3 <<choice>>
+state 5 <<choice>>
+
+[*] --> 1 : Manager request create use case
+1 --> 2 : System shows inputs for fill use case name
+2 --> 3 : Manager request create use case
+3 --> 2 : [not valid information]
+3 --> 5 : [valid information]
+5 --> 2 : [use case already exists]
+5 --> [*] : [use case not exists]
+
+@enduml
