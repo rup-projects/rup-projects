@@ -1,13 +1,13 @@
 @startuml
 
-state openActivities {
+state openIteration {
     state 1 as " "
 
     [*] --> 1 : Manager request to open activities
     1 --> [*] : System shows the current iteration activities, members schedule
 }
 
-openActivities --> assignActivity
+openIteration --> assignActivity
 
 state assignActivity {
     state 3 as " "
