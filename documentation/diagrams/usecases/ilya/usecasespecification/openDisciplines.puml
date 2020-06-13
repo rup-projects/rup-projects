@@ -1,0 +1,14 @@
+@startuml
+
+    state 0 as "OPENED_PROJECT"
+    state 1 as " "
+    state 2 as "USE_CASES_MANAGEMENT"
+    state 3 as "MEMBERS_MANAGEMENT"
+
+    0 --> 1
+    2 --> 1 : Manager orders open activities
+    3 --> 1
+    1 --> [*] : System shows each member schedule (column with datatime since end of current iteration) , \n AND shows discipline containters and assignable discipline hours chips (pills) \n AND System allows split activity \n AND allows assign activity to member schedule \n AND allows re-estimate activity \n AND allows "fundir" activity
+
+
+@enduml
