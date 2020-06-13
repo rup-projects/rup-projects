@@ -1,21 +1,31 @@
 @startuml
 
-[*] --> OPENED_PROJECT : startSystem
+[*] --> INIT_PROJECT : start System
+INIT_PROJECT --> OPENED_PROJECT : Plan project \nOpen project
 
-OPENED_PROJECT --> [*] : closeSystem
-USE_CASES_MANAGEMENT --> [*] : closeSystem
-MEMBER_MANAGEMENT --> [*] : closeSystem
-OPENED_ITERATION --> [*] : closeSystem
+INIT_PROJECT            --> [*] : closeSystem
+OPENED_PROJECT          --> [*] : closeSystem
+USE_CASES_MANAGEMENT    --> [*] : closeSystem
+MEMBER_MANAGEMENT       --> [*] : closeSystem
+OPENED_DISCIPLINES      --> [*] : closeSystem
 
-OPENED_PROJECT --> OPENED_PROJECT : Plan project \n Refresh \n change zoom
+OPENED_PROJECT --> OPENED_PROJECT       : Open phases \n Open Iterations
 OPENED_PROJECT --> USE_CASES_MANAGEMENT : Open use cases
-OPENED_PROJECT --> MEMBER_MANAGEMENT : Open members
-OPENED_PROJECT --> OPENED_ITERATION : Open iteration
+OPENED_PROJECT --> MEMBER_MANAGEMENT    : Open members
+OPENED_PROJECT --> OPENED_DISCIPLINES   : Open disciplines
 
-USE_CASES_MANAGEMENT --> USE_CASES_MANAGEMENT : Create use case \n Edit use case \n Delete use case
-USE_CASES_MANAGEMENT --> OPENED_PROJECT : Open project
-MEMBER_MANAGEMENT --> MEMBER_MANAGEMENT : Create member \n Edit member \n Remove member \n
-MEMBER_MANAGEMENT --> OPENED_PROJECT : Open project
-OPENED_ITERATION --> OPENED_ITERATION : Assign activity \n Re-estimate activity \n Split activity \n Join activity \n Close Activity
-OPENED_ITERATION --> OPENED_PROJECT : Open project
+USE_CASES_MANAGEMENT --> USE_CASES_MANAGEMENT   : Create use case \n Edit use case \n Delete use case
+USE_CASES_MANAGEMENT --> OPENED_PROJECT         : Open project
+USE_CASES_MANAGEMENT --> MEMBER_MANAGEMENT      : Open members
+USE_CASES_MANAGEMENT --> OPENED_DISCIPLINES     : Open disciplines
+
+MEMBER_MANAGEMENT --> MEMBER_MANAGEMENT     : Create member \n Edit member \n Remove member
+MEMBER_MANAGEMENT --> OPENED_PROJECT        : Open project
+MEMBER_MANAGEMENT --> USE_CASES_MANAGEMENT  : Open use cases
+MEMBER_MANAGEMENT --> OPENED_DISCIPLINES    : Open disciplines
+
+OPENED_DISCIPLINES --> OPENED_DISCIPLINES : Assign activity \n Re-estimate activity \n Split activity \n "fundir" activity \n Close Activity
+OPENED_DISCIPLINES --> OPENED_PROJECT : Open project
+OPENED_DISCIPLINES --> MEMBER_MANAGEMENT : Open members
+OPENED_DISCIPLINES --> USE_CASES_MANAGEMENT : Open use cases
 @enduml
