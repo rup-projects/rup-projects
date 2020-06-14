@@ -1,0 +1,18 @@
+@startuml
+
+state 1 as " "
+state 2 as " "
+state 3 as " "
+state 4 as " "
+state 5 as " "
+state 6 as " :MEMBER:MANAGEMENT"
+
+[*] --> 1 : Manager selects a member to update
+1 --> 2 : System allows request update member \n AND select member to update
+2 --> 3 : Manager orders update member
+2 --> 4 : Manager selects member to update
+4 --> 1 : System unselect previous member
+3 --> 5 : System allows input member name, \n add member rol (Duplicate rols not allowed), \n remove member rol (if member has rol) \n save changes
+5 --> 3 : Manager introduces member name \n OR Manager adds member rol \n Manager removes member rol
+5 --> 6 : Manager orders save changes
+@enduml
