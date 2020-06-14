@@ -5,23 +5,13 @@ state 2 as " "
 state 3 <<choice>>
 state 4 as " "
 state 5 as " "
-state 6 <<choice>>
-state 7 as " "
-state 8 <<choice>>
 
-
-
-[*] --> 1 : Manager request to open project
+[*] --> 1 : Manager request to plan project
 1 --> 2 : System allows to introduce start and end project dates \n AND allows introduce project cost
-2 --> 3 : Manager introduce requested information
-3 --> 2 : [Invalid information]
-3 --> 4 : [Valid information]
-4 --> 5 : System shows iterations days, phases start end dates \n AND allows edit iteration days \n AND allows confirm planned project
-5 --> 6 : Manager introduces another iteration days
-6 --> 4 : [Valid iteration days]
-6 --> 7 : [Invalid iteration days]
-7 --> 4 : System shows error  \n message
-5 --> 8 : Manager request confirms planned project
-8 --> 7 : [Invalid project information]
-8 --> [*] : [valid project information]
+2 --> 3 : Manager introduces start date, end date, and project cost
+3 --> 2 : [end date before start date \n OR start date after end date \n OR cost <= 0 OR \n start end date interval < 10 days]
+3 --> 4
+4 --> 5 : System shows nº iterations in project, iteration duration (in days), each phase start end dates \n AND System allows change iteration duration (in days) +10 days \n (minimum 1 iteration / project) (minimum iteration duration 10 days)  \n AND allows confirm planned project
+5 --> 4 : Manager introduces new iteration days
+5 --> [*] : Manager order confirm planned project
 @enduml

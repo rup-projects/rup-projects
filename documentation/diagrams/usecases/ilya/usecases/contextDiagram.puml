@@ -14,12 +14,12 @@ OPENED_PROJECT --> USE_CASES_MANAGEMENT : Open use cases
 OPENED_PROJECT --> MEMBER_MANAGEMENT    : Open members
 OPENED_PROJECT --> OPENED_DISCIPLINES   : Open disciplines
 
-USE_CASES_MANAGEMENT --> USE_CASES_MANAGEMENT   : Create use case \n Edit use case \n Delete use case
+USE_CASES_MANAGEMENT --> USE_CASES_MANAGEMENT   : Prioritize Use case \n Create use case \n Update use case \n Delete use case
 USE_CASES_MANAGEMENT --> OPENED_PROJECT         : Open project
 USE_CASES_MANAGEMENT --> MEMBER_MANAGEMENT      : Open members
 USE_CASES_MANAGEMENT --> OPENED_DISCIPLINES     : Open disciplines
 
-MEMBER_MANAGEMENT --> MEMBER_MANAGEMENT     : Create member \n Edit member \n Remove member
+MEMBER_MANAGEMENT --> MEMBER_MANAGEMENT     : Create member \n Update member \n Remove member
 MEMBER_MANAGEMENT --> OPENED_PROJECT        : Open project
 MEMBER_MANAGEMENT --> USE_CASES_MANAGEMENT  : Open use cases
 MEMBER_MANAGEMENT --> OPENED_DISCIPLINES    : Open disciplines

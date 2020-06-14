@@ -7,33 +7,33 @@ package General {
 :manager: -down-> (startSystem)
 :manager: -down-> (closeSystem)
 :manager: -down-> (OpenProject)
+:manager: -down-> (openPhases)
+:manager: -down-> (openIterations)
 :manager: -down-> (PlanProject)
-:manager: -down-> (RefreshProject)
-:manager: -down-> (ChangeZoom)
 }
 
 package Members {
 :manager: -down-> (OpenMembers)
 :manager: -down-> (CreateMember)
-:manager: -down-> (EditMember)
-:manager: -down-> (RemoveMember)
+:manager: -down-> (UpdateMember)
+:manager: -down-> (DeleteMember)
 }
 
 package UseCases {
 :manager: -left-> (OpenUseCases)
 :manager: -left-> (CreateUseCase)
-:manager: -left-> (RemoveUseCase)
-:manager: -left-> (EditUseCase)
-:manager: -left-> (PrioritizeUseCase)
+:manager: -left-> (DeleteUseCase)
+:manager: -left-> (UpdateUseCase)
+:manager: -left-> (PrioritizeUseCases)
 }
 
-package Activities {
-:manager: -left-> (OpenIteration)
+package Disciplines {
+:manager: -left-> (OpenDisciplines)
 :manager: -left-> (AssignActivity)
 :manager: -left-> (Re-estimateActivity)
 :manager: -left-> (SplitActivity)
 :manager: -left-> (CloseActivity)
-:manager: -left-> (JoinActivity)
+:manager: -left-> ("fundirActivity")
 }
 
 
