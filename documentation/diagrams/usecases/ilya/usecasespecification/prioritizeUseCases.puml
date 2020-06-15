@@ -1,0 +1,11 @@
+@startuml
+
+state 1 as " "
+state 2 as " "
+state 6 as " :USECASE_MANAGEMENT"
+
+[*] --> 1 : Architect orders  prioritize use cases
+1 --> 2 : System shows all usecases and  \n System allows select (ordered) use cases to be prioritized \n AND allows cancel use case prioritization
+2 --> 6 : Architect orders cancel use case prioritization
+2 --> 6 : Architect selects usecases to be prioritized for the current iteration \n (selection should be all usecases) \n AND orders confirm prioritization
+@enduml

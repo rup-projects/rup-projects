@@ -7,25 +7,25 @@ INIT_PROJECT            --> [*] : closeSystem
 OPENED_PROJECT          --> [*] : closeSystem
 USE_CASES_MANAGEMENT    --> [*] : closeSystem
 MEMBER_MANAGEMENT       --> [*] : closeSystem
-OPENED_DISCIPLINES      --> [*] : closeSystem
+OPENED_ITERATION      --> [*] : closeSystem
 
 OPENED_PROJECT --> OPENED_PROJECT       : Open phases \n Open Iterations
 OPENED_PROJECT --> USE_CASES_MANAGEMENT : Open use cases
 OPENED_PROJECT --> MEMBER_MANAGEMENT    : Open members
-OPENED_PROJECT --> OPENED_DISCIPLINES   : Open disciplines
+OPENED_PROJECT --> OPENED_ITERATION   : Open iteration (si vacia, \n selecciona casos de uso \n y hasta donde quiere llegar del ucase generar pastillas \n actividades no ligadas a caso de uso 1h, las de caso de uso si se quiere \n llegar a ese nv de disciplina)
 
-USE_CASES_MANAGEMENT --> USE_CASES_MANAGEMENT   : Prioritize Use case \n Create use case \n Update use case \n Delete use case
+USE_CASES_MANAGEMENT --> USE_CASES_MANAGEMENT   : Prioritize Use cases \n Create use case \n Update use case \n Delete use case
 USE_CASES_MANAGEMENT --> OPENED_PROJECT         : Open project
 USE_CASES_MANAGEMENT --> MEMBER_MANAGEMENT      : Open members
-USE_CASES_MANAGEMENT --> OPENED_DISCIPLINES     : Open disciplines
+USE_CASES_MANAGEMENT --> OPENED_ITERATION     : Open iteration
 
 MEMBER_MANAGEMENT --> MEMBER_MANAGEMENT     : Create member \n Update member \n Remove member
 MEMBER_MANAGEMENT --> OPENED_PROJECT        : Open project
 MEMBER_MANAGEMENT --> USE_CASES_MANAGEMENT  : Open use cases
-MEMBER_MANAGEMENT --> OPENED_DISCIPLINES    : Open disciplines
+MEMBER_MANAGEMENT --> OPENED_ITERATION    : Open iteration
 
-OPENED_DISCIPLINES --> OPENED_DISCIPLINES : Assign activity \n Re-estimate activity \n Split activity \n "fundir" activity \n Close Activity
-OPENED_DISCIPLINES --> OPENED_PROJECT : Open project
-OPENED_DISCIPLINES --> MEMBER_MANAGEMENT : Open members
-OPENED_DISCIPLINES --> USE_CASES_MANAGEMENT : Open use cases
+OPENED_ITERATION --> OPENED_ITERATION : Assign activity (chequear si la iteracion ya esta cerrada) \n Re-estimate activity \n Split activity \n "fundir" activity \n Close Activity \n Close Iteration
+OPENED_ITERATION --> OPENED_PROJECT : Open project
+OPENED_ITERATION --> MEMBER_MANAGEMENT : Open members
+OPENED_ITERATION --> USE_CASES_MANAGEMENT : Open use cases
 @enduml

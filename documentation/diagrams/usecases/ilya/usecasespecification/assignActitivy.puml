@@ -12,8 +12,8 @@
 
     1 --> 11 :  Manager introduces discipline activity to assign
     11 --> 4
-    11 --> 5 : [Not assigned activity selected]
-    4 --> 6 : System allows introduce the assign destination (not assigned stack) \n AND allows request close activity
+    11 --> 5 : [Not assigned to member]
+    4 --> 6 : System allows introduce the assign destination (discipline or another member) \n AND allows request close activity
     5 --> 6 : System allows introduce the assign destination members schedule (start hour and member) \n AND allows request re-estimate activity \n AND allows request split selected activity \n AND allows request "fundir" activity
     6 --> 7 : Manager introduces the member \n AND the start hour (inside the actual iteration limits)
     7 --> 8 : [activity to assign overlaps with the member schedule assigned activities \n OR member assigned activities durations > member max capacity in actual iteration]

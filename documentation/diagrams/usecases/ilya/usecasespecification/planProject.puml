@@ -9,7 +9,7 @@ state 5 as " "
 [*] --> 1 : Manager request to plan project
 1 --> 2 : System allows to introduce start and end project dates \n AND allows introduce project cost
 2 --> 3 : Manager introduces start date, end date, and project cost
-3 --> 2 : [end date before start date \n OR start date after end date \n OR cost <= 0 OR \n start end date interval < 10 days]
+3 --> 1 : [end date before start date \n OR start date after end date \n OR cost <= 0 OR \n start end date interval < 10 days]
 3 --> 4
 4 --> 5 : System shows nº iterations in project, iteration duration (in days), each phase start end dates \n AND System allows change iteration duration (in days) +10 days \n (minimum 1 iteration / project) (minimum iteration duration 10 days)  \n AND allows confirm planned project
 5 --> 4 : Manager introduces new iteration days
