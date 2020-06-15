@@ -10,6 +10,7 @@ package General {
 :manager: -down-> (openPhases)
 :manager: -down-> (openIterations)
 :manager: -down-> (PlanProject)
+:manager: -down-> (CloseIteration)
 }
 
 package Members {
@@ -28,7 +29,7 @@ package UseCases {
 }
 
 package Disciplines {
-:manager: -left-> (OpenDisciplines)
+:manager: -left-> (OpenIteration)
 :manager: -left-> (AssignActivity)
 :manager: -left-> (Re-estimateActivity)
 :manager: -left-> (SplitActivity)

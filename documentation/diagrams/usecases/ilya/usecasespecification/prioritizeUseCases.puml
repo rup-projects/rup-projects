@@ -4,8 +4,8 @@ state 1 as " "
 state 2 as " "
 state 6 as " :USECASE_MANAGEMENT"
 
-[*] --> 1 : Manager orders create prioritize use cases
-1 --> 2 : System shows iteration duration and members quantity in the project \n System allows select use cases to be prioritized \n AND allows cancel use case prioritization
-2 --> 6 : Manager orders cancel use case prioritization
-2 --> 6 : Manager selects usecases to be prioritized for the current iteration \n (selection should be >= 1 and all usecases as maximum) \n AND orders confirm prioritization
+[*] --> 1 : Architect orders  prioritize use cases
+1 --> 2 : System shows all usecases and  \n System allows select (ordered) use cases to be prioritized \n AND allows cancel use case prioritization
+2 --> 6 : Architect orders cancel use case prioritization
+2 --> 6 : Architect selects usecases to be prioritized for the current iteration \n (selection should be all usecases) \n AND orders confirm prioritization
 @enduml
