@@ -1,0 +1,53 @@
+= RUP MANAGER
+
+== Requirements
+[#_index]
+
+=== Index
+
+<<_usecases>>
+
+<<_contextDiagram>>
+
+<<_startSystem>>
+
+<<_planProject>>
+
+[#_usecases]
+=== Use cases
+[plantuml,svg,align="center"]
+----
+include::allUseCases.puml[]
+----
+<<_index>>
+
+[#_contextDiagram]
+=== Context diagram
+[plantuml,svg,align="center"]
+----
+include::contextDiagram.puml[]
+----
+<<_index>>
+
+
+=== Use cases specification
+
+[#_startSystem]
+==== start System
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/startSystem.puml[]
+----
+<<_index>>
+
+[#_planProject]
+==== plan Project
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/planProject.puml[]
+----
+<<_index>>
+
+
+
+
