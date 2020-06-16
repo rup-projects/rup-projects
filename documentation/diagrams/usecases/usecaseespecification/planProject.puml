@@ -6,12 +6,53 @@ state 3 <<choice>>
 state 4 as " "
 state 5 as " "
 
-[*] --> 1 : Manager request to plan project
-1 --> 2 : System allows to introduce start and end project dates \n AND allows introduce project cost
-2 --> 3 : Manager introduces start date, end date, and project cost
-3 --> 1 : [end date before start date \n OR start date after end date \n OR cost <= 0 OR \n start end date interval < 10 days]
+[*] --> 1
+note on link
+    Manager orders plan project
+end note
+1 --> 2
+note on link
+    * System allows introduce
+    ** start project date
+    ** end project date
+    ** project cost
+end note
+2 --> 3
+note on link
+    * Manager introduces
+    ** start date
+    ** end date
+    ** project cost
+    * and orders continue
+end note
+3 --> 1
+note on link
+    * [end date before start date
+    * OR start date after end date
+    * OR cost <= 0
+    * OR start end date interval < 10 days]
+end note
 3 --> 4
-4 --> 5 : System shows nº iterations in project, iteration duration (in days), each phase start end dates \n AND System allows change iteration duration (in days) +10 days \n (minimum 1 iteration / project) (minimum iteration duration 10 days)  \n AND allows confirm planned project
-5 --> 4 : Manager introduces new iteration days
-5 --> [*] : Manager order confirm planned project
+4 --> 5
+note on link
+    * System shows information
+    ** nº iterations in project (10 iterations by default)
+    ** iteration duration (in days)
+    **each phase start end dates
+    * allows
+    ** change nº iteration in project
+    *** [ +/- 10 iterations ]
+    ***[ minimum 10 iteration in project ]
+    ***(minimum iteration duration 10 days)
+    ** confirm planned project
+end note
+5 --> 4
+note on link
+    * Manager introduces new nº of iterations
+    * and orders re-plan
+end note
+5 --> [*]
+note on link
+    Manager order confirm planned project
+end note
 @enduml
