@@ -27,11 +27,7 @@ OPENED_PROJECT --> USE_CASES_MANAGEMENT : Open use cases
 OPENED_PROJECT --> MEMBER_MANAGEMENT    : Open members
 OPENED_PROJECT --> OPENED_ITERATION
     note on link
-        Open iteration (si vacia,
-        selecciona casos de uso
-        y hasta donde quiere llegar del ucase generar pastillas
-        actividades no ligadas a caso de uso 1h, las de caso de
-         uso si se quiere \n llegar a ese nv de disciplina)
+        Open iteration
     end note
 USE_CASES_MANAGEMENT --> USE_CASES_MANAGEMENT
     note on link
@@ -56,7 +52,7 @@ MEMBER_MANAGEMENT --> OPENED_ITERATION    : Open iteration
 
 OPENED_ITERATION --> OPENED_ITERATION
     note on link
-        Assign activity (chequear si la iteracion ya esta cerrada)
+        Assign activity
         Re-estimate activity
         Split activity
         Merge activity

@@ -7,6 +7,19 @@ state 3 as " "
 [*] --> 1 : Manager opens the app
 1 --> 2 : [project not planned]
 1 --> 3  : [project planned]
-2 --> [*] : System allows plan project
-3 --> [*] : System shows the project information \n AND allows user open phases \n AND allows refresh the project \n AND allows open use Cases view \n AND allows open resources \n AND allows open iteration
+2 --> [*]
+    note on link
+    * System allows plan project
+    end note
+3 --> [*]
+    note on link
+        * System shows project information
+        **(detallar project information)
+        * Allows:
+        ** open phases
+        ** open iterations
+        ** open iteration
+        ** open use cases
+        ** open members
+    end note
 @enduml
