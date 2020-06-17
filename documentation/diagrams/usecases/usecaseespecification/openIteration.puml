@@ -42,7 +42,8 @@
      * System shows information
      ** each member schedule until end of current iteration
      ** discipline containers
-     ** assignable discipline 1 hour chips "pastillas" (pills)
+     ** assignable (1 hour) chips/pills
+     *** 1 hour chip could contain >= 1 activities
      * Allows
      ** split activity
      ** assign activity to member schedule
