@@ -34,7 +34,7 @@ package Disciplines {
 :manager: -left-> (Re-estimateActivity)
 :manager: -left-> (SplitActivity)
 :manager: -left-> (CloseActivity)
-:manager: -left-> ("fundirActivity")
+:manager: -left-> (MergeActivity)
 }
 
 
