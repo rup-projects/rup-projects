@@ -7,7 +7,9 @@
     state 4 as " "
     state 5 as " "
     state 6 as " "
-
+    state 7 <<choice>>
+    state 8 as " "
+    state 9 as " "
 
     0 --> 1
         note "(si vacia, selecciona casos de uso \n y hasta donde quiere llegar del ucase generar pastillas \n actividades no ligadas a caso de uso 1h, las de caso de uso si se quiere \n llegar a ese nv de disciplina)" as N1
@@ -23,16 +25,39 @@
     4 --> 6
     note on link
         * System shows
-        ** priorized usecases
+        ** usecases ordered by prioritization
         * Allows
         ** "specify" use case desired progress / scope
         *** REQUIREMENTS | ANALYSIS | DESIGN | IMPLEMENTATION
+        ** introduces usecases for the iteration
     end note
-    6 --> 5
+    6 --> 4
     note on link
-    * Manager introduces use cases desired scope
-    * And orders confirm open iteration
+        * Manager introduces use cases desired scope
+        * Manager introduces usecase for the iteration
     end note
+    6 --> 7
+    note on link
+        Manager orders confirm open iteration
+    end note
+    7 --> 9
+    note on link
+    * [usecases introduced >= 1]
+    AND
+    * [all usecases introduced have desired scope]
+    end note
+    9--> 5
+    note on link
+        System shows pills/chips for each discipline
+        have been generated
+    end note
+    7 --> 4
+    note on link
+        System shows
+        * more than one usecases should be introduced
+        * some use case has not desired scope
+    end note
+    8 --> 4
     1 --> 5
     note on link
         [Iteration opened]
