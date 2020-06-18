@@ -36,7 +36,7 @@
          * chip/pill to assign
     end note
     11 --> 4
-    11 --> 5 : [ pill not assigned to member]
+    11 --> 5 : [pill not assigned to member]
     4 --> 14
     note on link
         System allows
@@ -68,7 +68,8 @@
     5 --> 6
     note on link
         System allows
-        * introduce the assign destination members schedule (start hour and member)
+        * introduce pill assign destination
+        ** specific member schedule (specific hour in member column)
         * request re-estimate activity
         * request split selected activity
         * request "fundir" activity
