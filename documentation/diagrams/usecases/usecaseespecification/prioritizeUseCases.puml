@@ -2,10 +2,37 @@
 
 state 1 as " "
 state 2 as " "
+state 7 as " "
 state 6 as " :USECASE_MANAGEMENT"
 
-[*] --> 1 : Architect orders  prioritize use cases
-1 --> 2 : System shows all usecases and  \n System allows select (ordered) use cases to be prioritized \n AND allows cancel use case prioritization
-2 --> 6 : Architect orders cancel use case prioritization
-2 --> 6 : Architect selects usecases to be prioritized for the current iteration \n (selection should be all usecases) \n AND orders confirm prioritization
+[*] --> 1
+note on link
+    ¿¿Architect?/Manager?/Manager orders prioritize use cases
+end note
+1 --> 2
+note on link
+System shows
+*all usecases sorted
+System allows
+* sort use case (the sort specifies the use case priority)
+* cancel use case prioritization
+* confirm use case prioritization
+end note
+2 --> 6
+note on link
+* ¿Architect?/Manager orders cancel use case prioritization
+end note
+2 --> 1
+note on link
+¿Architect?/Manager sorts usecase
+end note
+2 --> 7
+note on link
+* ¿Architect?/Manager orders confirm use case prioritization
+end note
+7 --> 6
+note on link
+System shows
+* Priorization confirmed
+end note
 @enduml
