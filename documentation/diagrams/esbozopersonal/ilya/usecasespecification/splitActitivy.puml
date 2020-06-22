@@ -21,7 +21,7 @@
         System shows
         * not assigned to member chips/pills
         System allows
-        * select chip to split
+        * select pill to split
         * cancel split
     end note
     2 --> 7
@@ -30,7 +30,7 @@
     end note
     2 --> 3
     note on link
-        Manager selects activity to split
+        Manager selects pill to split
     end note
     3 --> 4
     3 --> 9
@@ -40,7 +40,7 @@
     4 --> 0
     note on link
         System shows
-        * highlighted the activity to assign
+        * highlighted the pill to assign
         System allows
         * confirm split
         * cancel split
@@ -57,7 +57,6 @@
     1 --> 13
     note on link
         System shows
-        * 1 column for each discipline and inside
         * selected pill 1 hour smaller
         * a new pill with the size of 1 hour on top of the selected pill
     end note
