@@ -48,6 +48,115 @@ include::usecaseespecification/planProject.puml[]
 ----
 <<_index>>
 
+[#_reestimateActivity]
+==== Reestimate Activity
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/reestimateActivity.puml[]
+----
+<<_index>>
 
+[#_closeActivity]
+==== Close Activity
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/closeActivity.puml[]
+----
+<<_index>>
 
+[#_mergeActivity]
+==== Merge Activity
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/mergeActivity.puml[]
+----
+<<_index>>
+
+[#_splitActivity]
+==== Split Activity
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/splitActivity.puml[]
+----
+<<_index>>
+
+[#_closeSystem]
+==== Close System
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/closeSystem.puml[]
+----
+<<_index>>
+
+[#_openProject]
+==== Open project
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/openProject.puml[]
+----
+<<_index>>
+
+[#_openPhases]
+==== Open phases
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/openPhases.puml[]
+----
+<<_index>>
+
+[#_openIterations]
+==== Open Iterations
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/openIterations.puml[]
+----
+<<_index>>
+
+[#_closeIteration]
+==== Close Iteration
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/closeIteration.puml[]
+----
+<<_index>>
+
+[#_openUseCases]
+==== Open UseCases
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/openUseCases.puml[]
+----
+<<_index>>
+
+[#_deleteUseCase]
+==== Delete UseCase
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/deleteUseCase.puml[]
+----
+<<_index>>
+
+[#_updateUseCase]
+==== Update UseCase
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/updateUseCase.puml[]
+----
+<<_index>>
+
+[#_createMember]
+==== Create member
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/createMember.puml[]
+----
+<<_index>>
+
+[#_deleteMember]
+==== Delete Member
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/DeleteMember.puml[]
+----
+<<_index>>
 
