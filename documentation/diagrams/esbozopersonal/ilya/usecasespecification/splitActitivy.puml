@@ -4,6 +4,9 @@
     state 0 as " "
     state 4 as " "
     state 6 as " "
+    state 7 as ":OPENED_ITERATION"
+    state 8 as ":OPENED_ITERATION"
+    state 9 as ":OPENED_ITERATION"
     state 5 as ":OPENED_ITERATION"
     state 3 <<choice>>
     state 13 as ":OPENED_ITERATION"
@@ -18,31 +21,31 @@
         System shows
         * not assigned to member chips/pills
         System allows
-        * select chip to split
+        * select pill to split
         * cancel split
     end note
-    2 --> [*]
+    2 --> 7
     note on link
     Manager orders cancel split
     end note
     2 --> 3
     note on link
-        Manager selects activity to split
+        Manager selects pill to split
     end note
     3 --> 4
-    3 --> [*]
+    3 --> 9
     note on link
     [activity assigned to member]
     end note
     4 --> 0
     note on link
         System shows
-        * highlighted the activity to assign
+        * highlighted the pill to assign
         System allows
         * confirm split
         * cancel split
     end note
-    0 --> [*]
+    0 --> 8
     note on link
     Manager orders cancel split
     end note
@@ -54,7 +57,6 @@
     1 --> 13
     note on link
         System shows
-        * 1 column for each discipline and inside
         * selected pill 1 hour smaller
         * a new pill with the size of 1 hour on top of the selected pill
     end note
