@@ -8,7 +8,7 @@ state 5 as " "
 
 [*] --> 1
 note on link
-    Manager orders plan project
+    User orders plan project
 end note
 1 --> 2
 note on link
@@ -19,7 +19,7 @@ note on link
 end note
 2 --> 3
 note on link
-    * Manager introduces
+    * User introduces
     ** start date
     ** end date
     ** project cost
@@ -48,11 +48,11 @@ note on link
 end note
 5 --> 4
 note on link
-    * Manager introduces new nº of iterations
+    * User introduces new nº of iterations
     * and orders re-plan
 end note
 5 --> [*]
 note on link
-    Manager order confirm planned project
+    User order confirm planned project
 end note
 @enduml

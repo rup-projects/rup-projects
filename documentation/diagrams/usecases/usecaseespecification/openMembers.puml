@@ -6,7 +6,7 @@
     state 3 as "DISCIPLINES_MANAGEMENT"
 
     0 --> 1
-    2 --> 1 : Manager orders open members
+    2 --> 1 : User orders open members
     3 --> 1
     1 --> [*] : System shows all all members in the project, his names and roles \n \n AND System allows create member \n AND allows update member \n AND allows delete member \n AND allows Open project \n AND allows Open disciplines \n AND allows Open use cases
 

@@ -16,7 +16,7 @@
 
     0 --> 1
     note on link
-        Manager orders assign chip/pill
+        User orders assign chip/pill
     end note
     1 --> 13
     note on link
@@ -32,7 +32,7 @@
     end note
     13 --> 11
     note on link
-        Manager introduces
+        User introduces
          * chip/pill to assign
     end note
     11 --> 4
@@ -47,12 +47,12 @@
     end note
     14 -down-> 15
     note on link
-        Member introduces
+        User introduces
         * assign destination another member
     end note
     14 -down-> 16
     note on link
-        Member introduces
+        User introduces
         * assign destination chip belonging discipline column
     end note
     15 --> [*]
@@ -70,13 +70,10 @@
         System allows
         * introduce pill assign destination
         ** specific member schedule (specific hour in member column)
-        * request re-estimate activity
-        * request split selected activity
-        * request "fundir" activity
     end note
     6 --> 7
     note on link
-    Manager introduces
+    User introduces
     * member schedule datetime (inside the actual iteration limits)
     end note
     7 --> 8

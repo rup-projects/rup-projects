@@ -4,7 +4,7 @@ state 1 <<choice>>
 state 2 as " "
 state 3 as " "
 
-[*] --> 1 : Manager opens the app
+[*] --> 1 : User opens the app
 1 --> 2 : [project not planned]
 1 --> 3  : [project planned]
 2 --> [*]

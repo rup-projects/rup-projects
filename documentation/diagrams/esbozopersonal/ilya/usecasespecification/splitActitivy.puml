@@ -13,7 +13,7 @@
 
     5 --> 6
     note on link
-        Manager orders split activity
+        User orders split activity
     end note
 
     6 --> 2
@@ -26,11 +26,11 @@
     end note
     2 --> 7
     note on link
-    Manager orders cancel split
+    User orders cancel split
     end note
     2 --> 3
     note on link
-        Manager selects pill to split
+        User selects pill to split
     end note
     3 --> 4
     3 --> 9
@@ -47,12 +47,12 @@
     end note
     0 --> 8
     note on link
-    Manager orders cancel split
+    User orders cancel split
     end note
 
     0 --> 1
     note on link
-        Manager orders confirm split activity
+        User orders confirm split activity
     end note
     1 --> 13
     note on link
