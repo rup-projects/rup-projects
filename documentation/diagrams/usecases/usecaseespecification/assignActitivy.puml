@@ -1,11 +1,12 @@
 @startuml
-    state 0 as "OPENED_DISCIPLINES"
+    state 0 as ":OPENED_DISCIPLINES"
     state 1 as " "
     state 5 as " "
     state 13 as " "
     state 14 as " "
+    state 20 as " "
     state 15 <<choice>>
-    state 12 as "OPENED_DISCIPLINES"
+    state 12 as ":OPENED_DISCIPLINES"
 
     0 --> 1
     note on link
@@ -31,7 +32,7 @@
         * and orders confirm selection
     end note
 
-    13 --> 12
+    13 --> 20
     note on link
         User orders cancel assign activity
     end note
@@ -56,9 +57,27 @@
         * and orders confirm selection
     end note
 
-    14 --> 12
+    14 --> 20
     note on link
     User orders cancel assign activity
+    end note
+
+    20 --> 12
+    note on link
+         <b>System shows</b>
+         * for each member
+         **assignedActivities in his datetime until end of current iteration
+         * for each discipline (requirements, analysis, design, implementation)
+         ** NotAssignedCost
+         ** NotAssignedActivities (with activity type)
+         <b>System allows</b>
+         * Split activity
+         * Assign activity
+         * Re-estimate activity
+         * Merge activity
+         * Open project
+         * Open members
+         * Close system
     end note
 
     15 --> 5

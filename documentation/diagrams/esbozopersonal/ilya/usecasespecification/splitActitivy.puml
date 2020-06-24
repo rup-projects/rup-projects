@@ -1,14 +1,11 @@
 @startuml
-    state 1 as " "
     state 2 as " "
     state 0 as " "
     state 4 as " "
     state 6 as " "
-    state 7 as ":OPENED_ITERATION"
-    state 8 as ":OPENED_ITERATION"
-    state 9 as ":OPENED_ITERATION"
+    state 8 as " "
+    state 10 as " "
     state 5 as ":OPENED_ITERATION"
-    state 3 <<choice>>
     state 13 as ":OPENED_ITERATION"
 
     5 --> 6
@@ -18,46 +15,85 @@
 
     6 --> 2
     note on link
-        System shows
-        * not assigned to member chips/pills
-        System allows
-        * select pill to split
-        * cancel split
-    end note
-    2 --> 7
-    note on link
-    User orders cancel split
-    end note
-    2 --> 3
-    note on link
-        User selects pill to split
-    end note
-    3 --> 4
-    3 --> 9
-    note on link
-    [activity assigned to member]
-    end note
-    4 --> 0
-    note on link
-        System shows
-        * highlighted the pill to assign
-        System allows
-        * confirm split
-        * cancel split
-    end note
-    0 --> 8
-    note on link
-    User orders cancel split
+    <b>System shows</b>
+    * for each discipline (requirements, analysis, design, implementation)
+    ** NotAssignedCost
+    <b>System allows</b>
+    * introduce NotAssignedCost to split
+    * cancel split activity
     end note
 
-    0 --> 1
+    2 --> 10
     note on link
-        User orders confirm split activity
+        User orders cancel split
     end note
-    1 --> 13
+
+    10 --> 13
     note on link
-        System shows
-        * selected pill 1 hour smaller
-        * a new pill with the size of 1 hour on top of the selected pill
+         <b>System shows</b>
+         * split activity was cancelled
+         * for each member
+         **assignedActivities in his datetime until end of current iteration
+         * for each discipline (requirements, analysis, design, implementation)
+         ** NotAssignedCost
+         ** NotAssignedActivities (with activity type)
+         <b>System allows</b>
+         * Split activity
+         * Assign activity
+         * Re-estimate activity
+         * Merge activity
+         * Open project
+         * Open members
+         * Close system
     end note
+
+    2 --> 4
+    note on link
+        * User introduces NotAssignedCost to split
+        * and orders confirm
+    end note
+
+    4 --> 0
+    note on link
+        <b>System shows</b>
+        * NotAssignedCost available hours
+        <b>System allows</b>
+        * introduce NotAssignedActivity information and confirm step
+        ** Activity type: one of the RUP identified activities of the introduced NotAssignedCost discipline
+        * introduce NotAssignedActivity description
+        * cancel split
+    end note
+
+        0 --> 10
+        note on link
+            User orders cancel split
+        end note
+
+    0 --> 8
+    note on link
+        User introduces
+        * NotAssignedActivity type
+        * NotAssignedActivity description
+        and orders confirm split
+    end note
+
+    8 --> 13
+    note on link
+        <b>System shows</b>
+        * NotAssignedCost split successful
+        * for each member
+        **assignedActivities in his datetime until end of current iteration
+        * for each discipline (requirements, analysis, design, implementation)
+        ** NotAssignedCost
+        ** NotAssignedActivities (with activity type)
+        <b>System allows</b>
+        * Split activity
+        * Assign activity
+        * Re-estimate activity
+        * Merge activity
+        * Open project
+        * Open members
+        * Close system
+    end note
+
 @enduml
