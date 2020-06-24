@@ -169,7 +169,7 @@ include::usecaseespecification/prioritizeUseCases.puml[]
 <<_index>>
 
 [#_createUseCase]
-==== Open UseCases
+==== Create UseCase
 [plantuml,svg,align="center"]
 ----
 include::usecaseespecification/createUseCase.puml[]
@@ -213,7 +213,7 @@ include::usecaseespecification/createUseCase.puml[]
 ==== Update Member
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/updateMember.puml[]
+//include::usecaseespecification/updateMember.puml[]
 ----
 <<_index>>
 

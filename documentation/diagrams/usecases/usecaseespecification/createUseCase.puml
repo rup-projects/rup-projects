@@ -5,9 +5,37 @@ state 2 as " "
 state 3 <<choice>>
 state 6 as " :USECASE_MANAGEMENT"
 
-[*] --> 1 : User orders create use case
-1 --> 2 : System allows to input usecase name
-2 --> 3 : User introduce usecase name and order create use case
-3 --> 2 : [empty usecase name \n OR usecase name already exists]
+[*] --> 1
+note on link
+    User orders create use case
+end note
+1 --> 2
+note on link
+    System allows
+    * introduce usecase name
+end note
+2 --> 3
+note on link
+    * User introduce usecase name
+    * and order create use case
+end note
+3 --> 1
+note on link
+[empty usecase name
+OR usecase name already exists]
+end note
 3 --> 6
+note on link
+System shows
+* use case was created
+* all usecases
+System allows
+* create use case
+* prioritise use cases
+* update use case
+* delete use case
+* open iteration
+* open project
+* open members
+end note
 @enduml
