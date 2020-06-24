@@ -11,7 +11,23 @@
 
 <<_startSystem>>
 
+<<_closeSystem>>
+
 <<_planProject>>
+
+<<_openIteration>>
+
+<<_splitActivity>>
+
+<<_assignActivity>>
+
+<<_openMembers>>
+
+<<_prioritizeUseCases>>
+
+<<_createUseCase>>
+
+<<_updateUseCase>>
 
 [#_usecases]
 === Use cases
@@ -48,6 +64,13 @@ include::usecaseespecification/planProject.puml[]
 ----
 <<_index>>
 
+[#_openIteration]
+==== open Iteration
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/openIteration.puml[]
+----
+
 [#_reestimateActivity]
 ==== Reestimate Activity
 [plantuml,svg,align="center"]
@@ -72,13 +95,38 @@ include::usecaseespecification/planProject.puml[]
 ----
 <<_index>>
 
+[#_assignActivity]
+==== assign Activity
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/assignActitivy.puml[]
+----
+<<_index>>
+
 [#_splitActivity]
 ==== Split Activity
 [plantuml,svg,align="center"]
 ----
-//include::usecaseespecification/splitActivity.puml[]
+include::usecaseespecification/splitActitivy.puml[]
 ----
 <<_index>>
+
+[#_openMembers]
+==== open Members
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/openMembers.puml[]
+----
+<<_index>>
+
+[#_prioritizeUseCases]
+==== prioritize Use cases
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/prioritizeUseCases.puml[]
+----
+<<_index>>
+
 
 [#_closeSystem]
 ==== Close System
@@ -120,6 +168,15 @@ include::usecaseespecification/planProject.puml[]
 ----
 <<_index>>
 
+[#_createUseCase]
+==== Open UseCases
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/createUseCase.puml[]
+----
+<<_index>>
+
+
 [#_openUseCases]
 ==== Open UseCases
 [plantuml,svg,align="center"]
@@ -149,6 +206,14 @@ include::usecaseespecification/planProject.puml[]
 [plantuml,svg,align="center"]
 ----
 //include::usecaseespecification/createMember.puml[]
+----
+<<_index>>
+
+[#_updateMember]
+==== Update Member
+[plantuml,svg,align="center"]
+----
+include::usecaseespecification/updateMember.puml[]
 ----
 <<_index>>
 
