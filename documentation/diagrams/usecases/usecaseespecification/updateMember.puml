@@ -1,18 +1,90 @@
 @startuml
 
+state 0 as " :MEMBER:MANAGEMENT"
 state 1 as " "
 state 2 as " "
 state 3 as " "
-state 4 as " "
 state 5 as " "
-state 6 as " :MEMBER:MANAGEMENT"
+state 6 as " "
+state 8 as " "
+state 7 as " :MEMBER:MANAGEMENT"
 
-[*] --> 1 : User selects a member to update
-1 --> 2 : System allows request update member \n AND select member to update
-2 --> 3 : User orders update member
-2 --> 4 : User selects member to update
-4 --> 1 : System unselect previous member
-3 --> 5 : System allows input member name, \n add member rol (Duplicate rols not allowed), \n remove member rol (if member has rol) \n save changes
-5 --> 3 : User introduces member name \n OR User adds member rol \n User removes member rol
-5 --> 6 : User orders save changes
+0 --> 1
+note on link
+    User orders update member
+end note
+1 --> 2
+note on link
+<b>System shows</b>
+* all members
+<b>System allows</b>
+* introduce a member to update
+* cancel update member
+end note
+
+2 --> 3
+note on link
+    User introduces a member to update
+end note
+
+2 --> 8
+note on link
+    User orders cancel update member
+end note
+
+3 --> 5
+note on link
+<b>System allows</b>
+* input member name,
+* add member rol (Duplicate rols not allowed)
+* remove member rol (if member has rol)
+* cancel update member
+* save changes
+end note
+
+5 --> 3
+note on link
+User introduces
+* member name
+* User adds member rol
+* User removes member rol
+end note
+
+5 --> 8
+note on link
+    User orders cancel update member
+end note
+
+8 --> 7
+    note on link
+        <b>System shows</b>
+        * all members in the project, his names and roles
+        <b>System allows</b>
+        * create member
+        * update member
+        * delete member
+        * open project
+        * open iteration
+        * open use cases
+    end note
+
+5 --> 6
+note on link
+    User orders save changes
+end note
+
+6 --> 7
+    note on link
+        <b>System shows</b>
+        * member updated
+        * all members in the project, his names and roles
+        <b>System allows</b>
+        * create member
+        * update member
+        * delete member
+        * open project
+        * open iteration
+        * open use cases
+    end note
+
 @enduml

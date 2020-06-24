@@ -1,14 +1,30 @@
 @startuml
 
-    state 0 as "OPENED_PROJECT"
+    state 0 as ":OPENED_PROJECT"
     state 1 as " "
-    state 2 as "USE_CASES_MANAGEMENT"
-    state 3 as "DISCIPLINES_MANAGEMENT"
+    state 2 as ":USE_CASES_MANAGEMENT"
+    state 3 as ":DISCIPLINES_MANAGEMENT"
 
     0 --> 1
-    2 --> 1 : User orders open members
-    3 --> 1
-    1 --> [*] : System shows all all members in the project, his names and roles \n \n AND System allows create member \n AND allows update member \n AND allows delete member \n AND allows Open project \n AND allows Open disciplines \n AND allows Open use cases
 
+    2 --> 1
+    note on link
+        User orders open members
+    end note
+
+    3 --> 1
+
+    1 --> [*]
+    note on link
+        System shows
+        * all members in the project, his names and roles
+        System allows
+        * create member
+        * update member
+        * delete member
+        * open project
+        * open iteration
+        * open use cases
+    end note
 
 @enduml
