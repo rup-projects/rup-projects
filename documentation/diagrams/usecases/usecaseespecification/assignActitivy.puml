@@ -1,5 +1,5 @@
 @startuml
-    state 0 as "OPENED_DISCIPLINES"
+    state 0 as ":OPENED_DISCIPLINES"
     state 1 as " "
     state 5 as " "
     state 13 as " "
