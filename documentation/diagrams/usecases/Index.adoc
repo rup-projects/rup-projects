@@ -213,7 +213,7 @@ include::usecaseespecification/createUseCase.puml[]
 ==== Update Member
 [plantuml,svg,align="center"]
 ----
-//include::usecaseespecification/updateMember.puml[]
+include::usecaseespecification/updateMember.puml[]
 ----
 <<_index>>
 
