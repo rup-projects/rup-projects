@@ -1,6 +1,6 @@
 = RUP MANAGER
 
-== Requirements
+== Requirements (8 /22)
 [#_index]
 
 === Index
@@ -52,7 +52,7 @@ include::usecaseespecification/planProject.puml[]
 ==== Reestimate Activity
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/reestimateActivity.puml[]
+//include::usecaseespecification/reestimateActivity.puml[]
 ----
 <<_index>>
 
@@ -60,7 +60,7 @@ include::usecaseespecification/reestimateActivity.puml[]
 ==== Close Activity
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/closeActivity.puml[]
+//include::usecaseespecification/closeActivity.puml[]
 ----
 <<_index>>
 
@@ -68,7 +68,7 @@ include::usecaseespecification/closeActivity.puml[]
 ==== Merge Activity
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/mergeActivity.puml[]
+//include::usecaseespecification/mergeActivity.puml[]
 ----
 <<_index>>
 
@@ -76,7 +76,7 @@ include::usecaseespecification/mergeActivity.puml[]
 ==== Split Activity
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/splitActivity.puml[]
+//include::usecaseespecification/splitActivity.puml[]
 ----
 <<_index>>
 
@@ -84,7 +84,7 @@ include::usecaseespecification/splitActivity.puml[]
 ==== Close System
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/closeSystem.puml[]
+//include::usecaseespecification/closeSystem.puml[]
 ----
 <<_index>>
 
@@ -92,7 +92,7 @@ include::usecaseespecification/closeSystem.puml[]
 ==== Open project
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/openProject.puml[]
+//include::usecaseespecification/openProject.puml[]
 ----
 <<_index>>
 
@@ -100,7 +100,7 @@ include::usecaseespecification/openProject.puml[]
 ==== Open phases
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/openPhases.puml[]
+//include::usecaseespecification/openPhases.puml[]
 ----
 <<_index>>
 
@@ -108,7 +108,7 @@ include::usecaseespecification/openPhases.puml[]
 ==== Open Iterations
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/openIterations.puml[]
+//include::usecaseespecification/openIterations.puml[]
 ----
 <<_index>>
 
@@ -116,7 +116,7 @@ include::usecaseespecification/openIterations.puml[]
 ==== Close Iteration
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/closeIteration.puml[]
+//include::usecaseespecification/closeIteration.puml[]
 ----
 <<_index>>
 
@@ -124,7 +124,7 @@ include::usecaseespecification/closeIteration.puml[]
 ==== Open UseCases
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/openUseCases.puml[]
+//include::usecaseespecification/openUseCases.puml[]
 ----
 <<_index>>
 
@@ -132,7 +132,7 @@ include::usecaseespecification/openUseCases.puml[]
 ==== Delete UseCase
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/deleteUseCase.puml[]
+//include::usecaseespecification/deleteUseCase.puml[]
 ----
 <<_index>>
 
@@ -140,7 +140,7 @@ include::usecaseespecification/deleteUseCase.puml[]
 ==== Update UseCase
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/updateUseCase.puml[]
+//include::usecaseespecification/updateUseCase.puml[]
 ----
 <<_index>>
 
@@ -148,7 +148,7 @@ include::usecaseespecification/updateUseCase.puml[]
 ==== Create member
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/createMember.puml[]
+//include::usecaseespecification/createMember.puml[]
 ----
 <<_index>>
 
@@ -156,7 +156,7 @@ include::usecaseespecification/createMember.puml[]
 ==== Delete Member
 [plantuml,svg,align="center"]
 ----
-include::usecaseespecification/DeleteMember.puml[]
+//include::usecaseespecification/DeleteMember.puml[]
 ----
 <<_index>>
 

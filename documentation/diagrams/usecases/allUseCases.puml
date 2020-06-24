@@ -1,40 +1,40 @@
 @startuml
 left to right direction
 
-actor "Manager" as manager
+actor "User" as user
 
 package General {
-:manager: -down-> (startSystem)
-:manager: -down-> (closeSystem)
-:manager: -down-> (OpenProject)
-:manager: -down-> (openPhases)
-:manager: -down-> (openIterations)
-:manager: -down-> (PlanProject)
-:manager: -down-> (CloseIteration)
+:user: -down-> (startSystem)
+:user: -down-> (closeSystem)
+:user: -down-> (OpenProject)
+:user: -down-> (openPhases)
+:user: -down-> (openIterations)
+:user: -down-> (PlanProject)
+:user: -down-> (CloseIteration)
 }
 
 package Members {
-:manager: -down-> (OpenMembers)
-:manager: -down-> (CreateMember)
-:manager: -down-> (UpdateMember)
-:manager: -down-> (DeleteMember)
+:user: -down-> (OpenMembers)
+:user: -down-> (CreateMember)
+:user: -down-> (UpdateMember)
+:user: -down-> (DeleteMember)
 }
 
 package UseCases {
-:manager: -left-> (OpenUseCases)
-:manager: -left-> (CreateUseCase)
-:manager: -left-> (DeleteUseCase)
-:manager: -left-> (UpdateUseCase)
-:manager: -left-> (PrioritizeUseCases)
+:user: -left-> (OpenUseCases)
+:user: -left-> (CreateUseCase)
+:user: -left-> (DeleteUseCase)
+:user: -left-> (UpdateUseCase)
+:user: -left-> (PrioritizeUseCases)
 }
 
 package Disciplines {
-:manager: -left-> (OpenIteration)
-:manager: -left-> (AssignActivity)
-:manager: -left-> (Re-estimateActivity)
-:manager: -left-> (SplitActivity)
-:manager: -left-> (CloseActivity)
-:manager: -left-> (MergeActivity)
+:user: -left-> (OpenIteration)
+:user: -left-> (AssignActivity)
+:user: -left-> (Re-estimateActivity)
+:user: -left-> (SplitActivity)
+:user: -left-> (CloseActivity)
+:user: -left-> (MergeActivity)
 }
 
 

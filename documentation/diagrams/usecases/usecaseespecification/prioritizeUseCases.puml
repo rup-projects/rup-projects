@@ -7,7 +7,7 @@ state 6 as " :USECASE_MANAGEMENT"
 
 [*] --> 1
 note on link
-    ¿¿Architect?/Manager?/Manager orders prioritize use cases
+    User orders prioritize use cases
 end note
 1 --> 2
 note on link
@@ -20,15 +20,15 @@ System allows
 end note
 2 --> 6
 note on link
-* ¿Architect?/Manager orders cancel use case prioritization
+* User orders cancel use case prioritization
 end note
 2 --> 1
 note on link
-¿Architect?/Manager sorts usecase
+User sorts usecase
 end note
 2 --> 7
 note on link
-* ¿Architect?/Manager orders confirm use case prioritization
+* User orders confirm use case prioritization
 end note
 7 --> 6
 note on link
