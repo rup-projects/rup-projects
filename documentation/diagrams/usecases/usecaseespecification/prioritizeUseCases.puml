@@ -3,6 +3,7 @@
 state 1 as " "
 state 2 as " "
 state 7 as " "
+state 8 as " "
 state 6 as " :USECASE_MANAGEMENT"
 
 [*] --> 1
@@ -11,17 +12,33 @@ note on link
 end note
 1 --> 2
 note on link
-System shows
-*all usecases sorted
-System allows
+<b>System shows</b>
+*all use cases sorted
+<b>System allows</b>
 * sort use case (the sort specifies the use case priority)
-* cancel use case prioritization
 * confirm use case prioritization
+* cancel use case prioritization
 end note
-2 --> 6
+2 --> 8
 note on link
 * User orders cancel use case prioritization
 end note
+8 --> 6
+note on link
+<b>System shows</b>
+* use cases prioritization was cancelled
+* All use cases sorted
+<b>System allows</b>
+* Prioritize Use cases
+* Create use case
+* Update use case
+* Delete use case
+* Open iteration
+* Open members
+* Open project
+* Close system
+end note
+
 2 --> 1
 note on link
 User sorts usecase
@@ -32,7 +49,17 @@ note on link
 end note
 7 --> 6
 note on link
-System shows
+<b>System shows</b>
 * Priorization confirmed
+* All use cases sorted
+<b>System allows</b>
+* Prioritize Use cases
+* Create use case
+* Update use case
+* Delete use case
+* Open iteration
+* Open members
+* Open project
+* Close system
 end note
 @enduml
