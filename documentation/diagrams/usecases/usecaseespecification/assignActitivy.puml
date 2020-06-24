@@ -1,97 +1,89 @@
 @startuml
     state 0 as "OPENED_DISCIPLINES"
     state 1 as " "
-    state 4 as " "
     state 5 as " "
-    state 6 as " "
-    state 7 <<choice>>
-    state 8 as " "
-    state 9 as " "
     state 13 as " "
     state 14 as " "
-    state 15 as " "
-    state 16 as " "
-    state 11 <<choice>>
+    state 15 <<choice>>
     state 12 as "OPENED_DISCIPLINES"
 
     0 --> 1
     note on link
-        User orders assign chip/pill
+        User orders assign NotAssignedActivity
     end note
+
     1 --> 13
     note on link
-        System shows
-        **  1 column for each member schedule until end of current iteration
-        **  1 column for each discipline and inside
-        *** assignable (1 hour) chips/pills
-        System allows
-        ** select chip/pill from [ ] to assign
-        *** member schedule column
-        *** specific discipline column
+    <b>System shows</b>
+    * for each member
+    **assignedActivities in his datetime until end of current iteration
+    * for each discipline (requirements, analysis, design, implementation)
+    ** NotAssignedActivities (with activity type)
+    <b>System allows</b>
+    * introduce NotAssignedActivity to be assigned
+    * cancel assign activity
+    end note
 
-    end note
-    13 --> 11
+    13 --> 5
     note on link
-        User introduces
-         * chip/pill to assign
+        User
+        * introduces NotAssignedActivity
+        * and orders confirm selection
     end note
-    11 --> 4
-    11 --> 5 : [pill not assigned to member]
-    4 --> 14
+
+    13 --> 12
     note on link
-        System allows
-        * introduce assign destination
-        ** another member
-        ** chip belonging discipline column
-        * request close activity
+        User orders cancel assign activity
     end note
+
+    5 --> 14
+    note on link
+    <b>System shows</b>
+    * NotAssignedActivity
+    ** duration (in hours)
+    ** activity type
+    * for each member
+    **assignedActivities in his datetime until end of current iteration
+    <b>System allows</b>
+    * introduce assign destination
+    ** specific member hour without assignedActivity
+    * cancel assign activity
+    end note
+
     14 -down-> 15
     note on link
-        User introduces
-        * assign destination another member
+        * User introduces assign destination
+        * and orders confirm selection
     end note
-    14 -down-> 16
+
+    14 --> 12
     note on link
-        User introduces
-        * assign destination chip belonging discipline column
+    User orders cancel assign activity
     end note
-    15 --> [*]
+
+    15 --> 5
     note on link
-        System shows
-        * the pill re-assigned to another member
+        [NotAssignedActivity duration > member assign destination of not assigned time until next assignedActivity
+        OR
+        NotAssignedActivity overlaps member max capacity (hours) in current iteration]
     end note
-    16 --> [*]
+
+    15 --> 12
     note on link
-        System shows
-        * the pill re-assigned in the top of his discipline column
-    end note
-    5 --> 6
-    note on link
-        System allows
-        * introduce pill assign destination
-        ** specific member schedule (specific hour in member column)
-    end note
-    6 --> 7
-    note on link
-    User introduces
-    * member schedule datetime (inside the actual iteration limits)
-    end note
-    7 --> 8
-    note on link
-        [pill to assign overlaps with the member schedule assigned pills
-            OR
-        member assigned activities durations > member max capacity in actual iteration]
-    end note
-    8 --> 5
-    note on link
-         System shows error
-         * the destination (datetime) is invalid
-    end note
-    7 --> 9
-    9 --> 12
-    note on link
-        System
-        * Hides the selected pill from his specific discipline
-        * Shows the selected pill in member schedule
-    end note
+     <b>System shows</b>
+     * NotAssignedActivity was assigned to member
+     * for each member
+     **assignedActivities in his datetime until end of current iteration
+     * for each discipline (requirements, analysis, design, implementation)
+     ** NotAssignedCost
+     ** NotAssignedActivities (with activity type)
+     <b>System allows</b>
+     * Split activity
+     * Assign activity
+     * Re-estimate activity
+     * Merge activity
+     * Open project
+     * Open members
+     * Close system
+     end note
 @enduml
