@@ -1,4 +1,7 @@
 @startuml
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
 
     state 1  <<choice>>
     state 2 as "CONFIGURING_CURRENT_ITERATION" #Cyan
@@ -13,15 +16,15 @@
         ** :MEMBERS_MANAGEMENT
     end note
       1 -> 6
-    note on link #whiteSmoke
+    note on link
         [There is current iteration]
     end note
     1 --> 2
-    note on link #whiteSmoke
+    note on link
         [empty current iteration]
     end note
     2 --> 4
-    note on link #whiteSmoke
+    note on link
         <b>System shows</b>
         * Use cases ordered by prioritization
         <b>System allows</b>
@@ -33,13 +36,13 @@
            | IMPLEMENTATION
     end note
     4 --> 2
-       note on link #whiteSmoke
+       note on link
         <b>System shows</b>
         * More than one usecases should be introduced
         * Some use case has not desired realization
     end note
     4 --> 6
-    note on link #whiteSmoke
+    note on link
         <b>User introduces</b>
         * Order confirm open current iteration
         <b>AND</b>
