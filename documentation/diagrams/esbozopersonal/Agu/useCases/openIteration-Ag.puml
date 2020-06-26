@@ -1,0 +1,66 @@
+@startuml
+
+    state 1  <<choice>>
+    state 2 as "CONFIGURING_CURRENT_ITERATION" #Cyan
+    state 6 as ":OPENED_ITERATION" #YellowGreen
+    state 4 <<choice>>
+
+    [*] --> 1
+    note on link #Orange
+        <b>System preconditions</b>
+        ** :OPENED_PROJECT
+        ** :USE_CASES_MANAGEMENT
+        ** :MEMBERS_MANAGEMENT
+    end note
+      1 -> 6
+    note on link #whiteSmoke
+        [There is current iteration]
+    end note
+    1 --> 2
+    note on link #whiteSmoke
+        [empty current iteration]
+    end note
+    2 --> 4
+    note on link #whiteSmoke
+        <b>System shows</b>
+        * Use cases ordered by prioritization
+        <b>System allows</b>
+        * Introduce use case for the current iteration
+        * Introduce this use cases desired realization:
+           REQUIREMENTS 
+           | ANALYSIS 
+           | DESIGN 
+           | IMPLEMENTATION
+    end note
+    4 --> 2
+       note on link #whiteSmoke
+        <b>System shows</b>
+        * More than one usecases should be introduced
+        * Some use case has not desired realization
+    end note
+    4 --> 6
+    note on link #whiteSmoke
+        <b>User introduces</b>
+        * Order confirm open current iteration
+        <b>AND</b>
+        * [usecases introduced >= 1 AND All use cases introduced have desired realization]  
+    end note
+    6 --> [*]
+    note on link #GreenYellow
+     <b>System shows</b>
+     * For each member
+     ** AssignedActivities in his datetime until end of current iteration
+     * For each discipline (requirements, analysis, design, implementation)
+     ** NotAssignedCost
+     ** NotAssignedActivities (with activity type)
+     <b>System allows</b>
+     * Split activity
+     * Assign activity
+     * Re-estimate activity
+     * Merge activity
+     * Open project
+     * Open members
+     * Close system
+     * Close iteration
+    end note
+@enduml
