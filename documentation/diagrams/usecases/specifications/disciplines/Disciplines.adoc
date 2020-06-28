@@ -7,33 +7,6 @@
 include::OpenIteration.puml[]
 ----
 
-[#_ReEstimateActivity]
-==== Reestimate Activity
-
-[plantuml,svg,align="center"]
-----
-//include::specifications/reestimateActivity.puml[]
-----
-
-[#_CloseActivity]
-==== Close Activity
-
-[plantuml,svg,align="center"]
-----
-//include::specifications/closeActivity.puml[]
-----
-
-[#_MergeActivity]
-==== Merge Activity
-
-[plantuml,svg,align="center"]
-----
-//include::specifications/mergeActivity.puml[]
-----
-
-[#_AssignActivity]
-==== Assign Activity
-
 [plantuml,svg,align="center"]
 ----
 include::AssignActitivy.puml[]
@@ -46,3 +19,15 @@ include::AssignActitivy.puml[]
 ----
 include::SplitActitivy.puml[]
 ----
+
+[#_ReEstimateActivity]
+==== Reestimate Activity
+
+[#_CloseActivity]
+==== Close Activity
+
+[#_MergeActivity]
+==== Merge Activity
+
+[#_AssignActivity]
+==== Assign Activity
