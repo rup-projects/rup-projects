@@ -1,0 +1,30 @@
+[#_StartSystem]
+==== Start System
+
+[plantuml,svg,align="center"]
+----
+include::StartSystem.puml[]
+----
+
+[#_PlanProject]
+==== Plan Project
+
+[plantuml,svg,align="center"]
+----
+include::PlanProject.puml[]
+----
+
+[#_CloseIteration]
+==== Close Iteration
+
+[#_CloseSystem]
+==== Close System
+
+[#_OpenProject]
+==== Open project
+
+[#_OpenPhases]
+==== Open phases
+
+[#_OpenIterations]
+==== Open Iterations

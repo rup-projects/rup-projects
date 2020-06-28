@@ -1,0 +1,24 @@
+[#_PrioritizeUseCases]
+==== Prioritize Use cases
+
+[plantuml,svg,align="center"]
+----
+include::PrioritizeUseCases.puml[]
+----
+
+[#_CreateUseCase]
+==== Create UseCase
+
+[plantuml,svg,align="center"]
+----
+include::CreateUseCase.puml[]
+----
+
+[#_OpenUseCases]
+==== Open UseCases
+
+[#_DeleteUseCase]
+==== Delete UseCase
+
+[#_UpdateUseCase]
+==== Update UseCase

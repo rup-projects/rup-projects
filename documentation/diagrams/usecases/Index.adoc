@@ -2,226 +2,70 @@
 
 == Requirements (8 /22)
 [#_index]
-
 === Index
 
-<<_usecases>>
+* <<_UseCases>>
+* <<_ContextDiagram>>
+* Use cases specifications
 
-<<_contextDiagram>>
+** General
+*** <<_StartSystem>>
+*** <<_CloseSystem>>
+*** <<_OpenProject>>
+*** <<_OpenPhases>>
+*** <<_OpenIterations>>
+*** <<_PlanProject>>
+*** <<_CloseIteration>>
 
-<<_startSystem>>
+** Disciplines
+*** <<_OpenIteration>>
+*** <<_AssignActivity>>
+*** <<_ReEstimateActivity>>
+*** <<_SplitActivity>>
+*** <<_CloseActivity>>
+*** <<_MergeActivity>>
 
-<<_closeSystem>>
+** Members
+*** <<_OpenMembers>>
+*** <<_CreateMember>>
+*** <<_UpdateMember>>
+*** <<_DeleteMember>>
 
-<<_planProject>>
+** UseCases
+*** <<_OpenUseCases>>
+*** <<_CreateUseCase>>
+*** <<_DeleteUseCase>>
+*** <<_UpdateUseCase>>
+*** <<_PrioritizeUseCases>>
 
-<<_openIteration>>
+[#_UseCases]
+=== Use Cases Diagram
 
-<<_splitActivity>>
-
-<<_assignActivity>>
-
-<<_openMembers>>
-
-<<_prioritizeUseCases>>
-
-<<_createUseCase>>
-
-<<_updateUseCase>>
-
-[#_usecases]
-=== Use cases
-[plantuml,svg,align="center"]
+[plantuml,align="center"]
 ----
-include::allUseCases.puml[]
+include::UseCases.puml[]
 ----
+
 <<_index>>
 
-[#_contextDiagram]
+[#_ContextDiagram]
 === Context diagram
+
 [plantuml,svg,align="center"]
 ----
-include::contextDiagram.puml[]
+include::ContextDiagram.puml[]
 ----
+
 <<_index>>
 
-
+[plantuml,test_link,svg,opts=interactive]
 === Use cases specification
 
-[#_startSystem]
-==== start System
-[plantuml,svg,align="center"]
-----
-include::usecaseespecification/startSystem.puml[]
-----
+include::{docdir}/specifications/general/General.adoc[]
 <<_index>>
-
-[#_planProject]
-==== plan Project
-[plantuml,svg,align="center"]
-----
-include::usecaseespecification/planProject.puml[]
-----
+include::{docdir}/specifications/disciplines/Disciplines.adoc[]
 <<_index>>
-
-[#_openIteration]
-==== open Iteration
-[plantuml,svg,align="center"]
-----
-include::usecaseespecification/openIteration.puml[]
-----
-
-[#_reestimateActivity]
-==== Reestimate Activity
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/reestimateActivity.puml[]
-----
+include::{docdir}/specifications/usecases/UseCases.adoc[]
 <<_index>>
-
-[#_closeActivity]
-==== Close Activity
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/closeActivity.puml[]
-----
+include::{docdir}/specifications/members/Members.adoc[]
 <<_index>>
-
-[#_mergeActivity]
-==== Merge Activity
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/mergeActivity.puml[]
-----
-<<_index>>
-
-[#_assignActivity]
-==== assign Activity
-[plantuml,svg,align="center"]
-----
-include::usecaseespecification/assignActitivy.puml[]
-----
-<<_index>>
-
-[#_splitActivity]
-==== Split Activity
-[plantuml,svg,align="center"]
-----
-include::usecaseespecification/splitActitivy.puml[]
-----
-<<_index>>
-
-[#_openMembers]
-==== open Members
-[plantuml,svg,align="center"]
-----
-include::usecaseespecification/openMembers.puml[]
-----
-<<_index>>
-
-[#_prioritizeUseCases]
-==== prioritize Use cases
-[plantuml,svg,align="center"]
-----
-include::usecaseespecification/prioritizeUseCases.puml[]
-----
-<<_index>>
-
-
-[#_closeSystem]
-==== Close System
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/closeSystem.puml[]
-----
-<<_index>>
-
-[#_openProject]
-==== Open project
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/openProject.puml[]
-----
-<<_index>>
-
-[#_openPhases]
-==== Open phases
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/openPhases.puml[]
-----
-<<_index>>
-
-[#_openIterations]
-==== Open Iterations
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/openIterations.puml[]
-----
-<<_index>>
-
-[#_closeIteration]
-==== Close Iteration
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/closeIteration.puml[]
-----
-<<_index>>
-
-[#_createUseCase]
-==== Create UseCase
-[plantuml,svg,align="center"]
-----
-include::usecaseespecification/createUseCase.puml[]
-----
-<<_index>>
-
-
-[#_openUseCases]
-==== Open UseCases
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/openUseCases.puml[]
-----
-<<_index>>
-
-[#_deleteUseCase]
-==== Delete UseCase
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/deleteUseCase.puml[]
-----
-<<_index>>
-
-[#_updateUseCase]
-==== Update UseCase
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/updateUseCase.puml[]
-----
-<<_index>>
-
-[#_createMember]
-==== Create member
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/createMember.puml[]
-----
-<<_index>>
-
-[#_updateMember]
-==== Update Member
-[plantuml,svg,align="center"]
-----
-include::usecaseespecification/updateMember.puml[]
-----
-<<_index>>
-
-[#_deleteMember]
-==== Delete Member
-[plantuml,svg,align="center"]
-----
-//include::usecaseespecification/DeleteMember.puml[]
-----
-<<_index>>
-
