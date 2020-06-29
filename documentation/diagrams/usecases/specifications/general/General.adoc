@@ -22,9 +22,23 @@ include::PlanProject.puml[]
 
 [#_OpenProject]
 ==== Open project
+[plantuml,svg,align="center"]
+----
+include::OpenProject.puml[]
+----
+
 
 [#_OpenPhases]
 ==== Open phases
+[plantuml,svg,align="center"]
+----
+include::OpenPhases.puml[]
+----
+
 
 [#_OpenIterations]
 ==== Open Iterations
+[plantuml,svg,align="center"]
+----
+include::OpenIterations.puml[]
+----
