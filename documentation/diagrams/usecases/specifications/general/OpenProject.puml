@@ -1,0 +1,34 @@
+@startuml
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+
+state 1 as " "
+state 7 as ":OPENED_PROJECT"
+
+[*] --> 1
+note on link
+    User orders open project
+end note
+
+1 --> 7
+note on link
+<b>System shows</b>
+* project information
+** name
+** start date
+** end date
+** name
+** duration (business days)
+** progress (business days)
+** iteration duration (business days)
+<b>System allows</b>
+* Open phases
+* Open iterations
+* Open iteration
+* Open members
+* Open usecases
+* close system
+end note
+@enduml
