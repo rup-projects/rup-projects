@@ -1,4 +1,9 @@
 @startuml
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+
     state 2 as " "
     state 0 as " "
     state 4 as " "
@@ -10,28 +15,55 @@
 
     5 --> 6
     note on link
-        User orders split activity
+        User orders re estimate NotAssignedActivity
     end note
 
     6 --> 2
     note on link
     <b>System shows</b>
     * for each discipline (requirements, analysis, design, implementation)
-    ** NotAssignedCost
+    ** NotAssignedActivities
     <b>System allows</b>
-    * introduce NotAssignedCost to split and order confirm
-    * cancel split activity
+    * introduce NotAssignedActivity to re-estimate and order confirm
+    * cancel re-estimate activity
     end note
 
     2 --> 10
     note on link
-        User orders cancel split
+        User orders cancel re-estimate
+    end note
+
+    2 --> 4
+    note on link
+        * User introduces NotAssignedActivity to re-estimate
+        * and orders confirm
+    end note
+
+    4 --> 0
+    note on link
+        <b>System shows</b>
+        * NotAssignedCost
+        ** total available cost (hours)
+        * NotAssignedActivity
+        ** duration (hours)
+        <b>System allows</b>
+        * introduce NotAssignedActivity duration (max as NotAssignedCost total available cost) and order confirm
+        * cancel re-estimate
+    end note
+
+    0 --> 10
+    note on link
+        User orders cancel re-estimate
+    end note
+
+    0 --> 8
+    note on link
+        User introduces NotAssignedActivity duration and orders confirm
     end note
 
     10 --> 13
     note on link
          <b>System shows</b>
-         * split activity was cancelled
          * for each member
          **assignedActivities in his datetime until end of current iteration
          * for each discipline (requirements, analysis, design, implementation)
@@ -47,40 +79,10 @@
          * Close system
     end note
 
-    2 --> 4
-    note on link
-        * User introduces NotAssignedCost to split
-        * and orders confirm
-    end note
-
-    4 --> 0
-    note on link
-        <b>System shows</b>
-        * NotAssignedCost available hours
-        <b>System allows</b>
-        * introduce NotAssignedActivity information and confirm step
-        ** Activity type: one of the RUP identified activities of the introduced NotAssignedCost discipline
-        * introduce NotAssignedActivity description
-        * cancel split
-    end note
-
-        0 --> 10
-        note on link
-            User orders cancel split
-        end note
-
-    0 --> 8
-    note on link
-        User introduces
-        * NotAssignedActivity type
-        * NotAssignedActivity description
-        and orders confirm split
-    end note
-
     8 --> 13
     note on link
         <b>System shows</b>
-        * NotAssignedCost split successful
+        * NotAssignedCost re-estimate successful
         * for each member
         **assignedActivities in his datetime until end of current iteration
         * for each discipline (requirements, analysis, design, implementation)

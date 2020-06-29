@@ -22,6 +22,11 @@ include::SplitActitivy.puml[]
 
 [#_ReEstimateActivity]
 ==== Reestimate Activity
+[plantuml,svg,align="center"]
+----
+include::RestimateActitivy.puml[]
+----
+
 
 [#_CloseActivity]
 ==== Close Activity
@@ -30,5 +35,5 @@ include::SplitActitivy.puml[]
 ==== Merge Activity
 [plantuml,svg,align="center"]
 ----
-include::mergeActitivy.puml[]
+include::MergeActitivy.puml[]
 ----
