@@ -1,0 +1,33 @@
+
+[#_OpenIteration]
+==== Open Iteration
+
+[plantuml,svg,align="center"]
+----
+include::OpenIteration.puml[]
+----
+
+[plantuml,svg,align="center"]
+----
+include::AssignActitivy.puml[]
+----
+
+[#_SplitActivity]
+==== Split Activity
+
+[plantuml,svg,align="center"]
+----
+include::SplitActitivy.puml[]
+----
+
+[#_ReEstimateActivity]
+==== Reestimate Activity
+
+[#_CloseActivity]
+==== Close Activity
+
+[#_MergeActivity]
+==== Merge Activity
+
+[#_AssignActivity]
+==== Assign Activity

@@ -36,7 +36,4 @@ package Disciplines {
 :user: -left-> (CloseActivity)
 :user: -left-> (MergeActivity)
 }
-
-
-
 @enduml
