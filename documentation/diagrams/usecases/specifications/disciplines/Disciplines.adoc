@@ -1,12 +1,13 @@
 
 [#_OpenIteration]
 ==== Open Iteration
-
 [plantuml,svg,align="center"]
 ----
 include::OpenIteration.puml[]
 ----
 
+[#_AssignActivity]
+==== Assign Activity
 [plantuml,svg,align="center"]
 ----
 include::AssignActitivy.puml[]
@@ -14,7 +15,6 @@ include::AssignActitivy.puml[]
 
 [#_SplitActivity]
 ==== Split Activity
-
 [plantuml,svg,align="center"]
 ----
 include::SplitActitivy.puml[]
@@ -28,6 +28,7 @@ include::SplitActitivy.puml[]
 
 [#_MergeActivity]
 ==== Merge Activity
-
-[#_AssignActivity]
-==== Assign Activity
+[plantuml,svg,align="center"]
+----
+include::mergeActitivy.puml[]
+----
