@@ -5,17 +5,18 @@ skinparam {
 
     state 1  <<choice>>
     state 2 as "CONFIGURING_CURRENT_ITERATION" #Cyan
-    state 6 as ":OPENED_ITERATION" #YellowGreen
-    state 4 <<choice>>
+    state 3 <<choice>>
+    state 4 as ":OPENED_ITERATION" #YellowGreen
+    
 
     [*] --> 1
     note on link #Orange
         <b>System preconditions</b>
-        ** :OPENED_PROJECT
-        ** :USE_CASES_MANAGEMENT
-        ** :MEMBERS_MANAGEMENT
+        * :OPENED_PROJECT
+        * :USE_CASES_MANAGEMENT
+        * :MEMBERS_MANAGEMENT
     end note
-      1 -> 6
+      1 -> 4
     note on link
         [There is current iteration]
     end note
@@ -23,7 +24,7 @@ skinparam {
     note on link
         [empty current iteration]
     end note
-    2 --> 4
+    2 --> 3
     note on link
         <b>System shows</b>
         * Use cases ordered by prioritization
@@ -35,20 +36,20 @@ skinparam {
            | DESIGN 
            | IMPLEMENTATION
     end note
-    4 --> 2
+    3 --> 2
        note on link
         <b>System shows</b>
         * More than one usecases should be introduced
         * Some use case has not desired realization
     end note
-    4 --> 6
+    3 --> 4
     note on link
         <b>User introduces</b>
         * Order confirm open current iteration
-        <b>AND</b>
+           <b>AND</b>
         * [usecases introduced >= 1 AND All use cases introduced have desired realization]  
     end note
-    6 --> [*]
+    4 --> [*]
     note on link #GreenYellow
      <b>System shows</b>
      * For each member
@@ -61,7 +62,6 @@ skinparam {
      * Assign activity
      * Re-estimate activity
      * Merge activity
-     * Open project
      * Open members
      * Close system
      * Close iteration
