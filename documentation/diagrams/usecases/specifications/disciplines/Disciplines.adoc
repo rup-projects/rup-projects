@@ -1,3 +1,5 @@
+[#_CloseActivity]
+==== Close Activity
 
 [#_OpenIteration]
 ==== Open Iteration
@@ -26,10 +28,6 @@ include::SplitActitivy.puml[]
 ----
 include::RestimateActitivy.puml[]
 ----
-
-
-[#_CloseActivity]
-==== Close Activity
 
 [#_MergeActivity]
 ==== Merge Activity

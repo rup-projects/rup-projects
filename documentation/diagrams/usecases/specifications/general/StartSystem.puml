@@ -8,6 +8,7 @@ state 4 as ":INIT_PROJECT"
 [*] --> 1
 note on link
     User opens the app
+    [[<<_index>>]]
 end note
 
 1 --> 2
