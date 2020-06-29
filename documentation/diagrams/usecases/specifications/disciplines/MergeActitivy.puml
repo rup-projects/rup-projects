@@ -66,6 +66,7 @@ skinparam {
     20 --> 12
     note on link
          <b>System shows</b>
+         * __Merge activity cancelled__
          * for each member
          **assignedActivities in his datetime until end of current iteration
          * for each discipline (requirements, analysis, design, implementation)
@@ -85,7 +86,7 @@ skinparam {
     15 --> 12
     note on link
      <b>System shows</b>
-     * AssignedActivity was returned to NotAssignedCost
+     * __AssignedActivity was returned to NotAssignedCost__
      * for each member
      **assignedActivities in his datetime until end of current iteration
      * for each discipline (requirements, analysis, design, implementation)

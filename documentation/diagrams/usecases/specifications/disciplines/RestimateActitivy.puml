@@ -64,6 +64,7 @@ skinparam {
     10 --> 13
     note on link
          <b>System shows</b>
+         * __re-estimate activity was cancelled__
          * for each member
          **assignedActivities in his datetime until end of current iteration
          * for each discipline (requirements, analysis, design, implementation)
@@ -82,7 +83,7 @@ skinparam {
     8 --> 13
     note on link
         <b>System shows</b>
-        * NotAssignedCost re-estimate successful
+        * __NotAssignedCost re-estimate successful__
         * for each member
         **assignedActivities in his datetime until end of current iteration
         * for each discipline (requirements, analysis, design, implementation)
