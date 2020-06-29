@@ -1,4 +1,9 @@
 @startuml
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+
     state 2 as " "
     state 0 as " "
     state 4 as " "
@@ -28,25 +33,6 @@
         User orders cancel split
     end note
 
-    10 --> 13
-    note on link
-         <b>System shows</b>
-         * split activity was cancelled
-         * for each member
-         **assignedActivities in his datetime until end of current iteration
-         * for each discipline (requirements, analysis, design, implementation)
-         ** NotAssignedCost
-         ** NotAssignedActivities (with activity type)
-         <b>System allows</b>
-         * Split activity
-         * Assign activity
-         * Re-estimate activity
-         * Merge activity
-         * Open project
-         * Open members
-         * Close system
-    end note
-
     2 --> 4
     note on link
         * User introduces NotAssignedCost to split
@@ -64,10 +50,10 @@
         * cancel split
     end note
 
-        0 --> 10
-        note on link
-            User orders cancel split
-        end note
+    0 --> 10
+    note on link
+        User orders cancel split
+    end note
 
     0 --> 8
     note on link
@@ -80,7 +66,7 @@
     8 --> 13
     note on link
         <b>System shows</b>
-        * NotAssignedCost split successful
+        * __NotAssignedCost split successful__
         * for each member
         **assignedActivities in his datetime until end of current iteration
         * for each discipline (requirements, analysis, design, implementation)
@@ -95,5 +81,25 @@
         * Open members
         * Close system
     end note
+
+    10 --> 13
+    note on link
+         <b>System shows</b>
+         * __split activity was cancelled__
+         * for each member
+         **assignedActivities in his datetime until end of current iteration
+         * for each discipline (requirements, analysis, design, implementation)
+         ** NotAssignedCost
+         ** NotAssignedActivities (with activity type)
+         <b>System allows</b>
+         * Split activity
+         * Assign activity
+         * Re-estimate activity
+         * Merge activity
+         * Open project
+         * Open members
+         * Close system
+    end note
+
 
 @enduml

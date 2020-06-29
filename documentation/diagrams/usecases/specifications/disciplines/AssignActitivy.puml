@@ -1,4 +1,8 @@
 @startuml
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+    }
+
     state 0 as ":OPENED_DISCIPLINES"
     state 1 as " "
     state 5 as " "
@@ -65,6 +69,7 @@
     20 --> 12
     note on link
          <b>System shows</b>
+         * __assign activity cancelled__
          * for each member
          **assignedActivities in his datetime until end of current iteration
          * for each discipline (requirements, analysis, design, implementation)
@@ -90,7 +95,7 @@
     15 --> 12
     note on link
      <b>System shows</b>
-     * NotAssignedActivity was assigned to member
+     * __NotAssignedActivity was assigned to member__
      * for each member
      **assignedActivities in his datetime until end of current iteration
      * for each discipline (requirements, analysis, design, implementation)
