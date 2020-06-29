@@ -1,0 +1,68 @@
+@startuml
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+    state 1  <<choice>>
+    state 2 as " "
+    state 3 as ":OPENED_ITERATION" #YellowGreen
+    state 4 <<choice>>
+    state 5 <<choice>>
+
+    [*] --> 1
+    note on link #Orange
+        <b>System preconditions</b>
+        ** :OPENED_PROJECT
+        ** :USE_CASES_MANAGEMENT
+        ** :MEMBERS_MANAGEMENT
+    end note
+      1 ---> 3
+    note on link
+        [There is current iteration]
+    end note
+    1 -> 2
+    note on link
+        [empty current iteration]
+    end note
+    2 --> 3
+    note on link
+        <b>System shows</b>
+        * All closed iterations 
+        <b>User introduces</b>
+        * Order to open a closed iteration
+    end note
+    3 ---> 4
+    note on link 
+     <b>System allows</b>
+     * Accept open iteration
+    end note
+    4 --> 2
+    note on link
+    <b>User introduces</b>
+     * Does not accept open iteration
+    end note
+   	4 --> 5
+   	note on link #GreenYellow
+     <b>System shows</b>
+     * For each member
+     ** AssignedActivities in his datetime until end of current iteration
+     * For each discipline (requirements, analysis, design, implementation)
+     ** NotAssignedCost
+     ** NotAssignedActivities (with activity type)
+    end note
+    5 --> [*]
+    note on link #GreenYellow
+     <b>System allows if it is current iteration</b>
+     * Split activity
+     * Assign activity
+     * Re-estimate activity
+     * Merge activity
+     * Close system
+     * Close iteration
+    end note
+       5 --> [*]
+    note on link #GreenYellow
+     <b>System allows if not current iteration</b>
+     * Close system
+     * Close iteration
+    end note
+@enduml

@@ -1,0 +1,56 @@
+@startuml
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+    state 1  <<choice>>
+    state 2 as " "
+    state 3 as ":OPENED_PHASE" #YellowGreen
+    state 4 <<choice>>
+
+    [*] --> 1
+    note on link #Orange
+        <b>System preconditions</b>
+        ** :OPENED_PROJECT
+        ** :USE_CASES_MANAGEMENT
+        ** :MEMBERS_MANAGEMENT
+    end note
+      1 ---> 3
+    note on link
+        [There is current phase]
+    end note
+    1 -> 2
+    note on link
+        [empty current phase]
+    end note
+    2 --> 3
+    note on link
+        <b>System shows</b>
+        * All closed phases 
+        <b>User introduces</b>
+        * Order to open a closed phase
+    end note
+    3 ---> 4
+    note on link 
+     <b>System allows</b>
+     * Accept open phase
+    end note
+    4 --> 2
+    note on link
+    <b>User introduces</b>
+     * Does not accept open phase
+    end note
+   	4 --> [*]
+   	note on link #GreenYellow
+     <b>System shows</b>
+     * For each member
+     ** AssignedActivities in his datetime until end of current phase
+     * For each discipline (requirements, analysis, design, implementation)
+     ** NotAssignedCost
+     ** NotAssignedActivities (with activity type)
+     <b>System allows</b>
+     * Open iteration
+     * Close phase
+     * Close system 
+    end note 
+
+@enduml
