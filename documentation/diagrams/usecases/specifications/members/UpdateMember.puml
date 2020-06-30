@@ -9,10 +9,15 @@ state 6 as " "
 state 8 as " "
 state 7 as " :MEMBER:MANAGEMENT"
 
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+
 0 --> 1
 note on link
     User orders update member
 end note
+
 1 --> 2
 note on link
 <b>System shows</b>
@@ -34,18 +39,20 @@ end note
 
 3 --> 5
 note on link
+<b>System shows</b>
+* member name
+* member roles
 <b>System allows</b>
-* input member name,
-* add member rol (Duplicate rols not allowed)
-* remove member rol (if member has rol)
+* introduce member name
+* add member rol (duplicate roles not allowed)
+* remove member rol (if member has any rol)
 * cancel update member
 * save changes
 end note
 
 5 --> 3
 note on link
-User introduces
-* member name
+* User introduces member name
 * User adds member rol
 * User removes member rol
 end note
@@ -56,17 +63,17 @@ note on link
 end note
 
 8 --> 7
-    note on link
-        <b>System shows</b>
-        * all members in the project, his names and roles
-        <b>System allows</b>
-        * create member
-        * update member
-        * delete member
-        * open project
-        * open iteration
-        * open use cases
-    end note
+note on link
+    <b>System shows</b>
+    * all members in the project, his names and roles
+    <b>System allows</b>
+    * create member
+    * update member
+    * delete member
+    * open project
+    * open iteration
+    * open use cases
+end note
 
 5 --> 6
 note on link
@@ -74,17 +81,17 @@ note on link
 end note
 
 6 --> 7
-    note on link
-        <b>System shows</b>
-        * member updated
-        * all members in the project, his names and roles
-        <b>System allows</b>
-        * create member
-        * update member
-        * delete member
-        * open project
-        * open iteration
-        * open use cases
-    end note
+note on link
+    <b>System shows</b>
+    * __member updated__
+    * all members in the project, his names and roles
+    <b>System allows</b>
+    * create member
+    * update member
+    * delete member
+    * open project
+    * open iteration
+    * open use cases
+end note
 
 @enduml
