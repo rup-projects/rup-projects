@@ -1,4 +1,7 @@
 @startuml
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
 
     state 0 as ":OPENED_PROJECT"
     state 1 as " "
@@ -16,9 +19,9 @@
 
     1 --> [*]
     note on link
-        System shows
+        <b>System shows</b>
         * all members in the project, his names and roles
-        System allows
+        <b>System allows</b>
         * create member
         * update member
         * delete member

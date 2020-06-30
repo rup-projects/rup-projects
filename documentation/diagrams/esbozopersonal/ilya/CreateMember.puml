@@ -1,0 +1,88 @@
+@startuml
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+
+state 1 as " "
+state 3 as " "
+state 4 as " "
+state 5 as " "
+state 8 as " "
+state 7 as " "
+state 4 <<choice>>
+state 6 as " :MEMBER_MANAGEMENT"
+
+[*] --> 1
+note on link
+    User orders create Member
+end note
+
+1 --> 3
+note on link
+    <b>System allows</b>
+    * introduce member name
+    * add member rol (duplicates not allowed)
+    * remove member rol (if member has some rol)
+    * confirm member creation
+    * cancel member creation
+end note
+
+3 --> 1
+note on link
+    * User introduces member name
+    * user adds rol
+    * user removes rol
+end note
+
+3 --> 8
+note on link
+User orders cancel member creation
+end note
+
+3 --> 4
+note on link
+    User orders confirm member creation
+end note
+
+4 --> 5
+note on link
+[member name already exists]
+end note
+
+5 --> 1
+note on link
+System shows member name already exists
+end note
+
+4 --> 7
+
+7 --> 6
+note on link
+    <b>System shows</b>
+    * __member was created__
+    * all members in the project, his names and roles
+    <b>System allows</b>
+    * create member
+    * update member
+    * delete member
+    * open project
+    * open iteration
+    * open use cases
+end note
+
+8 --> 6
+note on link
+    <b>System shows</b>
+    * __Operation cancelled__
+    * all members in the project, his names and roles
+    <b>System allows</b>
+    * create member
+    * update member
+    * delete member
+    * open project
+    * open iteration
+    * open use cases
+end note
+
+@enduml
