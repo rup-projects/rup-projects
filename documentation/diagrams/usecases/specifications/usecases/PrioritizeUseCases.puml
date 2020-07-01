@@ -1,4 +1,5 @@
 @startuml
+skinparam NoteBackgroundColor #whiteSmoke
 
 state 1 as " "
 state 2 as " "

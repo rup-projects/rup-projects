@@ -1,8 +1,10 @@
 @startuml
 skinparam NoteBackgroundColor #whiteSmoke
 
-state canCreate as " "
-state createOrdered as " "
+state canEdit as " "
+state selectedOrdered as " "
+state selected as " "
+state editOrdered as " "
 state opened as " "
 state filled as " "
 state valid as " "
@@ -10,17 +12,25 @@ state saveOrdered as " "
 state cancelled as " "
 
 'Main path
-[*] --> canCreate
+[*] --> canEdit
 note on link
-    System allow to create a new use case
+    System allow to select a use case
 end note
-canCreate --> createOrdered
+canEdit --> selectedOrdered
 note on link
-    User orders to create a new use case
+    User order select a use case
 end note
-createOrdered --> opened
+selectedOrdered --> selected
 note on link
-    System opens the new use case
+    System select the use case
+end note
+selected --> editOrdered
+note on link
+    User orders to edit the selected use case
+end note
+editOrdered --> opened
+note on link
+    System opens the selected use case
     and allows to provide:
     * Name
 
@@ -33,11 +43,11 @@ note on link
 end note
 filled --> valid
 note on link
-    System allow to save the new use case data
+    System allow to save the use case data
 end note
 valid --> saveOrdered
 note on link
-    User order to save the new user case data
+    User order to save the use case data
 end note
 saveOrdered --> [*]
 note on link
@@ -59,7 +69,7 @@ opened --> cancelled
 note on link
     User order cancel
 end note
-cancelled --> canCreate
+cancelled --> canEdit
 note on link
     System close the new use case
 end note
