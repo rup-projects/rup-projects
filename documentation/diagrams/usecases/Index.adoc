@@ -4,39 +4,38 @@
 [#_index]
 === Index
 
-* <<_UseCasesDiagram>>
-* <<_ContextDiagram>>
-* Use cases specifications
-
+* [*] <<_UseCasesDiagram>>
+* [*] <<_ContextDiagram>>
+* [ ] Specifications
 ** General
-*** <<_StartSystem>>
-*** <<_CloseSystem>>
-*** <<_OpenProject>>
-*** <<_OpenPhases>>
-*** <<_OpenIterations>>
-*** <<_PlanProject>>
+*** [x] <<_StartSystem>>
+*** [ ] <<_CloseSystem>>
+*** [ ] <<_OpenProject>>
+*** [ ] <<_OpenPhases>>
+*** [ ] <<_OpenIterations>>
+*** [ ] <<_PlanProject>>
 *** <<_CloseIteration>>
 
 ** Disciplines
-*** <<_OpenIteration>>
-*** <<_AssignActivity>>
-*** <<_ReEstimateActivity>>
-*** <<_SplitActivity>>
+*** [ ] <<_OpenIteration>>
+*** [ ] <<_AssignActivity>>
+*** [ ] <<_ReEstimateActivity>>
+*** [ ] <<_SplitActivity>>
 *** <<_CloseActivity>>
 *** <<_MergeActivity>>
 
 ** Members
-*** <<_OpenMembers>>
-*** <<_CreateMember>>
-*** <<_UpdateMember>>
-*** <<_DeleteMember>>
+*** [ ] <<_OpenMembers>>
+*** [ ] <<_CreateMember>>
+*** [ ] <<_UpdateMember>>
+*** [ ] <<_DeleteMember>>
 
 ** UseCases
-*** <<_OpenUseCases>>
-*** <<_CreateUseCase>>
-*** <<_DeleteUseCase>>
-*** <<_UpdateUseCase>>
-*** <<_PrioritizeUseCases>>
+*** [ ] <<_OpenUseCases>>
+*** [ ] <<_CreateUseCase>>
+*** [ ] <<_UpdateUseCase>>
+*** [ ] <<_DeleteUseCase>>
+*** [ ] <<_PrioritizeUseCases>>
 
 [#_UseCasesDiagram]
 === Use Cases Diagram
