@@ -1,25 +1,15 @@
-[#_CreateMember]
-==== Create member
-
-[plantuml,svg,align="center"]
-----
-include::CreateMember.puml[]
-----
-
-[#_DeleteMember]
-==== Delete Member
-
-[plantuml,svg,align="center"]
-----
-include::DeleteMember.puml[]
-----
-
 [#_OpenMembers]
 ==== Open Members
-
 [plantuml,svg,align="center"]
 ----
 include::OpenMembers.puml[]
+----
+
+[#_CreateMember]
+==== Create member
+[plantuml,svg,align="center"]
+----
+include::CreateMember.puml[]
 ----
 
 [#_UpdateMember]
@@ -28,3 +18,12 @@ include::OpenMembers.puml[]
 ----
 include::UpdateMember.puml[]
 ----
+
+[#_DeleteMember]
+==== Delete Member
+[plantuml,svg,align="center"]
+----
+include::DeleteMember.puml[]
+----
+
+
