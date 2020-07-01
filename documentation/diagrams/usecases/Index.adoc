@@ -4,7 +4,7 @@
 [#_index]
 === Index
 
-* <<_UseCases>>
+* <<_UseCasesDiagram>>
 * <<_ContextDiagram>>
 * Use cases specifications
 
@@ -38,7 +38,7 @@
 *** <<_UpdateUseCase>>
 *** <<_PrioritizeUseCases>>
 
-[#_UseCases]
+[#_UseCasesDiagram]
 === Use Cases Diagram
 
 [plantuml,align="center"]
@@ -60,7 +60,7 @@ include::ContextDiagram.puml[]
 
 
 [plantuml,test_link,svg,opts=interactive]
-=== Use cases specification
+=== Specification
 
 include::{docdir}/specifications/general/General.adoc[]
 <<_index>>

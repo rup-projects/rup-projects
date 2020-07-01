@@ -1,0 +1,20 @@
+@startuml
+skinparam NoteBackgroundColor #whiteSmoke
+
+state canOpenUseCases as " "
+state openUseCasesOrdered as " "
+
+'Main path
+[*] --> canOpenUseCases
+note on link
+    System allow to open the use cases
+end note
+canOpenUseCases --> openUseCasesOrdered
+note on link
+    User order to open use cases
+end note
+openUseCasesOrdered --> [*]
+note on link
+    System open use cases
+end note
+@enduml
