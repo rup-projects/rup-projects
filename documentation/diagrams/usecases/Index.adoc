@@ -59,7 +59,6 @@ include::ContextDiagram.puml[]
 
 
 [plantuml,test_link,svg,opts=interactive]
-=== Specification
 
 include::{docdir}/specifications/general/General.adoc[]
 <<_index>>
