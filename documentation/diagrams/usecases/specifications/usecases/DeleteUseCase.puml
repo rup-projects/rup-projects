@@ -6,6 +6,15 @@ state end as "USE_CASE_MANAGEMENT"
 
 init ---> DeleteUseCase
 DeleteUseCase ---> end
+note on link
+<b>System allows</b>
+* create member
+* update member
+* delete member
+* open project
+* open iteration
+* open use cases
+end note
 
 state DeleteUseCase {
     state initial as " "
@@ -22,28 +31,35 @@ state DeleteUseCase {
     end note
     initial --> askedForWhichOneDelete
     note on link
-        System show all use cases
-        and ask which one wants to delete
+    <b>System shows</b>
+    * all use cases
+    <b>System allows</b>
+    * introduce a use case to delete
+    * cancel operation
     end note
     askedForWhichOneDelete --> deleteOrdered
     note on link
-        User indicate a use case to delete
+        User introduce a use case to delete
     end note
     deleteOrdered --> confirmationRequired
     note on link
-        System ask for confirmation
+    <b>System allows</b>
+    * confirm
+    * cancel
     end note
     confirmationRequired --> deleteConfirmed
     note on link
-        User confirm
+        User orders confirm
     end note
     deleteConfirmed --> showList
     note on link
-        System delete the use case
+    <b>System shows</b>
+    * the use case has been deleted
     end note
     showList --> [*]
     note on link
-        System shows the use cases list
+    <b>System shows</b>
+    * use case list
     end note
 
     'Variation path
