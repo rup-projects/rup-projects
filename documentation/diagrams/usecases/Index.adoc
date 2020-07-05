@@ -10,7 +10,7 @@
 ** General
 *** [x] <<_StartSystem>>
 *** [ ] <<_CloseSystem>>
-*** [ ] <<_OpenProject>>
+*** [x] <<_OpenProject>>
 *** [ ] <<_OpenPhases>>
 *** [ ] <<_OpenIterations>>
 *** [ ] <<_PlanProject>>
