@@ -3,9 +3,14 @@
 state 0 as " :MEMBER_MANAGEMENT"
 state 1 as " "
 state 3 as " "
+state 2 as " "
+state 7 as " "
 state 4 <<choice>>
 state 6 as " :MEMBER_MANAGEMENT"
 
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
 
 
 0 --> 1
