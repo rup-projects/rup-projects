@@ -1,0 +1,112 @@
+@startuml
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+
+    state 0 as ":OPENED_DISCIPLINES" #LawnGreen
+    state 1 as " " #LawnGreen
+    state 5 as " " #LawnGreen
+    state 13 as " " #LawnGreen
+    state 14 as " " #LawnGreen
+    state alternativeWay as " "
+    state 15 as " " #LawnGreen
+    state 12 as ":OPENED_DISCIPLINES" #LawnGreen
+
+    0 --> 1
+    note on link
+        User orders Close activity
+    end note
+
+    1 --> 13
+    note on link
+    <b>System shows</b>
+    * for each member
+    **assignedActivities in his datetime until end of current iteration
+    <b>System allows</b>
+    * introduce AssignedActivity to be closed
+    * cancel close activity
+    end note
+
+    13 --> alternativeWay
+    note on link
+        User orders cancel close activity
+    end note
+
+    13 --> 5
+    note on link
+        User
+        * introduces AssignedActivity
+        * and orders confirm selection
+    end note
+
+    5 --> 14
+    note on link
+    <b>System shows</b>
+    * AssignedActivity information
+    ** discipline
+    ** member name
+    ** member rol
+    ** start datetime
+    ** expected end datetime
+    ** expected duration in hours
+    <b>System allows</b>
+    * introduce real AssignedActivity duration in hours
+    * confirm close activity
+    * cancel close activity
+    end note
+
+    14 --> alternativeWay
+    note on link
+        User orders cancel close activity
+    end note
+
+    14 --> 5
+    note on link
+        User introduces real AssignedActivity duration in hours
+    end note
+
+    14 -down-> 15
+    note on link
+        User orders confirm close activity
+    end note
+
+    alternativeWay --> 12
+    note on link
+         <b>System shows</b>
+         * __Close activity cancelled__
+         * for each member
+         **assignedActivities in his datetime until end of current iteration
+         * for each discipline (requirements, analysis, design, implementation)
+         ** NotAssignedCost
+         ** NotAssignedActivities (with activity type)
+         <b>System allows</b>
+         * Split activity
+         * Assign activity
+         * Re-estimate activity
+         * Merge activity
+         * Open project
+         * Open members
+         * Close system
+    end note
+
+
+    15 --> 12
+    note on link
+     <b>System shows</b>
+     * __AssignedActivity has been closed__
+     * for each member
+     **assignedActivities in his datetime until end of current iteration
+     * for each discipline (requirements, analysis, design, implementation)
+     ** NotAssignedCost
+     ** NotAssignedActivities (with activity type)
+     <b>System allows</b>
+     * Split activity
+     * Assign activity
+     * Re-estimate activity
+     * Merge activity
+     * Open project
+     * Open members
+     * Close system
+     end note
+@enduml

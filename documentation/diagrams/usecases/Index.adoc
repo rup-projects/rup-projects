@@ -21,8 +21,8 @@
 *** [ ] <<_AssignActivity>>
 *** [ ] <<_ReEstimateActivity>>
 *** [ ] <<_SplitActivity>>
-*** <<_CloseActivity>>
-*** <<_MergeActivity>>
+*** [ ] <<_CloseActivity>>
+*** [ ] <<_MergeActivity>>
 
 ** Members
 *** [ ] <<_OpenMembers>>
