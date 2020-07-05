@@ -4,14 +4,14 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
-    state 0 as ":OPENED_DISCIPLINES" #LawnGreen
+    state 0 as ":OPENED_ITERATION" #LawnGreen
     state 1 as " " #LawnGreen
     state 5 as " " #LawnGreen
     state 13 as " " #LawnGreen
     state 14 as " " #LawnGreen
     state alternativeWay as " "
     state 15 as " " #LawnGreen
-    state 12 as ":OPENED_DISCIPLINES" #LawnGreen
+    state 12 as ":OPENED_ITERATION" #LawnGreen
 
     0 --> 1
     note on link
