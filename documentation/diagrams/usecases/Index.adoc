@@ -10,7 +10,7 @@
 ** General
 *** [x] <<_StartSystem>>
 *** [ ] <<_CloseSystem>>
-*** [ ] <<_OpenProject>>
+*** [x] <<_OpenProject>>
 *** [ ] <<_OpenPhases>>
 *** [ ] <<_OpenIterations>>
 *** [ ] <<_PlanProject>>
@@ -18,14 +18,14 @@
 
 ** Disciplines
 *** [ ] <<_OpenIteration>>
-*** [ ] <<_AssignActivity>>
+*** [x] <<_AssignActivity>>
 *** [ ] <<_ReEstimateActivity>>
-*** [ ] <<_SplitActivity>>
+*** [x] <<_SplitActivity>>
 *** [ ] <<_CloseActivity>>
 *** [ ] <<_MergeActivity>>
 
 ** Members
-*** [ ] <<_OpenMembers>>
+*** [x] <<_OpenMembers>>
 *** [ ] <<_CreateMember>>
 *** [ ] <<_UpdateMember>>
 *** [ ] <<_DeleteMember>>
@@ -35,7 +35,7 @@
 *** [ ] <<_CreateUseCase>>
 *** [ ] <<_UpdateUseCase>>
 *** [ ] <<_DeleteUseCase>>
-*** [ ] <<_PrioritizeUseCases>>
+*** [x] <<_PrioritizeUseCases>>
 
 [#_UseCasesDiagram]
 === Use Cases Diagram

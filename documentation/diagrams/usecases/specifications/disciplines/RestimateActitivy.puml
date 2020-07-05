@@ -4,11 +4,11 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
-    state 2 as " "
-    state 0 as " "
-    state 4 as " "
-    state 6 as " "
-    state 8 as " "
+    state 2 as " " #LawnGreen
+    state 0 as " " #LawnGreen
+    state 4 as " " #LawnGreen
+    state 6 as " " #LawnGreen
+    state 8 as " " #LawnGreen
     state 10 as " "
     state 5 as ":OPENED_ITERATION"
     state 13 as ":OPENED_ITERATION"

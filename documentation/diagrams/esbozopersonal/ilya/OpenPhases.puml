@@ -1,0 +1,32 @@
+@startuml
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+    state OPENED_PROJECT as ":OPENED_PROJECT"
+    state 1 as " "
+    state 2 as ":OPENED_PROJECT"
+
+    OPENED_PROJECT --> 1
+    note on link
+        User orders Open Phases
+    end note
+
+    1 --> 2
+    note on link
+        <b>System shows</b>
+        * for each Phase
+        * (INICIO | ELABORACION | CONSTRUCCION | TRANSICION)
+        ** start date
+        ** end date
+        ** duration (bussiness days)
+        ** dias transcurridos (bussiness days) and his percentage
+        <b>System allows</b>
+        * Open project
+        * Open iterations
+        * Open iteration
+        * Open usecases
+        * Open members
+        * Close system
+    end note
+
+@enduml
