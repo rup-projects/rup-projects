@@ -14,7 +14,7 @@
 *** [ ] <<_OpenPhases>>
 *** [ ] <<_OpenIterations>>
 *** [ ] <<_PlanProject>>
-*** <<_CloseIteration>>
+*** [ ] <<_CloseIteration>>
 
 ** Disciplines
 *** [ ] <<_OpenIteration>>
