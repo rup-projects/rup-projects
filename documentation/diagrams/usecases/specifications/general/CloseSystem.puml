@@ -1,0 +1,24 @@
+@startuml
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+
+[*] --> 1
+note on link
+    <b>System preconditions</b>
+    * :INIT_PROJECT
+    * :OPENED_PROJECT
+    * :USE_CASES_MANAGEMENT
+    * :OPENED_ITERATION
+    * :MEMBER_MANAGEMENT
+    <b>User order</b>
+    * User orders close the app
+end note
+
+1 --> [*]
+    note on link
+<b>System shows</b>
+* Good by
+end note
+@enduml

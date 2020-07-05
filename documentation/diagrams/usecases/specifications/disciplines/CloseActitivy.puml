@@ -1,20 +1,21 @@
 @startuml
-    skinparam {
-        NoteBackgroundColor #whiteSmoke
-    }
 
-    state 0 as ":OPENED_ITERATION"
-    state 1 as " "
-    state 5 as " "
-    state 13 as " "
-    state 14 as " "
-    state 20 as " "
-    state 15 <<choice>>
-    state 12 as ":OPENED_ITERATION"
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+
+    state 0 as ":OPENED_ITERATION" #LawnGreen
+    state 1 as " " #LawnGreen
+    state 5 as " " #LawnGreen
+    state 13 as " " #LawnGreen
+    state 14 as " " #LawnGreen
+    state alternativeWay as " "
+    state 15 as " " #LawnGreen
+    state 12 as ":OPENED_ITERATION" #LawnGreen
 
     0 --> 1
     note on link
-        User orders assign NotAssignedActivity
+        User orders Close activity
     end note
 
     1 --> 13
@@ -22,54 +23,58 @@
     <b>System shows</b>
     * for each member
     **assignedActivities in his datetime until end of current iteration
-    * for each discipline (requirements, analysis, design, implementation)
-    ** NotAssignedActivities (with activity type)
     <b>System allows</b>
-    * introduce NotAssignedActivity to be assigned
-    * cancel assign activity
+    * introduce AssignedActivity to be closed
+    * cancel close activity
+    end note
+
+    13 --> alternativeWay
+    note on link
+        User orders cancel close activity
     end note
 
     13 --> 5
     note on link
         User
-        * introduces NotAssignedActivity
+        * introduces AssignedActivity
         * and orders confirm selection
-    end note
-
-    13 --> 20
-    note on link
-        User orders cancel assign activity
     end note
 
     5 --> 14
     note on link
     <b>System shows</b>
-    * NotAssignedActivity
-    ** duration (in hours)
-    ** activity type
-    * for each member
-    **assignedActivities in his datetime until end of current iteration
+    * AssignedActivity information
+    ** discipline
+    ** member name
+    ** member rol
+    ** start datetime
+    ** expected end datetime
+    ** expected duration in hours
     <b>System allows</b>
-    * introduce assign destination
-    ** specific member hour without assignedActivity
-    * cancel assign activity
+    * introduce real AssignedActivity duration in hours
+    * confirm close activity
+    * cancel close activity
+    end note
+
+    14 --> alternativeWay
+    note on link
+        User orders cancel close activity
+    end note
+
+    14 --> 5
+    note on link
+        User introduces real AssignedActivity duration in hours
     end note
 
     14 -down-> 15
     note on link
-        * User introduces assign destination
-        * and orders confirm selection
+        User orders confirm close activity
     end note
 
-    14 --> 20
-    note on link
-    User orders cancel assign activity
-    end note
-
-    20 --> 12
+    alternativeWay --> 12
     note on link
          <b>System shows</b>
-         * __assign activity cancelled__
+         * __Close activity cancelled__
          * for each member
          **assignedActivities in his datetime until end of current iteration
          * for each discipline (requirements, analysis, design, implementation)
@@ -85,17 +90,11 @@
          * Close system
     end note
 
-    15 --> 5
-    note on link
-        [NotAssignedActivity duration > member assign destination of not assigned time until next assignedActivity
-        OR
-        NotAssignedActivity overlaps member max capacity (hours) in current iteration]
-    end note
 
     15 --> 12
     note on link
      <b>System shows</b>
-     * __NotAssignedActivity was assigned to member__
+     * __AssignedActivity has been closed__
      * for each member
      **assignedActivities in his datetime until end of current iteration
      * for each discipline (requirements, analysis, design, implementation)

@@ -1,11 +1,22 @@
 [#_CloseActivity]
 ==== Close Activity
+[plantuml,svg,align="center"]
+----
+include::CloseActitivy.puml[]
+----
 
 [#_OpenIteration]
 ==== Open Iteration
 [plantuml,svg,align="center"]
 ----
 include::OpenIteration.puml[]
+----
+
+[#_CloseIteration]
+==== Close Iteration
+[plantuml,svg,align="center"]
+----
+include::CloseIteration.puml[]
 ----
 
 [#_AssignActivity]

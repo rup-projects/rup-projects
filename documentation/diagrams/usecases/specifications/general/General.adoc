@@ -3,6 +3,11 @@
 
 [#_CloseSystem]
 ==== Close System
+[plantuml%interactive, svg,align="center"]
+----
+include::CloseSystem.puml[]
+----
+
 
 [#_StartSystem]
 ==== Start System

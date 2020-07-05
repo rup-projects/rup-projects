@@ -1,0 +1,81 @@
+@startuml
+
+state 0 as " :MEMBER_MANAGEMENT"
+state 1 as " "
+state 3 as " "
+state 4 <<choice>>
+state 6 as " :MEMBER_MANAGEMENT"
+
+
+
+0 --> 1
+note on link
+    User orders delete any Member on project
+end note
+1 --> 3
+note on link
+    System shows
+    * member data to confirm delete
+    System allows
+    * confirm delete member
+    * decline/cancel
+end note
+
+3 --> 2
+note on link
+    User orders decline/cancel
+end note
+
+3 --> 4
+note on link
+    User orders confirm delete member
+end note
+
+
+4 --> 7
+note on link
+[pending activities or activities assigned]
+end note
+
+7 --> 6
+note on link
+<b>System shows</b>
+* __can't delete this member he has assigned activities__
+* all members in the project, his names and roles
+<b>System allows</b>
+* create member
+* update member
+* delete member
+* open project
+* open iteration
+* open use cases
+end note
+
+2 --> 6
+note on link
+<b>System shows</b>
+* __operation cancelled__
+* all members in the project, his names and roles
+<b>System allows</b>
+* create member
+* update member
+* delete member
+* open project
+* open iteration
+* open use cases
+end note
+
+4 --> 6
+note on link
+<b>System shows</b>
+* __member was deleted__
+* all members in the project, his names and roles
+<b>System allows</b>
+* create member
+* update member
+* delete member
+* open project
+* open iteration
+* open use cases
+end note
+@enduml

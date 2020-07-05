@@ -14,15 +14,15 @@
 *** [ ] <<_OpenPhases>>
 *** [ ] <<_OpenIterations>>
 *** [ ] <<_PlanProject>>
-*** <<_CloseIteration>>
+*** [ ] <<_CloseIteration>>
 
 ** Disciplines
 *** [ ] <<_OpenIteration>>
 *** [ ] <<_AssignActivity>>
 *** [ ] <<_ReEstimateActivity>>
 *** [ ] <<_SplitActivity>>
-*** <<_CloseActivity>>
-*** <<_MergeActivity>>
+*** [ ] <<_CloseActivity>>
+*** [ ] <<_MergeActivity>>
 
 ** Members
 *** [ ] <<_OpenMembers>>
