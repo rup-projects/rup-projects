@@ -4,6 +4,8 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
+state 1 as " "
+
 [*] --> 1
 note on link
     <b>System preconditions</b>

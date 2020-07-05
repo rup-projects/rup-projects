@@ -1,6 +1,3 @@
-[#_CloseIteration]
-==== Close Iteration
-
 [#_CloseSystem]
 ==== Close System
 [plantuml%interactive, svg,align="center"]
