@@ -11,8 +11,8 @@
 *** [x] <<_StartSystem>>
 *** [ ] <<_CloseSystem>>
 *** [x] <<_OpenProject>>
-*** [ ] <<_OpenPhases>>
-*** [ ] <<_OpenIterations>>
+*** [x] <<_OpenPhases>>
+*** [x] <<_OpenIterations>>
 *** [ ] <<_PlanProject>>
 *** [ ] <<_CloseIteration>>
 
