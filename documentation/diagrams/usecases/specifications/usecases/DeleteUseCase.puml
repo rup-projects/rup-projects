@@ -1,48 +1,72 @@
 @startuml
 skinparam NoteBackgroundColor #whiteSmoke
 
-state initial as " "
-state selected as " "
-state canDelete as " "
-state deleteOrdered as " "
-state confirmationRequired <<choice>>
-state deleteConfirmed as " "
+state init as "USE_CASE_MANAGEMENT"
+state end as "USE_CASE_MANAGEMENT"
 
-'Main path
-[*] --> initial
+init ---> DeleteUseCase
+DeleteUseCase ---> end
 note on link
-    System allow to select a use case
-end note
-initial --> selected
-note on link
-    User select a use case
-end note
-selected --> canDelete
-note on link
-    System allows delete
-    the selected use case
-end note
-canDelete --> deleteOrdered
-note on link
-    User order delete the use case
-end note
-deleteOrdered --> confirmationRequired
-note on link
-    System ask for confirmation
-end note
-confirmationRequired --> deleteConfirmed
-note on link
-    User confirm
-end note
-deleteConfirmed --> [*]
-note on link
-    System delete the use case
+<b>System allows</b>
+* create member
+* update member
+* delete member
+* open project
+* open iteration
+* open use cases
 end note
 
-'Variation path
-confirmationRequired --> canDelete
-note on link
-    User cancel
-end note
+state DeleteUseCase {
+    state initial as " "
+    state deleteOrdered as " "
+    state confirmationRequired <<choice>>
+    state deleteConfirmed as " "
+    state askedForWhichOneDelete as " "
+    state showList as " "
+
+    'Main path
+    [*] --> initial
+    note on link
+        User order to delete a use case
+    end note
+    initial --> askedForWhichOneDelete
+    note on link
+    <b>System shows</b>
+    * all use cases
+    <b>System allows</b>
+    * introduce a use case to delete
+    * cancel operation
+    end note
+    askedForWhichOneDelete --> deleteOrdered
+    note on link
+        User introduce a use case to delete
+    end note
+    deleteOrdered --> confirmationRequired
+    note on link
+    <b>System allows</b>
+    * confirm
+    * cancel
+    end note
+    confirmationRequired --> deleteConfirmed
+    note on link
+        User orders confirm
+    end note
+    deleteConfirmed --> showList
+    note on link
+    <b>System shows</b>
+    * the use case has been deleted
+    end note
+    showList --> [*]
+    note on link
+    <b>System shows</b>
+    * use case list
+    end note
+
+    'Variation path
+    confirmationRequired --> showList
+    note on link
+        User cancel
+    end note
+}
 
 @enduml

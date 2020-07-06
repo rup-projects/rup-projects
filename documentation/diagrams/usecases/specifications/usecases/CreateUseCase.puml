@@ -1,67 +1,78 @@
 @startuml
 skinparam NoteBackgroundColor #whiteSmoke
 
-state canCreate as " "
-state createOrdered as " "
-state opened as " "
-state filled as " "
-state valid as " "
-state saveOrdered as " "
-state cancelled as " "
+state init as "USE_CASE_MANAGEMENT"
+state end as "USE_CASE_MANAGEMENT"
 
-'Main path
-[*] --> canCreate
+init ---> CreateUseCase
+CreateUseCase ---> end
 note on link
-    System allow to create a new use case
-end note
-canCreate --> createOrdered
-note on link
-    User orders to create a new use case
-end note
-createOrdered --> opened
-note on link
-    System opens the new use case
-    and allows to provide:
-    * Name
-
-    System allows to cancel
-end note
-opened --> filled
-note on link
-    User provide:
-    * Name length between [5:30] characters
-end note
-filled --> valid
-note on link
-    System allow to save the new use case data
-end note
-valid --> saveOrdered
-note on link
-    User order to save the new user case data
-end note
-saveOrdered --> [*]
-note on link
-    System save the new use case
-    and close it.
+<b>System allows</b>
+* create member
+* update member
+* delete member
+* open project
+* open iteration
+* open use cases
 end note
 
-'Varation path
-opened --> opened
-note on link
-    User provide:
-     * empty name
-     * used name
-     * length out of [5:30] characters
-end note
+state CreateUseCase {
+    state orderCreateUseCase as " "
+    state createOrdered as " "
+    state opened as " "
+    state filled as " "
+    state valid as " "
+    state saveOrdered as " "
+    state cancelled as " "
 
-'Variation path
-opened --> cancelled
-note on link
-    User order cancel
-end note
-cancelled --> canCreate
-note on link
-    System close the new use case
-end note
+    'Main path
+    [*] --> createOrdered
+    note on link
+        User orders to create a new use case
+    end note
+    createOrdered --> opened
+    note on link
+        <b>System allows</b>
+        * fill the use case data
+        ** Name
+        * cancel
+    end note
+    opened --> filled
+    note on link
+        User provide:
+        * Name length between [5:30] characters
+    end note
+    filled --> valid
+    note on link
+        <b>System allows</b>
+        * save the new use case data
+    end note
+    valid --> saveOrdered
+    note on link
+        User order to save the new user case data
+    end note
+    saveOrdered --> [*]
+    note on link
+        <b>System shows</b>
+        * the use case is already saved
+        * use cases list
+    end note
+
+    'Varation path
+    opened --> opened
+    note on link
+        User provide:
+         * empty name
+         * used name
+         * length out of [5:30] characters
+    end note
+
+    'Variation path
+    opened --> cancelled
+    note on link
+        User order cancel
+    end note
+    cancelled --> [*]
+}
 
 @enduml
