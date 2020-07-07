@@ -4,14 +4,17 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
-    state 2 as " " #LawnGreen
-    state 0 as " " #LawnGreen
-    state 4 as " " #LawnGreen
-    state 6 as " " #LawnGreen
-    state 8 as " " #LawnGreen
-    state 10 as " "
     state 5 as ":ITERATION_MANAGEMENT"
     state 13 as ":ITERATION_MANAGEMENT"
+
+    state ReestimateActivity {
+        state 2 as " " #LawnGreen
+        state 0 as " " #LawnGreen
+        state 4 as " " #LawnGreen
+        state 6 as " " #LawnGreen
+        state 8 as " " #LawnGreen
+        state 10 as " "
+    }
 
     5 --> 6
     note on link
@@ -23,8 +26,10 @@ skinparam {
     <b>System shows</b>
     * for each discipline (requirements, analysis, design, implementation)
     ** NotAssignedActivities
+    <b>System requires</b>
+    * introduce NotAssignedActivity to re-estimate
     <b>System allows</b>
-    * introduce NotAssignedActivity to re-estimate and order confirm
+    * order confirm step
     * cancel re-estimate activity
     end note
 
@@ -46,8 +51,10 @@ skinparam {
         ** total available cost (hours)
         * NotAssignedActivity
         ** duration (hours)
+        <b>System requires</b>
+        * introduce NotAssignedActivity duration (max as NotAssignedCost total available cost)
         <b>System allows</b>
-        * introduce NotAssignedActivity duration (max as NotAssignedCost total available cost) and order confirm
+        * order confirm step
         * cancel re-estimate
     end note
 
