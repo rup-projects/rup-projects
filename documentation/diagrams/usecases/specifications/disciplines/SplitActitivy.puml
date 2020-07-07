@@ -10,8 +10,8 @@ skinparam {
     state 6 as " "
     state 8 as " "
     state 10 as " "
-    state 5 as ":OPENED_ITERATION"
-    state 13 as ":OPENED_ITERATION"
+    state 5 as ":ITERATION_MANAGEMENT"
+    state 13 as ":ITERATION_MANAGEMENT"
 
     5 --> 6
     note on link

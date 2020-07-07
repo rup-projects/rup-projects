@@ -6,13 +6,13 @@ skinparam {
     state 1  <<choice>>
     state 2 as "CONFIGURING_CURRENT_ITERATION" #Cyan
     state 3 <<choice>>
-    state 4 as ":OPENED_ITERATION" #YellowGreen
+    state 4 as ":ITERATION_MANAGEMENT" #YellowGreen
     
 
     [*] --> 1
     note on link #Orange
         <b>System preconditions</b>
-        * :OPENED_PROJECT
+        * :PROJECT_MANAGEMENT
         * :USE_CASES_MANAGEMENT
         * :MEMBERS_MANAGEMENT
     end note
