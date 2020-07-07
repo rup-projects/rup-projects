@@ -4,14 +4,14 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
-    state 0 as ":OPENED_ITERATION"
+    state 0 as ":ITERATION_MANAGEMENT"
     state 1 as " "
     state 5 as " "
     state 13 as " "
     state 14 as " "
     state 20 as " "
     state 15 as " "
-    state 12 as ":OPENED_ITERATION"
+    state 12 as ":ITERATION_MANAGEMENT"
 
     0 --> 1
     note on link

@@ -4,7 +4,7 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
-    state 0 as ":OPENED_PROJECT"
+    state 0 as ":PROJECT_MANAGEMENT"
     state 1  <<choice>>
     state 2 as ":USE_CASES_MANAGEMENT"
     state 3 as ":MEMBERS_MANAGEMENT"
@@ -51,7 +51,7 @@ skinparam {
         User orders to open project
     end note
 
-    11 --> OPENED_PROJECT
+    11 --> PROJECT_MANAGEMENT
     note on link
     <b>System shows</b>
     * project information

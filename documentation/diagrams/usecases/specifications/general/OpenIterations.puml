@@ -2,11 +2,11 @@
 skinparam {
     NoteBackgroundColor #whiteSmoke
 }
-    state OPENED_PROJECT as ":OPENED_PROJECT"
+    state PROJECT_MANAGEMENT as ":PROJECT_MANAGEMENT"
     state 1 as " "
-    state 2 as ":OPENED_PROJECT"
+    state 2 as ":PROJECT_MANAGEMENT"
 
-    OPENED_PROJECT --> 1
+    PROJECT_MANAGEMENT --> 1
     note on link
         User orders Open Iterations
     end note

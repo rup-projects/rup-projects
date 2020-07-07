@@ -3,7 +3,7 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
-    state 0 as ":OPENED_PROJECT"
+    state 0 as ":PROJECT_MANAGEMENT"
     state 1 as " "
     state 2 as ":USE_CASES_MANAGEMENT"
     state 3 as ":DISCIPLINES_MANAGEMENT"

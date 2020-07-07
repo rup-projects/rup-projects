@@ -5,7 +5,7 @@ skinparam {
 }
 
 state 1 as " "
-state 7 as ":OPENED_PROJECT"
+state 7 as ":PROJECT_MANAGEMENT"
 
 [*] --> 1
 note on link

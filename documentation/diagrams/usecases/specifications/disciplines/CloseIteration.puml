@@ -4,13 +4,13 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
-    state 0 as ":OPENED_ITERATION" #LawnGreen
+    state 0 as ":ITERATION_MANAGEMENT" #LawnGreen
     state 1 as " "  #LawnGreen
     state 5 as " "  #LawnGreen
     state 13 as " "  #LawnGreen
     state cancel as " "
-    state 12 as ":OPENED_ITERATION"
-    state OPENED_PROJECT as ":OPENED_PROJECT" #LawnGreen
+    state 12 as ":ITERATION_MANAGEMENT"
+    state PROJECT_MANAGEMENT as ":PROJECT_MANAGEMENT" #LawnGreen
 
 
     0 --> 1
@@ -63,7 +63,7 @@ skinparam {
     end note
 
 
-    5 --> OPENED_PROJECT
+    5 --> PROJECT_MANAGEMENT
     note on link
     <b>System shows</b>
     * project information

@@ -10,9 +10,9 @@ state 1 as " "
 note on link
     <b>System preconditions</b>
     * :INIT_PROJECT
-    * :OPENED_PROJECT
+    * :PROJECT_MANAGEMENT
     * :USE_CASES_MANAGEMENT
-    * :OPENED_ITERATION
+    * :ITERATION_MANAGEMENT
     * :MEMBER_MANAGEMENT
     <b>User order</b>
     * User orders close the app

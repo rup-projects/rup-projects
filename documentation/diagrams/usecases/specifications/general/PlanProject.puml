@@ -11,7 +11,7 @@ state 4 as " " #LawnGreen
 state 5 as " " #LawnGreen
 state 6 as " " #LawnGreen
 state 9 as " "
-state 7 as ":OPENED_PROJECT" #LawnGreen
+state 7 as ":PROJECT_MANAGEMENT" #LawnGreen
 state INIT_PROJECT as ":INIT_PROJECT"
 
 [*] --> 1
