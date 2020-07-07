@@ -5,13 +5,16 @@ skinparam {
 }
 
     state 0 as ":ITERATION_MANAGEMENT" #LawnGreen
-    state 1 as " " #LawnGreen
-    state 5 as " " #LawnGreen
-    state 13 as " " #LawnGreen
-    state 14 as " " #LawnGreen
-    state alternativeWay as " "
-    state 15 as " " #LawnGreen
     state 12 as ":ITERATION_MANAGEMENT" #LawnGreen
+
+    state closeActicity {
+        state 1 as " " #LawnGreen
+        state 5 as " " #LawnGreen
+        state 13 as " " #LawnGreen
+        state 14 as " " #LawnGreen
+        state alternativeWay as " "
+        state 15 as " " #LawnGreen
+    }
 
     0 --> 1
     note on link
@@ -23,8 +26,10 @@ skinparam {
     <b>System shows</b>
     * for each member
     **assignedActivities in his datetime until end of current iteration
-    <b>System allows</b>
+    <b>System requires</b>
     * introduce AssignedActivity to be closed
+    <b>System allows</b>
+    * confirm step
     * cancel close activity
     end note
 
@@ -50,8 +55,9 @@ skinparam {
     ** start datetime
     ** expected end datetime
     ** expected duration in hours
-    <b>System allows</b>
+    <b>System requires</b>
     * introduce real AssignedActivity duration in hours
+    <b>System allows</b>
     * confirm close activity
     * cancel close activity
     end note
