@@ -4,46 +4,47 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
-state 1 <<choice>>
-state 2 as " "
-state 3 as " "
 state 4 as ":INIT_PROJECT"
 
-[*] --> 1
+state StartSystem {
+    state 3 as " "
+    state 5 as " "
+    state 2 <<choice>>
+}
+
+[*] --> 3
 note on link
     User opens the app
 end note
 
-1 --> 2
-
-1 --> 3
+3 --> 2
 note on link
-    [project planned]
-end note
-
-2 --> 4
-    note on link
-    <b>System allows</b>
-    * plan project
-    end note
-3 --> 4
-    note on link
 <b>System shows</b>
-* the project was successfully planned
 * project information
 ** name
 ** start date
 ** end date
-** name
 ** duration (business days)
 ** progress (business days)
 ** iteration duration (business days)
 <b>System allows</b>
-* Open phases
-* Open iterations
-* Open iteration
-* Open members
-* Open usecases
+* plan project
 * close system
 end note
+
+2 --> 4
+
+2 --> 5
+note on link
+[exists planned project]
+end note
+
+5 --> 4
+note on link
+<b>System allows</b>
+* open project
+end note
+
+4 --> [*]
+
 @enduml
