@@ -2,31 +2,42 @@
 skinparam {
     NoteBackgroundColor #whiteSmoke
 }
-    state PROJECT_MANAGEMENT as ":PROJECT_MANAGEMENT"
+
+    state PROJECT_MANAGEMENTSTART as ":PROJECT_MANAGEMENT"
+    state PROJECT_MANAGEMENTEND as ":PROJECT_MANAGEMENT"
+
+
+    PROJECT_MANAGEMENTSTART --> OpenPhases
+    note on link
+        User requests to Open Phases
+    end note
+
+    state OpenPhases{
     state 1 as " "
-    state 2 as ":PROJECT_MANAGEMENT"
+        [*] --> 1
 
-    PROJECT_MANAGEMENT --> 1
-    note on link
-        User orders Open Phases
-    end note
+        1 --> [*]
 
-    1 --> 2
-    note on link
-        <b>System shows</b>
-        * for each Phase
-        * (INICIO | ELABORACION | CONSTRUCCION | TRANSICION)
-        ** start date
-        ** end date
-        ** duration (bussiness days)
-        ** dias transcurridos (bussiness days) and his percentage
-        <b>System allows</b>
-        * Open project
-        * Open iterations
-        * Open iteration
-        * Open usecases
-        * Open members
-        * Close system
-    end note
+    }
+
+    OpenPhases --> PROJECT_MANAGEMENTEND
+        note on link
+            <b>System shows</b>
+            * for each Phase
+            * (INICIO | ELABORACION | CONSTRUCCION | TRANSICION)
+            ** start date
+            ** end date
+            ** duration (bussiness days)
+            ** dias transcurridos (bussiness days) and his percentage
+            <b>System allows</b>
+            * Open project
+            * Open iterations
+            * Open usecases
+            * Open members
+            * Close system
+        end note
+
+
+
 
 @enduml
