@@ -4,19 +4,22 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
-state 1 as " " #LawnGreen
-state 2 as " " #LawnGreen
-state 3 <<choice>>
-state 4 as " " #LawnGreen
-state 5 as " " #LawnGreen
-state 6 as " " #LawnGreen
-state 9 as " "
 state 7 as ":PROJECT_MANAGEMENT" #LawnGreen
 state INIT_PROJECT as ":INIT_PROJECT"
 
+state PlanProject {
+    state 1 as " " #LawnGreen
+    state 2 as " " #LawnGreen
+    state 3 <<choice>>
+    state 4 as " " #LawnGreen
+    state 5 as " " #LawnGreen
+    state 6 as " " #LawnGreen
+    state 9 as " "
+}
+
 [*] --> 1
 note on link
-    User orders plan project
+    User requests to plan project
 end note
 1 --> 2
 note on link
@@ -94,14 +97,13 @@ note on link
     ** name
     ** start date
     ** end date
-    ** name
     ** duration (business days)
     ** progress (business days)
     ** iteration duration (business days)
     System allows
     * Open phases
     * Open iterations
-    * Open iteration
+    * Open iteration [if __iterations opened__]
     * Open members
     * Open usecases
     * close system
@@ -111,6 +113,7 @@ end note
 note on link
     <b>System allows</b>
     * plan project
+    * open project
 end note
 
 @enduml

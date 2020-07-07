@@ -3,28 +3,37 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
     state PROJECT_MANAGEMENT as ":PROJECT_MANAGEMENT"
-    state 1 as " "
     state 2 as ":PROJECT_MANAGEMENT"
 
-    PROJECT_MANAGEMENT --> 1
+    PROJECT_MANAGEMENT --> OpenIterations
     note on link
         User orders Open Iterations
     end note
 
-    1 --> 2
-    note on link
-        <b>System shows</b>
-        * for each iteration in project ordered by number ASC
-        ** start date
-        ** end date
-        ** duration (bussiness days)
-        ** dias transcurridos (bussiness days) and his percentage
-        <b>System allows</b>
-        * Open project
-        * Open openPhases
-        * Open iteration
-        * Open usecases
-        * Open members
-        * Close system
-    end note
+
+    state OpenIterations {
+        state 1 as " "
+            [*] --> 1
+
+            1 --> [*]
+    }
+
+    OpenIterations --> 2
+            note on link
+                <b>System shows</b>
+                * for each iteration in project ordered by number ASC
+                ** start date
+                ** end date
+                ** duration (bussiness days)
+                ** dias transcurridos (bussiness days) and his percentage
+                <b>System allows</b>
+                * Open project
+                * Open openPhases
+                * __Open iteration__
+                * Open usecases
+                * Open members
+                * Close system
+            end note
+
+
 @enduml
