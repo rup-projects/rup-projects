@@ -6,45 +6,42 @@ skinparam {
 
 state 4 as ":INIT_PROJECT"
 
-state StartSystem {
-    state 3 as " "
-    state 5 as " "
-    state 2 <<choice>>
-}
-
-[*] --> 3
+[*] --> StartSystem
 note on link
     User opens the app
 end note
 
-3 --> 2
-note on link
-<b>System shows</b>
-* project information
-** name
-** start date
-** end date
-** duration (business days)
-** progress (business days)
-** iteration duration (business days)
-<b>System allows</b>
-* plan project
-* close system
-end note
+state StartSystem {
+    state 5 as " "
+    state 2 <<choice>>
 
-2 --> 4
+    [*] --> 2
 
-2 --> 5
-note on link
-[exists planned project]
-end note
+    2 --> [*]
 
-5 --> 4
-note on link
-<b>System allows</b>
-* open project
-end note
+    2 --> 5
+    note on link
+    [exists planned project]
+    end note
 
-4 --> [*]
+    5 --> [*]
+    note on link
+    <b>System allows</b>
+    * open phases
+    end note
+}
 
+StartSystem --> 4
+    note on link
+    <b>System shows</b>
+    * project information
+    ** start date
+    ** end date
+    ** duration (business days)
+    ** progress (business days)
+    ** iteration duration (business days)
+    <b>System allows</b>
+    * plan project
+    * close system
+    end note
 @enduml
