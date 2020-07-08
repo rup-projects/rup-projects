@@ -14,7 +14,6 @@
     end note
 
     state AssignActivity {
-        state 1 as " " #LawnGreen
         state 5 as " " #LawnGreen
         state 13 as " " #LawnGreen
         state 14 as " " #LawnGreen
@@ -22,7 +21,7 @@
         state 15 <<choice>>
 
 
-    1 --> 13
+    [*] --> 13
     note on link
     <b>System shows</b>
     * for each member
