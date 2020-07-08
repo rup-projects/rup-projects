@@ -4,29 +4,31 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
-    state 0 as ":ITERATION_MANAGEMENT"
-    state 1 as " "
-    state 5 as " "
-    state 13 as " "
-    state 14 as " "
-    state 20 as " "
-    state 15 as " "
-    state 12 as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_STARTS as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_ENDS as ":ITERATION_MANAGEMENT"
 
-    0 --> 1
+    ITERATION_MANAGEMENT_STARTS --> MergeActivity
     note on link
-        User orders merge AssignedActivity
+        User requests to merge AssignedActivity
     end note
 
-    1 --> 13
+    state MergeActivity {
+        state 13 as " " #LawnGreen
+        state 5 as " " #LawnGreen
+        state 14 as " " #LawnGreen
+        state 20 as " "
+        state 15 as " " #LawnGreen
+
+    [*] --> 13
     note on link
     <b>System shows</b>
     * for each member
     **assignedActivities in his datetime until end of current iteration
     * for each discipline (requirements, analysis, design, implementation)
     ** NotAssignedCost
+    <b>System requires</b>
+    * AssignedActivity to be merged
     <b>System allows</b>
-    * introduce AssignedActivity to be merged
     * cancel merge activity
     end note
 
@@ -34,12 +36,12 @@ skinparam {
     note on link
         User
         * introduces AssignedActivity
-        * and orders confirm selection
+        * and requests to confirm selection
     end note
 
     13 --> 20
     note on link
-        User orders cancel merge activity
+        User requests to cancel merge activity
     end note
 
     5 --> 14
@@ -47,46 +49,39 @@ skinparam {
     <b>System shows</b>
     * for each discipline (requirements, analysis, design, implementation)
     ** NotAssignedCost
+    <b>System requires</b>
+    * NotAssignedCost as merge destination
     <b>System allows</b>
-    * introduce NotAssignedCost as merge destination
     * cancel merge activity
     end note
 
     14 --> 20
     note on link
-        User orders cancel merge activity
+        User requests to cancel merge activity
     end note
 
     14 -down-> 15
     note on link
         * User introduces merge destination
-        * and orders confirm selection
+        * and requests to confirm selection
     end note
 
-    20 --> 12
+    20 --> [*]
     note on link
          <b>System shows</b>
          * __Merge activity cancelled__
-         * for each member
-         **assignedActivities in his datetime until end of current iteration
-         * for each discipline (requirements, analysis, design, implementation)
-         ** NotAssignedCost
-         ** NotAssignedActivities (with activity type)
-         <b>System allows</b>
-         * Split activity
-         * Assign activity
-         * Re-estimate activity
-         * Merge activity
-         * Open project
-         * Open members
-         * Close system
     end note
 
-
-    15 --> 12
+    15 --> [*]
     note on link
      <b>System shows</b>
      * __AssignedActivity was returned to NotAssignedCost__
+     end note
+}
+
+MergeActivity --> ITERATION_MANAGEMENT_ENDS
+note on link
+     <b>System shows</b>
      * for each member
      **assignedActivities in his datetime until end of current iteration
      * for each discipline (requirements, analysis, design, implementation)

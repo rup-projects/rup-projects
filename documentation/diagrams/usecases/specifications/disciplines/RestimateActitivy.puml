@@ -7,27 +7,27 @@ skinparam {
     state 5 as ":ITERATION_MANAGEMENT"
     state 13 as ":ITERATION_MANAGEMENT"
 
+
+    5 --> ReestimateActivity
+    note on link
+        User requests to re estimate NotAssignedActivity
+    end note
+
     state ReestimateActivity {
         state 2 as " " #LawnGreen
         state 0 as " " #LawnGreen
         state 4 as " " #LawnGreen
-        state 6 as " " #LawnGreen
         state 8 as " " #LawnGreen
         state 10 as " "
-    }
 
-    5 --> 6
-    note on link
-        User orders re estimate NotAssignedActivity
-    end note
 
-    6 --> 2
+    [*] --> 2
     note on link
     <b>System shows</b>
     * for each discipline (requirements, analysis, design, implementation)
     ** NotAssignedActivities
     <b>System requires</b>
-    * introduce NotAssignedActivity to re-estimate
+    * NotAssignedActivity to re-estimate
     <b>System allows</b>
     * order confirm step
     * cancel re-estimate activity
@@ -35,13 +35,13 @@ skinparam {
 
     2 --> 10
     note on link
-        User orders cancel re-estimate
+        User requests to cancel re-estimate
     end note
 
     2 --> 4
     note on link
         * User introduces NotAssignedActivity to re-estimate
-        * and orders confirm
+        * and requests to confirm
     end note
 
     4 --> 0
@@ -52,7 +52,7 @@ skinparam {
         * NotAssignedActivity
         ** duration (hours)
         <b>System requires</b>
-        * introduce NotAssignedActivity duration (max as NotAssignedCost total available cost)
+        * NotAssignedActivity duration (max as NotAssignedCost total available cost)
         <b>System allows</b>
         * order confirm step
         * cancel re-estimate
@@ -60,37 +60,31 @@ skinparam {
 
     0 --> 10
     note on link
-        User orders cancel re-estimate
+        User requests to cancel re-estimate
     end note
 
     0 --> 8
     note on link
-        User introduces NotAssignedActivity duration and orders confirm
+        User introduces NotAssignedActivity duration and requests to confirm
     end note
 
-    10 --> 13
+    10 --> [*]
     note on link
          <b>System shows</b>
          * __re-estimate activity was cancelled__
-         * for each member
-         **assignedActivities in his datetime until end of current iteration
-         * for each discipline (requirements, analysis, design, implementation)
-         ** NotAssignedCost
-         ** NotAssignedActivities (with activity type)
-         <b>System allows</b>
-         * Split activity
-         * Assign activity
-         * Re-estimate activity
-         * Merge activity
-         * Open project
-         * Open members
-         * Close system
     end note
 
-    8 --> 13
+    8 --> [*]
     note on link
         <b>System shows</b>
         * __NotAssignedCost re-estimate successful__
+    end note
+
+}
+
+ReestimateActivity --> 13
+    note on link
+        <b>System shows</b>
         * for each member
         **assignedActivities in his datetime until end of current iteration
         * for each discipline (requirements, analysis, design, implementation)

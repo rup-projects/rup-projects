@@ -3,24 +3,25 @@
         NoteBackgroundColor #whiteSmoke
     }
 
-    state 0 as ":ITERATION_MANAGEMENT"
-    state 12 as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_START as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_END as ":ITERATION_MANAGEMENT"
+
+
+    ITERATION_MANAGEMENT_START --> AssignActivity
+
+    note on link
+        User requires to assign NotAssignedActivity
+    end note
 
     state AssignActivity {
-        state 1 as " " #LawnGreen
         state 5 as " " #LawnGreen
         state 13 as " " #LawnGreen
         state 14 as " " #LawnGreen
         state 20 as " "
         state 15 <<choice>>
-    }
 
-    0 --> 1
-    note on link
-        User orders assign NotAssignedActivity
-    end note
 
-    1 --> 13
+    [*] --> 13
     note on link
     <b>System shows</b>
     * for each member
@@ -38,12 +39,12 @@
     note on link
         User
         * introduces NotAssignedActivity
-        * and orders confirm step
+        * and requires to confirm step
     end note
 
     13 --> 20
     note on link
-        User orders cancel assign activity
+        User requires to cancel assign activity
     end note
 
     5 --> 14
@@ -66,31 +67,18 @@
     14 -down-> 15
     note on link
         * User introduces assign destination
-        * and orders confirm selection
+        * and requires to confirm selection
     end note
 
     14 --> 20
     note on link
-    User orders cancel assign activity
+    User requires to cancel assign activity
     end note
 
-    20 --> 12
+    20 --> [*]
     note on link
          <b>System shows</b>
          * __assign activity cancelled__
-         * for each member
-         **assignedActivities in his datetime until end of current iteration
-         * for each discipline (requirements, analysis, design, implementation)
-         ** NotAssignedCost
-         ** NotAssignedActivities (with activity type)
-         <b>System allows</b>
-         * Split activity
-         * Assign activity
-         * Re-estimate activity
-         * Merge activity
-         * Open project
-         * Open members
-         * Close system
     end note
 
     15 --> 5
@@ -100,24 +88,29 @@
         NotAssignedActivity overlaps member max capacity (hours) in current iteration]
     end note
 
-    15 --> 12
+    15 --> [*]
     note on link
      <b>System shows</b>
      * __NotAssignedActivity was assigned to member__
-     * for each member
-     **assignedActivities in his datetime until end of current iteration
-     * for each discipline (requirements, analysis, design, implementation)
-     ** NotAssignedCost
-     ** NotAssignedActivities (with activity type)
-     <b>System allows</b>
-     * Split activity
-     * Assign activity
-     * Re-estimate activity
-     * Merge activity
-     * Open project
-     * Open members
-     * Close system
      end note
 
-     12 --> [*]
+}
+     AssignActivity --> ITERATION_MANAGEMENT_END
+     note on link
+          <b>System shows</b>
+          * for each member
+          **assignedActivities in his datetime until end of current iteration
+          * for each discipline (requirements, analysis, design, implementation)
+          ** NotAssignedCost
+          ** NotAssignedActivities (with activity type)
+          <b>System allows</b>
+          * Split activity
+          * Assign activity
+          * Re-estimate activity
+          * Merge activity
+          * Open project
+          * Open members
+          * Close system
+     end note
+
 @enduml
