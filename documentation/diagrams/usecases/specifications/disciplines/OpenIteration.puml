@@ -4,6 +4,15 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
+    0 --> OpenIteration
+    2 --> OpenIteration
+    note on link
+        User orders open iteration
+    end note
+    3 --> OpenIteration
+
+state OpenIteration {
+
     state 0 as ":PROJECT_MANAGEMENT"
     state 1  <<choice>>
     state 2 as ":USE_CASES_MANAGEMENT"
@@ -16,20 +25,8 @@ skinparam {
     state 10 as " "
     state 11 as " "
 
+    [*] --> 1
 
-
-    0 --> 1
-    note on link
-        User orders open iteration
-    end note
-    2 --> 1
-    note on link
-        User orders open iteration
-    end note
-    3 --> 1
-    note on link
-        User orders open iteration
-    end note
     1 --> 4
     note on link
         [empty iteration]
@@ -120,4 +117,9 @@ skinparam {
      * Open members
      * Close system
     end note
+
+}
+
+OpenIteration --> ITERATION_MANAGEMENT
+
 @enduml
