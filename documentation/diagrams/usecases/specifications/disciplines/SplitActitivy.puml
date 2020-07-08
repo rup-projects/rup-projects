@@ -5,24 +5,24 @@ skinparam {
 }
 
 
-    state 5 as ":ITERATION_MANAGEMENT"
-    state 13 as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_STARTS as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_ENDS as ":ITERATION_MANAGEMENT"
+
+
+    ITERATION_MANAGEMENT_STARTS --> SplitActivity
+    note on link
+        User requests to split activity
+    end note
 
     state SplitActivity {
         state 2 as " " #LawnGreen
         state 0 as " " #LawnGreen
         state 4 as " " #LawnGreen
-        state 6 as " " #LawnGreen
         state 8 as " " #LawnGreen
         state 10 as " "
-    }
 
-    5 --> 6
-    note on link
-        User orders split activity
-    end note
 
-    6 --> 2
+    [*] --> 2
     note on link
     <b>System shows</b>
     * for each discipline (requirements, analysis, design, implementation)
@@ -36,13 +36,13 @@ skinparam {
 
     2 --> 10
     note on link
-        User orders cancel split
+        User requests to cancel split
     end note
 
     2 --> 4
     note on link
         * User introduces NotAssignedCost to split
-        * and orders confirm
+        * and requests to confirm
     end note
 
     4 --> 0
@@ -60,7 +60,7 @@ skinparam {
 
     0 --> 10
     note on link
-        User orders cancel split
+        User requests to cancel split
     end note
 
     0 --> 8
@@ -68,47 +68,39 @@ skinparam {
         User introduces
         * NotAssignedActivity type
         * NotAssignedActivity description
-        and orders confirm split
+        and requests to confirm split
     end note
 
-    8 --> 13
+    8 --> [*]
     note on link
         <b>System shows</b>
         * __NotAssignedCost split successful__
-        * for each member
-        **assignedActivities in his datetime until end of current iteration
-        * for each discipline (requirements, analysis, design, implementation)
-        ** NotAssignedCost
-        ** NotAssignedActivities (with activity type)
-        <b>System allows</b>
-        * Split activity
-        * Assign activity
-        * Re-estimate activity
-        * Merge activity
-        * Open project
-        * Open members
-        * Close system
     end note
 
-    10 --> 13
+    10 --> [*]
     note on link
          <b>System shows</b>
          * __split activity was cancelled__
-         * for each member
-         **assignedActivities in his datetime until end of current iteration
-         * for each discipline (requirements, analysis, design, implementation)
-         ** NotAssignedCost
-         ** NotAssignedActivities (with activity type)
-         <b>System allows</b>
-         * Split activity
-         * Assign activity
-         * Re-estimate activity
-         * Merge activity
-         * Open project
-         * Open members
-         * Close system
     end note
 
-    13 --> [*]
+    }
+
+
+    SplitActivity --> ITERATION_MANAGEMENT_ENDS
+    note on link
+             <b>System shows</b>
+             * for each member
+             **assignedActivities in his datetime until end of current iteration
+             * for each discipline (requirements, analysis, design, implementation)
+             ** NotAssignedCost
+             ** NotAssignedActivities (with activity type)
+             <b>System allows</b>
+             * Split activity
+             * Assign activity
+             * Re-estimate activity
+             * Merge activity
+             * Open members
+             * Close system
+        end note
 
 @enduml
