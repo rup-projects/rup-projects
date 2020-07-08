@@ -10,7 +10,7 @@
     ITERATION_MANAGEMENT_START --> AssignActivity
 
     note on link
-        User orders assign NotAssignedActivity
+        User requires to assign NotAssignedActivity
     end note
 
     state AssignActivity {
@@ -39,12 +39,12 @@
     note on link
         User
         * introduces NotAssignedActivity
-        * and orders confirm step
+        * and requires to confirm step
     end note
 
     13 --> 20
     note on link
-        User orders cancel assign activity
+        User requires to cancel assign activity
     end note
 
     5 --> 14
@@ -67,12 +67,12 @@
     14 -down-> 15
     note on link
         * User introduces assign destination
-        * and orders confirm selection
+        * and requires to confirm selection
     end note
 
     14 --> 20
     note on link
-    User orders cancel assign activity
+    User requires to cancel assign activity
     end note
 
     20 --> [*]

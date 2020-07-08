@@ -4,24 +4,23 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
-    state 0 as ":ITERATION_MANAGEMENT" #LawnGreen
-    state 12 as ":ITERATION_MANAGEMENT" #LawnGreen
+    state ITERATION_MANAGEMENT_START as ":ITERATION_MANAGEMENT" #LawnGreen
+    state ITERATION_MANAGEMENT_END as ":ITERATION_MANAGEMENT" #LawnGreen
 
-    state closeActicity {
-        state 1 as " " #LawnGreen
+    ITERATION_MANAGEMENT_START --> CloseActicity
+    note on link
+        User requests to Close activity
+    end note
+
+
+    state CloseActicity {
         state 5 as " " #LawnGreen
         state 13 as " " #LawnGreen
         state 14 as " " #LawnGreen
         state alternativeWay as " "
         state 15 as " " #LawnGreen
-    }
 
-    0 --> 1
-    note on link
-        User orders Close activity
-    end note
-
-    1 --> 13
+    [*] --> 13
     note on link
     <b>System shows</b>
     * for each member
@@ -35,14 +34,14 @@ skinparam {
 
     13 --> alternativeWay
     note on link
-        User orders cancel close activity
+        User requires to cancel close activity
     end note
 
     13 --> 5
     note on link
         User
         * introduces AssignedActivity
-        * and orders confirm selection
+        * and requires to confirm step
     end note
 
     5 --> 14
@@ -64,7 +63,7 @@ skinparam {
 
     14 --> alternativeWay
     note on link
-        User orders cancel close activity
+        User requires to cancel close activity
     end note
 
     14 --> 5
@@ -74,45 +73,40 @@ skinparam {
 
     14 -down-> 15
     note on link
-        User orders confirm close activity
+        User requires to confirm close activity
     end note
 
-    alternativeWay --> 12
+    alternativeWay --> [*]
     note on link
          <b>System shows</b>
          * __Close activity cancelled__
-         * for each member
-         **assignedActivities in his datetime until end of current iteration
-         * for each discipline (requirements, analysis, design, implementation)
-         ** NotAssignedCost
-         ** NotAssignedActivities (with activity type)
-         <b>System allows</b>
-         * Split activity
-         * Assign activity
-         * Re-estimate activity
-         * Merge activity
-         * Open project
-         * Open members
-         * Close system
     end note
 
-
-    15 --> 12
+    15 --> [*]
     note on link
      <b>System shows</b>
      * __AssignedActivity has been closed__
-     * for each member
-     **assignedActivities in his datetime until end of current iteration
-     * for each discipline (requirements, analysis, design, implementation)
-     ** NotAssignedCost
-     ** NotAssignedActivities (with activity type)
-     <b>System allows</b>
-     * Split activity
-     * Assign activity
-     * Re-estimate activity
-     * Merge activity
-     * Open project
-     * Open members
-     * Close system
      end note
+
+     }
+
+     CloseActicity -down-> ITERATION_MANAGEMENT_END
+         note on link
+          <b>System shows</b>
+          * for each member
+          **assignedActivities in his datetime until end of current iteration
+          * for each discipline (requirements, analysis, design, implementation)
+          ** NotAssignedCost
+          ** NotAssignedActivities (with activity type)
+          <b>System allows</b>
+          * Split activity
+          * Assign activity
+          * Re-estimate activity
+          * Merge activity
+          * Open project
+          * Open members
+          * Close system
+          end note
+
+
 @enduml
