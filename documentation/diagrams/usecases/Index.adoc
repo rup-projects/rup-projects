@@ -11,7 +11,7 @@
 ** General
 *** [x] <<_StartSystem>>
 *** [ ] <<_CloseSystem>>
-*** [x] <<_OpenProject>>
+*** [x] <<_OpenProject>> ¿Lo quitamos?
 *** [x] <<_OpenPhases>>
 *** [x] <<_OpenIterations>>
 *** [ ] <<_PlanProject>>
