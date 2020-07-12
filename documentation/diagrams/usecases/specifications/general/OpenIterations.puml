@@ -27,7 +27,6 @@ skinparam {
                 ** duration (bussiness days)
                 ** dias transcurridos (bussiness days) and his percentage
                 <b>System allows</b>
-                * Open project
                 * Open openPhases
                 * __Open iteration__
                 * Open usecases

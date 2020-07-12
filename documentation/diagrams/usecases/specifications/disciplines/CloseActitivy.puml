@@ -9,7 +9,7 @@ skinparam {
 
     ITERATION_MANAGEMENT_START --> CloseActicity
     note on link
-        User requests to Close activity
+        User requests to close activity
     end note
 
 
@@ -26,7 +26,7 @@ skinparam {
     * for each member
     **assignedActivities in his datetime until end of current iteration
     <b>System requires</b>
-    * introduce AssignedActivity to be closed
+    * AssignedActivity to be closed
     <b>System allows</b>
     * confirm step
     * cancel close activity
@@ -55,7 +55,7 @@ skinparam {
     ** expected end datetime
     ** expected duration in hours
     <b>System requires</b>
-    * introduce real AssignedActivity duration in hours
+    * real AssignedActivity duration in hours
     <b>System allows</b>
     * confirm close activity
     * cancel close activity
@@ -79,13 +79,13 @@ skinparam {
     alternativeWay --> [*]
     note on link
          <b>System shows</b>
-         * __Close activity cancelled__
+         * Close activity operation cancelled
     end note
 
     15 --> [*]
     note on link
      <b>System shows</b>
-     * __AssignedActivity has been closed__
+     * AssignedActivity has been closed
      end note
 
      }
@@ -103,7 +103,7 @@ skinparam {
           * Assign activity
           * Re-estimate activity
           * Merge activity
-          * Open project
+          * Open iterations
           * Open members
           * Close system
           end note
