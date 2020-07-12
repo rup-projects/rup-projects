@@ -1,54 +1,62 @@
 @startuml
 skinparam NoteBackgroundColor #whiteSmoke
 
+state USECASE_MANAGEMENT_END as ":USECASE_MANAGEMENT"
+
+USECASE_MANAGEMENT --> prioritizeUseCases
+note on link
+    User requests to prioritize use cases
+end note
+
+state prioritizeUseCases {
+
 state 1 as " "
 state 2 as " "
 state 7 as " "
 state 8 as " "
-state 6 as " :USECASE_MANAGEMENT"
+
 
 [*] --> 1
-note on link
-    User orders prioritize use cases
-end note
+
 1 --> 2
 note on link
 <b>System shows</b>
-*all use cases sorted
+* all use cases sorted
 <b>System allows</b>
 * sort use case (the sort specifies the use case priority)
 * confirm use case prioritization
 * cancel use case prioritization
 end note
+
 2 --> 8
 note on link
-* User orders cancel use case prioritization
+User requests to cancel use case prioritization
 end note
-8 --> 6
+
+8 --> [*]
 note on link
 <b>System shows</b>
 * use cases prioritization was cancelled
-* All use cases sorted
-<b>System allows</b>
-* Prioritize Use cases
-* Create use case
-* Update use case
-* Delete use case
-* Open iteration
-* Open members
-* Open project
-* Close system
 end note
 
 2 --> 1
 note on link
 User sorts usecase
 end note
+
 2 --> 7
 note on link
-* User orders confirm use case prioritization
+User requests to confirm use case prioritization
 end note
-7 --> 6
+
+7 --> [*]
+note on link
+<b>System shows</b>
+* Priorization confirmed
+end note
+}
+
+prioritizeUseCases --> USECASE_MANAGEMENT_END
 note on link
 <b>System shows</b>
 * Priorization confirmed

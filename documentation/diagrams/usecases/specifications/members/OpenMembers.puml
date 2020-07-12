@@ -4,20 +4,25 @@ skinparam {
 }
 
     state 0 as ":PROJECT_MANAGEMENT"
-    state 1 as " "
     state 2 as ":USE_CASES_MANAGEMENT"
     state 3 as ":DISCIPLINES_MANAGEMENT"
 
-    0 --> 1
+    0 --> OpenMembers
 
-    2 --> 1
+    2 --> OpenMembers
     note on link
-        User orders open members
+        User requests to open members
     end note
 
-    3 --> 1
+    3 --> OpenMembers
 
-    1 --> [*]
+state OpenMembers{
+
+    [*] --> [*]
+
+}
+
+OpenMembers --> MEMBERS_MANAGEMENT
     note on link
         <b>System shows</b>
         * all members in the project, his names and roles
@@ -25,7 +30,7 @@ skinparam {
         * create member
         * update member
         * delete member
-        * open project
+        * open iterations
         * open iteration
         * open use cases
     end note
