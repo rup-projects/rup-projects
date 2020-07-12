@@ -62,20 +62,21 @@ skinparam {
 
     14 -down-> 15
     note on link
-        * User introduces merge destination
+        User
+        * introduces merge destination
         * and requests to confirm selection
     end note
 
     20 --> [*]
     note on link
          <b>System shows</b>
-         * __Merge activity cancelled__
+         * Merge activity cancelled
     end note
 
     15 --> [*]
     note on link
      <b>System shows</b>
-     * __AssignedActivity was returned to NotAssignedCost__
+     * AssignedActivity was returned to NotAssignedCost
      end note
 }
 
@@ -92,7 +93,7 @@ note on link
      * Assign activity
      * Re-estimate activity
      * Merge activity
-     * Open project
+     * Open iterations
      * Open members
      * Close system
      end note

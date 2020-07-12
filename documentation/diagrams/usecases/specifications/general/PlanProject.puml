@@ -81,11 +81,7 @@ state PlanProject {
     end note
 
     10 --> [*]
-    note on link
-        <b>System allows</b>
-        * plan project
-        * open phases
-    end note
+
 
     5 --> 4
     note on link
@@ -98,7 +94,11 @@ state PlanProject {
     end note
 
     6 --> [*]
-    note on link
+
+}
+
+PlanProject --> PROJECT_MANAGEMENTEND
+note on link
         <b>System shows</b>
         * the project was successfully planned
         * project information
@@ -116,13 +116,14 @@ state PlanProject {
         * close system
     end note
 
-}
-
-PlanProject --> PROJECT_MANAGEMENTEND
 
 PlanProject --> INIT_PROJECTEND
 note on link
 (from user cancel)
+
+<b>System allows</b>
+* plan project
+* open phases
 end note
 
 @enduml

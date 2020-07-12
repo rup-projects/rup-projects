@@ -29,7 +29,7 @@
     * for each discipline (requirements, analysis, design, implementation)
     ** NotAssignedActivities (with activity type)
     <b>System requires</b>
-    * introduce NotAssignedActivity to be assigned
+    * NotAssignedActivity to be assigned
     <b>System allows</b>
     * confirm step
     * cancel assign activity
@@ -56,7 +56,7 @@
     * for each member
     **assignedActivities in his datetime until end of current iteration
     <b>System requires</b>
-    * introduce assign destination
+    * Assign destination
     ** specific member hour without assignedActivity
           __(valid destination only dates in future)__
     <b>System allows</b>
@@ -66,8 +66,9 @@
 
     14 -down-> 15
     note on link
-        * User introduces assign destination
-        * and requires to confirm selection
+        User
+        * introduces assign destination
+        * and requires to confirm step
     end note
 
     14 --> 20
@@ -78,7 +79,7 @@
     20 --> [*]
     note on link
          <b>System shows</b>
-         * __assign activity cancelled__
+         * assign activity cancelled
     end note
 
     15 --> 5
@@ -91,7 +92,7 @@
     15 --> [*]
     note on link
      <b>System shows</b>
-     * __NotAssignedActivity was assigned to member__
+     * NotAssignedActivity was assigned to member
      end note
 
 }
@@ -108,7 +109,7 @@
           * Assign activity
           * Re-estimate activity
           * Merge activity
-          * Open project
+          * Open iterations
           * Open members
           * Close system
      end note

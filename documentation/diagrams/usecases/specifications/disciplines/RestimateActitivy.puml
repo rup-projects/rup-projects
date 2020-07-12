@@ -40,7 +40,8 @@ skinparam {
 
     2 --> 4
     note on link
-        * User introduces NotAssignedActivity to re-estimate
+        User
+        * introduces NotAssignedActivity to re-estimate
         * and requests to confirm
     end note
 
@@ -71,13 +72,13 @@ skinparam {
     10 --> [*]
     note on link
          <b>System shows</b>
-         * __re-estimate activity was cancelled__
+         * re-estimate activity was cancelled
     end note
 
     8 --> [*]
     note on link
         <b>System shows</b>
-        * __NotAssignedCost re-estimate successful__
+        * NotAssignedCost re-estimate successful
     end note
 
 }
@@ -95,7 +96,7 @@ ReestimateActivity --> 13
         * Assign activity
         * Re-estimate activity
         * Merge activity
-        * Open project
+        * Open iterations
         * Open members
         * Close system
     end note

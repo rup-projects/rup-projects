@@ -28,7 +28,7 @@ skinparam {
     * for each discipline (requirements, analysis, design, implementation)
     ** NotAssignedCost
     <b>System requires</b>
-    * introduce NotAssignedCost to split
+    * NotAssignedCost to split
     <b>System allows</b>
     * confirm step
     * cancel split activity
@@ -41,7 +41,8 @@ skinparam {
 
     2 --> 4
     note on link
-        * User introduces NotAssignedCost to split
+        User
+        * introduces NotAssignedCost to split
         * and requests to confirm
     end note
 
@@ -50,7 +51,7 @@ skinparam {
         <b>System shows</b>
         * NotAssignedCost available hours
         <b>System requires</b>
-        * introduce NotAssignedActivity information
+        * NotAssignedActivity information
         ** Activity type: one of the RUP identified activities of the introduced NotAssignedCost discipline
         ** NotAssignedActivity description
         <b>System allows</b>
@@ -74,13 +75,13 @@ skinparam {
     8 --> [*]
     note on link
         <b>System shows</b>
-        * __NotAssignedCost split successful__
+        * NotAssignedCost split successful
     end note
 
     10 --> [*]
     note on link
          <b>System shows</b>
-         * __split activity was cancelled__
+         * split activity was cancelled
     end note
 
     }
@@ -100,7 +101,7 @@ skinparam {
              * Re-estimate activity
              * Merge activity
              * Open members
-             * Open phases
+             * Open Iterations
              * Close system
         end note
 

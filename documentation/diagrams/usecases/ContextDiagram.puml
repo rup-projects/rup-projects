@@ -59,7 +59,7 @@ ITERATION_MANAGEMENT --> ITERATION_MANAGEMENT
         Split activity
         Merge activity
         Close Activity
-        Close Iteration
+        --Close Iteration-- quitar
     end note
 ITERATION_MANAGEMENT --> PROJECT_MANAGEMENT : --Open project-- Open iterations
 ITERATION_MANAGEMENT --> MEMBER_MANAGEMENT : Open members
