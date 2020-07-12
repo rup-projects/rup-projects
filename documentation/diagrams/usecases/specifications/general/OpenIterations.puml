@@ -7,7 +7,7 @@ skinparam {
 
     PROJECT_MANAGEMENT --> OpenIterations
     note on link
-        User orders Open Iterations
+        User requests to Open Iterations
     end note
 
 

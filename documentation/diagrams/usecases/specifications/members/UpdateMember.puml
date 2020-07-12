@@ -1,40 +1,46 @@
 @startuml
 
 state 0 as " :MEMBER:MANAGEMENT"
-state 1 as " " #LawnGreen
-state 2 as " " #LawnGreen
-state 3 as " " #LawnGreen
-state 5 as " " #LawnGreen
-state 6 as " " #LawnGreen
-state 8 as " "
 state 7 as " :MEMBER:MANAGEMENT"
 
 skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
-0 --> 1
+0 --> updateMember
 note on link
     User orders update member
 end note
 
-1 --> 2
+state updateMember {
+
+state 2 as " " #LawnGreen
+state 3 as " " #LawnGreen
+state 5 as " " #LawnGreen
+state 6 as " " #LawnGreen
+state 8 as " "
+
+[*] --> 2
 note on link
 <b>System shows</b>
 * all members
+<b>System requests</b>
+* Member to update
 <b>System allows</b>
-* introduce a member to update
 * cancel update member
+* confirm step
 end note
 
 2 --> 3
 note on link
-    User introduces a member to update
+    User
+    * introduces a member to update
+    * and confirms step
 end note
 
 2 --> 8
 note on link
-    User orders cancel update member
+    User requests to cancel update member
 end note
 
 3 --> 5
@@ -59,37 +65,37 @@ end note
 
 5 --> 8
 note on link
-    User orders cancel update member
+    User requests to cancel update member
 end note
 
-8 --> 7
+8 --> [*]
 note on link
-    <b>System shows</b>
-    * all members in the project, his names and roles
-    <b>System allows</b>
-    * create member
-    * update member
-    * delete member
-    * open project
-    * open iteration
-    * open use cases
+<b>System shows</b>
+* operation cancelled
 end note
 
 5 --> 6
 note on link
-    User orders save changes
+    User requests to save changes
 end note
 
-6 --> 7
+6 --> [*]
 note on link
     <b>System shows</b>
-    * __member updated__
+    * member updated
+end note
+
+}
+
+updateMember --> 7
+note on link
+    <b>System shows</b>
     * all members in the project, his names and roles
     <b>System allows</b>
     * create member
     * update member
     * delete member
-    * open project
+    * open iterations
     * open iteration
     * open use cases
 end note

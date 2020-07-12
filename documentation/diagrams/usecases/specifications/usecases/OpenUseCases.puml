@@ -1,20 +1,37 @@
 @startuml
-skinparam NoteBackgroundColor #whiteSmoke
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
 
-state canOpenUseCases as " "
-state openUseCasesOrdered as " "
+    state 0 as ":PROJECT_MANAGEMENT"
+    state 2 as ":MEMBERS_MANAGEMENT"
+    state 3 as ":DISCIPLINES_MANAGEMENT"
 
-'Main path
-[*] --> canOpenUseCases
-note on link
-    System allow to open the use cases
-end note
-canOpenUseCases --> openUseCasesOrdered
-note on link
-    User order to open use cases
-end note
-openUseCasesOrdered --> [*]
-note on link
-    System open use cases
-end note
+    0 --> OpenUsecases
+
+    2 --> OpenUsecases
+    note on link
+        User requests to open usecases
+    end note
+
+    3 --> OpenUsecases
+
+state OpenUsecases{
+
+    [*] --> [*]
+}
+
+OpenUsecases --> USECASES_MANAGEMENT
+    note on link
+        <b>System shows</b>
+        * all usecases in the project
+        <b>System allows</b>
+        * create usecase
+        * update usecase
+        * delete usecase
+        * open iterations
+        * open iteration
+        * open members
+    end note
+
 @enduml
