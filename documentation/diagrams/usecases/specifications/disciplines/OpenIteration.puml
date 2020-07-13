@@ -4,6 +4,8 @@ skinparam {
     NoteBackgroundColor #whiteSmoke
 }
 
+state 12 as ":PROJECT_MANAGEMENT"
+
     0 --> OpenIteration
     2 --> OpenIteration
     note on link
@@ -51,23 +53,11 @@ state OpenIteration {
         User requests to cancel
     end note
 
-    11 --> PROJECT_MANAGEMENT
+    11 --> [*]
     note on link
-        <b>System shows</b>
-        * for each iteration in project ordered by number ASC
-        ** start date
-        ** end date
-        ** duration (bussiness days)
-        ** dias transcurridos (bussiness days) and his percentage
-        <b>System allows</b>
-        * Open project
-        * Open openPhases
-        * Open iteration
-        * Open usecases
-        * Open members
-        * Close system
+    <b>System shows</b>
+    * operation cancelled
     end note
-
 
     6 --> 4
     note on link
@@ -101,6 +91,24 @@ state OpenIteration {
         [Iteration opened]
     end note
 }
+
+OpenIteration --> 12
+note on link
+        (from cancel operation)
+        <b>System shows</b>
+        * for each iteration in project ordered by number ASC
+        ** start date
+        ** end date
+        ** duration (bussiness days)
+        ** dias transcurridos (bussiness days) and his percentage
+        <b>System allows</b>
+        * Open project
+        * Open openPhases
+        * Open iteration
+        * Open usecases
+        * Open members
+        * Close system
+end note
 
 OpenIteration --> ITERATION_MANAGEMENT
     note on link
