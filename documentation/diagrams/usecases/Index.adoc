@@ -1,6 +1,7 @@
 = RUP MANAGER
 
-== Requirements (10 /22)
+== Requirements
+=== casos de uso validados y cerrados (3/22)
 [#_index]
 
 === Index
