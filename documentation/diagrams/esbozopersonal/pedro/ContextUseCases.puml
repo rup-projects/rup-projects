@@ -17,8 +17,8 @@ Initial --> ActivitiesOpened : OpenActivities
 ProjectOpened -down-> ProjectOpened : PlanProject
 ProjectOpened -down-> Initial : DeleteProject
 
-UseCasesOpened -down-> UseCasesOpened : CreateUseCase \n EditUseCase \n RemoveUseCase \n PrioritizeUseCase
-MembersOpened -down-> MembersOpened : ShowMembers \n CreateMember \n EditMember \n RemoveMember
+UseCasesOpened -down-> UseCasesOpened : CreateUseCase \n EditUseCase \n DeleteUseCase \n PrioritizeUseCase
+MembersOpened -down-> MembersOpened : ShowMembers \n CreateMember \n EditMember \n DeleteMember
 ActivitiesOpened -down-> ActivitiesOpened : AssignActivity \n ReestimateActivity \n SplitActivity \n JoinActivity \n CloseActivity
 
 @enduml
