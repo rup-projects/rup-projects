@@ -46,7 +46,7 @@ MEMBER_MANAGEMENT --> MEMBER_MANAGEMENT
     note on link
         Create member
         Update member
-        Remove member
+        Delete member
     end note
 MEMBER_MANAGEMENT --> PROJECT_MANAGEMENT        : --Open project-- Open Iterations
 MEMBER_MANAGEMENT --> USE_CASES_MANAGEMENT  : Open use cases
