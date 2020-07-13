@@ -1,0 +1,58 @@
+@startuml
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+    state INICIAL as ":PROJECT_MANAGEMENT"
+    state FINAL as ":PROJECT_MANAGEMENT"
+    
+    INICIAL --> OpenIterations
+    note on link
+        User requests to Open Iterations
+    end note
+    
+    state OpenIterations {
+    	state 1 as " "
+    	state 2 <<choice>>
+
+    	[*] --> 1
+       	
+    	1 --> 2
+    	note on link #GreenYellow
+        <b>System shows</b>
+    	* All iterations in project ordered by number ASC
+    	* For each iteration in project ordered by number ASC
+    	** start date
+    	** end date
+    	** duration (bussiness days)
+    	** dias transcurridos (bussiness days) and his percentage
+    	end note
+	    
+	    2 --> [*]
+	    note on link 
+	     <b>[With an old iteration]</b>
+	    end note
+	    
+	    2 --> [*]
+	    note on link #GreenYellow	     
+	     <b>[There is current iteration]</b>
+	     <b>System allows</b>
+	     * Split activity
+	     * Assign activity
+	     * Re-estimate activity
+	     * Merge activity
+	     * Close system
+	     
+	    end note
+    }
+    
+    OpenIterations --> FINAL
+    note on link
+    <b>System allows</b>
+    * Open openPhases
+    * __Open iteration__
+    * Open usecases
+    * Open members
+    * Close system
+   	end note
+    
+@enduml
