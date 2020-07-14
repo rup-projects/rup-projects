@@ -11,7 +11,7 @@
 * [ ] Specifications
 ** General
 *** [x] <<_StartSystem>>
-*** [ ] <<_CloseSystem>>
+*** [x] <<_CloseSystem>>
 *** [x] <<_OpenProject>> ¿Lo quitamos?
 *** [x] <<_OpenPhases>>
 *** [x] <<_OpenIterations>>
