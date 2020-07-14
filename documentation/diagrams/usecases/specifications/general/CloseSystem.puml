@@ -28,7 +28,7 @@ state CloseSystem {
     1 --> [*]
         note on link
     <b>System shows</b>
-    * Good by
+    * Good bye
     end note
 }
 

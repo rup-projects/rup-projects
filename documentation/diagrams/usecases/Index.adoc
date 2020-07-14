@@ -11,12 +11,10 @@
 * [ ] Specifications
 ** General
 *** [x] <<_StartSystem>>
-*** [ ] <<_CloseSystem>>
-*** [x] <<_OpenProject>> ¿Lo quitamos?
+*** [x] <<_CloseSystem>>
+*** [x] <<_PlanProject>> (comentario a revisar)
 *** [x] <<_OpenPhases>>
 *** [x] <<_OpenIterations>>
-*** [ ] <<_PlanProject>>
-*** [ ] <<_CloseIteration>>
 
 ** Disciplines
 *** [ ] <<_OpenIteration>>

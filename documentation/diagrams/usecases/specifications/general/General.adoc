@@ -1,11 +1,3 @@
-[#_CloseSystem]
-==== Close System
-[plantuml%interactive, svg,align="center"]
-----
-include::CloseSystem.puml[]
-----
-
-
 [#_StartSystem]
 ==== Start System
 
@@ -14,19 +6,19 @@ include::CloseSystem.puml[]
 include::StartSystem.puml[]
 ----
 
+[#_CloseSystem]
+==== Close System
+[plantuml%interactive, svg,align="center"]
+----
+include::CloseSystem.puml[]
+----
+
 [#_PlanProject]
 ==== Plan Project
 
 [plantuml,svg,align="center"]
 ----
 include::PlanProject.puml[]
-----
-
-[#_OpenProject]
-==== Open project
-[plantuml,svg,align="center"]
-----
-include::OpenProject.puml[]
 ----
 
 [#_OpenPhases]

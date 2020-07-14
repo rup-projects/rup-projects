@@ -13,10 +13,7 @@ skinparam {
     end note
 
     state OpenPhases{
-    state 1 as " "
-        [*] --> 1
-
-        1 --> [*]
+        [*] --> [*]
 
     }
 
