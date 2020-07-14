@@ -10,25 +10,22 @@ skinparam {
         User requests to Open Iterations
     end note
 
-
     state OpenIterations {
-        state 1 as " "
-            [*] --> 1
-
-            1 --> [*]
+        [*] --> [*]
     }
 
     OpenIterations --> 2
             note on link
                 <b>System shows</b>
-                * for each iteration in project ordered by number ASC
+                * for each iteration in project ordered by number (ASC)
                 ** start date
                 ** end date
                 ** duration (bussiness days)
-                ** dias transcurridos (bussiness days) and his percentage
+                ** <color:red>dias transcurridos (bussiness days) and his percentage</color>
+                ** <color:red>//traducirlo al ingles//</color>
                 <b>System allows</b>
                 * Open openPhases
-                * __Open iteration__
+                * Open iteration
                 * Open usecases
                 * Open members
                 * Close system
