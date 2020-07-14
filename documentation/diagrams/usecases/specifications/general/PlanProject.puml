@@ -40,13 +40,18 @@ state PlanProject {
         User requests to cancel
     end note
 
-    2 --> 3
+    2 --> 1
     note on link
         User introduces
         * start date
         * end date
         * project cost
-        and requests to confirm step
+    end note
+
+    2 --> 3
+    note on link
+        <color:red><b>//¿La validacion ha de ocurrir el confirmar o al introducir datos?//</b></color>
+        User requests to confirm step
     end note
 
     3 --> 1
@@ -80,8 +85,12 @@ state PlanProject {
         User requests to cancel
     end note
 
-    10 --> [*]
-
+    10 --> INIT_PROJECTEND
+    note on link
+    <b>System allows</b>
+    * plan project
+    * open phases
+    end note
 
     5 --> 4
     note on link
@@ -93,37 +102,30 @@ state PlanProject {
         User requests to confirm planned project
     end note
 
-    6 --> [*]
-
+    6 --> PROJECT_MANAGEMENTEND
+      note on link
+              <b>System shows</b>
+              * the project was successfully planned
+              * project information
+              ** start date
+              ** end date
+              ** duration (business days)
+              ** progress (business days)
+              ** iteration duration (business days)
+              <b>System allows</b>
+              * Open phases
+              * Open iterations
+              * Open iteration [iterations opened]
+              * Open members
+              * Open usecases
+              * close system
+          end note
 }
 
-PlanProject --> PROJECT_MANAGEMENTEND
-note on link
-        <b>System shows</b>
-        * the project was successfully planned
-        * project information
-        ** start date
-        ** end date
-        ** duration (business days)
-        ** progress (business days)
-        ** iteration duration (business days)
-        <b>System allows</b>
-        * Open phases
-        * Open iterations
-        * Open iteration [if __iterations opened__]
-        * Open members
-        * Open usecases
-        * close system
-    end note
+INIT_PROJECTEND --> [*]
+PROJECT_MANAGEMENTEND --> [*]
 
 
-PlanProject --> INIT_PROJECTEND
-note on link
-(from user cancel)
 
-<b>System allows</b>
-* plan project
-* open phases
-end note
 
 @enduml

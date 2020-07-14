@@ -12,13 +12,6 @@ include::CloseActitivy.puml[]
 include::OpenIteration.puml[]
 ----
 
-[#_CloseIteration]
-==== Close Iteration
-[plantuml,svg,align="center"]
-----
-include::CloseIteration.puml[]
-----
-
 [#_AssignActivity]
 ==== Assign Activity
 [plantuml,svg,align="center"]
