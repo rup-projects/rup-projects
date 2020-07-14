@@ -56,6 +56,7 @@ skinparam {
     ** expected duration in hours
     <b>System requires</b>
     * real AssignedActivity duration in hours
+    ** only positive numbers, max 100 hours
     <b>System allows</b>
     * confirm close activity
     * cancel close activity
@@ -63,7 +64,7 @@ skinparam {
 
     14 --> alternativeWay
     note on link
-        User requires to cancel close activity
+        User requests to cancel close activity
     end note
 
     14 --> 5
@@ -73,7 +74,7 @@ skinparam {
 
     14 -down-> 15
     note on link
-        User requires to confirm close activity
+        User requests to confirm close activity
     end note
 
     alternativeWay --> [*]
