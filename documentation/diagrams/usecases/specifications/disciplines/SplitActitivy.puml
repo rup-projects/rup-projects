@@ -29,8 +29,8 @@ skinparam {
     ** NotAssignedCost
     <b>System requires</b>
     * NotAssignedCost to split
+    ** [NotAssignedCost should be higher than 1 hour]
     <b>System allows</b>
-    * confirm step
     * cancel split activity
     end note
 
@@ -41,9 +41,7 @@ skinparam {
 
     2 --> 4
     note on link
-        User
-        * introduces NotAssignedCost to split
-        * and requests to confirm
+        User provides NotAssignedCost to split
     end note
 
     4 --> 0
@@ -55,7 +53,6 @@ skinparam {
         ** Activity type: one of the RUP identified activities of the introduced NotAssignedCost discipline
         ** NotAssignedActivity description
         <b>System allows</b>
-        * confirm step
         * cancel split activity
     end note
 
@@ -66,16 +63,17 @@ skinparam {
 
     0 --> 8
     note on link
-        User introduces
+        User provides
         * NotAssignedActivity type
         * NotAssignedActivity description
-        and requests to confirm split
     end note
 
     8 --> [*]
     note on link
         <b>System shows</b>
         * NotAssignedCost split successful
+        * new 1 hour NotAssignedActivity in the top of the "splitted" NotAssignedCost
+        * 1 hour smaller "splitted" NotAssignedCost
     end note
 
     10 --> [*]
