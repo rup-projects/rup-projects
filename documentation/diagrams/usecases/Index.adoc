@@ -17,12 +17,12 @@
 *** [x] <<_OpenIterations>>
 
 ** Disciplines
-*** [ ] <<_OpenIteration>>
-*** [x] <<_AssignActivity>>
+*** [x] <<_OpenIteration>>
+*** [ ] <<_AssignActivity>>
 *** [ ] <<_ReEstimateActivity>>
-*** [x] <<_SplitActivity>>
-*** [ ] <<_CloseActivity>>
+*** [ ] <<_SplitActivity>>
 *** [ ] <<_MergeActivity>>
+*** [x] <<_CloseActivity>>
 
 ** Members
 *** [x] <<_OpenMembers>>
@@ -35,7 +35,7 @@
 *** [ ] <<_CreateUseCase>>
 *** [ ] <<_UpdateUseCase>>
 *** [ ] <<_DeleteUseCase>>
-*** [x] <<_PrioritizeUseCases>>
+*** [ ] <<_PrioritizeUseCases>>
 
 [#_UseCasesDiagram]
 === Use Cases Diagram
