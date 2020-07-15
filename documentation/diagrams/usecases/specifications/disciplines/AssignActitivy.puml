@@ -3,20 +3,22 @@
         NoteBackgroundColor #whiteSmoke
     }
 
-    state ITERATION_MANAGEMENT_START as ":ITERATION_MANAGEMENT"
-    state ITERATION_MANAGEMENT_END as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_START as ":ITERATION_MANAGEMENT"  #LawnGreen
+    state ITERATION_MANAGEMENT_END as ":ITERATION_MANAGEMENT" #LawnGreen
 
 
     ITERATION_MANAGEMENT_START --> AssignActivity
 
     note on link
-        User requires to assign NotAssignedActivity
+        User requests to assign NotAssignedActivity
     end note
 
     state AssignActivity {
         state 5 as " " #LawnGreen
         state 13 as " " #LawnGreen
         state 14 as " " #LawnGreen
+        state 21 as " " #LawnGreen
+        state 22 as " " #LawnGreen
         state 20 as " "
         state 15 <<choice>>
 
@@ -31,20 +33,17 @@
     <b>System requires</b>
     * NotAssignedActivity to be assigned
     <b>System allows</b>
-    * confirm step
     * cancel assign activity
     end note
 
     13 --> 5
     note on link
-        User
-        * introduces NotAssignedActivity
-        * and requires to confirm step
+        User provides NotAssignedActivity to be asigned
     end note
 
     13 --> 20
     note on link
-        User requires to cancel assign activity
+        User requests to cancel assign activity
     end note
 
     5 --> 14
@@ -60,20 +59,32 @@
     ** specific member hour without assignedActivity
           __(valid destination only dates in future)__
     <b>System allows</b>
-    * confirm step
     * cancel assign activity
     end note
 
     14 -down-> 15
     note on link
-        User
-        * introduces assign destination
-        * and requires to confirm step
+        User provides assign destination
+    end note
+
+    15 --> 21
+    note on link
+    [members assigned activity duration exceeds members max capacity]
+    end note
+
+    21 --> 22
+    note on link
+    <b>System shows</b>
+    * maximum members capacity exceeded for this iteration
+    ** members schedule column background in red
+    * all member AssignActivities after the end datetime of the activity to be assigned displaced downwards
+    * <color:red>¿cuando asignamos las actividades se van apilando una encima de otra sin dejar hueco?</color>
+    * <color:red>¿o al asignar el usuario puede dejar hueco entre varias AssignActivities?</color>
     end note
 
     14 --> 20
     note on link
-    User requires to cancel assign activity
+        User requests to cancel assign activity
     end note
 
     20 --> [*]
@@ -82,17 +93,14 @@
          * assign activity cancelled
     end note
 
-    15 --> 5
-    note on link
-        [NotAssignedActivity duration > member assign destination of not assigned time until next assignedActivity
-        OR
-        NotAssignedActivity overlaps member max capacity (hours) in current iteration]
-    end note
 
-    15 --> [*]
+    15 --> 22
+
+
+    22 --> [*]
     note on link
-     <b>System shows</b>
-     * NotAssignedActivity was assigned to member
+    <b>System shows</b>
+    * NotAssignedActivity was assigned to member
      end note
 
 }
