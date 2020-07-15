@@ -55,8 +55,9 @@ state OpenIteration {
 
     6 --> 4
     note on link
-        * User introduces use case for the current iteration
-        * and his desired realization
+        User provides
+        * use case for the current iteration
+        * his desired realization
     end note
     6 --> 7
     note on link
