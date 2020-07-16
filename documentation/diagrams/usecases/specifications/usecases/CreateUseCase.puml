@@ -29,6 +29,7 @@ state CreateUseCase {
     state savedUseCase as " "
     state errorValidation as " "
     state toConfirm as " "
+    state systemSave as " "
 
     'Main path
     [*] --> createOrdered
@@ -65,9 +66,14 @@ state CreateUseCase {
              * confirm
              * cancel
             end note
-    requireToConfirm --> savedUseCase
+    requireToConfirm --> systemSave
         note on link
         <b>User</b> confirm
+        end note
+    systemSave --> savedUseCase
+        note on link
+            <b>System shows</b>
+            * The use case has been created
         end note
     savedUseCase --> [*]
            note on link
