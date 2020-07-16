@@ -27,30 +27,32 @@ state DeleteUseCase {
     'Main path
     [*] --> initial
     note on link
-        User order to delete a use case
+        <b>User request</b>
+        * delete a use case
     end note
     initial --> askedForWhichOneDelete
     note on link
     <b>System shows</b>
     * all use cases
-    <b>System allows</b>
-    * introduce a use case to delete
-    * cancel operation
+    <b>System require</b>
+    * A use case to delete
     end note
     askedForWhichOneDelete --> deleteOrdered
     note on link
-        User introduce a use case to delete
+        <b>User provide</b>
+        * the use to delete
     end note
     deleteOrdered --> confirmationRequired
     note on link
-    <b>System allows</b>
-    * confirm
-    * cancel
+        <b>System allows</b>
+        * confirm
+        * cancel
     end note
     confirmationRequired --> deleteConfirmed
-    note on link
-        User orders confirm
-    end note
+        note on link
+            <b>User request</b>
+            * confirm to delete the use case
+        end note
     deleteConfirmed --> showList
     note on link
     <b>System shows</b>
@@ -65,7 +67,8 @@ state DeleteUseCase {
     'Variation path
     confirmationRequired --> showList
     note on link
-        User cancel
+        <b>User request</b>
+        * cancel
     end note
 }
 
