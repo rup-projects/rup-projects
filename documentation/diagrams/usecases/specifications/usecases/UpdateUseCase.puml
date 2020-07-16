@@ -25,7 +25,7 @@ state UpdateUseCase {
     state selectedUseCase as " "
     state editUseCase as " "
     state editedUseCase  <<choice>>
-    state requireToConfirm  <<choice>>
+    state requireToConfirm  as " "
     state savedUseCase as " "
     state errorValidation as " "
 
@@ -48,20 +48,22 @@ state UpdateUseCase {
     selectedUseCase --> editUseCase
     note on link
         <b>System shows</b>
-        * the use case
+        * use case name
         <b>System require</b>
-        * edit the use case
+        * use case name
     end note
     editUseCase --> editedUseCase
     note on link
         <b>User provide</b>
         * name
     end note
-    editedUseCase --> requireToConfirm
-        note on link
-        <b>System require</b>
-         * to confirm
-        end note
+    editedUseCase --> toConfirm
+    toConfirm --> requireToConfirm
+            note on link
+            <b>System allow</b>
+             * confirm
+             * cancel
+            end note
     requireToConfirm --> savedUseCase
         note on link
         <b>User</b> confirm
@@ -81,11 +83,11 @@ state UpdateUseCase {
     errorValidation --> selectedUseCase
             note on link
             <b>System shows</b>
-            * Error validations
+            * The name length is not correct
             end note
 
     'variation path
-    requireToConfirm --> [*]
+    requireToConfirm --> savedUseCase
     note on link
           <b>User</b> cancel
     end note

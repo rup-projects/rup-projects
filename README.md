@@ -2,7 +2,7 @@
 
 ## State diagrams: Guidelines
 * Verbs
-** User: Request (solicita), introduce (introduce)  
+** User: Request (solicita), provide (introducir, indicar)  
 ** System: Require (requiere), show (muestra), allow (permite)
 
 ## Naming and others
