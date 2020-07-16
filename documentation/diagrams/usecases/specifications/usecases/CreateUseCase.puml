@@ -1,6 +1,8 @@
 @startuml
 skinparam NoteBackgroundColor #whiteSmoke
 
+
+'Initial/end states
 state init as "USE_CASE_MANAGEMENT"
 state end as "USE_CASE_MANAGEMENT"
 
@@ -9,70 +11,94 @@ CreateUseCase ---> end
 note on link
 <b>System allows</b>
 * create member
-* update member
+* create member
 * delete member
 * open project
 * open iteration
 * open use cases
 end note
 
+'Use case specfication
 state CreateUseCase {
-    state orderCreateUseCase as " "
     state createOrdered as " "
-    state opened as " "
-    state filled as " "
-    state valid as " "
-    state saveOrdered as " "
-    state cancelled as " "
+    state requiredUseCaseToCreate as " "
+    state selectedUseCase as " "
+    state editUseCase as " "
+    state editedUseCase  <<choice>>
+    state requireToConfirm  as " "
+    state savedUseCase as " "
+    state errorValidation as " "
+    state toConfirm as " "
 
     'Main path
     [*] --> createOrdered
     note on link
-        User orders to create a new use case
+        <b>User request</b>
+        * to create a use case
     end note
-    createOrdered --> opened
+    createOrdered --> requiredUseCaseToCreate
     note on link
+        <b>System require</b>
+        * The use case to be created
+    end note
+    requiredUseCaseToCreate --> selectedUseCase
+    note on link
+        <b>User provide</b>
+        * The use case to create
+    end note
+    selectedUseCase --> editUseCase
+    note on link
+        <b>System require</b>
+        * use case name
         <b>System allows</b>
-        * fill the use case data
-        ** Name
-        * cancel
+        * Cancel
     end note
-    opened --> filled
+    editUseCase --> editedUseCase
     note on link
-        User provide:
-        * Name length between [5:30] characters
+        <b>User provide</b>
+        * use case name
     end note
-    filled --> valid
+    editedUseCase --> toConfirm
+    toConfirm --> requireToConfirm
+            note on link
+            <b>System allow</b>
+             * confirm
+             * cancel
+            end note
+    requireToConfirm --> savedUseCase
+        note on link
+        <b>User</b> confirm
+        end note
+    savedUseCase --> [*]
+           note on link
+           <b>System shows</b>
+           * the use case list
+           end note
+
+    'variation path
+    editedUseCase --> errorValidation
+        note on link
+        [ length(useCaseName) out of 5,25 ]
+        end note
+
+    errorValidation --> selectedUseCase
+            note on link
+            <b>System shows</b>
+            * The name length is not correct
+            end note
+
+    'variation path
+    requireToConfirm --> savedUseCase
     note on link
-        <b>System allows</b>
-        * save the new use case data
-    end note
-    valid --> saveOrdered
-    note on link
-        User order to save the new user case data
-    end note
-    saveOrdered --> [*]
-    note on link
-        <b>System shows</b>
-        * the use case is already saved
-        * use cases list
+          <b>User</b> cancel
     end note
 
-    'Varation path
-    opened --> opened
+    'variation path
+    editUseCase --> savedUseCase
     note on link
-        User provide:
-         * empty name
-         * used name
-         * length out of [5:30] characters
+          <b>User</b> cancel
     end note
 
-    'Variation path
-    opened --> cancelled
-    note on link
-        User order cancel
-    end note
-    cancelled --> [*]
 }
 
 @enduml
