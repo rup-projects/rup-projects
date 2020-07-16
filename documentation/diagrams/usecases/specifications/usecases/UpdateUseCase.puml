@@ -1,77 +1,96 @@
 @startuml
 skinparam NoteBackgroundColor #whiteSmoke
 
-state canEdit as " "
-state selectedOrdered as " "
-state selected as " "
-state editOrdered as " "
-state opened as " "
-state filled as " "
-state valid as " "
-state saveOrdered as " "
-state cancelled as " "
 
-'Main path
-[*] --> canEdit
-note on link
-    System allow to select a use case
-end note
-canEdit --> selectedOrdered
-note on link
-    User order select a use case
-end note
-selectedOrdered --> selected
-note on link
-    System select the use case
-end note
-selected --> editOrdered
-note on link
-    User orders to edit the selected use case
-end note
-editOrdered --> opened
-note on link
-    System opens the selected use case
-    and allows to provide:
-    * Name
+'Initial/end states
+state init as "USE_CASE_MANAGEMENT"
+state end as "USE_CASE_MANAGEMENT"
 
-    System allows to cancel
-end note
-opened --> filled
+init ---> UpdateUseCase
+UpdateUseCase ---> end
 note on link
-    User provide:
-    * Name length between [5:30] characters
-end note
-filled --> valid
-note on link
-    System allow to save the use case data
-end note
-valid --> saveOrdered
-note on link
-    User order to save the use case data
-end note
-saveOrdered --> [*]
-note on link
-    System save the new use case
-    and close it.
+<b>System allows</b>
+* create member
+* update member
+* delete member
+* open project
+* open iteration
+* open use cases
 end note
 
-'Varation path
-opened --> opened
-note on link
-    User provide:
-     * empty name
-     * used name
-     * length out of [5:30] characters
-end note
+'Use case specfication
+state UpdateUseCase {
+    state updateOrdered as " "
+    state requiredUseCaseToUpdate as " "
+    state selectedUseCase as " "
+    state editUseCase as " "
+    state editedUseCase  <<choice>>
+    state requireToConfirm  as " "
+    state savedUseCase as " "
+    state errorValidation as " "
 
-'Variation path
-opened --> cancelled
-note on link
-    User order cancel
-end note
-cancelled --> canEdit
-note on link
-    System close the new use case
-end note
+    'Main path
+    [*] --> updateOrdered
+    note on link
+        <b>User request</b>
+        * to update a use case
+    end note
+    updateOrdered --> requiredUseCaseToUpdate
+    note on link
+        <b>System require</b>
+        * The use case to be updated
+    end note
+    requiredUseCaseToUpdate --> selectedUseCase
+    note on link
+        <b>User provide</b>
+        * The use case to update
+    end note
+    selectedUseCase --> editUseCase
+    note on link
+        <b>System shows</b>
+        * use case name
+        <b>System require</b>
+        * use case name
+    end note
+    editUseCase --> editedUseCase
+    note on link
+        <b>User provide</b>
+        * name
+    end note
+    editedUseCase --> toConfirm
+    toConfirm --> requireToConfirm
+            note on link
+            <b>System allow</b>
+             * confirm
+             * cancel
+            end note
+    requireToConfirm --> savedUseCase
+        note on link
+        <b>User</b> confirm
+        end note
+    savedUseCase --> [*]
+           note on link
+           <b>System shows</b>
+           * the use case list
+           end note
+
+    'variation path
+    editedUseCase --> errorValidation
+        note on link
+        [ length(useCaseName) out of 5,25 ]
+        end note
+
+    errorValidation --> selectedUseCase
+            note on link
+            <b>System shows</b>
+            * The name length is not correct
+            end note
+
+    'variation path
+    requireToConfirm --> savedUseCase
+    note on link
+          <b>User</b> cancel
+    end note
+}
 
 @enduml
