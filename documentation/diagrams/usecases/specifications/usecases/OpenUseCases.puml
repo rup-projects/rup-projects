@@ -24,8 +24,11 @@ state OpenUsecases{
 OpenUsecases --> USECASES_MANAGEMENT
     note on link
         <b>System shows</b>
-        * all usecases in the project
+        * all use cases sorted by priority
+        ** highest priority in the top, lowest in the button
+        ** use case without priority has the lowest priority
         <b>System allows</b>
+        * prioritize usecases
         * create usecase
         * update usecase
         * delete usecase
