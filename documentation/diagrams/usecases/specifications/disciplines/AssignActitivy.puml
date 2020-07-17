@@ -9,21 +9,28 @@
 
     ITERATION_MANAGEMENT_START --> AssignActivity
 
-    note on link
-        User requests to assign NotAssignedActivity
-    end note
 
     state AssignActivity {
-        state 5 as " " #LawnGreen
+        state 1 as " " #LawnGreen
         state 13 as " " #LawnGreen
         state 14 as " " #LawnGreen
         state 21 as " " #LawnGreen
         state 22 as " " #LawnGreen
+        state 23 as " " #LawnGreen
+        state 24 as " " #LawnGreen
+        state 25 as " " #LawnGreen
+        state 26 as " " #LawnGreen
         state 20 as " "
+        state 2 <<choice>>
         state 15 <<choice>>
 
 
-    [*] --> 13
+    [*] --> 1
+    note on link
+        User requests to assign Activity
+    end note
+
+    1 --> 13
     note on link
     <b>System shows</b>
     * for each member
@@ -31,22 +38,64 @@
     * for each discipline (requirements, analysis, design, implementation)
     ** NotAssignedActivities (with activity type)
     <b>System requires</b>
-    * NotAssignedActivity to be assigned
+    * Activity to be assigned
     <b>System allows</b>
     * cancel assign activity
     end note
 
-    13 --> 5
+    13 --> 2
     note on link
-        User provides NotAssignedActivity to be asigned
+        User provides Activity to be assigned
     end note
+
+    2 --> 23
+    note on link
+    [NotAssignedActivity provided]
+    end note
+
+    2 --> 24
+    note on link
+    [AssignedActivity provided]
+    end note
+
+    24 --> 25
+    note on link
+    <b>System shows</b>
+    * AssignActivity
+    ** member
+    <b>System requires</b>
+    * Assign destination
+    ** AssignActivity associated NotAssignedCost
+    <b>System allows</b>
+    * cancel assign activity
+    end note
+
 
     13 --> 20
     note on link
         User requests to cancel assign activity
     end note
 
-    5 --> 14
+    25 --> 20
+    note on link
+    <b>User requests to</b>
+    * cancel assign activity
+    end note
+
+    25 --> 26
+    note on link
+    <b>User provides</b>
+    * Assign destination
+    end note
+
+    26 --> [*]
+    note on link
+    <b>System shows</b>
+    * Activity as NotAssignedActivity in the top of the associated NotAssignedCost
+    end note
+
+
+    23 --> 14
     note on link
     <b>System shows</b>
     * NotAssignedActivity
