@@ -29,7 +29,6 @@ skinparam {
     <b>System requires</b>
     * NotAssignedActivity to re-estimate
     <b>System allows</b>
-    * order confirm step
     * cancel re-estimate activity
     end note
 
@@ -40,9 +39,7 @@ skinparam {
 
     2 --> 4
     note on link
-        User
-        * introduces NotAssignedActivity to re-estimate
-        * and requests to confirm
+        User provides NotAssignedActivity to re-estimate
     end note
 
     4 --> 0
@@ -55,7 +52,6 @@ skinparam {
         <b>System requires</b>
         * NotAssignedActivity duration (max as NotAssignedCost total available cost)
         <b>System allows</b>
-        * order confirm step
         * cancel re-estimate
     end note
 
@@ -66,7 +62,7 @@ skinparam {
 
     0 --> 8
     note on link
-        User introduces NotAssignedActivity duration and requests to confirm
+        User provides NotAssignedActivity duration
     end note
 
     10 --> [*]
