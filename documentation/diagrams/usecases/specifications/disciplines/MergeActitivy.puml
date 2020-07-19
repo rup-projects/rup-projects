@@ -34,9 +34,7 @@ skinparam {
 
     13 --> 5
     note on link
-        User
-        * introduces AssignedActivity
-        * and requests to confirm selection
+        User provides AssignedActivity
     end note
 
     13 --> 20
@@ -62,9 +60,7 @@ skinparam {
 
     14 -down-> 15
     note on link
-        User
-        * introduces merge destination
-        * and requests to confirm selection
+        User provides merge destination
     end note
 
     20 --> [*]
@@ -97,4 +93,5 @@ note on link
      * Open members
      * Close system
      end note
+
 @enduml
