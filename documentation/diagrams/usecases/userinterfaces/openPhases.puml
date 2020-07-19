@@ -1,0 +1,11 @@
+@startuml
+
+!include procedures/saltProcedure.puml
+!include procedures/ProjectManagement.puml
+
+(*) -down-> SALT(phasesManagement)
+phasesManagement -down-> (*)
+
+@enduml
+
+
