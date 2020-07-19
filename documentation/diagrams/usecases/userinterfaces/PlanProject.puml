@@ -10,7 +10,7 @@ planProjectBasicInfo -left-> SALT(initProjectWithoutProject)
 
 planProjectIterationSize -down-> SALT(phasesManagement)
 planProjectIterationSize -left-> SALT(initProjectWithoutProject)
-
+initProjectWithoutProject --> (*)
 phasesManagement --> (*)
 
 
