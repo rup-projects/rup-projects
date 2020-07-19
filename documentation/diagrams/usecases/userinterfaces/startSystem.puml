@@ -1,0 +1,14 @@
+@startuml
+
+!include procedures/saltProcedure.puml
+!include procedures/InitProject.puml
+
+(*) -down-> SALT(initProject)
+(*) -down-> SALT(initProjectWithoutProject)
+initProject --> (*)
+initProjectWithoutProject --> (*)
+
+
+@enduml
+
+

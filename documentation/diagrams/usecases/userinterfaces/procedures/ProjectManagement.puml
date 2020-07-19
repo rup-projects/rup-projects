@@ -1,0 +1,35 @@
+@startuml
+!procedure _phasesManagement()
+    {+
+        {* <b>Phases | Usecases | Members | Close<&x> }
+
+        {^"project"
+            {#
+            <b>Phase | <b>Start date | <b>End date | <b>duration | <b>progress (%)
+            INICIO | 10-10-2020 | 20-10-2020 | 10 days | 10 days (100%) | <color:blue><&eye>
+            ELABORACION | 21-10-2020 | 02-11-2020 | 12 days | 8 days (70%) | <color:blue><&eye>
+            CONSTRUCTION | 02-11-2020 | 20-11-2020 | 18 days | 0 days (0%) | <color:blue><&eye>
+            TRANSICION | 20-11-2020 | 10-12-2020 | 20 days | 0 days (0%) | <color:blue><&eye>
+            }
+        }
+
+    }
+!endprocedure
+
+!procedure _iterationsManagement()
+    {+
+        {* Phases | Usecases | Members | Close<&x> }
+
+        {^"phase : Construction"
+            {#
+            <b>Iteration | <b>Start date | <b>End date | <b>duration | <b>progress (%)
+            6 | 10-10-2020 | 20-10-2020 | 10 days | 10 days (100%) | <color:blue><&eye>
+            7 | 21-10-2020 | 02-11-2020 | 10 days | 8 days (80%) | <color:blue><&eye>
+            8 | 02-11-2020 | 20-11-2020 | 10 days | 0 days (0%) | <color:blue><&eye>
+            }
+        }
+
+    }
+!endprocedure
+
+@enduml

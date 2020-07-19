@@ -1,0 +1,19 @@
+@startuml
+
+!include procedures/saltProcedure.puml
+!include procedures/ProjectManagement.puml
+!include procedures/InitProject.puml
+
+(*) -down-> SALT(planProjectBasicInfo)
+planProjectBasicInfo -down-> SALT(planProjectIterationSize)
+planProjectBasicInfo -left-> SALT(initProjectWithoutProject)
+
+planProjectIterationSize -down-> SALT(phasesManagement)
+planProjectIterationSize -left-> SALT(initProjectWithoutProject)
+initProjectWithoutProject --> (*)
+phasesManagement --> (*)
+
+
+@enduml
+
+
