@@ -1,9 +1,0 @@
-@startuml
-title Use case: Open iteration
-[*] --> SELECTED_UCs : System allows to select UCs for iteration
-SELECTED_UCs -> CREATED_UC : System allows to create new UC
-CREATED_UC -> SELECTED_UCs : System adds new UC
-SELECTED_UCs --> PRIORITIZED_UCs : Analyst prioritizes UCs
-PRIORITIZED_UCs --> PLANNED_ITERATION : Analyst sets expected degree of completion at UCs
-PLANNED_ITERATION --> [*]
-@enduml
