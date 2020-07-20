@@ -1,0 +1,112 @@
+@startuml
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+
+state INITIAL as " :MEMBER_MANAGEMENT"
+state FINAL as " :MEMBER_MANAGEMENT"
+
+INITIAL --> UpdateMember
+note on link
+    User requests to update member
+end note
+
+state UpdateMember {
+state 1 as " " #YellowGreen
+state 2 as " " #YellowGreen
+state 3 as " " #YellowGreen
+state 4 as " " #YellowGreen
+state 5 as " " #YellowGreen
+state CONFIRMATION <<choice>>  
+state 7 as " " #YellowGreen
+
+[*] --> 1
+note on link
+    <b>System allows</b>
+    * Update existing member except the name
+    * Add member rol (cannot be duplicate)
+    * Remove member rol (cannot be empty)
+    * Cancel update member
+end note
+
+1 --> 2
+note on link
+    <b>System requires</b>
+    * Existing member
+end note
+
+2 --> 4
+note on link
+    <b>User provides</b>
+* Name of member to update
+end note
+
+4 --> 3
+note on link
+    <b>System verifies</b>
+    * exists member
+end note
+
+3 --> 1
+note on link
+    [Member does not exist]
+end note
+
+3 --> 5
+note on link
+    <b>System requires</b>
+    * Rol of member
+    <b>User provides</b>
+    * Rol
+end note
+
+5 --> 5
+note on link
+    <b>[User provides]</b>
+    For member
+    * Add rol | Remove rol
+    * Rol cannot be empty
+end note
+
+5 --> CONFIRMATION
+note on link
+<b>System requires</b>
+* User confirmation
+end note
+
+CONFIRMATION --> 7
+note on link
+    <b>[User confirms]</b>
+    <b>System update</b>
+    * The member
+end note
+
+7 --> [*]
+note on link
+    <b>System shows</b>
+    * __Member was updated__
+end note
+
+CONFIRMATION --> [*]
+note on link
+	<b>[User cancel]</b>
+	<b>System shows</b>
+	* __Operation cancelled__
+    end note
+}
+
+UpdateMember --> FINAL
+note on link
+    <b>System shows</b>
+    * all members in the project, his names and roles
+    <b>System allows</b>
+    * Create member
+    * Update member
+    * Delete member
+    * Open iterations
+    * Open use cases
+    * Close System
+end note
+
+@enduml

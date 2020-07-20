@@ -9,14 +9,14 @@ include::OpenMembers.puml[]
 ==== Create member
 [plantuml,svg,align="center"]
 ----
-include::CreateMember.puml[]
+include::CreateMember-Ag.puml[]
 ----
 
 [#_UpdateMember]
 ==== Update Member
 [plantuml,svg,align="center"]
 ----
-include::UpdateMember.puml[]
+include::UpdateMember-Ag.puml[]
 ----
 
 [#_DeleteMember]
