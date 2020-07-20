@@ -1,6 +1,6 @@
 @startuml
 
-!include procedures/saltProcedure.puml
+!include procedures/SaltProcedure.puml
 !include procedures/ProjectManagement.puml
 !include procedures/InitProject.puml
 
