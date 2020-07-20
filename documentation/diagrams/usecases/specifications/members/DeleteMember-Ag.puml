@@ -17,8 +17,7 @@ state 1 as " " #YellowGreen
 state 2 as " " #YellowGreen
 state 3 as " " #YellowGreen
 state 4 as " " #YellowGreen
-state 5 as " " #YellowGreen
-state CONFIRMATION <<choice>>  
+state CONFIRMATION <<choice>>
 state 7 as " " #YellowGreen
 
 [*] --> 1
