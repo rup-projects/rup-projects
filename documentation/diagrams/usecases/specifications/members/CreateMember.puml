@@ -20,26 +20,23 @@ state 8 as " "
 state 7 as " " #LawnGreen
 
 [*] --> 1
-
-1 --> 3
 note on link
     <b>System requires</b>
-    * member name
+    * member name (required not empty)
+    * member roles
+    ** (one of the identified RUP roles for member)
     <b>System allows</b>
-    * add member rol (duplicates not allowed)
-    * remove member rol (if member has some rol)
-    * confirm member creation
     * cancel member creation
 end note
 
-3 --> 1
+1 --> 3
 note on link
-    * User introduces member name
-    * user adds rol
-    * user removes rol
+    <b>User provides
+    * member name
+    * member roles
 end note
 
-3 --> 8
+1 --> 8
 note on link
 User requests to cancel member creation
 end note
@@ -65,13 +62,13 @@ end note
 7 --> [*]
 note on link
     <b>System shows</b>
-    * __member was created__
+    * member was created
 end note
 
 8 --> [*]
 note on link
     <b>System shows</b>
-    * __Operation cancelled__
+    * Operation cancelled
 end note
 }
 

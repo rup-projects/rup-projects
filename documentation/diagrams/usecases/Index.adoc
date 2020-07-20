@@ -18,7 +18,7 @@
 
 ** Disciplines
 *** [x] <<_OpenIteration>>
-*** [ ] <<_AssignActivity>>
+*** [ ] <<_AssignActivity>> (comentario a revisar)
 *** [ ] <<_ReEstimateActivity>>
 *** [ ] <<_SplitActivity>>
 *** [ ] <<_MergeActivity>>
