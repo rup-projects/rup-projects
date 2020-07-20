@@ -1,5 +1,7 @@
 @startuml
 
+skinparam NoteBackgroundColor #whiteSmoke
+
 state 1 as " "
 state 3 <<choice>>
 state 6 as " :MEMBER_MANAGEMENT"
