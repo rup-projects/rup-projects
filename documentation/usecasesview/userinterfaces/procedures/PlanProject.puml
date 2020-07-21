@@ -1,0 +1,34 @@
+@startuml
+!procedure _planProjectBasicInfo()
+{^"New Project"
+{/ <b>Basic info | Iteration size }
+      Start date    | "01-01-2020   "
+      End Date | "01-01-2021     "
+      Cost | "$ 1.000.000      "
+      [Cancel] | [Next]
+}
+!endprocedure
+
+!procedure _planProjectIterationSize()
+{^"New Project"
+{/ Basic info | <b>Iteration size }
+
+    {
+        nº Iterations |
+            {
+                 [<&minus> 10] | [<&plus> 10]  | "10 "
+            } | [ update <&reload>]
+        Iteration duration | 12 days |
+    }
+
+    {#
+        <b>Phase | <b>Start date | <b>End date
+        INICIO | 10-10-2020 | 20-10-2020
+        ELABORACION | 21-10-2020 | 02-11-2020
+        CONSTRUCTION | 02-11-2020 | 20-11-2020
+        TRANSICION | 20-11-2020 | 10-12-2020
+    }
+      [Cancel] | [Confirm]
+}
+!endprocedure
+@enduml

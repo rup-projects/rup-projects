@@ -1,5 +1,5 @@
 @startuml
-!procedure _phasesManagement()
+!procedure _projectManagement()
     {+
         {* <b>Phases | Usecases | Members | Close<&x> }
 
@@ -13,21 +13,17 @@
             }
         }
 
-    }
-!endprocedure
-
-!procedure _iterationsManagement()
-    {+
-        {* Phases | Usecases | Members | Close<&x> }
-
-        {^"phase : Construction"
-            {#
-            <b>Iteration | <b>Start date | <b>End date | <b>duration | <b>progress (%)
-            6 | 10-10-2020 | 20-10-2020 | 10 days | 10 days (100%) | <color:blue><&eye>
-            7 | 21-10-2020 | 02-11-2020 | 10 days | 8 days (80%) | <color:blue><&eye>
-            8 | 02-11-2020 | 20-11-2020 | 10 days | 0 days (0%) | <color:blue><&eye>
+        {^"<i><color:blue> after openIterations"
+            {^"phase : Construction"
+                        {#
+                        <b>Iteration | <b>Start date | <b>End date | <b>duration | <b>progress (%)
+                        6 | 10-10-2020 | 20-10-2020 | 10 days | 10 days (100%) | <color:blue><&eye>
+                        7 | 21-10-2020 | 02-11-2020 | 10 days | 8 days (80%) | <color:blue><&eye>
+                        8 | 02-11-2020 | 20-11-2020 | 10 days | 0 days (0%) | <color:blue><&eye>
+                        }
             }
         }
+
 
     }
 !endprocedure
