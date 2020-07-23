@@ -18,24 +18,24 @@
 
 ** Disciplines
 *** [x] <<_OpenIteration>>
-*** [ ] <<_AssignActivity>> (comentario a revisar)
-*** [ ] <<_ReEstimateActivity>>
-*** [ ] <<_SplitActivity>>
-*** [ ] <<_MergeActivity>>
+*** [x] <<_AssignActivity>>
+*** [x] <<_ReEstimateActivity>>
+*** [x] <<_MergeActivity>>
+*** [x] <<_SplitActivity>>
 *** [x] <<_CloseActivity>>
 
 ** Members
 *** [x] <<_OpenMembers>>
-*** [ ] <<_CreateMember>>
-*** [ ] <<_UpdateMember>>
-*** [ ] <<_DeleteMember>>
+*** [x] <<_CreateMember>>
+*** [x] <<_UpdateMember>>
+*** [x] <<_DeleteMember>>
 
 ** UseCases
-*** [ ] <<_OpenUseCases>>
-*** [ ] <<_CreateUseCase>>
-*** [ ] <<_UpdateUseCase>>
-*** [ ] <<_DeleteUseCase>>
-*** [ ] <<_PrioritizeUseCases>>
+*** [x] <<_OpenUseCases>>
+*** [x] <<_CreateUseCase>>
+*** [x] <<_UpdateUseCase>>
+*** [x] <<_DeleteUseCase>>
+*** [x] <<_PrioritizeUseCases>>
 
 [#_UseCasesDiagram]
 === Use Cases Diagram

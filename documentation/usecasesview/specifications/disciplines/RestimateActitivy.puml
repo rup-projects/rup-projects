@@ -50,7 +50,7 @@ skinparam {
         * NotAssignedActivity
         ** duration (hours)
         <b>System requires</b>
-        * NotAssignedActivity duration (max as NotAssignedCost total available cost)
+        * NotAssignedActivity duration (min as 1 hours) max as NotAssignedCost total available cost)
         <b>System allows</b>
         * cancel re-estimate
     end note

@@ -10,15 +10,16 @@ skinparam {
     0 --> OpenUsecases
 
     2 --> OpenUsecases
-    note on link
-        User requests to open usecases
-    end note
+
 
     3 --> OpenUsecases
 
 state OpenUsecases{
 
     [*] --> [*]
+        note on link
+            User requests to open usecases
+        end note
 }
 
 OpenUsecases --> USECASES_MANAGEMENT

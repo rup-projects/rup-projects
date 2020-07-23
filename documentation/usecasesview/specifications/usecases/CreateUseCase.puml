@@ -21,8 +21,6 @@ end note
 'Use case specfication
 state CreateUseCase {
     state createOrdered as " "
-    state requiredUseCaseToCreate as " "
-    state selectedUseCase as " "
     state editUseCase as " "
     state editedUseCase  <<choice>>
     state requireToConfirm  as " "
@@ -37,17 +35,8 @@ state CreateUseCase {
         <b>User request</b>
         * to create a use case
     end note
-    createOrdered --> requiredUseCaseToCreate
-    note on link
-        <b>System require</b>
-        * The use case to be created
-    end note
-    requiredUseCaseToCreate --> selectedUseCase
-    note on link
-        <b>User provide</b>
-        * The use case to create
-    end note
-    selectedUseCase --> editUseCase
+
+    createOrdered --> editUseCase
     note on link
         <b>System require</b>
         * use case name
@@ -87,7 +76,7 @@ state CreateUseCase {
         [ length(useCaseName) out of 5,25 ]
         end note
 
-    errorValidation --> selectedUseCase
+    errorValidation --> createOrdered
             note on link
             <b>System shows</b>
             * The name length is not correct
