@@ -128,7 +128,6 @@
     ** members schedule column background in red
     * all member AssignActivities after the end datetime of the activity to be assigned displaced downwards
     * <color:red>¿cuando asignamos las actividades se van apilando una encima de otra sin dejar hueco?</color>
-    * <color:red>¿o al asignar el usuario puede dejar hueco entre varias AssignActivities?</color>
     end note
 
     14 --> 20

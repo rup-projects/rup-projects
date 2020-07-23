@@ -61,8 +61,8 @@ state UpdateUseCase {
     toConfirm --> requireToConfirm
             note on link
             <b>System allow</b>
-             * confirm
-             * cancel
+            * confirm
+            * cancel
             end note
     requireToConfirm --> savedUseCase
         note on link
