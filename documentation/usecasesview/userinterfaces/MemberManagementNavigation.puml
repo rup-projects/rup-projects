@@ -1,0 +1,8 @@
+@startuml 
+!include procedures/SaltProcedure.puml
+!include procedures/MemberManagement.puml
+
+USE_CASES_MANAGEMENT -down-> SALT(memberManagement)
+ITERATION_MANAGEMENT -down-> SALT(memberManagement)
+PROJECT_MANAGEMENT  -down-> SALT(memberManagement)
+@enduml

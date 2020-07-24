@@ -1,3 +1,4 @@
+@startuml InitProjectNavigation
 !include procedures/SaltProcedure.puml
 !include procedures/ProjectManagement.puml
 !include procedures/PlanProject.puml
