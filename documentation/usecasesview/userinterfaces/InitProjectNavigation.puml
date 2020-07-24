@@ -1,0 +1,34 @@
+!include procedures/SaltProcedure.puml
+!include procedures/ProjectManagement.puml
+!include procedures/PlanProject.puml
+!include procedures/InitProject.puml
+
+
+INIT_PROJECT -down-> SALT(initProject) #LawnGreen
+initProject -right-> SALT(planProjectBasicInfo)
+    note on link
+    plan project
+    end note
+initProject -down-> SALT(projectManagement)
+note on link
+Open
+end note
+planProjectBasicInfo -left-> SALT(initProject)
+    note on link
+    cancel
+    end note
+planProjectBasicInfo -down-> SALT(planProjectIterationSize)
+planProjectIterationSize -left-> initProject
+    note on link
+    cancel
+    end note
+planProjectIterationSize -down-> SALT(projectManagement) #LawnGreen
+
+
+projectManagement --> PROJECT_MANAGEMENT
+note on link
+    [[./ProjectManagementNavigation.puml View]]
+end note
+PROJECT_MANAGEMENT --> projectManagement
+
+@enduml

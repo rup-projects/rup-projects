@@ -1,0 +1,66 @@
+@startuml
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+}
+
+[*] --> INIT_PROJECT
+ note on link
+    start System
+ end note
+INIT_PROJECT -down-> PROJECT_MANAGEMENT
+    note on link
+        Plan project
+        Open Phases
+    end note
+
+INIT_PROJECT            -down-> [*] : closeSystem
+PROJECT_MANAGEMENT          -down-> [*] : closeSystem
+USE_CASES_MANAGEMENT    -down-> [*] : closeSystem
+MEMBER_MANAGEMENT       -down-> [*] : closeSystem
+ITERATION_MANAGEMENT      -down-> [*] : closeSystem
+
+PROJECT_MANAGEMENT --> PROJECT_MANAGEMENT
+    note on link
+        Open phases
+        Open Iterations
+    end note
+PROJECT_MANAGEMENT --> USE_CASES_MANAGEMENT : Open use cases
+PROJECT_MANAGEMENT --> MEMBER_MANAGEMENT    : Open members
+PROJECT_MANAGEMENT --> ITERATION_MANAGEMENT
+    note on link
+        Open iteration
+    end note
+USE_CASES_MANAGEMENT --> USE_CASES_MANAGEMENT
+    note on link
+        Prioritize Use cases
+        Create use case
+        Update use case
+        Delete use case
+    end note
+USE_CASES_MANAGEMENT --> PROJECT_MANAGEMENT         : Open Iterations
+USE_CASES_MANAGEMENT --> MEMBER_MANAGEMENT      : Open members
+USE_CASES_MANAGEMENT --> ITERATION_MANAGEMENT     : Open iteration
+
+MEMBER_MANAGEMENT --> MEMBER_MANAGEMENT
+    note on link
+        Create member
+        Update member
+        Delete member
+    end note
+MEMBER_MANAGEMENT --> PROJECT_MANAGEMENT        : Open Iterations
+MEMBER_MANAGEMENT --> USE_CASES_MANAGEMENT  : Open use cases
+MEMBER_MANAGEMENT --> ITERATION_MANAGEMENT    : Open iterations
+
+ITERATION_MANAGEMENT --> ITERATION_MANAGEMENT
+    note on link
+        Assign activity
+        Re-estimate activity
+        Split activity
+        Merge activity
+        Close Activity
+    end note
+ITERATION_MANAGEMENT --> PROJECT_MANAGEMENT : Open iterations
+ITERATION_MANAGEMENT --> MEMBER_MANAGEMENT : Open members
+ITERATION_MANAGEMENT --> USE_CASES_MANAGEMENT : Open use cases
+@enduml
