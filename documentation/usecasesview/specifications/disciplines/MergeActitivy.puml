@@ -1,8 +1,10 @@
 @startuml
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-}
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
+    }
 
     state ITERATION_MANAGEMENT_STARTS as ":ITERATION_MANAGEMENT"
     state ITERATION_MANAGEMENT_ENDS as ":ITERATION_MANAGEMENT"
@@ -37,7 +39,7 @@ skinparam {
         User provides AssignedActivity
     end note
 
-    13 --> 20
+    13 -[#red]-> 20
     note on link
         User requests to cancel merge activity
     end note
@@ -53,7 +55,7 @@ skinparam {
     * cancel merge activity
     end note
 
-    14 --> 20
+    14 -[#red]-> 20
     note on link
         User requests to cancel merge activity
     end note
@@ -63,7 +65,7 @@ skinparam {
         User provides merge destination
     end note
 
-    20 --> [*]
+    20 -[#red]-> [*]
     note on link
          <b>System shows</b>
          * Merge activity cancelled

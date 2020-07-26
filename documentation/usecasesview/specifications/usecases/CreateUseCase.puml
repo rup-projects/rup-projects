@@ -1,6 +1,9 @@
 @startuml
-skinparam NoteBackgroundColor #whiteSmoke
-
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
+    }
 
 'Initial/end states
 state init as "USE_CASE_MANAGEMENT"
@@ -71,25 +74,25 @@ state CreateUseCase {
            end note
 
     'variation path
-    editedUseCase --> errorValidation
+    editedUseCase -[#red]-> errorValidation
         note on link
         [ length(useCaseName) out of 5,25 ]
         end note
 
-    errorValidation --> createOrdered
+    errorValidation -[#red]-> createOrdered
             note on link
             <b>System shows</b>
             * The name length is not correct
             end note
 
     'variation path
-    requireToConfirm --> savedUseCase
+    requireToConfirm -[#red]-> savedUseCase
     note on link
           <b>User</b> cancel
     end note
 
     'variation path
-    editUseCase --> savedUseCase
+    editUseCase -[#red]-> savedUseCase
     note on link
           <b>User</b> cancel
     end note
