@@ -1,8 +1,10 @@
 @startuml
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-}
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
+    }
 
 state 12 as ":PROJECT_MANAGEMENT"
 
@@ -48,7 +50,7 @@ state OpenIteration {
         * cancel
     end note
 
-    6 -down-> 11
+    6 -[#red]down-> 11
     note on link
         User requests to cancel
     end note
@@ -63,6 +65,7 @@ state OpenIteration {
     note on link
         User requests to confirm open iteration
     end note
+
     7 --> 9
     note on link
     [usecases introduced >= 1
@@ -78,7 +81,7 @@ state OpenIteration {
 
     7 --> 10
 
-    10 --> 4
+    10 -[#red]-> 4
     note on link
         <b>System shows</b>
         * more than one usecases should be introduced
@@ -91,7 +94,7 @@ state OpenIteration {
     end note
 
 }
-    11 -down-> 12
+    11 -[#red]down-> 12
     note on link
             <b>System shows</b>
             * operation cancelled
@@ -129,6 +132,6 @@ state OpenIteration {
 
     ITERATION_MANAGEMENT --> [*]
 
-    12 --> [*]
+    12 -[#red]-> [*]
 
 @enduml

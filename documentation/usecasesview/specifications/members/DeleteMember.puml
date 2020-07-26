@@ -1,5 +1,10 @@
 @startuml
-skinparam NoteBackgroundColor #whiteSmoke
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
+    }
+
 state init as "MEMBER_MANAGEMENT"
 state end as "MEMBER_MANAGEMENT"
 init ---> DeleteMemberUseCase
@@ -32,13 +37,13 @@ state DeleteMemberUseCase {
     * member
     end note
 
-    initial --> 6
+    initial -[#red]-> 6
     note on link
     <b>User requests</b>
     * to cancel
     end note
 
-    6 --> [*]
+    6 -[#red]-> [*]
     note on link
     <b>System shows</b>
     * operation cancelled

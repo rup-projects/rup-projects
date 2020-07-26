@@ -1,7 +1,10 @@
 @startuml
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-}
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
+    }
+
 
     state 0 as ":PROJECT_MANAGEMENT"
     state 2 as ":USE_CASES_MANAGEMENT"

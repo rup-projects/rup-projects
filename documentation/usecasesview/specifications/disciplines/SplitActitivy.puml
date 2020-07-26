@@ -1,8 +1,10 @@
 @startuml
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-}
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
+    }
 
 
     state ITERATION_MANAGEMENT_STARTS as ":ITERATION_MANAGEMENT"
@@ -34,7 +36,7 @@ skinparam {
     * cancel split activity
     end note
 
-    2 --> 10
+    2 -[#red]-> 10
     note on link
         User requests to cancel split
     end note
@@ -56,7 +58,7 @@ skinparam {
         * cancel split activity
     end note
 
-    0 --> 10
+    0 -[#red]-> 10
     note on link
         User requests to cancel split
     end note
@@ -76,7 +78,7 @@ skinparam {
         * 1 hour smaller "splitted" NotAssignedCost
     end note
 
-    10 --> [*]
+    10 -[#red]-> [*]
     note on link
          <b>System shows</b>
          * split activity was cancelled

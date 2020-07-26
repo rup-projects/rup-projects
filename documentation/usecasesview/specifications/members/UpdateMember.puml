@@ -3,9 +3,11 @@
 state 0 as " :MEMBER:MANAGEMENT"
 state 7 as " :MEMBER:MANAGEMENT"
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-}
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
+    }
 
 0 --> updateMember
 

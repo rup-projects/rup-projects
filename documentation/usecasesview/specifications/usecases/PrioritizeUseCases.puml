@@ -1,19 +1,22 @@
 @startuml
-skinparam NoteBackgroundColor #whiteSmoke
-
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
+    }
 state USECASE_MANAGEMENT_END as ":USECASE_MANAGEMENT"
 
 USECASE_MANAGEMENT --> prioritizeUseCases
 
 state prioritizeUseCases {
 
-state 1 as " " #LawnGreen
-state 2 as " " #LawnGreen
-state 8 as " " #LawnGreen
-state 9 as " " #LawnGreen
-state 10 as " " #LawnGreen
-state 11 as " " #LawnGreen
-state 12 as " " #LawnGreen
+state 1 as " "
+state 2 as " "
+state 8 as " "
+state 9 as " "
+state 10 as " "
+state 11 as " "
+state 12 as " "
 state 13 as " "
 
 
@@ -70,18 +73,18 @@ note on link
 end note
 
 'Variation path
-9 --> 13
+9 -[#red]-> 13
 note on link
     <b>User requests to</b>
     * cancel
 end note
-11 --> 13
+11 -[#red]-> 13
 note on link
     <b>User requests to</b>
     * cancel
 end note
 
-13 --> [*]
+13 -[#red]-> [*]
 note on link
 <b>System shows</b>
 * prioritization cancelled

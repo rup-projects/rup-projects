@@ -1,8 +1,10 @@
 @startuml
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-}
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
+    }
 
 state PROJECT_MANAGEMENTEND as ":PROJECT_MANAGEMENT" #LawnGreen
 state INIT_PROJECTSTART as ":INIT_PROJECT"
@@ -35,14 +37,14 @@ state PlanProject {
     * cancel
     end note
 
-    2 --> 10
+    2 -[#red]-> 10
     note on link
         User requests to cancel
     end note
 
     2 --> 1
     note on link
-        User introduces
+        <b>User provides</b>
         * start date
         * end date
         * project cost
@@ -54,7 +56,7 @@ state PlanProject {
         User requests to confirm step
     end note
 
-    3 --> 1
+    3 -[#red]-> 1
     note on link
         [end date before start date
         OR start date after end date
@@ -80,12 +82,12 @@ state PlanProject {
         * cancel
     end note
 
-    5 --> 10
+    5 -[#red]-> 10
     note on link
         User requests to cancel
     end note
 
-    10 --> INIT_PROJECTEND
+    10 -[#red]-> INIT_PROJECTEND
     note on link
     <b>System allows</b>
     * plan project
@@ -94,7 +96,8 @@ state PlanProject {
 
     5 --> 4
     note on link
-        User introduces nº of iterations in project
+        <b>User provides</b>
+         * nº of iterations in project
     end note
 
     5 --> 6
@@ -117,7 +120,7 @@ state PlanProject {
           end note
 }
 
-INIT_PROJECTEND --> [*]
+INIT_PROJECTEND -[#red]-> [*]
 PROJECT_MANAGEMENTEND --> [*]
 
 

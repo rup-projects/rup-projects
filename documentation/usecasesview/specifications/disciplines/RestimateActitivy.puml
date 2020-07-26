@@ -1,8 +1,10 @@
 @startuml
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-}
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
+    }
 
     state 5 as ":ITERATION_MANAGEMENT"
     state 13 as ":ITERATION_MANAGEMENT"
@@ -32,7 +34,7 @@ skinparam {
     * cancel re-estimate activity
     end note
 
-    2 --> 10
+    2 -[#red]-> 10
     note on link
         User requests to cancel re-estimate
     end note
@@ -55,7 +57,7 @@ skinparam {
         * cancel re-estimate
     end note
 
-    0 --> 10
+    0 -[#red]-> 10
     note on link
         User requests to cancel re-estimate
     end note
@@ -65,7 +67,7 @@ skinparam {
         User provides NotAssignedActivity duration
     end note
 
-    10 --> [*]
+    10 -[#red]-> [*]
     note on link
          <b>System shows</b>
          * re-estimate activity was cancelled
