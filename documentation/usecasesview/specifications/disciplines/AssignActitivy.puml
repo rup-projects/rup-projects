@@ -2,25 +2,25 @@
 
     skinparam {
         NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
     }
 
-    state ITERATION_MANAGEMENT_START as ":ITERATION_MANAGEMENT"  #LawnGreen
-    state ITERATION_MANAGEMENT_END as ":ITERATION_MANAGEMENT" #LawnGreen
+    state ITERATION_MANAGEMENT_START as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_END as ":ITERATION_MANAGEMENT"
 
-
-    ITERATION_MANAGEMENT_START --> AssignActivity
-
+    ITERATION_MANAGEMENT_START -[#Green]-> AssignActivity
 
     state AssignActivity {
-        state 1 as " " #LawnGreen
-        state 13 as " " #LawnGreen
-        state 14 as " " #LawnGreen
-        state 21 as " " #LawnGreen
-        state 22 as " " #LawnGreen
-        state 23 as " " #LawnGreen
-        state 24 as " " #LawnGreen
-        state 25 as " " #LawnGreen
-        state 26 as " " #LawnGreen
+        state 1 as " "
+        state 13 as " "
+        state 14 as " "
+        state 21 as " "
+        state 22 as " "
+        state 23 as " "
+        state 24 as " "
+        state 25 as " "
+        state 26 as " "
         state 20 as " "
         state 2 <<choice>>
         state 15 <<choice>>
@@ -72,12 +72,12 @@
     end note
 
 
-    13 --> 20
+    13 -[#red]-> 20
     note on link
         User requests to cancel assign activity
     end note
 
-    25 --> 20
+    25 -[#red]-> 20
     note on link
     <b>User requests to</b>
     * cancel assign activity
@@ -131,12 +131,12 @@
     * <color:red>¿cuando asignamos las actividades se van apilando una encima de otra sin dejar hueco?</color>
     end note
 
-    14 --> 20
+    14 -[#red]-> 20
     note on link
         User requests to cancel assign activity
     end note
 
-    20 --> [*]
+    20 -[#red]-> [*]
     note on link
          <b>System shows</b>
          * assign activity cancelled

@@ -17,10 +17,10 @@
     end note
 
     state SplitActivity {
-        state 2 as " " #LawnGreen
-        state 0 as " " #LawnGreen
-        state 4 as " " #LawnGreen
-        state 8 as " " #LawnGreen
+        state 2 as " "
+        state 0 as " "
+        state 4 as " "
+        state 8 as " "
         state 10 as " "
 
 

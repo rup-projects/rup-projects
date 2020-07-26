@@ -1,11 +1,13 @@
 @startuml
 
-skinparam {
-    NoteBackgroundColor #whiteSmoke
-}
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
+    }
 
-    state ITERATION_MANAGEMENT_START as ":ITERATION_MANAGEMENT" #LawnGreen
-    state ITERATION_MANAGEMENT_END as ":ITERATION_MANAGEMENT" #LawnGreen
+    state ITERATION_MANAGEMENT_START as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_END as ":ITERATION_MANAGEMENT"
 
     ITERATION_MANAGEMENT_START --> CloseActivity
     note on link
@@ -14,13 +16,13 @@ skinparam {
 
 
     state CloseActivity {
-        state 5 as " " #LawnGreen
-        state 13 as " " #LawnGreen
-        state 14 as " " #LawnGreen
-        state 16 as " " #LawnGreen
-        state 17 as " " #LawnGreen
+        state 5 as " "
+        state 13 as " "
+        state 14 as " "
+        state 16 as " "
+        state 17 as " "
         state alternativeWay as " "
-        state 15 as " " #LawnGreen
+        state 15 as " "
 
     [*] --> 13
     note on link
@@ -33,7 +35,7 @@ skinparam {
     * cancel close activity
     end note
 
-    13 --> alternativeWay
+    13 -[#red]-> alternativeWay
     note on link
         User requests to cancel close activity
     end note
@@ -60,7 +62,7 @@ skinparam {
     * cancel close activity
     end note
 
-    14 --> alternativeWay
+    14 -[#red]-> alternativeWay
     note on link
         User requests to cancel close activity
     end note
@@ -85,12 +87,12 @@ skinparam {
     User requests to confirm close activity
     end note
 
-    17 --> alternativeWay
+    17 -[#red]-> alternativeWay
     note on link
     User requests to cancel close activity
     end note
 
-    alternativeWay --> [*]
+    alternativeWay -[#red]-> [*]
     note on link
          <b>System shows</b>
          * Close activity operation cancelled

@@ -14,12 +14,12 @@ note on link
 end note
 
 state createMember {
-state 1 as " " #LawnGreen
-state 3 as " " #LawnGreen
+state 1 as " "
+state 3 as " "
 state 4 <<choice>>
 state 5 as " "
 state 8 as " "
-state 7 as " " #LawnGreen
+state 7 as " "
 
 [*] --> 1
 note on link
