@@ -15,7 +15,7 @@ state 12 as ":PROJECT_MANAGEMENT"
     end note
     3 --> OpenIteration
 
-state ITERATION_MANAGEMENT as ":ITERATION_MANAGEMENT" #LawnGreen
+state ITERATION_MANAGEMENT as ":ITERATION_MANAGEMENT"
 state 2 as ":USE_CASES_MANAGEMENT"
 state 3 as ":MEMBERS_MANAGEMENT"
 
@@ -23,11 +23,11 @@ state 3 as ":MEMBERS_MANAGEMENT"
 state OpenIteration {
 
     state 1  <<choice>>
-    state 4 as " " #LawnGreen
-    state 6 as " " #LawnGreen
+    state 4 as " "
+    state 6 as " "
     state 7 <<choice>>
-    state 9 as " " #LawnGreen
-    state 20 as " " #LawnGreen
+    state 9 as " "
+    state 20 as " "
     state 10 as " "
     state 11 as " "
 

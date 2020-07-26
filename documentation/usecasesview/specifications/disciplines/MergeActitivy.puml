@@ -15,11 +15,11 @@
     end note
 
     state MergeActivity {
-        state 13 as " " #LawnGreen
-        state 5 as " " #LawnGreen
-        state 14 as " " #LawnGreen
+        state 13 as " "
+        state 5 as " "
+        state 14 as " "
         state 20 as " "
-        state 15 as " " #LawnGreen
+        state 15 as " "
 
     [*] --> 13
     note on link

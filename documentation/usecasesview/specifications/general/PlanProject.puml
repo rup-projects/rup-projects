@@ -6,7 +6,7 @@
         NoteBorderColor #green
     }
 
-state PROJECT_MANAGEMENTEND as ":PROJECT_MANAGEMENT" #LawnGreen
+state PROJECT_MANAGEMENTEND as ":PROJECT_MANAGEMENT"
 state INIT_PROJECTSTART as ":INIT_PROJECT"
 state INIT_PROJECTEND as ":INIT_PROJECT"
 
@@ -16,12 +16,12 @@ note on link
 end note
 
 state PlanProject {
-    state 1 as " " #LawnGreen
-    state 2 as " " #LawnGreen
+    state 1 as " "
+    state 2 as " "
     state 3 <<choice>>
-    state 4 as " " #LawnGreen
-    state 5 as " " #LawnGreen
-    state 6 as " " #LawnGreen
+    state 4 as " "
+    state 5 as " "
+    state 6 as " "
     state 10 as " "
 
     [*] --> 1

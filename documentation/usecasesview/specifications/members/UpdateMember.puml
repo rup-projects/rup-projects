@@ -13,10 +13,10 @@ state 7 as " :MEMBER:MANAGEMENT"
 
 state updateMember {
 
-state 2 as " " #LawnGreen
-state 1 as " " #LawnGreen
-state 3 as " " #LawnGreen
-state 6 as " " #LawnGreen
+state 2 as " "
+state 1 as " "
+state 3 as " "
+state 6 as " "
 
 
 [*] --> 1

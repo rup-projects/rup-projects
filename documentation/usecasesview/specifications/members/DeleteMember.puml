@@ -14,9 +14,9 @@ note on link
 end note
 
 state DeleteMemberUseCase {
-    state initial as " "#LawnGreen
+    state initial as " "
     state 6 as " "
-    state 5 as " "#LawnGreen
+    state 5 as " "
     [*]-->initial
     note on link
     <b>System required</b>
