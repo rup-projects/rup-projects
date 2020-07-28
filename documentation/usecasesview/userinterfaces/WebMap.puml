@@ -11,20 +11,15 @@ skinparam {
 }
 
 (*) -down-> SALT(initProject) #LawnGreen
-initProject -right-> SALT(planProjectBasicInfo)
+initProject -right-> SALT(planProject)
     note on link
     plan project
     end note
-planProjectBasicInfo -left-> SALT(initProject)
+planProject -left-> SALT(initProject)
     note on link
     cancel
     end note
-planProjectBasicInfo -down-> SALT(planProjectIterationSize)
-planProjectIterationSize -left-> initProject
-    note on link
-    cancel
-    end note
-planProjectIterationSize -down-> SALT(projectManagement) #LawnGreen
+planProject -down-> SALT(projectManagement) #LawnGreen
 
 
 @enduml
