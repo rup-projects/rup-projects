@@ -5,6 +5,11 @@
 !include procedures/PlanProject.puml
 !include procedures/InitProject.puml
 
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    StateBackgroundColor #green
+}
+
 (*) -down-> SALT(initProject) #LawnGreen
 initProject -right-> SALT(planProjectBasicInfo)
     note on link
