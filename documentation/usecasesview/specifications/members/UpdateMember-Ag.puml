@@ -1,7 +1,9 @@
 @startuml
 
 skinparam {
-    NoteBackgroundColor #whiteSmoke
+  NoteBackgroundColor #whiteSmoke
+  ArrowColor #green
+  NoteBorderColor #green
 }
 
 state INITIAL as " :MEMBER_MANAGEMENT"
@@ -13,13 +15,13 @@ note on link
 end note
 
 state UpdateMember {
-state 1 as " " #YellowGreen
-state 2 as " " #YellowGreen
-state 3 as " " #YellowGreen
-state 4 as " " #YellowGreen
-state 5 as " " #YellowGreen
+state 1 as " "
+state 2 as " "
+state 3 as " "
+state 4 as " "
+state 5 as " "
 state CONFIRMATION <<choice>>  
-state 7 as " " #YellowGreen
+state 7 as " "
 
 [*] --> 1
 note on link
@@ -48,7 +50,7 @@ note on link
     * exists member
 end note
 
-3 --> 1
+3 -[#red]-> 1
 note on link
     [Member does not exist]
 end note
@@ -88,7 +90,7 @@ note on link
     * __Member was updated__
 end note
 
-CONFIRMATION --> [*]
+CONFIRMATION -[#red]-> [*]
 note on link
 	<b>[User cancel]</b>
 	<b>System shows</b>
