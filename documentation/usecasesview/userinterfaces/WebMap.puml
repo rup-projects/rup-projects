@@ -4,6 +4,10 @@
 !include procedures/ProjectManagement.puml
 !include procedures/PlanProject.puml
 !include procedures/InitProject.puml
+!include procedures/MemberManagement.puml
+!include procedures/CreateMemberUI.puml
+!include procedures/DeleteMemberUI.puml
+!include procedures/UpdateMemberUI.puml
 
 skinparam {
     NoteBackgroundColor #whiteSmoke
@@ -11,22 +15,38 @@ skinparam {
 }
 
 (*) -down-> SALT(initProject) #LawnGreen
-initProject -right-> SALT(planProjectBasicInfo)
+initProject -right-> SALT(planProject)
     note on link
     plan project
     end note
-planProjectBasicInfo -left-> SALT(initProject)
+planProject -left-> SALT(initProject)
     note on link
     cancel
     end note
-planProjectBasicInfo -down-> SALT(planProjectIterationSize)
-planProjectIterationSize -left-> initProject
+planProject -down-> SALT(projectManagement) #LawnGreen
+note on link
+    openPhases
+end note
+
+projectManagement -right-> SALT(memberManagement) #LawnGreen
     note on link
-    cancel
+        openMembers
     end note
-planProjectIterationSize -down-> SALT(projectManagement) #LawnGreen
 
+memberManagement -right-> SALT(createMemberUI)
+note on link
+    create member
+end note
 
+memberManagement -down-> SALT(deleteMemberUI)
+note on link
+    delete member
+end note
+
+memberManagement -right-> SALT(updateMemberUI)
+note on link
+    update member
+end note
 @enduml
 
 
