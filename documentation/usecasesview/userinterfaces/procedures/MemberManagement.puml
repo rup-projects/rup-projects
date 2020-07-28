@@ -1,0 +1,24 @@
+@startuml
+!procedure _memberManagement()
+ {+
+        {* Iterations | Usecases | <b>Members | Close<&x> }
+
+        {^"<i><color:blue> after openMembers"
+            {^"project"
+                {#
+                    <b>Name | <b>Surname | <b>Email | <b>Role | <b>Weekly Cost (h) | <b>Edit | <b>Trash
+                    Ilya | K | ilya@rupman.com | Architect | 40 h | <color:blue><&pencil> | <color:red><&trash>
+                    Pedro | K | pedro@rupman.com | Architect | 40 h | <color:blue><&pencil> | <color:red><&trash>
+                    Agus | K | agustin@rupman.com | Architect | 40 h | <color:blue><&pencil> | <color:red><&trash>
+                    Xabi | K | xabi@rupman.com | Architect | 40 h | <color:blue><&pencil> | <color:red><&trash>
+                    Marco | K | Marco@rupman.com | Architect | 40 h | <color:blue><&pencil> | <color:red><&trash>
+                }
+            }
+        }
+
+
+        {+ [<&plus> Create Member] | [<&x> close]}
+    }
+    }
+!endprocedure
+@enduml

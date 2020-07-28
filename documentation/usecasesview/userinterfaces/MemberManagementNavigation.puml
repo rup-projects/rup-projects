@@ -1,0 +1,24 @@
+@startuml 
+!include procedures/SaltProcedure.puml
+!include procedures/MemberManagement.puml
+!include procedures/CreateMemberUI.puml
+!include procedures/UpdateMemberUI.puml
+!include procedures/DeleteMemberUI.puml
+
+USE_CASES_MANAGEMENT -down-> SALT(memberManagement)
+ITERATION_MANAGEMENT -down-> SALT(memberManagement)
+PROJECT_MANAGEMENT  -down-> SALT(memberManagement)
+
+memberManagement --> SALT(createMemberUI) 
+note on link
+Create Member
+end note
+memberManagement --> SALT(updateMemberUI) 
+note on link
+Update Member
+end note
+memberManagement --> SALT(deleteMemberUI)
+note on link
+Delete Member
+end note
+@enduml
