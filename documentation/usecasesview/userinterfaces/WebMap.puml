@@ -5,6 +5,11 @@
 !include procedures/PlanProject.puml
 !include procedures/InitProject.puml
 !include procedures/MemberManagement.puml
+!include procedures/UsecasesManagementUI.puml
+!include procedures/CreateUsecaseUI.puml
+!include procedures/DeleteUsecaseUI.puml
+!include procedures/UpdateUsecaseUI.puml
+!include procedures/PrioritizeUsecasesUI.puml
 !include procedures/CreateMemberUI.puml
 !include procedures/DeleteMemberUI.puml
 !include procedures/UpdateMemberUI.puml
@@ -33,19 +38,44 @@ projectManagement -right-> SALT(memberManagement) #LawnGreen
         openMembers
     end note
 
-memberManagement -right-> SALT(createMemberUI)
+memberManagement --> SALT(createMemberUI)
 note on link
     create member
 end note
 
-memberManagement -down-> SALT(deleteMemberUI)
+memberManagement --> SALT(deleteMemberUI)
 note on link
     delete member
 end note
 
-memberManagement -right-> SALT(updateMemberUI)
+memberManagement --> SALT(updateMemberUI)
 note on link
     update member
+end note
+
+projectManagement -left-> SALT(usacasesManagement) #LawnGreen
+note on link
+    openUsecases
+end note
+
+usacasesManagement --> SALT(createUsecaseUI)
+note on link
+    create usecase
+end note
+
+usacasesManagement --> SALT(deleteUsecaseUI)
+note on link
+    delete usecase
+end note
+
+usacasesManagement --> SALT(updateUsecaseUI)
+note on link
+    update usecase
+end note
+
+usacasesManagement --> SALT(prioritizeUsecasesUI)
+note on link
+ prioritize Usecases
 end note
 
 projectManagement -down-> "<img:https://share.balsamiq.com/c/6e6SMgKPvjCdVPsDgyFv5w.png>" as iterationManagement #LawnGreen
