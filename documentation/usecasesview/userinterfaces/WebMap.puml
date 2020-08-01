@@ -47,6 +47,38 @@ memberManagement -right-> SALT(updateMemberUI)
 note on link
     update member
 end note
+
+projectManagement -down-> "<img:https://share.balsamiq.com/c/6e6SMgKPvjCdVPsDgyFv5w.png>" as iterationManagement #LawnGreen
+note on link
+    open iteration
+end note
+
+iterationManagement -left-> "<img:https://share.balsamiq.com/c/qJYZaLz8NqAdeFjKJASEVB.png>" as splitActivity
+note on link
+    split activity
+end note
+
+iterationManagement -down-> "<img:https://share.balsamiq.com/c/6Z8u4KMW5d94CH8GMbf15m.png>" as reestimaeteActivity
+note on link
+    re estimate activity
+end note
+
+iterationManagement -down-> "<img:https://share.balsamiq.com/c/qNLm4uBkSCzAhXH9ZkoT5B.png>" as mergeActivity
+note on link
+    merge activity
+end note
+
+iterationManagement -down-> "<img:https://share.balsamiq.com/c/9gJgaXEo55Z6VXgciWYB49.png>" as assignActivity
+note on link
+    assign activity
+end note
+
+
+iterationManagement -right-> "<img:https://share.balsamiq.com/c/snLVVEA4pP5xfCCusVT8gs.png>" as closeActivity
+note on link
+    close activity
+end note
+
 @enduml
 
 
