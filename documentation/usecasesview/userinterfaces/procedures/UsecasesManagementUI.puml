@@ -1,0 +1,22 @@
+@startuml
+!procedure _usacasesManagement()
+ {+
+        {* Iterations | Usecases | <b>Members | Close<&x> }
+
+            {^"project"
+                {#
+                    <b>Usecase | <b>priorization | <b>Edit | <b>Trash
+                    planProject | 10 |  <color:blue><&pencil> | <color:red><&trash>
+                    openIteration | 8 |  <color:blue><&pencil> | <color:red><&trash>
+                    assignActivity | 7 |  <color:blue><&pencil> | <color:red><&trash>
+                    createMember | _ |  <color:blue><&pencil> | <color:red><&trash>
+                    openUsecases | _ |  <color:blue><&pencil> | <color:red><&trash>
+                }
+            }
+
+
+        {+ [<&plus> Create Member] | [<&x> prioritize usecases]}
+    }
+    }
+!endprocedure
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+!procedure _createUsecaseUI()
+{^""
+    {+
+        {^"Create"
+          usecase    | "           "
+        }
+        {+ [<&plus> Save] | [<&x> Cancel]}
+    }
+}
+!endprocedure
+@enduml

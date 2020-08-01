@@ -1,0 +1,15 @@
+@startuml
+!procedure _deleteUsecaseUI()
+ {+
+         {^"Delete: usecase 1"
+             {#
+                     <color:red><b>Are you sure?
+                     <color:gray>This action cannot be reverted
+             }
+         }
+
+         {+ [<&plus> Confirm] | [<&x> Cancel]}
+     }
+  }
+!endprocedure
+@enduml
