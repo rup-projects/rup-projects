@@ -47,11 +47,13 @@
     5 --> 14
     note on link
     <b>System shows</b>
-    * for each discipline (requirements, analysis, design, implementation)
-    ** NotAssignedCost
-    <b>System requires</b>
-    * NotAssignedCost as merge destination
+    * activity description
+    * alert message
+    ** activity duration
+    ** NotAssignedCost associated
+    ** ¿Are you sure to merge this activity?
     <b>System allows</b>
+    * confirm merge activity
     * cancel merge activity
     end note
 
@@ -62,7 +64,8 @@
 
     14 -down-> 15
     note on link
-        User provides merge destination
+        <b>User requests to</b>
+        * merge destination
     end note
 
     20 -[#red]-> [*]
@@ -81,8 +84,15 @@
 MergeActivity --> ITERATION_MANAGEMENT_ENDS
 note on link
      <b>System shows</b>
+     * iteration
+     ** identifier
+     ** start date
+     ** end date
      * for each member
      **assignedActivities in his datetime until end of current iteration
+     *** activity type
+     **** type as one of the existent RUP activities.
+     *** activity description
      * for each discipline (requirements, analysis, design, implementation)
      ** NotAssignedCost
      ** NotAssignedActivities (with activity type)
