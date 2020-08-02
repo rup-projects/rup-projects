@@ -51,6 +51,8 @@
         ** total available cost (hours)
         * NotAssignedActivity
         ** duration (hours)
+        ** discipline
+        ** type
         <b>System requires</b>
         * NotAssignedActivity duration (min as 1 hours) max as NotAssignedCost total available cost)
         <b>System allows</b>
@@ -84,8 +86,15 @@
 ReestimateActivity --> 13
     note on link
         <b>System shows</b>
+        * iteration
+        ** identifier
+        ** start date
+        ** end date
         * for each member
         **assignedActivities in his datetime until end of current iteration
+        *** activity type
+        **** type as one of the existent RUP activities.
+        *** activity description
         * for each discipline (requirements, analysis, design, implementation)
         ** NotAssignedCost
         ** NotAssignedActivities (with activity type)

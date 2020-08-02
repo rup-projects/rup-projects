@@ -12,7 +12,11 @@ image::https://share.balsamiq.com/c/qNLm4uBkSCzAhXH9ZkoT5B.png[]
 
 reestimate activity
 
-image::https://share.balsamiq.com/c/6Z8u4KMW5d94CH8GMbf15m.png[]
+image::https://share.balsamiq.com/c/c1bQ5MuY6C5Md2UM777s1w.png[]
+
+reestimate activity next step
+
+image::https://share.balsamiq.com/c/9uQNnhyt3rtyhKqaxBxSAt.png[]
 
 split activity
 
