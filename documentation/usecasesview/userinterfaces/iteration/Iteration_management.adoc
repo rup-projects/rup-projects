@@ -29,3 +29,11 @@ image::https://share.balsamiq.com/c/fHgurhNGbnCQpyNvzRoANm.png[]
 close activity
 
 image::https://share.balsamiq.com/c/gJ7qYvK2VEuuNAFAFjJtwo.png[]
+
+close activity next step
+
+image::https://share.balsamiq.com/c/9UKQQiTsruF5q3LnkgbTmC.png[]
+
+close activity last step
+
+image::https://share.balsamiq.com/c/nPUu3xKwZ4epXSKbip5RYs.png[]

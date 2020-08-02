@@ -55,6 +55,7 @@
     ** start datetime
     ** expected end datetime
     ** expected duration in hours
+    *** (if it exceeds the current date, shown in red)
     <b>System requires</b>
     * real AssignedActivity duration in hours
     ** only positive numbers, max 100 hours
