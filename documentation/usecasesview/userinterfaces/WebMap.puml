@@ -1,18 +1,18 @@
 @startuml
 
 !include procedures/SaltProcedure.puml
-!include procedures/ProjectManagement.puml
-!include procedures/PlanProject.puml
-!include procedures/InitProject.puml
-!include procedures/MemberManagement.puml
-!include procedures/UsecasesManagementUI.puml
-!include procedures/CreateUsecaseUI.puml
-!include procedures/DeleteUsecaseUI.puml
-!include procedures/UpdateUsecaseUI.puml
-!include procedures/PrioritizeUsecasesUI.puml
-!include procedures/CreateMemberUI.puml
-!include procedures/DeleteMemberUI.puml
-!include procedures/UpdateMemberUI.puml
+!include procedures/project/ProjectManagement.puml
+!include procedures/project/PlanProject.puml
+!include procedures/project/InitProject.puml
+!include procedures/usecases/UsecasesManagementUI.puml
+!include procedures/usecases/CreateUsecaseUI.puml
+!include procedures/usecases/DeleteUsecaseUI.puml
+!include procedures/usecases/UpdateUsecaseUI.puml
+!include procedures/usecases/PrioritizeUsecasesUI.puml
+!include procedures/members/MemberManagement.puml
+!include procedures/members/CreateMemberUI.puml
+!include procedures/members/DeleteMemberUI.puml
+!include procedures/members/UpdateMemberUI.puml
 
 skinparam {
     NoteBackgroundColor #whiteSmoke
