@@ -33,10 +33,18 @@
 
     1 --> 13
     note on link
-    <b>System shows</b>
+     <b>System shows</b>
+    * iteration
+    ** identifier
+    ** start date
+    ** end date
     * for each member
     **assignedActivities in his datetime until end of current iteration
+    *** activity type
+    **** type as one of the existent RUP activities.
+    *** activity description
     * for each discipline (requirements, analysis, design, implementation)
+    ** NotAssignedCost
     ** NotAssignedActivities (with activity type)
     <b>System requires</b>
     * Activity to be assigned
@@ -64,10 +72,11 @@
     <b>System shows</b>
     * AssignActivity
     ** member
-    <b>System requires</b>
-    * Assign destination
-    ** AssignActivity associated NotAssignedCost
+    ** duration
+    ** discipline
+    ** type
     <b>System allows</b>
+    * confirm assign activity
     * cancel assign activity
     end note
 
@@ -85,8 +94,8 @@
 
     25 --> 26
     note on link
-    <b>User provides</b>
-    * Assign destination
+    <b>User requests to</b>
+    * confirm assign activity
     end note
 
     26 --> [*]
@@ -100,14 +109,16 @@
     note on link
     <b>System shows</b>
     * NotAssignedActivity
-    ** duration (in hours)
+    ** discipline
     ** activity type
-    * for each member
-    **assignedActivities in his datetime until end of current iteration
+    ** duration (in hours)
+    * available members for assign Activity
+    ** (if members overlaps his iteration capacity,
+            this will be shown)
     <b>System requires</b>
     * Assign destination
-    ** specific member hour without assignedActivity
-          __(valid destination only dates in future)__
+    ** member
+    *** (required only one member and must be provided)
     <b>System allows</b>
     * cancel assign activity
     end note
@@ -155,20 +166,27 @@
 }
      AssignActivity --> ITERATION_MANAGEMENT_END
      note on link
-          <b>System shows</b>
-          * for each member
-          **assignedActivities in his datetime until end of current iteration
-          * for each discipline (requirements, analysis, design, implementation)
-          ** NotAssignedCost
-          ** NotAssignedActivities (with activity type)
-          <b>System allows</b>
-          * Split activity
-          * Assign activity
-          * Re-estimate activity
-          * Merge activity
-          * Open iterations
-          * Open members
-          * Close system
+    <b>System shows</b>
+    * iteration
+    ** identifier
+    ** start date
+    ** end date
+    * for each member
+    **assignedActivities in his datetime until end of current iteration
+    *** activity type
+    **** type as one of the existent RUP activities.
+    *** activity description
+    * for each discipline (requirements, analysis, design, implementation)
+    ** NotAssignedCost
+    ** NotAssignedActivities (with activity type)
+    <b>System allows</b>
+    * Split activity
+    * Assign activity
+    * Re-estimate activity
+    * Merge activity
+    * Open iterations
+    * Open members
+    * Close system
      end note
 
 @enduml
