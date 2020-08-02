@@ -1,0 +1,39 @@
+open iteration in progress
+
+image::https://share.balsamiq.com/c/6e6SMgKPvjCdVPsDgyFv5w.png[]
+
+open iteration select usecases
+
+image::https://share.balsamiq.com/c/c1Mkbx1NQ3BQJqNYZv6PE7.png[]
+
+merge activity
+
+image::https://share.balsamiq.com/c/qNLm4uBkSCzAhXH9ZkoT5B.png[]
+
+reestimate activity
+
+image::https://share.balsamiq.com/c/6Z8u4KMW5d94CH8GMbf15m.png[]
+
+split activity
+
+image::https://share.balsamiq.com/c/qJYZaLz8NqAdeFjKJASEVB.png[]
+
+assign activity (to member)
+
+image::https://share.balsamiq.com/c/9gJgaXEo55Z6VXgciWYB49.png[]
+
+assign activity (return to NotAssignedCost)
+
+image::https://share.balsamiq.com/c/fHgurhNGbnCQpyNvzRoANm.png[]
+
+close activity
+
+image::https://share.balsamiq.com/c/gJ7qYvK2VEuuNAFAFjJtwo.png[]
+
+close activity next step
+
+image::https://share.balsamiq.com/c/9UKQQiTsruF5q3LnkgbTmC.png[]
+
+close activity last step
+
+image::https://share.balsamiq.com/c/nPUu3xKwZ4epXSKbip5RYs.png[]

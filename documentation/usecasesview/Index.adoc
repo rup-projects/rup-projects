@@ -8,7 +8,7 @@
 
 * [*] <<_UseCasesDiagram>>
 * [*] <<_ContextDiagram>>
-* [ ] Specifications
+* Specifications
 ** General
 *** [x] <<_StartSystem>>
 *** [x] <<_CloseSystem>>
@@ -36,6 +36,10 @@
 *** [x] <<_UpdateUseCase>>
 *** [x] <<_DeleteUseCase>>
 *** [x] <<_PrioritizeUseCases>>
+
+* Webmap
+** [ ] <<_Webmap>>
+
 
 [#_UseCasesDiagram]
 === Use Cases Diagram
@@ -67,4 +71,14 @@ include::{docdir}/specifications/disciplines/Disciplines.adoc[]
 include::{docdir}/specifications/usecases/UseCases.adoc[]
 <<_index>>
 include::{docdir}/specifications/members/Members.adoc[]
+<<_index>>
+
+[#_Webmap]
+=== Webmap
+
+[plantuml,png,align="center"]
+----
+include::userinterfaces/WebMap.puml[]
+----
+
 <<_index>>
