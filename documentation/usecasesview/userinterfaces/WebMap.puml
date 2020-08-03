@@ -19,16 +19,15 @@ skinparam {
     StateBackgroundColor #green
 }
 
-(*) -down-> SALT(initProject) #LawnGreen
-initProject -right-> SALT(planProject)
+(*) -down-> "<img:https://share.balsamiq.com/c/riuCQFtjDogoQoA2p7YgUB.png>" as initProject #LawnGreen
+initProject -right-> "<img:https://share.balsamiq.com/c/dsbQacGeZgtcfZhQpgesHi.png>" as planProject
     note on link
-    plan project
+        plan project
     end note
-planProject -left-> SALT(initProject)
-    note on link
-    cancel
-    end note
-planProject -down-> SALT(projectManagement) #LawnGreen
+
+planProject -right-> "<img:https://share.balsamiq.com/c/qJoFTguYy77vzgiYemSEj6.png>" as planProject2
+
+planProject2 -down-> "<img:https://share.balsamiq.com/c/o6eJ12SWA1sigq7na7iuEg.png>" as projectManagement #LawnGreen
 note on link
     openPhases
 end note
