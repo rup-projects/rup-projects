@@ -1,0 +1,47 @@
+@startuml
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    StateBackgroundColor #green
+}
+
+(*) -down-> "<img:https://share.balsamiq.com/c/6e6SMgKPvjCdVPsDgyFv5w.png>" as iterationManagement #LawnGreen
+note on link
+    open iteration
+end note
+
+iterationManagement -left-> "<img:https://share.balsamiq.com/c/qJYZaLz8NqAdeFjKJASEVB.png>" as splitActivity
+note on link
+    split activity
+end note
+
+iterationManagement -down-> "<img:https://share.balsamiq.com/c/c1bQ5MuY6C5Md2UM777s1w.png>" as reestimaeteActivity
+note on link
+    re estimate activity
+end note
+
+reestimaeteActivity -down-> "<img:https://share.balsamiq.com/c/9uQNnhyt3rtyhKqaxBxSAt.png>" as reestimaeteActivity2
+
+iterationManagement -down-> "<img:https://share.balsamiq.com/c/qNLm4uBkSCzAhXH9ZkoT5B.png>" as mergeActivity
+note on link
+    merge activity
+end note
+
+iterationManagement -down-> "<img:https://share.balsamiq.com/c/9gJgaXEo55Z6VXgciWYB49.png>" as assignActivity
+note on link
+    assign activity
+end note
+
+
+iterationManagement -right-> "<img:https://share.balsamiq.com/c/gJ7qYvK2VEuuNAFAFjJtwo.png>" as closeActivity
+note on link
+    close activity
+end note
+
+closeActivity -right-> "<img:https://share.balsamiq.com/c/9UKQQiTsruF5q3LnkgbTmC.png>" as closeActivity2
+
+closeActivity2 -right-> "<img:https://share.balsamiq.com/c/nPUu3xKwZ4epXSKbip5RYs.png>" as closeActivity3
+
+@enduml
+
+
