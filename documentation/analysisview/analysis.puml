@@ -1,0 +1,99 @@
+@startuml
+
+left to right direction
+
+package shared {
+    interface Dialog
+    interface ConfirmationDialog
+}
+
+package general {
+    namespace general.views {
+        class InitProjectView
+        class PlanProjectView
+        class ProjectManagementView
+        class PhaseView
+    }
+    namespace general.model {
+        class Project
+        class Phase
+    }
+    namespace general.controllers {
+        class StartSystemController
+        class CloseSystemController
+        class PlanProjectController
+        class OpenPhasesController
+        class OpenIterationsController
+   }
+}
+
+package disciplines {
+    namespace disciplines.views {
+        class IterationView
+        class AssignActivityView
+        class CloseActivityView
+
+        AssignActivityView --|> shared.Dialog
+        CloseActivityView --|> shared.ConfirmationDialog
+    }
+    namespace disciplines.model {
+        class Iteration
+        Class Activity
+    }
+    namespace disciplines.controllers {
+        class OpenIterationsController
+        class AssignActivityController
+        class ReestimateActivityController
+        class MergeActivityController
+        class SplitActivityController
+        class CloseActivityController
+    }
+}
+
+package members {
+    namespace members.views {
+        class MembersManagementView
+        class CreateMemberView
+        class UpdateMemberView
+        class DeleteMemberView
+
+        CreateMemberView --|> shared.Dialog
+        UpdateMemberView --|> shared.Dialog
+        DeleteMemberView --|> shared.ConfirmationDialog
+    }
+
+    namespace members.model {
+        class Member
+    }
+    namespace members.controllers {
+        class OpenMembersController
+        class CreateMemberController
+        class UpdateMemberController
+        class DeleteMemberController
+    }
+}
+
+package usecases {
+    namespace usecases.views {
+        class UseCasesManagementView
+        class CreateUseCaseView
+        class UpdateUseCaseView
+        class DeleteUseCaseView
+
+        CreateUseCaseView --|> shared.Dialog
+        UpdateUseCaseView --|> shared.Dialog
+        DeleteUseCaseView --|> shared.ConfirmationDialog
+    }
+     namespace usecases.model {
+        class UseCase
+    }
+    namespace usecases.controllers {
+        class OpenUseCasesController
+        class CreateUseCaseController
+        class UpdateUseCaseController
+        class DeleteUseCaseController
+        class PrioritizeUseCasesController
+    }
+}
+
+@enduml

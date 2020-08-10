@@ -78,7 +78,7 @@ include::{docdir}/specifications/members/Members.adoc[]
 
 [plantuml,png,align="center"]
 ----
-include::userinterfaces/WebMap.puml[]
+include::userinterfaces/WebMapOnlyMainPages.puml[]
 ----
 
 <<_index>>

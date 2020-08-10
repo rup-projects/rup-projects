@@ -1,0 +1,7 @@
+= Analisys View
+
+[plantuml,svg,align="center"]
+----
+include::analysis.puml[]
+----
+

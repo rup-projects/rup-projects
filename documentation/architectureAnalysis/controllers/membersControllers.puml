@@ -1,8 +1,0 @@
-@startuml
-
-Class CreateMemberController
-Class DeleteMemberController
-Class OpenMembersController
-Class UpdateMemberController
-
-@enduml
