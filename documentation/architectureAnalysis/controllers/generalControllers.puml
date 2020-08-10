@@ -1,9 +1,0 @@
-@startuml
-
-Class CloseSystemController
-Class OpenIterationsController
-Class OpenPhasesController
-Class PlanProjectController
-Class StartSystemController
-
-@enduml
