@@ -1,0 +1,9 @@
+@startuml
+
+Class CreateUseCaseController
+Class DeleteUseCaseController
+Class OpenUseCasesController
+Class PrioritizeUseCasesController
+Class UpdateUseCaseController
+
+@enduml

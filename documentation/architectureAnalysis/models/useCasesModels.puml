@@ -1,0 +1,18 @@
+@startuml
+
+Abstract Class Activity
+Class RequirimentActivity
+Class AnalysisActivity
+Class DesignActivity
+Class ImplementationActivity
+Class TestActivity
+Class UseCase
+
+Activity <|-- RequirimentActivity
+Activity <|-- AnalysisActivity
+Activity <|-- DesignActivity
+Activity <|-- ImplementationActivity
+Activity <|-- TestActivity
+RequirimentActivity <|-- UseCase
+
+@enduml
