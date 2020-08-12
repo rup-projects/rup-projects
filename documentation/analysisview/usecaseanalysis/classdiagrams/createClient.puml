@@ -1,0 +1,26 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+view MembersView
+view CreateMemberDialog
+view ConfirmDialog
+controller CreateMemberController
+controller OpenMembersController
+model MemberEntities
+model MemberEntity
+
+user -right-> MembersView
+user -right-> CreateMemberDialog
+MembersView -down-> CreateMemberDialog
+CreateMemberDialog -down-> ConfirmDialog
+CreateMemberDialog -right-> CreateMemberController
+CreateMemberDialog -right-> MemberEntity
+MembersView -right-> OpenMembersController
+CreateMemberController -right-> MemberEntities
+CreateMemberController -down-> MemberEntity
+OpenMembersController -down-> MemberEntities
+MemberEntities *-down-> MemberEntity
+@enduml
