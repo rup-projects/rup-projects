@@ -1,0 +1,56 @@
+@startuml
+
+!include ../classdiagrams/configuration/skinParams.puml
+!include ../classdiagrams/configuration/definitions.puml
+
+actor user
+view UseCasesView
+view CreateUseCaseDialog
+view ConfirmDialog
+controller CreateUseCaseController
+controller OpenUseCasesController
+model UseCaseEntities
+model UseCaseEntity
+
+user -right-> UseCasesView
+note on link
+createUseCase()
+end note
+user -right-> CreateUseCaseDialog
+note on link
+setName(name)
+confirm()
+cancel()
+end note
+UseCasesView -down-> CreateUseCaseDialog
+note on link
+new UseCaseDialog()
+end note
+CreateUseCaseDialog -down-> ConfirmDialog
+note on link
+new ConfirmDialog()
+end note
+CreateUseCaseDialog -right-> CreateUseCaseController
+note on link
+ createUseCase(useCase)
+end note
+CreateUseCaseDialog -right-> UseCaseEntity
+note on link
+new UseCase()
+end note
+UseCasesView -right-> OpenUseCasesController
+note on link
+readUseCases()
+end note
+CreateUseCaseController -right-> UseCaseEntities
+note on link
+create(useCase)
+end note
+CreateUseCaseController -down-> UseCaseEntity
+OpenUseCasesController -down-> UseCaseEntities
+note on link
+readUseCases()
+end note
+UseCaseEntities *-down-> UseCaseEntity
+
+@enduml
