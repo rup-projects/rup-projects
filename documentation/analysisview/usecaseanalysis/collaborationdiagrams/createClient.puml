@@ -1,0 +1,57 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+view MembersView
+view CreateMemberDialog
+view ConfirmDialog
+controller CreateMemberController
+controller OpenMembersController
+model MemberEntities
+model MemberEntity
+
+user -right-> MembersView
+note on link
+createMember()
+end note
+user -right-> CreateMemberDialog
+note on link
+setName(name)
+setRoles(roles)
+confirm()
+cancel()
+end note
+MembersView -down-> CreateMemberDialog
+note on link
+new MemberDialog()
+end note
+CreateMemberDialog -down-> ConfirmDialog
+note on link
+new ConfirmDialog()
+end note
+CreateMemberDialog -right-> CreateMemberController
+note on link
+ createMember(member)
+end note
+CreateMemberDialog -right-> MemberEntity
+note on link
+new Member()
+end note
+MembersView -right-> OpenMembersController
+note on link
+readMembers()
+end note
+CreateMemberController -right-> MemberEntities
+note on link
+create(member)
+end note
+CreateMemberController -down-> MemberEntity
+OpenMembersController -down-> MemberEntities
+note on link
+readMembers()
+end note
+MemberEntities *-down-> MemberEntity
+
+@enduml
