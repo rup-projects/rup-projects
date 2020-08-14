@@ -1,0 +1,27 @@
+@startuml
+scale 1200 width
+
+package views {
+    interface Dialog
+    interface ConfirmationDialog
+
+    class IterationView
+    class InitProjectView
+    class PlanProjectView
+    class ProjectManagementView
+    class PhaseView
+    class MembersManagementView
+    class UseCasesManagementView
+
+    class AssignActivityView implements Dialog
+    class CreateMemberView implements Dialog
+    class UpdateMemberView implements Dialog
+    class CreateUseCaseView implements Dialog
+    class UpdateUseCaseView implements Dialog
+
+    class DeleteUseCaseView implements ConfirmationDialog
+    class CloseActivityView implements ConfirmationDialog
+    class DeleteMemberView implements ConfirmationDialog
+}
+
+@enduml
