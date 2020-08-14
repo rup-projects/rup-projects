@@ -1,5 +1,5 @@
 @startuml
-
+scale 1200 width
 
 package controllers {
     class StartSystemController
