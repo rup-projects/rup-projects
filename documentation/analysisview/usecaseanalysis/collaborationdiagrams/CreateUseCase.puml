@@ -19,6 +19,7 @@ end note
 user -right-> CreateUseCaseDialog
 note on link
 setName(name)
+setRole(role)
 confirm()
 cancel()
 end note
