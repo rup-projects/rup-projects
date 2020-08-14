@@ -29,30 +29,22 @@ package views {
     interface ConfirmationDialog
 
     class IterationView
-    class AssignActivityView
-    class CloseActivityView
     class InitProjectView
     class PlanProjectView
     class ProjectManagementView
     class PhaseView
     class MembersManagementView
-    class CreateMemberView
-    class UpdateMemberView
-    class DeleteMemberView
     class UseCasesManagementView
-    class CreateUseCaseView
-    class UpdateUseCaseView
-    class DeleteUseCaseView
 
-    Dialog <|.. AssignActivityView
-    Dialog <|.. CreateMemberView
-    Dialog <|.. UpdateMemberView
-    Dialog <|.. CreateUseCaseView
-    Dialog <|.. UpdateUseCaseView
+    class AssignActivityView implements Dialog
+    class CreateMemberView implements Dialog
+    class UpdateMemberView implements Dialog
+    class CreateUseCaseView implements Dialog
+    class UpdateUseCaseView implements Dialog
 
-    ConfirmationDialog <|.. CloseActivityView
-    ConfirmationDialog <|.. DeleteMemberView
-    ConfirmationDialog <|.. DeleteUseCaseView
+    class DeleteUseCaseView implements ConfirmationDialog
+    class CloseActivityView implements ConfirmationDialog
+    class DeleteMemberView implements ConfirmationDialog
 
 }
 
