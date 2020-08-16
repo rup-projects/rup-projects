@@ -5,47 +5,46 @@
 
 actor user
 view UseCasesView
-view PrioritizeUseCaseDialog
+view DeleteUseCaseDialog
 view ConfirmDialog
-controller PrioritizeUseCaseController
+controller DeleteUseCaseController
 controller OpenUseCasesController
 model UseCaseEntities
 model UseCaseEntity
 
 user -right-> UseCasesView
 note on link
-prioritizeUseCase()
+deleteUseCase()
 end note
-user -right-> PrioritizeUseCaseDialog
+user -right-> DeleteUseCaseDialog
 note on link
-setPositions(useCasesValues[])
+setUseCase(selectedUseCase)
 confirm()
 cancel()
 end note
-UseCasesView -down-> PrioritizeUseCaseDialog
+UseCasesView -down-> DeleteUseCaseDialog
 note on link
-new PrioritizeUseCaseDialog()
+new DeleteUseCaseDialog()
 end note
-PrioritizeUseCaseDialog -down-> ConfirmDialog
+DeleteUseCaseDialog -down-> ConfirmDialog
 note on link
 new ConfirmDialog()
 end note
-PrioritizeUseCaseDialog -right-> PrioritizeUseCaseController
+DeleteUseCaseDialog -right-> DeleteUseCaseController
 note on link
- PrioritizeUseCase(useCasesValues[])
+ DeleteUseCase(useCase)
 end note
 
 UseCasesView -right-> OpenUseCasesController
 note on link
 readUseCases()
 end note
-PrioritizeUseCaseController -right-> UseCaseEntities
+DeleteUseCaseController -right-> UseCaseEntities
 note on link
-updateUseCase(useCase)
+deleteUseCase(useCase)
 end note
-PrioritizeUseCaseController -down-> UseCaseEntity
+DeleteUseCaseController -down-> UseCaseEntity
 note on link
-<b>foreach(useCasesValues as useCase):</b>
 getUseCase(useCase)
 end note
 OpenUseCasesController -down-> UseCaseEntities
