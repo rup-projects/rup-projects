@@ -1,0 +1,68 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+left to right direction
+
+skinparam linetype polyline
+
+
+actor user
+view PhaseView
+view PhasesView
+view IterationView
+controller OpenIterationsController
+model PhaseEntity
+model IterationEntity
+model IterationEntities
+
+user -left-> IterationView
+note on link
+    openIterations(phaseId)
+end note
+
+user -right-> PhasesView
+note on link
+    openIterations(phaseId)
+end note
+IterationView -right-> PhaseView
+note on link
+    openIterations(phaseId)
+end note
+
+
+PhasesView --> PhaseView
+note on link
+    openIterations(phaseId)
+end note
+
+PhaseView --> PhaseEntity
+note on link
+    getName()
+end note
+
+PhaseView --> OpenIterationsController
+note on link
+    openIterations(phaseId)
+    searchIterationsBy(phaseId)
+end note
+
+PhaseView --> IterationEntity
+note on link
+    getIterationId()
+    getStartDate()
+    getEndDate()
+    getDuration()
+    getProgress()
+end note
+
+OpenIterationsController --> "1" PhaseEntity
+OpenIterationsController --> IterationEntities
+note on link
+    searchIterationsBy(phaseId)
+end note
+OpenIterationsController --> "*" IterationEntity
+IterationEntities -left- IterationEntity
+
+@enduml

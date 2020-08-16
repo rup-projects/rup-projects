@@ -7,19 +7,9 @@
 
 'Initial/end states
 state init as "USE_CASE_MANAGEMENT"
-state end as "USE_CASE_MANAGEMENT"
 
 init ---> CreateUseCase
-CreateUseCase ---> end
-note on link
-<b>System allows</b>
-* create member
-* create member
-* delete member
-* open project
-* open iteration
-* open use cases
-end note
+CreateUseCase ---> ShowUseCases
 
 'Use case specfication
 state CreateUseCase {
@@ -27,7 +17,6 @@ state CreateUseCase {
     state editUseCase as " "
     state editedUseCase  <<choice>>
     state requireToConfirm  as " "
-    state savedUseCase as " "
     state errorValidation as " "
     state toConfirm as " "
     state systemSave as " "
@@ -62,16 +51,12 @@ state CreateUseCase {
         note on link
         <b>User</b> confirm
         end note
-    systemSave --> savedUseCase
+    systemSave --> [*]
         note on link
             <b>System shows</b>
             * The use case has been created
         end note
-    savedUseCase --> [*]
-           note on link
-           <b>System shows</b>
-           * the use case list
-           end note
+
 
     'variation path
     editedUseCase -[#red]-> errorValidation
@@ -86,13 +71,13 @@ state CreateUseCase {
             end note
 
     'variation path
-    requireToConfirm -[#red]-> savedUseCase
+    requireToConfirm -[#red]-> [*]
     note on link
           <b>User</b> cancel
     end note
 
     'variation path
-    editUseCase -[#red]-> savedUseCase
+    editUseCase -[#red]-> [*]
     note on link
           <b>User</b> cancel
     end note
