@@ -1,0 +1,37 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+left to right direction
+
+actor user
+view InitProjectView
+controller StartSystemController
+model ProjectEntity
+
+user --> InitProjectView
+note on link
+openApp()
+end note
+
+InitProjectView --> StartSystemController
+note on link
+getProject()
+end note
+
+InitProjectView --> ProjectEntity
+note on link
+    getStartDate()
+    getEndDate()
+    getDuration()
+    getProgress()
+    getIterationDuration()
+end note
+
+StartSystemController --> ProjectEntity
+note on link
+getProject()
+end note
+
+@enduml

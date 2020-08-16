@@ -1,7 +1,7 @@
 @startuml
 
-!include ../classdiagrams/configuration/skinParams.puml
-!include ../classdiagrams/configuration/definitions.puml
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
 
 actor user
 view UseCasesView
