@@ -1,0 +1,65 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+view IterationView
+view AssignActivityView
+view ConfirmDialog
+controller OpenIterationController
+controller AssignActivityController
+model IterationEntity
+model MemberEntities
+model ActivityEntities
+model TimeInterval
+model ActivityEntity
+model MemberEntity
+user -right-> IterationView
+
+note on link
+assignActivity()
+end note
+user -right-> AssignActivityView
+note on link
+setActivity(activity)
+setMember(member)
+setTimeInterval(timeInterval)
+confirm()
+cancel()
+end note
+IterationView -down-> AssignActivityView
+note on link
+new AssignActivityView()
+end note
+IterationView -down-> OpenIterationController
+note on link
+    getIteration(currentIteration)
+end note
+OpenIterationController -right-> IterationEntity
+note on link
+    getIteration(currentIteration)
+end note
+AssignActivityView -right-> AssignActivityController
+note on link
+    assignActivity(activity, member, timeInterval)
+end note
+AssignActivityView -down-> ConfirmDialog
+
+IterationEntity *-right-> ActivityEntities
+IterationEntity *-right-> MemberEntities
+IterationEntity *-right-> TimeInterval
+MemberEntities *--> MemberEntity
+ActivityEntities *--> ActivityEntity
+
+AssignActivityController --> ActivityEntity
+note on link
+updateActivity(activity)
+end note
+
+ActivityEntity o-- TimeInterval
+ActivityEntity o-- MemberEntity
+
+
+
+@enduml
