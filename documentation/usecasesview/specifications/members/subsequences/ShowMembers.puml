@@ -1,0 +1,26 @@
+@startuml
+    skinparam {
+        NoteBackgroundColor #whiteSmoke
+        ArrowColor #green
+        NoteBorderColor #green
+    }
+
+
+state ShowMembers {
+    [*] --> [*]
+}
+
+ShowMembers --> USECASES_MANAGEMENT
+    note on link
+    <b>System shows</b>
+    * all members in the project, his names and roles
+    <b>System allows</b>
+    * create member
+    * update member
+    * delete member
+    * open iterations
+    * open iteration
+    * open use cases
+    end note
+
+@enduml

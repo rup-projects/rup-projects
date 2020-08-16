@@ -1,0 +1,62 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+skinparam linetype polyline
+left to right direction
+
+actor user
+view MembersView
+controller UpdateMemberController
+controller OpenMembersController as ":OpenMembersController"
+model MemberEntities
+model MemberEntity
+
+user -right-> MembersView
+note on link
+    startUpdate(memberId)
+    setName(name)
+    setRoles(rolesList)
+    updateMember(memberId, member)
+    cancel()
+end note
+
+MembersView --> UpdateMemberController
+note on link
+    readMember(memberId)
+    updateMember(memberId, member)
+    cancel()
+end note
+
+MembersView --> OpenMembersController
+note on link
+    openMembers()
+end note
+
+
+MembersView --> MemberEntity
+note on link
+    getName()
+    getRoles()
+    setName(name)
+    setRoles(rolesList)
+end note
+
+UpdateMemberController --> MemberEntities
+note on link
+    readMember(memberId)
+    updateMember(memberId, member)
+end note
+
+UpdateMemberController -- MemberEntity
+
+OpenMembersController --> MemberEntities
+note on link
+readMembers()
+end note
+
+MemberEntities -- MemberEntity
+
+
+@enduml
