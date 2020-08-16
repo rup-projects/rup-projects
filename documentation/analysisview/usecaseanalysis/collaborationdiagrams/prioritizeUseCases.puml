@@ -4,7 +4,7 @@
 !include configuration/definitions.puml
 
 actor user
-view UseCasesView
+view UseCasesManagementView
 view PrioritizeUseCaseDialog
 view ConfirmDialog
 controller PrioritizeUseCaseController
@@ -12,7 +12,7 @@ controller OpenUseCasesController
 model UseCaseEntities
 model UseCaseEntity
 
-user -right-> UseCasesView
+user -right-> UseCasesManagementView
 note on link
 prioritizeUseCase()
 end note
@@ -22,7 +22,7 @@ setPositions(useCasesValues[])
 confirm()
 cancel()
 end note
-UseCasesView -down-> PrioritizeUseCaseDialog
+UseCasesManagementView -down-> PrioritizeUseCaseDialog
 note on link
 new PrioritizeUseCaseDialog()
 end note
@@ -35,7 +35,7 @@ note on link
  PrioritizeUseCase(useCasesValues[])
 end note
 
-UseCasesView -right-> OpenUseCasesController
+UseCasesManagementView -right-> OpenUseCasesController
 note on link
 readUseCases()
 end note

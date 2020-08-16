@@ -1,0 +1,27 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+view MembersManagementView
+controller OpenMembersController
+model MemberEntities
+model MemberEntity
+
+user -down-> MembersManagementView
+note on link
+openMembers()
+end note
+
+MembersManagementView -right-> OpenMembersController
+note on link
+readMembers()
+end note
+OpenMembersController -right-> MemberEntities
+note on link
+readMembers()
+end note
+MemberEntities *-down-> MemberEntity
+
+@enduml

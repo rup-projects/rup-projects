@@ -4,17 +4,17 @@
 !include configuration/definitions.puml
 
 actor user
-view UseCasesView
+view UseCasesManagementView
 controller OpenUseCasesController
 model UseCaseEntities
 model UseCaseEntity
 
-user -down-> UseCasesView
+user -down-> UseCasesManagementView
 note on link
 openUseCases()
 end note
 
-UseCasesView -right-> OpenUseCasesController
+UseCasesManagementView -right-> OpenUseCasesController
 note on link
 readUseCases()
 end note
