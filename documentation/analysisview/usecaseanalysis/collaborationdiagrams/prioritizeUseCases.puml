@@ -1,0 +1,57 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+view UseCasesView
+view PrioritizeUseCaseDialog
+view ConfirmDialog
+controller PrioritizeUseCaseController
+controller OpenUseCasesController
+model UseCaseEntities
+model UseCaseEntity
+
+user -right-> UseCasesView
+note on link
+prioritizeUseCase(useCase)
+end note
+user -right-> PrioritizeUseCaseDialog
+note on link
+setUseCase(selecteUseCase)
+setPosition(positionValue)
+confirm()
+cancel()
+end note
+UseCasesView -down-> PrioritizeUseCaseDialog
+note on link
+new PrioritizeUseCaseDialog()
+end note
+PrioritizeUseCaseDialog -down-> ConfirmDialog
+note on link
+new ConfirmDialog()
+end note
+PrioritizeUseCaseDialog -right-> PrioritizeUseCaseController
+note on link
+ PrioritizeUseCase(useCase)
+end note
+
+UseCasesView -right-> OpenUseCasesController
+note on link
+readUseCases()
+end note
+PrioritizeUseCaseController -right-> UseCaseEntities
+note on link
+updateUseCase(useCase)
+end note
+PrioritizeUseCaseController -down-> UseCaseEntity
+note on link
+getUseCase(useCase)
+end note
+OpenUseCasesController -down-> UseCaseEntities
+note on link
+readUseCases()
+end note
+UseCaseEntities *-down-> UseCaseEntity
+
+@enduml
