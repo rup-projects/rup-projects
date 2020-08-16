@@ -3,37 +3,58 @@ left to right direction
 
 actor "User" as user
 
-package General {
-:user: -down-> (startSystem)
-:user: -down-> (closeSystem)
-:user: -down-> (OpenProject)
-:user: -down-> (openPhases)
-:user: -down-> (openIterations)
-:user: -down-> (PlanProject)
-:user: -down-> (CloseIteration)
+package general {
+    :user: -left--> (startSystem)
+    :user: -left--> (closeSystem)
+    :user: -left--> (OpenProject)
+    :user: -left--> (openPhases)
+    :user: -left--> (openIterations)
+    :user: -left--> (PlanProject)
+    :user: -left--> (CloseIteration)
 }
 
-package Members {
-:user: -down-> (OpenMembers)
-:user: -down-> (CreateMember)
-:user: -down-> (UpdateMember)
-:user: -down-> (DeleteMember)
+package members {
+    :user: -up-> (OpenMembers)
+    :user: -up-> (CreateMember)
+    :user: -up-> (UpdateMember)
+    :user: -up-> (DeleteMember)
 }
 
-package UseCases {
-:user: -left-> (OpenUseCases)
-:user: -left-> (CreateUseCase)
-:user: -left-> (DeleteUseCase)
-:user: -left-> (UpdateUseCase)
-:user: -left-> (PrioritizeUseCases)
+package usecases {
+    :user: -right-> (OpenUseCases)
+    :user: -right-> (CreateUseCase)
+    :user: -right-> (DeleteUseCase)
+    :user: -right-> (UpdateUseCase)
+    :user: -right-> (PrioritizeUseCases)
+
+    (CreateUseCase) ..> (OpenUseCases)
+    (DeleteUseCase) ..> (OpenUseCases)
+    (UpdateUseCase) ..> (OpenUseCases)
+    (PrioritizeUseCases) ..> (OpenUseCases)
+
 }
 
-package Disciplines {
-:user: -left-> (OpenIteration)
-:user: -left-> (AssignActivity)
-:user: -left-> (Re-estimateActivity)
-:user: -left-> (SplitActivity)
-:user: -left-> (CloseActivity)
-:user: -left-> (MergeActivity)
+package disciplines {
+    :user: -down-> (OpenIteration)
+    :user: -down-> (AssignActivity)
+    :user: -down-> (Re-estimateActivity)
+    :user: -down-> (SplitActivity)
+    :user: -down-> (CloseActivity)
+    :user: -down-> (MergeActivity)
 }
+
+package shared {
+    (DeleteConfirmation)
+    (SaveConfirmation)
+
+    (DeleteUseCase) ..> (DeleteConfirmation)
+    (DeleteMember) ..> (DeleteConfirmation)
+
+    (CreateUseCase) ..> (SaveConfirmation)
+    (CreateMember) ..> (SaveConfirmation)
+
+    (UpdateUseCase) ..> (SaveConfirmation)
+    (UpdateMember) ..> (SaveConfirmation)
+}
+
 @enduml

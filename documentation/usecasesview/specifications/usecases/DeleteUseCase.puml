@@ -1,20 +1,10 @@
 @startuml
-    skinparam {
-        NoteBackgroundColor #whiteSmoke
-        ArrowColor #green
-        NoteBorderColor #green
-    }
+!include ../StateDiagramsSetUp.puml
 
-state init as "USE_CASE_MANAGEMENT"
-
-init ---> DeleteUseCase
-DeleteUseCase ---> ShowUseCases
+USE_CASE_MANAGEMENT ---> DeleteUseCase
 
 state DeleteUseCase {
     state initial as " "
-    state deleteOrdered as " "
-    state confirmationRequired <<choice>>
-    state deleteConfirmed as " "
     state askedForWhichOneDelete as " "
 
     'Main path
@@ -30,34 +20,27 @@ state DeleteUseCase {
     <b>System require</b>
     * A use case to delete
     end note
-    askedForWhichOneDelete --> deleteOrdered
+    askedForWhichOneDelete --> DeleteConfirmation
     note on link
         <b>User provide</b>
-        * the use to delete
-    end note
-    deleteOrdered --> confirmationRequired
-    note on link
-        <b>System allows</b>
-        * confirm
-        * cancel
-    end note
-    confirmationRequired --> deleteConfirmed
-        note on link
-            <b>User request</b>
-            * confirm to delete the use case
-        end note
-    deleteConfirmed --> [*]
-    note on link
-    <b>System shows</b>
-    * the use case has been deleted
+        * the use case to delete
     end note
 
-    'Variation path
-    confirmationRequired -[#red]-> [*]
-    note on link
-        <b>User request</b>
-        * cancel
-    end note
+    DeleteConfirmation --> OpenUseCases
+    OpenUseCases --> [*]
+
 }
+
+DeleteUseCase --> USECASES_MANAGEMENT
+    note on link
+    <b>System allows</b>
+    * prioritize usecases
+    * create usecase
+    * update usecase
+    * delete usecase
+    * open iterations
+    * open iteration
+    * open members
+    end note
 
 @enduml

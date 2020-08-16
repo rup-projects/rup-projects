@@ -1,0 +1,55 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+state Form {
+    state initialState as " "
+    state enterFields as " "
+    state showErrors as " "
+    state validateFields <<choice>>
+
+    'Main path
+    [*] --> initialState
+
+    initialState --> enterFields
+    note on link
+        <b>System require</b>
+        * fields
+        <b>System allows</b>
+        * Cancel        
+    end note
+    
+    enterFields --> validateFields
+        note on link
+            <b>User provide</b>
+            * field values
+        end note
+
+    validateFields --> [*]
+
+    'Variation path
+    validateFields -[#red]-> showErrors
+    note on link
+    [ error validations ]
+    end note
+
+    showErrors -[#red]-> initialState
+    note on link
+        <b>System shows</b>
+        * Error validations
+    end note
+
+    'Variation path
+    enterFields -[#red]-> [*]
+    note on link
+    <b>User requires</b>
+    * cancel
+    end note
+
+    initialState -[#red]-> [*]
+    note on link
+    <b>User requires</b>
+    * cancel
+    end note
+}
+
+@enduml

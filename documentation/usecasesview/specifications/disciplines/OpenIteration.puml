@@ -1,10 +1,5 @@
 @startuml
-
-    skinparam {
-        NoteBackgroundColor #whiteSmoke
-        ArrowColor #green
-        NoteBorderColor #green
-    }
+!include ../StateDiagramsSetUp.puml
 
 state 12 as ":PROJECT_MANAGEMENT"
 

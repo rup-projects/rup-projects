@@ -1,0 +1,35 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+state DeleteConfirmation {
+    state confirmationRequired <<choice>>
+    state deleteConfirmed as " "
+
+    'Main path
+    [*] --> confirmationRequired
+    note on link
+        <b>System allows</b>
+        * confirm
+        * cancel
+    end note
+    confirmationRequired --> deleteConfirmed
+        note on link
+            <b>User request</b>
+            * confirm to delete
+        end note
+    deleteConfirmed --> [*]
+    note on link
+    <b>System shows</b>
+    * the deletion has been successful
+    end note
+
+    'Variation path
+    confirmationRequired -[#red]-> [*]
+    note on link
+    <b>User request</b>
+    * cancel
+    end note
+
+}
+
+@enduml
