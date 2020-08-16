@@ -1,0 +1,27 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+view UseCasesView
+controller OpenUseCasesController
+model UseCaseEntities
+model UseCaseEntity
+
+user -down-> UseCasesView
+note on link
+openUseCases()
+end note
+
+UseCasesView -right-> OpenUseCasesController
+note on link
+readUseCases()
+end note
+OpenUseCasesController -right-> UseCaseEntities
+note on link
+readUseCases()
+end note
+UseCaseEntities *-down-> UseCaseEntity
+
+@enduml
