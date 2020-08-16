@@ -4,7 +4,7 @@
         ArrowColor #green
         NoteBorderColor #green
     }
-state USECASE_MANAGEMENT_END as ":USECASE_MANAGEMENT"
+state ShowUseCases
 
 USECASE_MANAGEMENT --> prioritizeUseCases
 
@@ -90,20 +90,6 @@ note on link
 * prioritization cancelled
 end note
 
-prioritizeUseCases --> USECASE_MANAGEMENT_END
-note on link
-<b>System shows</b>
-* all use cases sorted by priority
-** highest priority in the top, lowest in the button
-** use case without priority has the lowest priority
-<b>System allows</b>
-* Prioritize Use cases
-* Create use case
-* Update use case
-* Delete use case
-* Open iteration
-* Open iterations
-* Open members
-* Close system
-end note
+prioritizeUseCases --> ShowUseCases
+
 @enduml

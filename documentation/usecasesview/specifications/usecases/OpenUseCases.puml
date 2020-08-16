@@ -23,20 +23,6 @@ state OpenUsecases{
         end note
 }
 
-OpenUsecases --> USECASES_MANAGEMENT
-    note on link
-        <b>System shows</b>
-        * all use cases sorted by priority
-        ** highest priority in the top, lowest in the button
-        ** use case without priority has the lowest priority
-        <b>System allows</b>
-        * prioritize usecases
-        * create usecase
-        * update usecase
-        * delete usecase
-        * open iterations
-        * open iteration
-        * open members
-    end note
+OpenUsecases --> ShowUseCases
 
 @enduml
