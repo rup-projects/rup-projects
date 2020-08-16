@@ -1,0 +1,21 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+view CloseSystemView
+
+controller CloseSystemController
+
+user -right-> CloseSystemView
+note on link
+closeSystem()
+end note
+
+CloseSystemView -right-> CloseSystemController
+note on link
+ closeSystem()
+end note
+
+@enduml
