@@ -1,0 +1,26 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+view PhasesView
+controller OpenPhasesController
+model ProjectEntity
+model PhaseEntity
+
+user -down-> PhasesView
+note on link
+openPhases()
+end note
+PhasesView -right-> OpenPhasesController
+note on link
+readPhases()
+end note
+OpenPhasesController -right-> ProjectEntity
+note on link
+readPhases()
+end note
+ProjectEntity *-down-> PhaseEntity
+
+@enduml
