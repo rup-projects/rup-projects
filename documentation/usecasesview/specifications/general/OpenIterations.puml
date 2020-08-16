@@ -1,4 +1,4 @@
-@startuml
+    @startuml
     skinparam {
         NoteBackgroundColor #whiteSmoke
         ArrowColor #green
@@ -11,7 +11,14 @@
 
     PROJECT_MANAGEMENT --> OpenIterations
     note on link
-        User requests to Open Iterations
+        User requests to
+        * Open Iterations
+    end note
+
+    ITERATION_MANAGEMENT --> OpenIterations
+    note on link
+        User requests to
+        *  Open Iterations
     end note
 
     state OpenIterations {
