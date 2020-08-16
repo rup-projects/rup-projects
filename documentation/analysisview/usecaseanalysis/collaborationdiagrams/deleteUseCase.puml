@@ -43,10 +43,7 @@ DeleteUseCaseController -right-> UseCaseEntities
 note on link
 deleteUseCase(useCase)
 end note
-DeleteUseCaseController -down-> UseCaseEntity
-note on link
-getUseCase(useCase)
-end note
+
 OpenUseCasesController -down-> UseCaseEntities
 note on link
 readUseCases()
