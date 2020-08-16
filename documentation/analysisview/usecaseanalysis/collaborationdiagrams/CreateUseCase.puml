@@ -4,7 +4,7 @@
 !include configuration/definitions.puml
 
 actor user
-view UseCasesView
+view UseCasesManagementView
 view CreateUseCaseDialog
 view ConfirmDialog
 controller CreateUseCaseController
@@ -12,7 +12,7 @@ controller OpenUseCasesController
 model UseCaseEntities
 model UseCaseEntity
 
-user -right-> UseCasesView
+user -right-> UseCasesManagementView
 note on link
 createUseCase()
 end note
@@ -23,7 +23,7 @@ setRole(role)
 confirm()
 cancel()
 end note
-UseCasesView -down-> CreateUseCaseDialog
+UseCasesManagementView -down-> CreateUseCaseDialog
 note on link
 new UseCaseDialog()
 end note
@@ -39,7 +39,7 @@ CreateUseCaseDialog -right-> UseCaseEntity
 note on link
 new UseCase()
 end note
-UseCasesView -right-> OpenUseCasesController
+UseCasesManagementView -right-> OpenUseCasesController
 note on link
 readUseCases()
 end note
