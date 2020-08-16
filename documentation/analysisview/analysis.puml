@@ -7,7 +7,7 @@ package controllers {
     class PlanProjectController
     class OpenPhasesController
     class OpenIterationsController
-    class OpenIterationsController
+    class OpenIterationController
     class AssignActivityController
     class ReestimateActivityController
     class MergeActivityController

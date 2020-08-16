@@ -1,0 +1,47 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+view ProjectManagementView
+view PhaseView
+
+controller ProjectManagementController
+controller OpenIterationsController
+model IterationEntities
+model IterationEntity
+
+user -down-> PhaseView
+note on link
+setIteration(iteration)
+end note
+user -right->ProjectManagementView
+note on link
+openIteration()
+end note
+ProjectManagementView -right-> ProjectManagementController
+note on link
+getIterations()
+end note
+ProjectManagementController -down-> IterationEntities
+note on link
+getIterations()
+end note
+IterationEntities *-down-> IterationEntity
+PhaseView -right->OpenIterationsController
+note on link
+getIteration(iteration)
+end note
+ProjectManagementView -down-> PhaseView
+OpenIterationsController -right-> IterationEntities
+note on link
+getIteration(iteration)
+end note
+
+IterationEntity -left-> OpenIterationsController
+note on link
+<b>requested Iteration</b>
+end note
+@enduml
+
