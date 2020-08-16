@@ -4,16 +4,16 @@
 !include configuration/definitions.puml
 
 actor user
-view PhasesView
+view PlanProjectView
 controller OpenPhasesController
 model ProjectEntity
 model PhaseEntity
 
-user -down-> PhasesView
+user -down-> PlanProjectView
 note on link
 openPhases()
 end note
-PhasesView -right-> OpenPhasesController
+PlanProjectView -right-> OpenPhasesController
 note on link
 readPhases()
 end note
