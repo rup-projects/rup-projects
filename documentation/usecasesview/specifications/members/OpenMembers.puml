@@ -9,8 +9,12 @@
     state 0 as ":PROJECT_MANAGEMENT"
     state 2 as ":USE_CASES_MANAGEMENT"
     state 3 as ":DISCIPLINES_MANAGEMENT"
+    state 4 as ":MEMBERS_MANAGEMENT"
 
     0 --> OpenMembers
+    note on link
+        User requests to open members
+    end note
 
     2 --> OpenMembers
     note on link
@@ -18,6 +22,11 @@
     end note
 
     3 --> OpenMembers
+    note on link
+        User requests to open members
+    end note
+
+4 --> OpenMembers
 
 state OpenMembers{
 
