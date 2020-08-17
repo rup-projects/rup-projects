@@ -1,0 +1,60 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+view IterationView
+view MergeActivityView
+view ConfirmDialog
+controller OpenIterationController
+controller MergeActivityController
+model Iteration
+model Activity
+model ActivitiesDAO
+
+user -right-> IterationView
+
+note on link
+mergeActivity()
+end note
+user -down-> MergeActivityView
+note on link
+getActivity()
+confirm()
+cancel()
+end note
+MergeActivityView -left-> ConfirmDialog
+
+IterationView -down-> MergeActivityView
+note on link
+new MergeActivityView()
+end note
+
+IterationView -down--> OpenIterationController
+note on link
+    getIteration(currentIteration)
+end note
+
+
+MergeActivityView -down-> MergeActivityController
+note on link
+    MergeActivity()
+end note
+
+MergeActivityController -down-> ActivitiesDAO
+note on link
+updateNotAssignedCost()
+deleteActivity(activity)
+end note
+
+OpenIterationController -down--> Iteration
+note on link
+    getIteration(currentIteration)
+end note
+
+Iteration *-down- Activity
+ActivitiesDAO *-right- Activity
+
+
+@enduml
