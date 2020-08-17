@@ -20,6 +20,7 @@ closeActivity()
 end note
 user -down-> CloseActivityView
 note on link
+getCloseActivity()
 confirm()
 cancel()
 end note
@@ -38,7 +39,7 @@ end note
 
 CloseActivityView -down-> CloseActivityController
 note on link
-    CloseActivity(activity)
+    closeActivity(activity)
 end note
 
 CloseActivityController -down-> ActivitiesDAO
