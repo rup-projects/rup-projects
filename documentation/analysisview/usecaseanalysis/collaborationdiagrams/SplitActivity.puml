@@ -1,0 +1,63 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+view IterationView
+view SplitActivityView
+view ConfirmDialog
+controller OpenIterationController
+controller SplitActivityController
+model Iteration
+model Activity
+model ActivitiesDAO
+
+user -right-> IterationView
+
+note on link
+closeActivity()
+end note
+user -down-> SplitActivityView
+note on link
+confirm()
+cancel()
+end note
+SplitActivityView -left-> ConfirmDialog
+
+IterationView -down-> SplitActivityView
+note on link
+new SplitActivityView()
+end note
+
+IterationView -down--> OpenIterationController
+note on link
+    getIteration(currentIteration)
+end note
+
+
+SplitActivityView -down-> SplitActivityController
+note on link
+    SplitActivity(typeActivity, descriptionActivity, assignedCost)
+end note
+
+SplitActivityController -down-> ActivitiesDAO
+note on link
+createActivity(activity)
+end note
+
+OpenIterationController -down--> Iteration
+note on link
+    getIteration(currentIteration)
+end note
+
+SplitActivityController -right-> Activity
+note on link
+    new Activity()
+end note
+
+Iteration *-down- Activity
+ActivitiesDAO *-right- Activity
+
+
+@enduml
