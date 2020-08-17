@@ -16,10 +16,13 @@ model ActivitiesDAO
 user -right-> IterationView
 
 note on link
-closeActivity()
+splitActivity()
 end note
 user -down-> SplitActivityView
 note on link
+gettipeActivity()
+getDescriptionActivity()
+getAssignedCost()
 confirm()
 cancel()
 end note
@@ -38,7 +41,9 @@ end note
 
 SplitActivityView -down-> SplitActivityController
 note on link
-    SplitActivity(typeActivity, descriptionActivity, assignedCost)
+    SplitActivity(typeActivity, 
+    		descriptionActivity, 
+    		assignedCost)
 end note
 
 SplitActivityController -down-> ActivitiesDAO
