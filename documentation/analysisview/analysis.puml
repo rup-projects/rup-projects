@@ -28,6 +28,7 @@ package views {
     interface Dialog
     interface ConfirmationDialog
 
+    class MenuView
     class IterationView
     class InitProjectView
     class PlanProjectView

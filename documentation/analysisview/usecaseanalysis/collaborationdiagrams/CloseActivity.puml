@@ -16,7 +16,7 @@ model ActivitiesDAO
 user -right-> IterationView
 
 note on link
-closeActivity()
+setCloseActivity()
 end note
 user -down-> CloseActivityView
 note on link
@@ -39,12 +39,17 @@ end note
 
 CloseActivityView -down-> CloseActivityController
 note on link
-    closeActivity(activity)
+    closeActivity(activityId)
 end note
 
 CloseActivityController -down-> ActivitiesDAO
 note on link
-updateActivity(activity)
+updateActivity(activityId)
+end note
+
+CloseActivityController -down-> Activity
+note on link
+    closeActivity(activityId)
 end note
 
 OpenIterationController -down-> Iteration

@@ -9,8 +9,8 @@ view CreateUseCaseDialog
 view ConfirmDialog
 controller CreateUseCaseController
 controller OpenUseCasesController
-model UseCaseEntities
-model UseCaseEntity
+model UseCaseDao
+model UseCase
 
 user -right-> UseCasesManagementView
 note on link
@@ -20,6 +20,9 @@ user -right-> CreateUseCaseDialog
 note on link
 setName(name)
 setRole(role)
+end note
+user -right-> ConfirmDialog
+note on link
 confirm()
 cancel()
 end note
@@ -35,7 +38,7 @@ CreateUseCaseDialog -right-> CreateUseCaseController
 note on link
  createUseCase(useCase)
 end note
-CreateUseCaseDialog -right-> UseCaseEntity
+CreateUseCaseDialog -right-> UseCase
 note on link
 new UseCase()
 end note
@@ -43,15 +46,15 @@ UseCasesManagementView -right-> OpenUseCasesController
 note on link
 readUseCases()
 end note
-CreateUseCaseController -right-> UseCaseEntities
+CreateUseCaseController -right-> UseCaseDao
 note on link
 create(useCase)
 end note
-CreateUseCaseController -down-> UseCaseEntity
-OpenUseCasesController -down-> UseCaseEntities
+CreateUseCaseController -down-> UseCase
+OpenUseCasesController -down-> UseCaseDao
 note on link
 readUseCases()
 end note
-UseCaseEntities *-down-> UseCaseEntity
+UseCaseDao *-down-> UseCase
 
 @enduml

@@ -4,18 +4,11 @@
 !include configuration/definitions.puml
 
 actor user
-view CloseSystemView
+view MenuView
 
-controller CloseSystemController
-
-user -right-> CloseSystemView
+user -right-> MenuView
 note on link
 closeSystem()
-end note
-
-CloseSystemView -right-> CloseSystemController
-note on link
- closeSystem()
 end note
 
 @enduml
