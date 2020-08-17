@@ -1,0 +1,26 @@
+@startuml
+scale 1200 width
+
+package controllers {
+    class StartSystemController
+    class CloseSystemController
+    class PlanProjectController
+    class OpenPhasesController
+    class OpenIterationsController
+    class OpenIterationsController
+    class AssignActivityController
+    class ReestimateActivityController
+    class MergeActivityController
+    class SplitActivityController
+    class CloseActivityController
+    class OpenMembersController
+    class CreateMemberController
+    class UpdateMemberController
+    class DeleteMemberController
+    class OpenUseCasesController
+    class CreateUseCaseController
+    class UpdateUseCaseController
+    class DeleteUseCaseController
+    class PrioritizeUseCasesController
+}
+@enduml
