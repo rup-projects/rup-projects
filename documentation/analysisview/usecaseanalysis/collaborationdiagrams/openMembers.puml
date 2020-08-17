@@ -5,23 +5,51 @@
 
 actor user
 view MembersManagementView
+view UseCasesManagementView
+view ProjectManagementView
 controller OpenMembersController
 model MemberEntities
 model MemberEntity
 
-user -down-> MembersManagementView
+user -down-> ProjectManagementView
 note on link
 openMembers()
+end note
+
+user -down-> UseCasesManagementView
+note on link
+openMembers()
+end note
+
+ProjectManagementView --> MembersManagementView
+note on link
+    openMembers()
+end note
+
+UseCasesManagementView --> MembersManagementView
+note on link
+    openMembers()
 end note
 
 MembersManagementView -right-> OpenMembersController
 note on link
 readMembers()
 end note
+
+MembersManagementView --> MemberEntity
+note on link
+    getName()
+    getRoles()
+    getEmail()
+end note
+
 OpenMembersController -right-> MemberEntities
 note on link
 readMembers()
 end note
-MemberEntities *-down-> MemberEntity
+
+OpenMembersController -- "0..*" MemberEntity
+
+MemberEntities *-down- MemberEntity
 
 @enduml
