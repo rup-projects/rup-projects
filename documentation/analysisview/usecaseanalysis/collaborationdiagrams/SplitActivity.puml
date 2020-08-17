@@ -20,12 +20,13 @@ splitActivity()
 end note
 user -down-> SplitActivityView
 note on link
-gettipeActivity()
+getTipeActivity()
 getDescriptionActivity()
 getAssignedCost()
 confirm()
 cancel()
 end note
+
 SplitActivityView -left-> ConfirmDialog
 
 IterationView -down-> SplitActivityView
@@ -38,12 +39,12 @@ note on link
     getIteration(currentIteration)
 end note
 
-
 SplitActivityView -down-> SplitActivityController
-note on link
-    SplitActivity(typeActivity, 
+note on link 
+    splitActivity(typeActivity, 
     		descriptionActivity, 
     		assignedCost)
+    updateNotAsignerCost()
 end note
 
 SplitActivityController -down-> ActivitiesDAO
