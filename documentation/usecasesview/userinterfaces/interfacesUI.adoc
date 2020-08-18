@@ -1,121 +1,183 @@
-== Iteration management
+= UI Interfaces
 
 [#_index]
-=== Index
+== Index
 
-<<_OpenIterationInProgress>>
+* INIT PROJECT
+** <<_initProject>>
+** <<_planProject>>
 
-<<_OpenIterationSelectUsecases>>
+* PROJECT MANAGEMENT
+** <<_projectManagement>>
 
-<<_MergeActivity>>
+* MEMBER MANAGEMENT
+** <<_memberManagement>>
 
-<<_ReestimateActivity>>
-
-<<_ReestimateActivityNextStep>>
-
-<<_SplitActivity>>
-
-<<_AssignActivityToMember>>
-
-<<_AssignActivityReturnToNotAssignedCost>>
-
-<<_CloseActivity>>
-
-<<_CloseActivityNextStep>>
-
-<<_CloseActivityLastStep>>
+* USECASE MANAGEMENT
+** <<_usecaseManagement>>
 
 
-= Update Member
-[plantuml,svg,align="center"]
-----
-include::flows/iterationManagement.puml[]
-----
+* ITERATION MANAGEMENT
+** <<_mergeActivity>>
+** <<_reestimateActivity>>
+** <<_splitActivity>>
+** <<_assignActivityToMember>>
+** <<_closeActivity>>
 
-[#_OpenIterationInProgress]
-=== Open iteration in progress
-
-image::https://share.balsamiq.com/c/6e6SMgKPvjCdVPsDgyFv5w.png[]
-
-<<_index>>
-
-[#_OpenIterationSelectUsecases]
-=== Open iteration select usecases
-
-image::https://share.balsamiq.com/c/c1Mkbx1NQ3BQJqNYZv6PE7.png[]
-
-<<_index>>
-
-[#_MergeActivity]
-=== Merge activity
-
-image::https://share.balsamiq.com/c/qNLm4uBkSCzAhXH9ZkoT5B.png[]
-
-<<_index>>
-
-[#_ReestimateActivity]
-=== Reestimate activity
-
-image::https://share.balsamiq.com/c/c1bQ5MuY6C5Md2UM777s1w.png[]
-
-<<_index>>
-
-[#_ReestimateActivityNextStep]
-=== Reestimate activity next step
-
-image::https://share.balsamiq.com/c/9uQNnhyt3rtyhKqaxBxSAt.png[]
-
-<<_index>>
-
-[#_SplitActivity]
-=== Split activity
-
-image::https://share.balsamiq.com/c/qJYZaLz8NqAdeFjKJASEVB.png[]
-
-<<_index>>
-
-[#_AssignActivityToMember]
-=== Assign activity (to member)
-
-image::https://share.balsamiq.com/c/9gJgaXEo55Z6VXgciWYB49.png[]
-
-<<_index>>
-
-[#_AssignActivityReturnToNotAssignedCost]
-=== Assign activity (return to NotAssignedCost)
-
-image::https://share.balsamiq.com/c/fHgurhNGbnCQpyNvzRoANm.png[]
-
-<<_index>>
-
-[#_CloseActivity]
-=== Close activity
-
-image::https://share.balsamiq.com/c/gJ7qYvK2VEuuNAFAFjJtwo.png[]
-
-<<_index>>
-
-[#_CloseActivityNextStep]
-=== Close activity next step
-
-image::https://share.balsamiq.com/c/9UKQQiTsruF5q3LnkgbTmC.png[]
-
-<<_index>>
-
-[#_CloseActivityLastStep]
-=== Close activity last step
-
-image::https://share.balsamiq.com/c/nPUu3xKwZ4epXSKbip5RYs.png[]
-
-<<_index>>
-
-image::https://share.balsamiq.com/c/iZj7bpXJVoWa47qPr5dMwV.png[]
-
-image::https://share.balsamiq.com/c/o6eJ12SWA1sigq7na7iuEg.png[]
-
+[#_initProject]
+== Init Project
 
 image::https://share.balsamiq.com/c/riuCQFtjDogoQoA2p7YgUB.png[]
+
+* <<_planProject>>
+
+* <<_projectManagement>>
+
+** <<_index>>
+
+[#_planProject]
+== Plan Project
 
 image::https://share.balsamiq.com/c/dsbQacGeZgtcfZhQpgesHi.png[]
 
 image::https://share.balsamiq.com/c/qJoFTguYy77vzgiYemSEj6.png[]
+
+* <<_initProject>>
+* <<_projectManagement>>
+
+** <<_index>>
+
+[#_projectManagement]
+== Project Management
+
+image::https://share.balsamiq.com/c/iZj7bpXJVoWa47qPr5dMwV.png[]
+
+
+
+image::https://share.balsamiq.com/c/o6eJ12SWA1sigq7na7iuEg.png[]
+
+* <<_initProject>>
+* <<_usecaseManagement>>
+* <<_memberManagement>>
+* <<_iterationManagement>>
+** <<_index>>
+
+[#_usecaseManagement]
+== Usecase Management
+
+image::https://share.balsamiq.com/c/gViP8S2Mu926xNmkKzMXp9.png[]
+
+=== Create usecase
+
+image::https://share.balsamiq.com/c/mtCBbTkSqcrP9tr4TC1sg6.png[]
+
+
+=== Update usecase
+
+image::https://share.balsamiq.com/c/rNCGG3X8q7y4uckZTpmdN2.png[]
+
+=== Delete usecase
+
+image::https://share.balsamiq.com/c/i75aDY9RXfxsqjkSvGAy8P.png[]
+
+* <<_initProject>>
+* <<_usecaseManagement>>
+* <<_memberManagement>>
+* <<_iterationManagement>>
+** <<_index>>
+
+
+[#_memberManagement]
+== Member Management
+
+image::https://share.balsamiq.com/c/m8ZYkthpBqcxEXcjKaZuHk.png[]
+
+=== Create member
+
+image::https://share.balsamiq.com/c/7aJRpBgnz4N7WsgLdi3hZ7.png[]
+
+
+=== Update member
+
+image::https://share.balsamiq.com/c/m6SaY4badmmHRonaNua71p.png[]
+
+
+=== Delete member
+
+image::https://share.balsamiq.com/c/btEKp7cr1fhW4R21ZW5xnc.png[]
+
+* <<_initProject>>
+* <<_usecaseManagement>>
+* <<_memberManagement>>
+* <<_iterationManagement>>
+** <<_index>>
+
+[#_iterationManagement]
+== Iteration Management
+
+=== Open iteration select usecases
+
+image::https://share.balsamiq.com/c/c1Mkbx1NQ3BQJqNYZv6PE7.png[]
+
+=== Open existent iteration
+
+image::https://share.balsamiq.com/c/6e6SMgKPvjCdVPsDgyFv5w.png[]
+
+* <<_usecaseManagement>>
+* <<_memberManagement>>
+* <<_projectManagement>>
+** <<_index>>
+
+
+[#_mergeActivity]
+=== Merge activity
+
+image::https://share.balsamiq.com/c/qNLm4uBkSCzAhXH9ZkoT5B.png[]
+
+* <<_iterationManagement>>
+** <<_index>>
+
+
+[#_reestimateActivity]
+=== Reestimate activity
+
+image::https://share.balsamiq.com/c/c1bQ5MuY6C5Md2UM777s1w.png[]
+
+* <<_iterationManagement>>
+** <<_index>>
+
+image::https://share.balsamiq.com/c/9uQNnhyt3rtyhKqaxBxSAt.png[]
+
+* <<_iterationManagement>>
+** <<_index>>
+
+[#_splitActivity]
+=== Split activity
+
+image::https://share.balsamiq.com/c/qJYZaLz8NqAdeFjKJASEVB.png[]
+
+* <<_iterationManagement>>
+** <<_index>>
+
+[#_assignActivityToMember]
+=== Assign activity (to member)
+
+image::https://share.balsamiq.com/c/9gJgaXEo55Z6VXgciWYB49.png[]
+
+=== Assign activity (return to NotAssignedCost)
+
+image::https://share.balsamiq.com/c/fHgurhNGbnCQpyNvzRoANm.png[]
+
+* <<_iterationManagement>>
+** <<_index>>
+
+[#_closeActivity]
+=== Close activity
+
+image::https://share.balsamiq.com/c/gJ7qYvK2VEuuNAFAFjJtwo.png[]
+image::https://share.balsamiq.com/c/9UKQQiTsruF5q3LnkgbTmC.png[]
+image::https://share.balsamiq.com/c/nPUu3xKwZ4epXSKbip5RYs.png[]
+
+* <<_iterationManagement>>
+** <<_index>>
+
