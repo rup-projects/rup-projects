@@ -1,8 +1,0 @@
-@startuml
-!unquoted procedure SALT($x)
-"{{
-salt
-%invoke_procedure("_"+$x)
-}}" as $x
-!endprocedure
-@enduml

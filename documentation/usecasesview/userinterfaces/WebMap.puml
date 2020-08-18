@@ -1,18 +1,5 @@
 @startuml
 
-!include procedures/SaltProcedure.puml
-!include procedures/project/ProjectManagement.puml
-!include procedures/project/PlanProject.puml
-!include procedures/project/InitProject.puml
-!include procedures/usecases/UsecasesManagementUI.puml
-!include procedures/usecases/CreateUsecaseUI.puml
-!include procedures/usecases/DeleteUsecaseUI.puml
-!include procedures/usecases/UpdateUsecaseUI.puml
-!include procedures/usecases/PrioritizeUsecasesUI.puml
-!include procedures/members/MemberManagement.puml
-!include procedures/members/CreateMemberUI.puml
-!include procedures/members/DeleteMemberUI.puml
-!include procedures/members/UpdateMemberUI.puml
 
 skinparam {
     NoteBackgroundColor #whiteSmoke
@@ -20,64 +7,77 @@ skinparam {
 }
 
 (*) -down-> "<img:https://share.balsamiq.com/c/riuCQFtjDogoQoA2p7YgUB.png>" as initProject #LawnGreen
-initProject -right-> "<img:https://share.balsamiq.com/c/dsbQacGeZgtcfZhQpgesHi.png>" as planProject
+
+initProject -down-> "<img:https://share.balsamiq.com/c/dsbQacGeZgtcfZhQpgesHi.png>" as planProject
     note on link
         plan project
     end note
 
-planProject -right-> "<img:https://share.balsamiq.com/c/qJoFTguYy77vzgiYemSEj6.png>" as planProject2
+planProject -down-> "<img:https://share.balsamiq.com/c/qJoFTguYy77vzgiYemSEj6.png>" as planProjectTwo
 
-planProject2 -down-> "<img:https://share.balsamiq.com/c/o6eJ12SWA1sigq7na7iuEg.png>" as projectManagement #LawnGreen
+planProjectTwo -down-> "<img:https://share.balsamiq.com/c/iZj7bpXJVoWa47qPr5dMwV.png>" as projectManagementPhases #LawnGreen
 note on link
     openPhases
 end note
 
-projectManagement -right-> SALT(memberManagement) #LawnGreen
+projectManagementPhases -left-> "<img:https://share.balsamiq.com/c/o6eJ12SWA1sigq7na7iuEg.png>" as projectManagementIterations #LawnGreen
+note on link
+    openIterations
+end note
+
+projectManagementIterations -right-> projectManagementPhases
+
+initProject -down--> projectManagementPhases
+note on link
+    openProject
+end note
+
+projectManagementPhases --------right-------> "<img:https://share.balsamiq.com/c/m8ZYkthpBqcxEXcjKaZuHk.png>" as memberManagement #LawnGreen
     note on link
         openMembers
     end note
 
-memberManagement --> SALT(createMemberUI)
+memberManagement -up-> "<img:https://share.balsamiq.com/c/7aJRpBgnz4N7WsgLdi3hZ7.png>" as createMemberUI
 note on link
     create member
 end note
 
-memberManagement --> SALT(deleteMemberUI)
+memberManagement -right-> "<img:https://share.balsamiq.com/c/btEKp7cr1fhW4R21ZW5xnc.png>" as deleteMemberUI
 note on link
     delete member
 end note
 
-memberManagement --> SALT(updateMemberUI)
+memberManagement --> "<img:https://share.balsamiq.com/c/m6SaY4badmmHRonaNua71p.png>" as updateMemberUI
 note on link
     update member
 end note
 
-projectManagement -left-> SALT(usacasesManagement) #LawnGreen
+projectManagementIterations -----------left----------> "<img:https://share.balsamiq.com/c/gViP8S2Mu926xNmkKzMXp9.png>" as usacasesManagement #LawnGreen
 note on link
     openUsecases
 end note
 
-usacasesManagement --> SALT(createUsecaseUI)
+usacasesManagement -up-> "<img:https://share.balsamiq.com/c/mtCBbTkSqcrP9tr4TC1sg6.png>" as createUsecase
 note on link
     create usecase
 end note
 
-usacasesManagement --> SALT(deleteUsecaseUI)
+usacasesManagement --> "<img:https://share.balsamiq.com/c/i75aDY9RXfxsqjkSvGAy8P.png>" as deleteUsecase
 note on link
     delete usecase
 end note
 
-usacasesManagement --> SALT(updateUsecaseUI)
+usacasesManagement -left-> "<img:https://share.balsamiq.com/c/rNCGG3X8q7y4uckZTpmdN2.png>" as updateUsecase
 note on link
     update usecase
 end note
 
-usacasesManagement --> SALT(prioritizeUsecasesUI)
+usacasesManagement --> "<img:https://share.balsamiq.com/c/3Dt74XPi2QoyBPuNYfEuxg.png>" as  prioritizeUseCases
 note on link
  prioritize Usecases
 end note
 
-projectManagement -down-> "<img:https://share.balsamiq.com/c/6e6SMgKPvjCdVPsDgyFv5w.png>" as iterationManagement #LawnGreen
+projectManagementPhases -down-------> "<img:https://share.balsamiq.com/c/6e6SMgKPvjCdVPsDgyFv5w.png>" as iterationManagement #LawnGreen
 note on link
     open iteration
 end note
