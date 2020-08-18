@@ -8,8 +8,8 @@ view MembersManagementView
 view UseCasesManagementView
 view ProjectManagementView
 controller OpenMembersController
-model MemberEntities
-model MemberEntity
+model MembersDAO
+model Member
 
 user -down-> ProjectManagementView
 note on link
@@ -36,20 +36,20 @@ note on link
 readMembers()
 end note
 
-MembersManagementView --> MemberEntity
+MembersManagementView --> Member
 note on link
     getName()
     getRoles()
     getEmail()
 end note
 
-OpenMembersController -right-> MemberEntities
+OpenMembersController -right-> MembersDAO
 note on link
 readMembers()
 end note
 
-OpenMembersController -- "0..*" MemberEntity
+OpenMembersController -- "0..*" Member
 
-MemberEntities *-down- MemberEntity
+MembersDAO *-down- Member
 
 @enduml

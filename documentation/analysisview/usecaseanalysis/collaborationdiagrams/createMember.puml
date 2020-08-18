@@ -9,8 +9,8 @@ view CreateMemberDialog
 view ConfirmDialog
 controller CreateMemberController
 controller OpenMembersController
-model MemberEntities
-model MemberEntity
+model MembersDAO
+model Member
 
 user -right-> MembersManagementView
 note on link
@@ -30,12 +30,14 @@ end note
 CreateMemberDialog -down-> ConfirmDialog
 note on link
 new ConfirmDialog()
+confirm()
+cancel()
 end note
 CreateMemberDialog -right-> CreateMemberController
 note on link
  createMember(member)
 end note
-CreateMemberDialog -right-> MemberEntity
+CreateMemberDialog -right-> Member
 note on link
 new Member()
 end note
@@ -43,15 +45,15 @@ MembersManagementView -right-> OpenMembersController
 note on link
 readMembers()
 end note
-CreateMemberController -right-> MemberEntities
+CreateMemberController -right-> MembersDAO
 note on link
 create(member)
 end note
-CreateMemberController -down-> MemberEntity
-OpenMembersController -down-> MemberEntities
+CreateMemberController -down- Member
+OpenMembersController -down-> MembersDAO
 note on link
 readMembers()
 end note
-MemberEntities *-down-> MemberEntity
+MembersDAO *-down- Member
 
 @enduml

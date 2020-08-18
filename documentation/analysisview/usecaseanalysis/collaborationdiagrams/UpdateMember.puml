@@ -10,8 +10,8 @@ actor user
 view MembersView
 controller UpdateMemberController
 controller OpenMembersController as ":OpenMembersController"
-model MemberEntities
-model MemberEntity
+model MembersDAO
+model Member
 
 user -right-> MembersView
 note on link
@@ -35,7 +35,7 @@ note on link
 end note
 
 
-MembersView --> MemberEntity
+MembersView --> Member
 note on link
     getName()
     getRoles()
@@ -43,20 +43,20 @@ note on link
     setRoles(rolesList)
 end note
 
-UpdateMemberController --> MemberEntities
+UpdateMemberController --> MembersDAO
 note on link
     readMember(memberId)
     updateMember(memberId, member)
 end note
 
-UpdateMemberController -- MemberEntity
+UpdateMemberController -- Member
 
-OpenMembersController --> MemberEntities
+OpenMembersController --> MembersDAO
 note on link
 readMembers()
 end note
 
-MemberEntities -- MemberEntity
+MembersDAO -- Member
 
 
 @enduml
