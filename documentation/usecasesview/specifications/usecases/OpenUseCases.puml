@@ -1,28 +1,39 @@
 @startuml
-    skinparam {
-        NoteBackgroundColor #whiteSmoke
-        ArrowColor #green
-        NoteBorderColor #green
-    }
-    state 0 as ":PROJECT_MANAGEMENT"
-    state 2 as ":MEMBERS_MANAGEMENT"
-    state 3 as ":DISCIPLINES_MANAGEMENT"
+!include ../StateDiagramsSetUp.puml
 
-    0 --> OpenUsecases
+PROJECT_MANAGEMENT --> OpenUsecases
+note on link
+        User requests to open usecases
+    end note
+MEMBERS_MANAGEMENT --> OpenUsecases
+note on link
+        User requests to open usecases
+    end note
+DISCIPLINES_MANAGEMENT --> OpenUsecases
+note on link
+        User requests to open usecases
+    end note
 
-    2 --> OpenUsecases
+    USE_CASES_MANAGEMENT --> OpenUsecases
 
-
-    3 --> OpenUsecases
-
-state OpenUsecases{
-
+state OpenUsecases {
     [*] --> [*]
-        note on link
-            User requests to open usecases
+    note on link
+        <b>System shows</b>
+        * all use cases sorted by priority
         end note
 }
 
-OpenUsecases --> ShowUseCases
+OpenUsecases --> USECASES_MANAGEMENT
+    note on link
+    <b>System allows</b>
+    * prioritize usecases
+    * create usecase
+    * update usecase
+    * delete usecase
+    * open iterations
+    * open iteration
+    * open members
+    end note
 
 @enduml

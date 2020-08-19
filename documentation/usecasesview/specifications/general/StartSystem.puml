@@ -1,10 +1,6 @@
 @startuml
+!include ../StateDiagramsSetUp.puml
 
-    skinparam {
-        NoteBackgroundColor #whiteSmoke
-        ArrowColor #green
-        NoteBorderColor #green
-    }
 state 4 as ":INIT_PROJECT"
 
 [*] --> StartSystem
