@@ -1,19 +1,5 @@
 @startuml
 
-!include procedures/SaltProcedure.puml
-!include procedures/project/ProjectManagement.puml
-!include procedures/project/PlanProject.puml
-!include procedures/project/InitProject.puml
-!include procedures/usecases/UsecasesManagementUI.puml
-!include procedures/usecases/CreateUsecaseUI.puml
-!include procedures/usecases/DeleteUsecaseUI.puml
-!include procedures/usecases/UpdateUsecaseUI.puml
-!include procedures/usecases/PrioritizeUsecasesUI.puml
-!include procedures/members/MemberManagement.puml
-!include procedures/members/CreateMemberUI.puml
-!include procedures/members/DeleteMemberUI.puml
-!include procedures/members/UpdateMemberUI.puml
-
 skinparam {
     NoteBackgroundColor #whiteSmoke
     StateBackgroundColor #green
@@ -21,11 +7,11 @@ skinparam {
 
 (*) -down-> "<img:https://share.balsamiq.com/c/riuCQFtjDogoQoA2p7YgUB.png>" as initProject #LawnGreen
 
-initProject -down-> "<img:https://share.balsamiq.com/c/iZj7bpXJVoWa47qPr5dMwV.png><img:https://share.balsamiq.com/c/o6eJ12SWA1sigq7na7iuEg.png>" as projectManagement #LawnGreen
+initProject -down-> "<img:https://share.balsamiq.com/c/iZj7bpXJVoWa47qPr5dMwV.png>" as projectManagement #LawnGreen
 
-projectManagement -right-> SALT(memberManagement) #LawnGreen
+projectManagement -right-> "<img:https://share.balsamiq.com/c/gViP8S2Mu926xNmkKzMXp9.png>" #LawnGreen
 
-projectManagement -left-> SALT(usacasesManagement) #LawnGreen
+projectManagement -left-> "<img:https://share.balsamiq.com/c/m8ZYkthpBqcxEXcjKaZuHk.png>" #LawnGreen
 
 projectManagement -down-> "<img:https://share.balsamiq.com/c/6e6SMgKPvjCdVPsDgyFv5w.png>" as iterationManagement #LawnGreen
 note on link
