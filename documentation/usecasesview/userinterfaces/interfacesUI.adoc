@@ -160,13 +160,13 @@ image::https://share.balsamiq.com/c/qJYZaLz8NqAdeFjKJASEVB.png[]
 ** <<_index>>
 
 [#_assignActivityToMember]
-=== Assign activity (to member)
+=== Assign not assigned activity to member
 
 image::https://share.balsamiq.com/c/9gJgaXEo55Z6VXgciWYB49.png[]
 
 === Assign activity (return to NotAssignedCost)
 
-image::https://share.balsamiq.com/c/fHgurhNGbnCQpyNvzRoANm.png[]
+image::https://share.balsamiq.com/c/6iAMZNDXGxFfWZbdHxykac.png[]
 
 * <<_iterationManagement>>
 ** <<_index>>
