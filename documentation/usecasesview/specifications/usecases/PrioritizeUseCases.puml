@@ -5,58 +5,60 @@ USECASE_MANAGEMENT --> prioritizeUseCases
 
 state prioritizeUseCases {
 
-    state 1 as " "
-    state 2 as " "
-    state 8 as " "
-    state 9 as " "
+state 1 as " "
+state 2 as " "
+state 12 as " "
+state 13 as " "
+
 
     [*] --> 1
     note on link
         User requests to prioritize use cases
     end note
 
-    1 --> 2
-    note on link
-    <b>System requires</b>
-    * the use case to be prioritized
-    end note
+1 --> 2
+note on link
+<b>System shows</b>
+* all useCases
+** name
+** prioritization
+<b>System allows</b>
+* provide usecase prioritization
+* confirm prioritization
+* cancel
+end note
 
-    2 --> 8
-    note on link
-    <b>User provides</b>
-    * a use case to be prioritized
-    end note
+2 --> 1
+note on link
+<b>User provides</b>
+* usecase prioritization
+end note
 
-    8 --> 9
-    note on link
+2 --> 12
+note on link
+    <b> User requests to </b>
+    * confirm
+end note
+
+12 --> [*]
+note on link
     <b>System shows</b>
-    * provided use case prioritization
-    <b>System requires</b>
-    * the priority for the use case
-    <b>System allows</b>
+    * Use cases has been prioritized
+end note
+
+'Variation path
+2 -[#red]-> 13
+note on link
+    <b>User requests to</b>
     * cancel
-    end note
+end note
 
-    9 --> SaveConfirmation
-    note on link
-        <b>User provides</b>
-        * the priority for the use case
-    end note
+13 -[#red]-> [*]
+note on link
+<b>System shows</b>
+* prioritization cancelled
+end note
 
-    SaveConfirmation --> OpenUseCases
-    OpenUseCases --> [*]
-}
-
-prioritizeUseCases --> USECASES_MANAGEMENT
-    note on link
-    <b>System allows</b>
-    * prioritize usecases
-    * create usecase
-    * update usecase
-    * delete usecase
-    * open iterations
-    * open iteration
-    * open members
-    end note
+prioritizeUseCases --> ShowUseCases
 
 @enduml

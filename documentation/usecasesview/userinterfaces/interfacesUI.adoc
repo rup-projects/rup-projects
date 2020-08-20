@@ -67,6 +67,10 @@ image::https://share.balsamiq.com/c/o6eJ12SWA1sigq7na7iuEg.png[]
 
 image::https://share.balsamiq.com/c/gViP8S2Mu926xNmkKzMXp9.png[]
 
+=== Prioritize usecases
+
+image::https://share.balsamiq.com/c/3Dt74XPi2QoyBPuNYfEuxg.png[]
+
 === Create usecase
 
 image::https://share.balsamiq.com/c/mtCBbTkSqcrP9tr4TC1sg6.png[]
