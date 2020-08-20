@@ -1,25 +1,15 @@
 @startuml
-    skinparam {
-        NoteBackgroundColor #whiteSmoke
-        ArrowColor #green
-        NoteBorderColor #green
-    }
+!include ../StateDiagramsSetUp.puml
 
 'Initial/end states
 state init as "USE_CASE_MANAGEMENT"
 
 init ---> UpdateUseCase
-UpdateUseCase ---> ShowUseCases
 
 'Use case specfication
 state UpdateUseCase {
     state updateOrdered as " "
     state requiredUseCaseToUpdate as " "
-    state selectedUseCase as " "
-    state editUseCase as " "
-    state editedUseCase  <<choice>>
-    state requireToConfirm  as " "
-    state errorValidation as " "
 
     'Main path
     [*] --> updateOrdered
@@ -32,52 +22,33 @@ state UpdateUseCase {
         <b>System require</b>
         * The use case to be updated
     end note
-    requiredUseCaseToUpdate --> selectedUseCase
+    requiredUseCaseToUpdate --> Form
     note on link
         <b>User provide</b>
         * The use case to update
     end note
-    selectedUseCase --> editUseCase
-    note on link
-        <b>System shows</b>
-        * use case name
-        <b>System require</b>
-        * use case name
-    end note
-    editUseCase --> editedUseCase
-    note on link
-        <b>User provide</b>
-        * name
-    end note
-    editedUseCase --> toConfirm
-    toConfirm --> requireToConfirm
-            note on link
-            <b>System allow</b>
-            * confirm
-            * cancel
-            end note
-    requireToConfirm --> [*]
-        note on link
-        <b>User</b> confirm
+
+    Form --> SaveConfirmation
+    note right of Form
+          <b>Fields</b>
+          * name [required] [unique] [length > 5 && < 25 ]
+          * description [optional] [length > 5 && < 200 ]
         end note
+    SaveConfirmation --> OpenUseCases
 
-    'variation path
-    editedUseCase -[#red]-> errorValidation
-        note on link
-        [ length(useCaseName) out of 5,25 ]
-        end note
-
-    errorValidation -[#red]-> selectedUseCase
-            note on link
-            <b>System shows</b>
-            * The name length is not correct
-            end note
-
-    'variation path
-    requireToConfirm -[#red]-> [*]
-    note on link
-          <b>User</b> cancel
-    end note
+    OpenUseCases --> [*]
 }
+
+UpdateUseCase --> USECASES_MANAGEMENT
+    note on link
+    <b>System allows</b>
+    * prioritize usecases
+    * create usecase
+    * update usecase
+    * delete usecase
+    * open iterations
+    * open iteration
+    * open members
+    end note
 
 @enduml

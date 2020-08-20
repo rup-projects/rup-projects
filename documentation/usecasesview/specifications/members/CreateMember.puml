@@ -1,77 +1,27 @@
 @startuml
-
-    skinparam {
-        NoteBackgroundColor #whiteSmoke
-        ArrowColor #green
-        NoteBorderColor #green
-    }
+!include ../StateDiagramsSetUp.puml
 
 state 6 as " :MEMBER_MANAGEMENT"
 
 [*] --> createMember
+
+state createMember {
+
+[*] --> Form
 note on link
     User requests to create Member
 end note
 
-state createMember {
-state 1 as " "
-state 3 as " "
-state 4 <<choice>>
-state 5 as " "
-state 8 as " "
-state 7 as " "
-
-[*] --> 1
-note on link
-    <b>System requires</b>
-    * member name (required not empty)
-    * member roles
-    ** (one of the identified RUP roles for member)
-    <b>System allows</b>
-    * cancel member creation
+note right of Form
+      <b>Fields</b>
+      * name [required] [unique] [length > 5 && < 25 ]
+      * List<role> [required] [not empty]
 end note
 
-1 --> 3
-note on link
-    <b>User provides
-    * member name
-    * member roles
-end note
+Form --> SaveConfirmation
+SaveConfirmation --> OpenMembers
+OpenMembers --> [*]
 
-1 -[#red]-> 8
-note on link
-User requests to cancel member creation
-end note
-
-3 --> 4
-note on link
-    User requests to confirm member creation
-end note
-
-4 -[#red]-> 5
-note on link
-[member name already exists]
-end note
-
-5 -[#red]left-> 1
-note on link
-<b>System shows</b>
-* member name already exists
-end note
-
-4 --> 7
-
-7 --> [*]
-note on link
-    <b>System shows</b>
-    * member was created
-end note
-
-8 -[#red]-> [*]
-note on link
-    <b>System shows</b>
-    * Operation cancelled
-end note
 }
 
 createMember --> 6

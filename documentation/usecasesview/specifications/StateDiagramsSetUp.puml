@@ -1,0 +1,7 @@
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+}
+
+hide empty description

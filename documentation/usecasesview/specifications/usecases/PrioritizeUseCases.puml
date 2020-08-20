@@ -1,10 +1,5 @@
 @startuml
-    skinparam {
-        NoteBackgroundColor #whiteSmoke
-        ArrowColor #green
-        NoteBorderColor #green
-    }
-state ShowUseCases
+!include ../StateDiagramsSetUp.puml
 
 USECASE_MANAGEMENT --> prioritizeUseCases
 
@@ -16,10 +11,10 @@ state 12 as " "
 state 13 as " "
 
 
-[*] --> 1
-note on link
-    User requests to prioritize use cases
-end note
+    [*] --> 1
+    note on link
+        User requests to prioritize use cases
+    end note
 
 1 --> 2
 note on link

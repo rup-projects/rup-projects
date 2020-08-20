@@ -1,10 +1,5 @@
 @startuml
-
-    skinparam {
-        NoteBackgroundColor #whiteSmoke
-        ArrowColor #green
-        NoteBorderColor #green
-    }
+!include ../StateDiagramsSetUp.puml
 
     state ITERATION_MANAGEMENT_START as ":ITERATION_MANAGEMENT"
     state ITERATION_MANAGEMENT_END as ":ITERATION_MANAGEMENT"
@@ -22,6 +17,7 @@
         state 25 as " "
         state 26 as " "
         state 20 as " "
+        state 27 <<choice>>
         state 2 <<choice>>
         state 15 <<choice>>
 
@@ -75,8 +71,11 @@
     ** duration
     ** discipline
     ** type
+    <b>System requires</b>
+    * activity destination
+    ** member schedule
+    ** activity associated NotAssignedCost
     <b>System allows</b>
-    * confirm assign activity
     * cancel assign activity
     end note
 
@@ -92,10 +91,20 @@
     * cancel assign activity
     end note
 
-    25 --> 26
+    25 --> 27
     note on link
-    <b>User requests to</b>
-    * confirm assign activity
+    <b>User provides</b>
+    * assign destination
+    end note
+
+    27 --> 26
+    note on link
+        [activity associated NotAssignedCost destination]
+    end note
+
+    27 --> 14
+    note on link
+    [member schedule destination]
     end note
 
     26 --> [*]

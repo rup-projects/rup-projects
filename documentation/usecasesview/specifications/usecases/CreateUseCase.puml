@@ -1,87 +1,40 @@
 @startuml
-    skinparam {
-        NoteBackgroundColor #whiteSmoke
-        ArrowColor #green
-        NoteBorderColor #green
-    }
+!include ../StateDiagramsSetUp.puml
 
-'Initial/end states
-state init as "USE_CASE_MANAGEMENT"
+USE_CASE_MANAGEMENT ---> CreateUseCase
 
-init ---> CreateUseCase
-CreateUseCase ---> ShowUseCases
-
-'Use case specfication
 state CreateUseCase {
-    state createOrdered as " "
-    state editUseCase as " "
-    state editedUseCase  <<choice>>
-    state requireToConfirm  as " "
-    state errorValidation as " "
-    state toConfirm as " "
-    state systemSave as " "
 
     'Main path
-    [*] --> createOrdered
+    [*] --> Form
     note on link
         <b>User request</b>
         * to create a use case
     end note
 
-    createOrdered --> editUseCase
-    note on link
-        <b>System require</b>
-        * use case name
-        <b>System allows</b>
-        * Cancel
-    end note
-    editUseCase --> editedUseCase
-    note on link
-        <b>User provide</b>
-        * use case name
-    end note
-    editedUseCase --> toConfirm
-    toConfirm --> requireToConfirm
-            note on link
-            <b>System allow</b>
-             * confirm
-             * cancel
-            end note
-    requireToConfirm --> systemSave
-        note on link
-        <b>User</b> confirm
-        end note
-    systemSave --> [*]
-        note on link
-            <b>System shows</b>
-            * The use case has been created
-        end note
-
-
-    'variation path
-    editedUseCase -[#red]-> errorValidation
-        note on link
-        [ length(useCaseName) out of 5,25 ]
-        end note
-
-    errorValidation -[#red]-> createOrdered
-            note on link
-            <b>System shows</b>
-            * The name length is not correct
-            end note
-
-    'variation path
-    requireToConfirm -[#red]-> [*]
-    note on link
-          <b>User</b> cancel
+    note right of Form
+      <b>Fields</b>
+      * name [required] [unique] [length > 5 && < 25 ]
+      * description [optional] [length > 5 && < 200 ]
     end note
 
-    'variation path
-    editUseCase -[#red]-> [*]
-    note on link
-          <b>User</b> cancel
-    end note
+    Form --> SaveConfirmation
 
+    SaveConfirmation --> OpenUseCases
+
+    OpenUseCases --> [*]
 }
+
+CreateUseCase --> USECASES_MANAGEMENT
+    note on link
+    <b>System allows</b>
+    * prioritize usecases
+    * create usecase
+    * update usecase
+    * delete usecase
+    * open iterations
+    * open iteration
+    * open members
+    end note
 
 @enduml

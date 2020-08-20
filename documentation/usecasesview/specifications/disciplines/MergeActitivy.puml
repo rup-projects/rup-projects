@@ -1,10 +1,5 @@
 @startuml
-
-    skinparam {
-        NoteBackgroundColor #whiteSmoke
-        ArrowColor #green
-        NoteBorderColor #green
-    }
+!include ../StateDiagramsSetUp.puml
 
     state ITERATION_MANAGEMENT_STARTS as ":ITERATION_MANAGEMENT"
     state ITERATION_MANAGEMENT_ENDS as ":ITERATION_MANAGEMENT"
@@ -65,7 +60,7 @@
     14 -down-> 15
     note on link
         <b>User requests to</b>
-        * merge destination
+        * confirm merge
     end note
 
     20 -[#red]-> [*]

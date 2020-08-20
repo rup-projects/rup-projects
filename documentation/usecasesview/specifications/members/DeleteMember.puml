@@ -1,9 +1,5 @@
 @startuml
-    skinparam {
-        NoteBackgroundColor #whiteSmoke
-        ArrowColor #green
-        NoteBorderColor #green
-    }
+!include ../StateDiagramsSetUp.puml
 
 state init as "MEMBER_MANAGEMENT"
 state end as "MEMBER_MANAGEMENT"
@@ -15,44 +11,25 @@ end note
 
 state DeleteMemberUseCase {
     state initial as " "
-    state 6 as " "
-    state 5 as " "
-    [*]-->initial
+
+    [*] --> initial
     note on link
     <b>System required</b>
-    * member (without AssignActivities)
-    * Cancel
+    * member to delete (without AssignActivities)
     end note
 
-    5 --> [*]
-    note on link
-    <b>System show</b>
-    * successfull
-    end note
-
-
-    initial-->5
+    initial --> DeleteConfirmation
     note on link
     <b>User provides</b>
-    * member
+    * member to delete
     end note
 
-    initial -[#red]-> 6
-    note on link
-    <b>User requests</b>
-    * to cancel
-    end note
+    DeleteConfirmation --> OpenMembers
+    OpenMembers --> [*]
+}
 
-    6 -[#red]-> [*]
-    note on link
-    <b>System shows</b>
-    * operation cancelled
-    end note
-
-    DeleteMemberUseCase --> end
+DeleteMemberUseCase --> end
 note on link
-    <b>System shows</b>
-    * all members in the project, his names and roles
     <b>System allows</b>
     * create member
     * update member
@@ -61,5 +38,5 @@ note on link
     * open iteration
     * open use cases
 end note
-}
+
 @enduml
