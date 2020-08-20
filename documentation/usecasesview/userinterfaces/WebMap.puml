@@ -87,12 +87,10 @@ note on link
     split activity
 end note
 
-iterationManagement -down-> "<img:https://share.balsamiq.com/c/c1bQ5MuY6C5Md2UM777s1w.png>" as reestimaeteActivity
+iterationManagement -down-> "<img:https://share.balsamiq.com/c/9uQNnhyt3rtyhKqaxBxSAt.png>" as reestimaeteActivity
 note on link
     re estimate activity
 end note
-
-reestimaeteActivity -down-> "<img:https://share.balsamiq.com/c/9uQNnhyt3rtyhKqaxBxSAt.png>" as reestimaeteActivity2
 
 iterationManagement -down-> "<img:https://share.balsamiq.com/c/qNLm4uBkSCzAhXH9ZkoT5B.png>" as mergeActivity
 note on link
@@ -110,9 +108,8 @@ note on link
     close activity
 end note
 
-closeActivity -right-> "<img:https://share.balsamiq.com/c/9UKQQiTsruF5q3LnkgbTmC.png>" as closeActivity2
 
-closeActivity2 -right-> "<img:https://share.balsamiq.com/c/nPUu3xKwZ4epXSKbip5RYs.png>" as closeActivity3
+closeActivity -right-> "<img:https://share.balsamiq.com/c/nPUu3xKwZ4epXSKbip5RYs.png>" as closeActivity3
 
 @enduml
 

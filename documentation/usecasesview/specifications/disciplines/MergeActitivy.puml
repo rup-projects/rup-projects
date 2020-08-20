@@ -60,7 +60,7 @@
     14 -down-> 15
     note on link
         <b>User requests to</b>
-        * merge destination
+        * confirm merge
     end note
 
     20 -[#red]-> [*]
