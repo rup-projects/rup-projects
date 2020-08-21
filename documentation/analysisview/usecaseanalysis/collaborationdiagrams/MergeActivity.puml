@@ -18,12 +18,18 @@ user -right-> IterationView
 note on link
 mergeActivity()
 end note
+
 user -down-> MergeActivityView
 note on link
-getActivity()
+setActivity()
+end note
+
+user -down-> ConfirmDialog
+note on link
 confirm()
 cancel()
 end note
+
 MergeActivityView -left-> ConfirmDialog
 
 IterationView -down-> MergeActivityView
@@ -45,7 +51,7 @@ end note
 MergeActivityController -down-> ActivitiesDAO
 note on link
 updateNotAssignedCost()
-deleteActivity(activity)
+deleteActivity(activityId)
 end note
 
 OpenIterationController -down--> Iteration
@@ -54,7 +60,7 @@ note on link
 end note
 
 Iteration *-down- Activity
-ActivitiesDAO *-right- Activity
+ActivitiesDAO "use" -right-> Activity
 
 
 @enduml
