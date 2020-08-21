@@ -2,6 +2,7 @@
 !include ../StateDiagramsSetUp.puml
 
 state 12 as ":PROJECT_MANAGEMENT"
+state showIteration as ":ShowIteration"
 
     0 --> OpenIteration
     note on link
@@ -103,31 +104,11 @@ state OpenIteration {
             * Close system
     end note
 
-    20 --> ITERATION_MANAGEMENT
-    note on link
-     <b>System shows</b>
-     * iteration
-     ** identifier
-     ** start date
-     ** end date
-     * for each member
-     **assignedActivities in his datetime until end of current iteration
-     *** activity type
-     **** type as one of the existent RUP activities.
-     *** activity description
-     * for each discipline (requirements, analysis, design, implementation)
-     ** NotAssignedCost
-     ** NotAssignedActivities (with activity type)
-     <b>System allows</b>
-     * Split activity
-     * Assign activity
-     * Re-estimate activity
-     * Merge activity
-     * Open Iterations
-     * Open members
-     * Open usecases
-     * Close system
-    end note
+
+
+    20 --> showIteration
+
+   showIteration --> ITERATION_MANAGEMENT
 
     ITERATION_MANAGEMENT --> [*]
 

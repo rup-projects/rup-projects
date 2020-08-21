@@ -3,6 +3,7 @@
 
     state ITERATION_MANAGEMENT_STARTS as ":ITERATION_MANAGEMENT"
     state ITERATION_MANAGEMENT_ENDS as ":ITERATION_MANAGEMENT"
+    state showIteration as ":ShowIteration"
 
 
     ITERATION_MANAGEMENT_STARTS --> SplitActivity
@@ -81,22 +82,8 @@
     }
 
 
-    SplitActivity --> ITERATION_MANAGEMENT_ENDS
-    note on link
-             <b>System shows</b>
-             * for each member
-             **assignedActivities in his datetime until end of current iteration
-             * for each discipline (requirements, analysis, design, implementation)
-             ** NotAssignedCost
-             ** NotAssignedActivities (with activity type)
-             <b>System allows</b>
-             * Split activity
-             * Assign activity
-             * Re-estimate activity
-             * Merge activity
-             * Open members
-             * Open Iterations
-             * Close system
-        end note
+    SplitActivity --> showIteration
+
+    showIteration --> ITERATION_MANAGEMENT_ENDS
 
 @enduml
