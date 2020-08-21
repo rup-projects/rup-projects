@@ -1,0 +1,145 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+
+view PhaseView
+view OpenIterationSelectUseCasesView
+view IterationView
+
+controller ProjectManagementController
+controller OpenIterationsController
+
+model IterationDAO
+model ProjectDAO
+model Iteration
+model Discipline
+model Usecase
+model Activity
+model Member
+model Team
+model Project
+
+user -right-> PhaseView
+    note on link
+        openIteration(iterationId)
+    end note
+
+user -right-> OpenIterationSelectUseCasesView
+note on link
+    selectUsecase(usecaseId)
+    setDesiredRealization(usecaseId, desiredRealization)
+    confirmPlanIteration()
+    cancel()
+end note
+
+PhaseView --> IterationView
+    note on link
+        openIteration(iterationId)
+    end note
+
+IterationView -- OpenIterationSelectUseCasesView
+    note on link
+        --> new OpenIterationSelectUseCasesView(iterationId)
+        <-- openIteration(iterationId)
+    end note
+
+IterationView -right- Iteration
+note on link
+    getIteration()
+end note
+
+IterationView --> Team
+note on link
+ getTeam()
+end note
+
+OpenIterationSelectUseCasesView --> OpenIterationsController
+note on link
+    confirmPlanIteration(selectedUsecases)
+end note
+
+OpenIterationSelectUseCasesView --> Usecase
+note on link
+    setDesiredRealization(desiredRealization)
+end note
+
+OpenIterationSelectUseCasesView --> PhaseView
+note on link
+    cancel()
+end note
+
+IterationView -right-> OpenIterationsController
+note on link
+    openIteration(iterationId)
+    readTeam(projectid)
+end note
+
+PhaseView -down-> ProjectManagementController
+note on link
+    openPhases()
+end note
+
+OpenIterationsController -- "*" Usecase
+
+OpenIterationsController -- "1" Project
+
+OpenIterationsController -right- ProjectDAO
+note on link
+    readProject(ProjectId)
+end note
+
+OpenIterationsController -right-> IterationDAO
+note on link
+    updateIteration(iteration)
+    readIteration(iterationId)
+end note
+
+OpenIterationsController -right-> Iteration
+note on link
+    initNotAsignedCosts(selectedUsecases)
+    getDisciplines()
+end note
+
+OpenIterationsController -- Discipline
+
+Iteration *-- "6" Discipline
+note on link
+    initNotAsignedCost(usecases)
+    getDisciplines()
+end note
+
+Discipline *--> Activity
+note on link
+    getActivities()
+end note
+
+Activity --> Member
+note on link
+    getMember()
+    getStart()
+    getEnd()
+    getEnd()
+end note
+
+Activity -left-> Usecase
+note on link
+    getDescription()
+end note
+
+IterationDAO -- Iteration
+
+Team *-- Member
+note on link
+getMembers()
+end note
+
+Project *--- Team
+
+ProjectDAO -- Project
+
+
+@enduml
+
