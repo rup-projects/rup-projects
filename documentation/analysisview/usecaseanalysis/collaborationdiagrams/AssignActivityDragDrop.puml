@@ -1,0 +1,60 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+view IterationView
+
+controller AssignActivityController
+controller OpenIterationController
+
+model IterationDAO
+model ActivityDAO
+model TimeInterval
+model Activity
+model Member
+
+user -right-> IterationView
+note on link
+    assignActivity()
+    selectActivity()
+    moveTo(activityId, destination)
+    cancel()
+end note
+
+IterationView --> AssignActivityController
+note on link
+moveTo(activityId, member, startDatetime)
+end note
+
+IterationView -right-> OpenIterationController
+note on link
+    getIteration(currentIteration)
+end note
+
+OpenIterationController -down-> IterationDAO
+
+AssignActivityController --> Activity
+note on link
+    setMember(member)
+    setTimeInterval(startDateTime, activityDuration)
+end note
+
+AssignActivityController -- "*" Member
+
+
+AssignActivityController -down-> ActivityDAO
+note on link
+    read(activityId)
+    update(activity)
+end note
+
+ActivityDAO *--> Activity
+
+Activity o-- "1" TimeInterval
+Activity o-- Member
+
+
+
+@enduml
