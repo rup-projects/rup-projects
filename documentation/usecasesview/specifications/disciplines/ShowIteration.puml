@@ -1,0 +1,41 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+    state ITERATION_MANAGEMENT_END as "ITERATION_MANAGEMENT"
+
+    [*] --> showIteration
+
+    state showIteration {
+
+
+    [*] --> [*]
+      note on link
+         <b>System shows</b>
+         * iteration
+         ** identifier
+         ** start date
+         ** end date
+         * for each member
+         **assignedActivities in his datetime until end of current iteration
+         *** activity type
+         **** type as one of the existent RUP activities.
+         *** activity description
+         * for each discipline (requirements, analysis, design, implementation)
+         ** NotAssignedCost
+         ** NotAssignedActivities (with activity type)
+         <b>System allows</b>
+         * Split activity
+         * Assign activity
+         * Re-estimate activity
+         * Merge activity
+         * Open Iterations
+         * Open members
+         * Open usecases
+         * Close system
+        end note
+}
+
+showIteration --> ITERATION_MANAGEMENT_END
+
+
+@enduml
