@@ -14,6 +14,7 @@ controller OpenIterationsController
 collaboration collaboration_ShowIteration
 
 model IterationDAO
+model UsecaseDAO
 model Iteration
 model Discipline
 model Usecase
@@ -24,12 +25,12 @@ user -right-> PhaseView
     end note
 
 user -right-> OpenIterationSelectUseCasesView
-note on link
-    selectUsecase(usecaseId)
-    setDesiredRealization(usecaseId, desiredRealization)
-    confirmPlanIteration()
-    cancel()
-end note
+    note on link
+        selectUsecase(usecaseId)
+        setDesiredRealization(usecaseId, desiredRealization)
+        confirmPlanIteration()
+        cancel()
+    end note
 
 PhaseView -right-> IterationView
     note on link
@@ -48,8 +49,9 @@ note on link
  showIteration(iterationId)
 end note
 
-OpenIterationSelectUseCasesView --> OpenIterationsController
+OpenIterationSelectUseCasesView -right-> OpenIterationsController
 note on link
+    readUsercases(ProjectId)
     confirmPlanIteration(selectedUsecases)
 end note
 
@@ -73,11 +75,17 @@ note on link
     openPhase(phaseId)
 end note
 
-OpenIterationsController -- "*" Usecase
+OpenIterationsController -right- "*" Usecase
 
 OpenIterationsController -right-> IterationDAO
 note on link
     readIteration(iterationId)
+    updateIteration(iteration)
+end note
+
+OpenIterationsController -down--> UsecaseDAO
+note on link
+    readRequirements(iterationId)
     updateIteration(iteration)
 end note
 
@@ -86,14 +94,13 @@ note on link
     initNotAsignedCosts(selectedUsecases)
 end note
 
-OpenIterationsController -- Discipline
-
 Iteration *-- "6" Discipline
 note on link
     initNotAsignedCost(usecases)
 end note
 
 IterationDAO -- Iteration
+UsecaseDAO -- Usecase
 
 @enduml
 

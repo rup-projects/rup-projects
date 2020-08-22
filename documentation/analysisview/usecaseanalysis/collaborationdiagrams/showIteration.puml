@@ -3,32 +3,30 @@
 !include configuration/skinParams.puml
 !include configuration/definitions.puml
 
+skinparam linetype polyline
 
 view IterationView
 
 controller ShowIterationController
 
 model IterationDAO
-model ProjectDAO
+model MemberDAO
 model Iteration
 model Discipline
 model Usecase
 model Activity
 model Member
-model Team
-model Project
 
 IterationView -right-> ShowIterationController
 note on link
     readIteration(iterationId)
-    readTeam(projectid)
+    readMembers()
 end note
 
-IterationView -right- Iteration
+IterationView -right-> Iteration
 note on link
     getId()
     getTimeInterval()
-    getTeam().getMember().getName()
     getActivity().getTimeInterval()
     getActivity().getMember()
     getActivity().getType()
@@ -37,9 +35,14 @@ note on link
     getDiscipline().getNotAssignedCost()
 end note
 
-ShowIterationController -down- ProjectDAO
+IterationView -right-> Member
+    note on link
+        getName()
+    end note
+
+ShowIterationController -down-> MemberDAO
 note on link
-    readProject(ProjectId)
+    readMembers()
 end note
 
 ShowIterationController -down-> IterationDAO
@@ -47,13 +50,13 @@ note on link
     readIteration(iterationId)
 end note
 
-IterationDAO -- Iteration
-ProjectDAO -- Project
+IterationDAO --down- Iteration
+MemberDAO -down- Member
 
-ShowIterationController -right- "1" Project
-ShowIterationController -right- "1" Iteration
+ShowIterationController -down- "1" Iteration
+ShowIterationController -down- "*" Member
 
-Iteration *--> "6" Discipline
+Iteration *-right-> "6" Discipline
 note on link
     getName()
     getNotAssignedCost()
@@ -73,23 +76,10 @@ note on link
     getName()
 end note
 
-Activity -left-> Usecase
+Activity -right-> Usecase
 note on link
     getDescription()
 end note
-
-
-Team *-- Member
-note on link
-    getName()
-end note
-
-Project *-- "1" Team
-note on link
-getMembers()
-end note
-
-
 
 @enduml
 
