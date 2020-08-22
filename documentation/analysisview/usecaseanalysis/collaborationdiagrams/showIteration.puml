@@ -3,6 +3,7 @@
 !include configuration/skinParams.puml
 !include configuration/definitions.puml
 
+skinparam linetype polyline
 
 view IterationView
 
@@ -37,7 +38,7 @@ note on link
     getDiscipline().getNotAssignedCost()
 end note
 
-ShowIterationController -down- ProjectDAO
+ShowIterationController -right- ProjectDAO
 note on link
     readProject(ProjectId)
 end note
@@ -51,16 +52,16 @@ IterationDAO -- Iteration
 ProjectDAO -- Project
 
 ShowIterationController -right- "1" Project
-ShowIterationController -right- "1" Iteration
+ShowIterationController -- "1" Iteration
 
-Iteration *--> "6" Discipline
+Iteration *-right-> "6" Discipline
 note on link
     getName()
     getNotAssignedCost()
     getActivities()
 end note
 
-Discipline *--> "*" Activity
+Discipline *-right-> "*" Activity
 note on link
     getMember()
     getUsecase()
@@ -68,12 +69,12 @@ note on link
     getEnd()
 end note
 
-Activity --> Member
+Activity -right-> Member
 note on link
     getName()
 end note
 
-Activity -left-> Usecase
+Activity -down-> Usecase
 note on link
     getDescription()
 end note
@@ -84,7 +85,7 @@ note on link
     getName()
 end note
 
-Project *-- "1" Team
+Project *-right- "1" Team
 note on link
 getMembers()
 end note
