@@ -8,7 +8,7 @@ left to right direction
 actor user
 view InitProjectView
 controller StartSystemController
-model ProjectEntity
+model Project
 
 user --> InitProjectView
 note on link
@@ -20,7 +20,7 @@ note on link
 getProject()
 end note
 
-InitProjectView --> ProjectEntity
+InitProjectView --> Project
 note on link
     getStartDate()
     getEndDate()
@@ -29,7 +29,7 @@ note on link
     getIterationDuration()
 end note
 
-StartSystemController --> ProjectEntity
+StartSystemController --> Project
 note on link
 getProject()
 end note

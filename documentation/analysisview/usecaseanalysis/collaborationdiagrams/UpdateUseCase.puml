@@ -9,8 +9,8 @@ view UpdateUseCaseDialog
 view ConfirmDialog
 controller UpdateUseCaseController
 controller OpenUseCasesController
-model UseCaseEntities
-model UseCaseEntity
+model UseCaseDao
+model UseCase
 
 user -right-> UseCasesView
 note on link
@@ -35,7 +35,7 @@ UpdateUseCaseDialog -right-> UpdateUseCaseController
 note on link
  updateUseCase(useCase)
 end note
-UpdateUseCaseDialog -right-> UseCaseEntity
+UpdateUseCaseDialog -right-> UseCase
 note on link
 new UseCase()
 end note
@@ -43,15 +43,15 @@ UseCasesView -right-> OpenUseCasesController
 note on link
 readUseCases()
 end note
-UpdateUseCaseController -right-> UseCaseEntities
+UpdateUseCaseController -right-> UseCaseDao
 note on link
 update(useCase)
 end note
-UpdateUseCaseController -down-> UseCaseEntity
-OpenUseCasesController -down-> UseCaseEntities
+UpdateUseCaseController -down-> UseCase
+OpenUseCasesController -down-> UseCaseDao
 note on link
 readUseCases()
 end note
-UseCaseEntities *-down-> UseCaseEntity
+UseCaseDao *-down-> UseCase
 
 @enduml

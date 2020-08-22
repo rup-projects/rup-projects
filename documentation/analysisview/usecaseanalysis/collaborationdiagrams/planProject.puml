@@ -9,7 +9,7 @@ actor user
 view PlanProjectView
 view ConfirmDialog
 controller PlanProjectController
-model ProjectEntity
+model Project
 
 user -right-> PlanProjectView
 note on link
@@ -33,7 +33,7 @@ note on link
 [<b>response refreshEstimationPhases()<b>]
 estimatedPhases 
 end note
-PlanProjectController -right-> ProjectEntity
+PlanProjectController -right-> Project
 note on link
 new Project(projectData)
 end note

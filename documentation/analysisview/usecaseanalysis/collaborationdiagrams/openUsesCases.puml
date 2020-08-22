@@ -6,8 +6,8 @@
 actor user
 view UseCasesManagementView
 controller OpenUseCasesController
-model UseCaseEntities
-model UseCaseEntity
+model UseCaseDao
+model UseCase
 
 user -down-> UseCasesManagementView
 note on link
@@ -18,10 +18,10 @@ UseCasesManagementView -right-> OpenUseCasesController
 note on link
 readUseCases()
 end note
-OpenUseCasesController -right-> UseCaseEntities
+OpenUseCasesController -right-> UseCaseDao
 note on link
 readUseCases()
 end note
-UseCaseEntities *-down-> UseCaseEntity
+UseCaseDao *-down-> UseCase
 
 @enduml

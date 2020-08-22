@@ -6,8 +6,8 @@
 actor user
 view PlanProjectView
 controller OpenPhasesController
-model ProjectEntity
-model PhaseEntity
+model Project
+model Phase
 
 user -down-> PlanProjectView
 note on link
@@ -17,10 +17,10 @@ PlanProjectView -right-> OpenPhasesController
 note on link
 readPhases()
 end note
-OpenPhasesController -right-> ProjectEntity
+OpenPhasesController -right-> Project
 note on link
 readPhases()
 end note
-ProjectEntity *-down-> PhaseEntity
+Project *-down-> Phase
 
 @enduml
