@@ -9,7 +9,7 @@ view PhaseView
 view OpenIterationSelectUseCasesView
 view IterationView
 
-collaboration collaboration_openPhases
+collaboration collaboration_openPhase
 controller OpenIterationsController
 collaboration collaboration_ShowIteration
 
@@ -68,9 +68,9 @@ note on link
     openIteration(iterationId)
 end note
 
-PhaseView -up-> collaboration_openPhases
+PhaseView -up-> collaboration_openPhase
 note on link
-    openPhases()
+    openPhase(phaseId)
 end note
 
 OpenIterationsController -- "*" Usecase
