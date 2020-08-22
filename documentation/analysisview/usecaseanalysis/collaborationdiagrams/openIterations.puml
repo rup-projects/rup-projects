@@ -3,66 +3,69 @@
 !include configuration/skinParams.puml
 !include configuration/definitions.puml
 
-left to right direction
-
 skinparam linetype polyline
 
-
 actor user
+
 view PhaseView
 view PhasesView
 view IterationView
-controller OpenIterationsController
-model PhaseEntity
-model IterationEntity
-model IterationEntities
 
-user -left-> IterationView
-note on link
-    openIterations(phaseId)
-end note
+controller OpenIterationsController
+
+model Phase
+model Iteration
+model PhaseDAO
 
 user -right-> PhasesView
 note on link
-    openIterations(phaseId)
-end note
-IterationView -right-> PhaseView
-note on link
-    openIterations(phaseId)
+    openPhase(phaseId)
 end note
 
+IterationView -right-> PhaseView
+note on link
+    openPhase(phaseId)
+end note
 
 PhasesView --> PhaseView
 note on link
-    openIterations(phaseId)
+    openPhase(phaseId)
 end note
 
-PhaseView --> PhaseEntity
+PhaseView -right-> Phase
 note on link
     getName()
+    getStartDate()
+    getEndDate()
+    getIterations()
+    getIteration().getId()
+    getIteration().getStartDate()
+    getIteration().getEndDate()
+    getIteration().getDuration()
+    getIteration().getProgress()
 end note
 
-PhaseView --> OpenIterationsController
+PhaseView -right-> OpenIterationsController
 note on link
-    openIterations(phaseId)
-    searchIterationsBy(phaseId)
+    openPhase(phaseId)
 end note
 
-PhaseView --> IterationEntity
+OpenIterationsController -- "1" Phase
+
+OpenIterationsController -right-> PhaseDAO
 note on link
-    getIterationId()
+    readPhase(phaseId)
+end note
+
+PhaseDAO -- Phase
+
+Phase *-right-> "*" Iteration
+note on link
+    getId()
     getStartDate()
     getEndDate()
     getDuration()
     getProgress()
 end note
-
-OpenIterationsController --> "1" PhaseEntity
-OpenIterationsController --> IterationEntities
-note on link
-    searchIterationsBy(phaseId)
-end note
-OpenIterationsController --> "*" IterationEntity
-IterationEntities -left- IterationEntity
 
 @enduml
