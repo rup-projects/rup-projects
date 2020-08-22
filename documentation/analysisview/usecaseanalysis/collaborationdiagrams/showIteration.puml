@@ -1,0 +1,95 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+
+view IterationView
+
+controller ShowIterationController
+
+model IterationDAO
+model ProjectDAO
+model Iteration
+model Discipline
+model Usecase
+model Activity
+model Member
+model Team
+model Project
+
+IterationView -right-> ShowIterationController
+note on link
+    readIteration(iterationId)
+    readTeam(projectid)
+end note
+
+IterationView -right- Iteration
+note on link
+    getId()
+    getTimeInterval()
+    getTeam().getMember().getName()
+    getActivity().getTimeInterval()
+    getActivity().getMember()
+    getActivity().getType()
+    getUsecase().getDescription()
+    getDiscipline().getName()
+    getDiscipline().getNotAssignedCost()
+end note
+
+ShowIterationController -down- ProjectDAO
+note on link
+    readProject(ProjectId)
+end note
+
+ShowIterationController -down-> IterationDAO
+note on link
+    readIteration(iterationId)
+end note
+
+IterationDAO -- Iteration
+ProjectDAO -- Project
+
+ShowIterationController -right- "1" Project
+ShowIterationController -right- "1" Iteration
+
+Iteration *--> "6" Discipline
+note on link
+    getName()
+    getNotAssignedCost()
+    getActivities()
+end note
+
+Discipline *--> "*" Activity
+note on link
+    getMember()
+    getUsecase()
+    getStart()
+    getEnd()
+end note
+
+Activity --> Member
+note on link
+    getName()
+end note
+
+Activity -left-> Usecase
+note on link
+    getDescription()
+end note
+
+
+Team *-- Member
+note on link
+    getName()
+end note
+
+Project *-- "1" Team
+note on link
+getMembers()
+end note
+
+
+
+@enduml
+
