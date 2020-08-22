@@ -1,18 +1,25 @@
 @startuml
 !include ../StateDiagramsSetUp.puml
 
-state 12 as ":PROJECT_MANAGEMENT"
+state PROJECT_MANAGEMENT as ":PROJECT_MANAGEMENT"
 
     0 --> OpenIteration
-    2 --> OpenIteration
+    note on link
+            User requests to open iteration
+    end note
+    USE_CASES_MANAGEMENT --> OpenIteration
     note on link
         User requests to open iteration
     end note
-    3 --> OpenIteration
+    MEMBERS_MANAGEMENT --> OpenIteration
+    note on link
+            User requests to open iteration
+    end note
+    ITERATION_MANAGEMENT_ --> OpenIteration
 
-state ITERATION_MANAGEMENT as ":ITERATION_MANAGEMENT"
-state 2 as ":USE_CASES_MANAGEMENT"
-state 3 as ":MEMBERS_MANAGEMENT"
+state ITERATION_MANAGEMENT
+state USE_CASES_MANAGEMENT
+state MEMBERS_MANAGEMENT
 
     state 0 as ":PROJECT_MANAGEMENT"
 state OpenIteration {
@@ -22,7 +29,7 @@ state OpenIteration {
     state 6 as " "
     state 7 <<choice>>
     state 9 as " "
-    state 20 as " "
+    state USE_CASES_MANAGEMENT0 as " "
     state 10 as " "
     state 11 as " "
 
@@ -68,7 +75,7 @@ state OpenIteration {
     all use cases introduced have desired realization]
     end note
 
-    9--> 20
+    9--> USE_CASES_MANAGEMENT0
     note on link
         <b>System shows</b>
         * NotAssignedCost for each discipline have been generated
@@ -83,13 +90,13 @@ state OpenIteration {
         * some use case has not desired realization
     end note
 
-    1 --> 20
+    1 --> USE_CASES_MANAGEMENT0
     note on link
         [Iteration opened]
     end note
 
 }
-    11 -[#red]down-> 12
+    11 -[#red]down-> PROJECT_MANAGEMENT
     note on link
             <b>System shows</b>
             * operation cancelled
@@ -107,7 +114,7 @@ state OpenIteration {
             * Close system
     end note
 
-    20 --> ITERATION_MANAGEMENT
+    USE_CASES_MANAGEMENT0 --> ITERATION_MANAGEMENT
     note on link
      <b>System shows</b>
      * iteration
@@ -135,6 +142,6 @@ state OpenIteration {
 
     ITERATION_MANAGEMENT --> [*]
 
-    12 -[#red]-> [*]
+    PROJECT_MANAGEMENT -[#red]-> [*]
 
 @enduml
