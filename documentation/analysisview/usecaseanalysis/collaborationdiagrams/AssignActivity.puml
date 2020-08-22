@@ -5,66 +5,29 @@
 
 actor user
 view IterationView
-view AssignActivityView
-view ConfirmDialog
-controller OpenIterationController
 controller AssignActivityController
 model Iteration
-model MemberDao
 model ActivityDao
-model TimeInterval
 model Activity
 model Member
+
 user -right-> IterationView
 note on link
-assignActivity()
+    assignActivityToMember(activityId, memberId)
+end note
+IterationView -down-> AssignActivityController
+note on link
+    assignActivityToMember(activityId, memberId)
+end note
+AssignActivityController --> ActivityDao
+note on link
+    patch(activity)
 end note
 
-user -> ConfirmDialog
-note on link
-confirm()
-cancel()
-end note
-
-
-user -right-> AssignActivityView
-note on link
-setActivity(activity)
-setMember(member)
-setTimeInterval(timeInterval)
-end note
-IterationView -down-> AssignActivityView
-note on link
-new AssignActivityView()
-end note
-IterationView -down-> OpenIterationController
-note on link
-    getIteration(currentIteration)
-end note
-OpenIterationController -down-> Iteration
-note on link
-    getIteration(currentIteration)
-end note
-AssignActivityView -right-> AssignActivityController
-note on link
-    assignActivity(activity, member, timeInterval)
-end note
-AssignActivityView -down-> ConfirmDialog
-
-Iteration *-right-> ActivityDao
-Iteration *-right-> MemberDao
-Iteration *-right-> TimeInterval
-MemberDao *--> Member
-ActivityDao *--> Activity
+IterationView --> Iteration
+IterationView --> Member
+IterationView --> Activity
 
 AssignActivityController --> Activity
-note on link
-updateActivity(activity)
-end note
-
-Activity o-- TimeInterval
-Activity o-- Member
-
-
-
+Activity o--> Member
 @enduml
