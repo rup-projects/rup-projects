@@ -6,15 +6,11 @@ state 2 as ":PROJECT_MANAGEMENT"
 
 PROJECT_MANAGEMENT --> OpenIterations
 note on link
-    User requests to
+    <b>User requests to</b>
     * Open Iterations
 end note
 
 ITERATION_MANAGEMENT --> OpenIterations
-note on link
-    User requests to
-    *  Open Iterations
-end note
 
 state OpenIterations {
     [*] --> [*]
