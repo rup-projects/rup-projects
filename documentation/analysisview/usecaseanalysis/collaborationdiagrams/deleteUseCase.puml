@@ -9,8 +9,8 @@ view DeleteUseCaseDialog
 view ConfirmDialog
 controller DeleteUseCaseController
 controller OpenUseCasesController
-model UseCaseEntities
-model UseCaseEntity
+model UseCaseDao
+model UseCase
 
 user -right-> UseCasesView
 note on link
@@ -39,15 +39,15 @@ UseCasesView -right-> OpenUseCasesController
 note on link
 readUseCases()
 end note
-DeleteUseCaseController -right-> UseCaseEntities
+DeleteUseCaseController -right-> UseCaseDao
 note on link
 deleteUseCase(useCase)
 end note
 
-OpenUseCasesController -down-> UseCaseEntities
+OpenUseCasesController -down-> UseCaseDao
 note on link
 readUseCases()
 end note
-UseCaseEntities *-down-> UseCaseEntity
+UseCaseDao *-down-> UseCase
 
 @enduml

@@ -9,12 +9,12 @@ view AssignActivityView
 view ConfirmDialog
 controller OpenIterationController
 controller AssignActivityController
-model IterationEntity
-model MemberEntities
-model ActivityEntities
+model Iteration
+model MemberDao
+model ActivityDao
 model TimeInterval
-model ActivityEntity
-model MemberEntity
+model Activity
+model Member
 user -right-> IterationView
 note on link
 assignActivity()
@@ -41,7 +41,7 @@ IterationView -down-> OpenIterationController
 note on link
     getIteration(currentIteration)
 end note
-OpenIterationController -down-> IterationEntity
+OpenIterationController -down-> Iteration
 note on link
     getIteration(currentIteration)
 end note
@@ -51,19 +51,19 @@ note on link
 end note
 AssignActivityView -down-> ConfirmDialog
 
-IterationEntity *-right-> ActivityEntities
-IterationEntity *-right-> MemberEntities
-IterationEntity *-right-> TimeInterval
-MemberEntities *--> MemberEntity
-ActivityEntities *--> ActivityEntity
+Iteration *-right-> ActivityDao
+Iteration *-right-> MemberDao
+Iteration *-right-> TimeInterval
+MemberDao *--> Member
+ActivityDao *--> Activity
 
-AssignActivityController --> ActivityEntity
+AssignActivityController --> Activity
 note on link
 updateActivity(activity)
 end note
 
-ActivityEntity o-- TimeInterval
-ActivityEntity o-- MemberEntity
+Activity o-- TimeInterval
+Activity o-- Member
 
 
 
