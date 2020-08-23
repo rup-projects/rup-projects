@@ -4,54 +4,29 @@
 !include configuration/definitions.puml
 
 actor user
+
 view UseCasesManagementView
-view PrioritizeUseCaseDialog
-view ConfirmDialog
+
 controller PrioritizeUseCaseController
-controller OpenUseCasesController
+
 model UseCaseDao
 model UseCase
 
-user -right-> UseCasesManagementView
-note on link
-prioritizeUseCase()
-end note
-user -right-> PrioritizeUseCaseDialog
-note on link
-setPositions(useCasesValues[])
-confirm()
-cancel()
-end note
-UseCasesManagementView -down-> PrioritizeUseCaseDialog
-note on link
-new PrioritizeUseCaseDialog()
-end note
-PrioritizeUseCaseDialog -down-> ConfirmDialog
-note on link
-new ConfirmDialog()
-end note
-PrioritizeUseCaseDialog -right-> PrioritizeUseCaseController
-note on link
- PrioritizeUseCase(useCasesValues[])
-end note
-
-UseCasesManagementView -right-> OpenUseCasesController
-note on link
-readUseCases()
-end note
+user -down-> UseCasesManagementView
+    note on link
+        prioritize(useCaseId, priorityValue)
+    end note
+UseCasesManagementView -right-> PrioritizeUseCaseController
+    note on link
+        patchUseCase(useCase)
+    end note
 PrioritizeUseCaseController -right-> UseCaseDao
-note on link
-updateUseCase(useCase)
-end note
-PrioritizeUseCaseController -down-> UseCase
-note on link
-<b>foreach(useCasesValues as useCase):</b>
-getUseCase(useCase)
-end note
-OpenUseCasesController -down-> UseCaseDao
-note on link
-readUseCases()
-end note
-UseCaseDao *-down-> UseCase
+    note on link
+        patch(useCase)
+    end note
+
+UseCasesManagementView o.down.> UseCase
+PrioritizeUseCaseController o.down.> UseCase
+UseCaseDao o.down.> UseCase
 
 @enduml

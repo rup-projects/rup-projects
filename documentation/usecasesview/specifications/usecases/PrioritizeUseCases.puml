@@ -10,11 +10,10 @@ state 2 as " "
 state 12 as " "
 state 13 as " "
 
-
-    [*] --> 1
-    note on link
-        User requests to prioritize use cases
-    end note
+[*] --> 1
+note on link
+    User requests to prioritize use cases
+end note
 
 1 --> 2
 note on link
@@ -58,7 +57,5 @@ note on link
 <b>System shows</b>
 * prioritization cancelled
 end note
-
-prioritizeUseCases --> ShowUseCases
 
 @enduml
