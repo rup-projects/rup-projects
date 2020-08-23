@@ -4,44 +4,31 @@
 !include configuration/definitions.puml
 
 actor user
-view ProjectManagementView
-view PhaseView
+view IterationsView
+view IterationView
 
-controller ProjectManagementController
 controller OpenIterationsController
 model IterationDao
 model Iteration
 
-user -down-> PhaseView
-note on link
-setIteration(iteration)
-end note
-user -right->ProjectManagementView
-note on link
-openIteration()
-end note
-ProjectManagementView -right-> ProjectManagementController
-note on link
-getIterations()
-end note
-ProjectManagementController -down-> IterationDao
-note on link
-getIterations()
-end note
-IterationDao *-down-> Iteration
-PhaseView -right->OpenIterationsController
-note on link
-getIteration(iteration)
-end note
-ProjectManagementView -down-> PhaseView
+user -right->IterationsView
+    note on link
+        openIteration(iterationId)
+    end note
+IterationsView -down-> IterationView
+    note on link
+        openIteration(iterationId)
+    end note
+IterationView -right-> OpenIterationsController
+    note on link
+        get(iterationId)
+    end note
 OpenIterationsController -right-> IterationDao
-note on link
-getIteration(iteration)
-end note
+    note on link
+        get(iterationId)
+    end note
 
-Iteration -left-> OpenIterationsController
-note on link
-<b>requested Iteration</b>
-end note
+OpenIterationsController -down-> Iteration
+IterationView -down-> Iteration
 @enduml
 
