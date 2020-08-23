@@ -7,7 +7,7 @@ view IterationView
 
 controller ShowIterationController
 
-model IterationDAO
+model IterationDao
 model MemberDao
 model Iteration
 model Discipline
@@ -24,7 +24,7 @@ ShowIterationController -up-> MemberDao
     note on link
         getAllMembers()
     end note
-ShowIterationController -right-> IterationDAO
+ShowIterationController -right-> IterationDao
 note on link
     get(iterationId)
 end note

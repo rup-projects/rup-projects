@@ -7,7 +7,7 @@ actor user
 view MembersManagementView
 view CreateMemberDialog
 controller CreateMemberController
-model MembersDAO
+model MembersDao
 model Member
 
 user -right-> MembersManagementView
@@ -30,7 +30,7 @@ note on link
     createMember(member)
 end note
 CreateMemberDialog -right-> Member
-CreateMemberController -right-> MembersDAO
+CreateMemberController -right-> MembersDao
 note on link
     create(member)
 end note

@@ -8,7 +8,7 @@ view IterationView
 view CloseActivityView
 controller CloseActivityController
 model Activity
-model ActivitiesDAO
+model ActivitiesDao
 
 user -right-> IterationView
 note on link
@@ -30,7 +30,7 @@ note on link
     close(activity)
 end note
 
-CloseActivityController -down-> ActivitiesDAO
+CloseActivityController -down-> ActivitiesDao
 note on link
     patch(activity)
 end note

@@ -14,7 +14,7 @@ controller OpenIterationsController
 
 model Phase
 model Iteration
-model PhaseDAO
+model PhaseDao
 
 user -right-> PhasesView
     note on link
@@ -31,12 +31,12 @@ IterationsView -right-> OpenIterationsController
     end note
 
 OpenIterationsController ..> Phase
-OpenIterationsController -right-> PhaseDAO
+OpenIterationsController -right-> PhaseDao
     note on link
         getPhase(phaseId)
     end note
 
 IterationsView ..> Iteration
-PhaseDAO --> Phase
+PhaseDao --> Phase
 Phase o--> Iteration
 @enduml

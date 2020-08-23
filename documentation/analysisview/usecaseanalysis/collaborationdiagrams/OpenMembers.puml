@@ -10,7 +10,7 @@ view MembersManagementView
 
 controller OpenMembersController
 
-model MembersDAO
+model MembersDao
 model Member
 
 user -right-> MenuView
@@ -27,7 +27,7 @@ MembersManagementView -right-> OpenMembersController
     end note
 
 
-OpenMembersController -right-> MembersDAO
+OpenMembersController -right-> MembersDao
     note on link
         getAll()
     end note
@@ -35,6 +35,6 @@ OpenMembersController -right-> MembersDAO
 MembersManagementView o..> Member
 OpenMembersController ..> Member
 
-MembersDAO -down-> Member
+MembersDao -down-> Member
 
 @enduml

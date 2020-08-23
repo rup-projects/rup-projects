@@ -10,7 +10,7 @@ view IterationView
 controller RestimateActivityController
 
 model Activity
-model ActivitiesDAO
+model ActivitiesDao
 
 user -right-> IterationView
     note on link
@@ -22,13 +22,13 @@ IterationView -right-> RestimateActivityController
         patch(activity)
     end note
 
-RestimateActivityController -down-> ActivitiesDAO
+RestimateActivityController -down-> ActivitiesDao
     note on link
         patch(activity)
     end note
 
 IterationView .down.> Activity
 RestimateActivityController .down.> Activity
-ActivitiesDAO .left.> Activity
+ActivitiesDao .left.> Activity
 
 @enduml

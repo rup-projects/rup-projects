@@ -10,7 +10,7 @@ view UpdateMemberDialog
 
 controller UpdateMemberController
 
-model MembersDAO
+model MembersDao
 model Member
 
 user -right-> MembersView
@@ -35,7 +35,7 @@ UpdateMemberDialog -down-> UpdateMemberController
     note on link
             updateMember(member)
     end note
-UpdateMemberController -down-> MembersDAO
+UpdateMemberController -down-> MembersDao
     note on link
         updateMember(member)
     end note
@@ -45,7 +45,7 @@ MembersView o.right.> Member
 UpdateMemberDialog .right.> Member
 UpdateMemberController .right.> Member
 
-MembersDAO .right.> Member
+MembersDao .right.> Member
 
 
 @enduml

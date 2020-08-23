@@ -7,7 +7,7 @@ actor user
 view IterationView
 view ConfirmDialog
 controller MergeActivityController
-model ActivitiesDAO
+model ActivitiesDao
 
 user -right-> IterationView
     note on link
@@ -28,7 +28,7 @@ IterationView -right-> MergeActivityController
     note on link
         merge(activityId)
     end note
-MergeActivityController -down-> ActivitiesDAO
+MergeActivityController -down-> ActivitiesDao
     note on link
         delete(activityId)
     end note
