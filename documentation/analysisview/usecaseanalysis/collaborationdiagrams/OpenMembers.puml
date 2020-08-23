@@ -4,52 +4,37 @@
 !include configuration/definitions.puml
 
 actor user
+
+view MenuView
 view MembersManagementView
-view UseCasesManagementView
-view ProjectManagementView
+
 controller OpenMembersController
+
 model MembersDAO
 model Member
 
-user -down-> ProjectManagementView
-note on link
-openMembers()
-end note
-
-user -down-> UseCasesManagementView
-note on link
-openMembers()
-end note
-
-ProjectManagementView --> MembersManagementView
-note on link
-    openMembers()
-end note
-
-UseCasesManagementView --> MembersManagementView
-note on link
-    openMembers()
-end note
-
+user -right-> MenuView
+    note on link
+        openMembers()
+    end note
+MenuView -down-> MembersManagementView
+    note on link
+        new MembersManagementView()
+    end note
 MembersManagementView -right-> OpenMembersController
-note on link
-readMembers()
-end note
+    note on link
+        getAllMembers()
+    end note
 
-MembersManagementView --> Member
-note on link
-    getName()
-    getRoles()
-    getEmail()
-end note
 
 OpenMembersController -right-> MembersDAO
-note on link
-readMembers()
-end note
+    note on link
+        getAll()
+    end note
 
-OpenMembersController -- "0..*" Member
+MembersManagementView o..> Member
+OpenMembersController ..> Member
 
-MembersDAO *-down- Member
+MembersDAO -down-> Member
 
 @enduml
