@@ -6,55 +6,35 @@
 actor user
 view UseCasesManagementView
 view CreateUseCaseDialog
-view ConfirmDialog
 controller CreateUseCaseController
-controller OpenUseCasesController
 model UseCaseDao
 model UseCase
 
 user -right-> UseCasesManagementView
-note on link
-createUseCase()
-end note
+    note on link
+        createUseCase()
+    end note
 user -right-> CreateUseCaseDialog
-note on link
-setName(name)
-setRole(role)
-end note
-user -right-> ConfirmDialog
-note on link
-confirm()
-cancel()
-end note
+    note on link
+        setName(name)
+        setRole(role)
+        confirm()
+        cancel()
+    end note
 UseCasesManagementView -down-> CreateUseCaseDialog
-note on link
-new UseCaseDialog()
-end note
-CreateUseCaseDialog -down-> ConfirmDialog
-note on link
-new ConfirmDialog()
-end note
+    note on link
+    new UseCaseDialog()
+    end note
 CreateUseCaseDialog -right-> CreateUseCaseController
-note on link
- createUseCase(useCase)
-end note
+    note on link
+     createUseCase(useCase)
+    end note
 CreateUseCaseDialog -right-> UseCase
-note on link
-new UseCase()
-end note
-UseCasesManagementView -right-> OpenUseCasesController
-note on link
-readUseCases()
-end note
 CreateUseCaseController -right-> UseCaseDao
-note on link
-create(useCase)
-end note
+    note on link
+    create(useCase)
+    end note
 CreateUseCaseController -down-> UseCase
-OpenUseCasesController -down-> UseCaseDao
-note on link
-readUseCases()
-end note
 UseCaseDao *-down-> UseCase
 
 @enduml
