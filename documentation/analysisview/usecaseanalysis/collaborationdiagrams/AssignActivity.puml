@@ -11,11 +11,11 @@ model ActivityDao
 model Activity
 model Member
 
-user -right-> IterationView
+user -down-> IterationView
 note on link
     assignActivityToMember(activityId, memberId)
 end note
-IterationView -down-> AssignActivityController
+IterationView -right-> AssignActivityController
 note on link
     assignActivityToMember(activityId, memberId)
 end note

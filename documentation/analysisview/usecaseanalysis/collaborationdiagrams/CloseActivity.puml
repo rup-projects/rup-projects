@@ -6,59 +6,35 @@
 actor user
 view IterationView
 view CloseActivityView
-view ConfirmDialog
-controller OpenIterationController
 controller CloseActivityController
-model Iteration
 model Activity
 model ActivitiesDAO
 
 user -right-> IterationView
-
-note on link
-closeActivity()
-end note
-
-user -down-> CloseActivityView
-note on link
-setCloseActivity()
-end note
-
-user -down-> ConfirmDialog
-note on link
-confirm()
-cancel()
-end note
-
-CloseActivityView -left-> ConfirmDialog
-
-IterationView -down-> CloseActivityView
-note on link
-new CloseActivityView()
-end note
-
-IterationView -down--> OpenIterationController
-note on link
-    getIteration(currentIteration)
-end note
-
-CloseActivityView -down-> CloseActivityController
 note on link
     closeActivity(activityId)
 end note
 
+user -down-> CloseActivityView
+note on link
+    setRealDuration(numberOfHours)
+end note
+
+IterationView -down-> CloseActivityView
+note on link
+    new CloseActivityView()
+end note
+
+CloseActivityView -right-> CloseActivityController
+note on link
+    close(activity)
+end note
+
 CloseActivityController -down-> ActivitiesDAO
 note on link
-updateActivity(activityId)
+    patch(activity)
 end note
 
-OpenIterationController -down-> Iteration
-note on link
-    getIteration(currentIteration)
-end note
-
-Iteration *-down- Activity
-ActivitiesDAO "use" -right-> Activity
-
-
+CloseActivityView --> Activity
+CloseActivityController --> Activity
 @enduml
