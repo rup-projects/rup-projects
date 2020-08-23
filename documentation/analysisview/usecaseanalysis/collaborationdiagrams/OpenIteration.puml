@@ -17,7 +17,7 @@ user -right->IterationsView
     end note
 IterationsView -down-> IterationView
     note on link
-        openIteration(iterationId)
+        new IterationsView(iterationId)
     end note
 IterationView -right-> OpenIterationsController
     note on link

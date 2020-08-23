@@ -7,9 +7,8 @@ skinparam linetype polyline
 
 actor user
 
-view PhaseView
+view IterationsView
 view PhasesView
-view IterationView
 
 controller OpenIterationsController
 
@@ -18,54 +17,26 @@ model Iteration
 model PhaseDAO
 
 user -right-> PhasesView
+    note on link
+        openPhase(phaseId)
+    end note
+
+PhasesView -down-> IterationsView
 note on link
-    openPhase(phaseId)
+    new IterationsView(phaseId)
 end note
+IterationsView -right-> OpenIterationsController
+    note on link
+        getPhase(phaseId)
+    end note
 
-IterationView -right-> PhaseView
-note on link
-    openPhase(phaseId)
-end note
-
-PhasesView --> PhaseView
-note on link
-    openPhase(phaseId)
-end note
-
-PhaseView -right-> Phase
-note on link
-    getName()
-    getStartDate()
-    getEndDate()
-    getIterations()
-    getIteration().getId()
-    getIteration().getStartDate()
-    getIteration().getEndDate()
-    getIteration().getDuration()
-    getIteration().getProgress()
-end note
-
-PhaseView -right-> OpenIterationsController
-note on link
-    openPhase(phaseId)
-end note
-
-OpenIterationsController -- "1" Phase
-
+OpenIterationsController ..> Phase
 OpenIterationsController -right-> PhaseDAO
-note on link
-    readPhase(phaseId)
-end note
+    note on link
+        getPhase(phaseId)
+    end note
 
-PhaseDAO -- Phase
-
-Phase *-right-> "*" Iteration
-note on link
-    getId()
-    getStartDate()
-    getEndDate()
-    getDuration()
-    getProgress()
-end note
-
+IterationsView ..> Iteration
+PhaseDAO --> Phase
+Phase o--> Iteration
 @enduml
