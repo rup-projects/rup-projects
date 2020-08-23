@@ -3,83 +3,41 @@
 !include configuration/skinParams.puml
 !include configuration/definitions.puml
 
-skinparam linetype polyline
-
 view IterationView
 
 controller ShowIterationController
 
 model IterationDAO
-model MemberDAO
+model MemberDao
 model Iteration
 model Discipline
-model Usecase
 model Activity
 model Member
 
 IterationView -right-> ShowIterationController
-note on link
-    readIteration(iterationId)
-    readMembers()
-end note
-
-IterationView -right-> Iteration
-note on link
-    getId()
-    getTimeInterval()
-    getActivity().getTimeInterval()
-    getActivity().getMember()
-    getActivity().getType()
-    getUsecase().getDescription()
-    getDiscipline().getName()
-    getDiscipline().getNotAssignedCost()
-end note
-
-IterationView -right-> Member
     note on link
-        getName()
+        getIteration(iterationId)
+        getAllMembers()
     end note
 
-ShowIterationController -down-> MemberDAO
+ShowIterationController -up-> MemberDao
+    note on link
+        getAllMembers()
+    end note
+ShowIterationController -right-> IterationDAO
 note on link
-    readMembers()
+    get(iterationId)
 end note
 
-ShowIterationController -down-> IterationDAO
-note on link
-    readIteration(iterationId)
-end note
+IterationView .down.> Iteration
+IterationView o.down.> Member
+IterationView o.down.> Discipline
+IterationView o.down.> Activity
 
-IterationDAO --down- Iteration
-MemberDAO -down- Member
-
-ShowIterationController -down- "1" Iteration
-ShowIterationController -down- "*" Member
-
-Iteration *-right-> "6" Discipline
-note on link
-    getName()
-    getNotAssignedCost()
-    getActivities()
-end note
-
-Discipline *--> "*" Activity
-note on link
-    getMember()
-    getUsecase()
-    getStart()
-    getEnd()
-end note
-
-Activity --> Member
-note on link
-    getName()
-end note
-
-Activity -right-> Usecase
-note on link
-    getDescription()
-end note
+ShowIterationController .down.> Iteration
+ShowIterationController o.down.> Member
+ShowIterationController o.down.> Discipline
+ShowIterationController o.down.> Activity
 
 @enduml
 
