@@ -3,35 +3,28 @@
 !include configuration/skinParams.puml
 !include configuration/definitions.puml
 
-left to right direction
-
 actor user
+
 view InitProjectView
 controller StartSystemController
+
 model Project
+model ProjectDao
 
 user --> InitProjectView
-note on link
-openApp()
-end note
+    note on link
+        openApp()
+    end note
+InitProjectView -right-> StartSystemController
+    note on link
+        getProject()
+    end note
+StartSystemController -right-> ProjectDao
+    note on link
+        getProject()
+    end note
 
-InitProjectView --> StartSystemController
-note on link
-getProject()
-end note
-
-InitProjectView --> Project
-note on link
-    getStartDate()
-    getEndDate()
-    getDuration()
-    getProgress()
-    getIterationDuration()
-end note
-
-StartSystemController --> Project
-note on link
-getProject()
-end note
+InitProjectView .down.> Project
+StartSystemController .down.> Project
 
 @enduml
