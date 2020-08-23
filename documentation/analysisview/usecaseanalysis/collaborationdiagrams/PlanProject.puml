@@ -1,41 +1,31 @@
 @startuml
 
-title planProject Collaboration Diagram
 !include configuration/skinParams.puml
 !include configuration/definitions.puml
 
 actor user
 
 view PlanProjectView
-view ConfirmDialog
 controller PlanProjectController
 model Project
 
 user -right-> PlanProjectView
-note on link
-setStartDate(date startDate)
-setEndDate(date endDate) 
-setCost(float cost)
-setIterationSize(int days)
-refreshEstimatedPhases(ProjectData)
-confirm()
-cancel()
-end note
-PlanProjectView -down-> ConfirmDialog
-PlanProjectView -right-> PlanProjectController 
-note on link
-getEstimatedPhases(ProjectData)
-[<b>Confirmed<b>]
-planProject(projectData)
-end note
-PlanProjectController -left-> PlanProjectView
-note on link
-[<b>response refreshEstimationPhases()<b>]
-estimatedPhases 
-end note
-PlanProjectController -right-> Project
-note on link
-new Project(projectData)
-end note
+    note on link
+        setStartDate(date startDate)
+        setEndDate(date endDate)
+        setCost(float cost)
+        setIterationSize(int days)
+        refreshEstimatedPhases(ProjectData)
+        confirm()
+        cancel()
+    end note
+PlanProjectView -right-> PlanProjectController
+    note on link
+        planProject(project)
+    end note
+PlanProjectController -down-> Project
+    note on link
+        create(project)
+    end note
 
 @enduml
