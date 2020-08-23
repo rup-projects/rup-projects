@@ -4,23 +4,33 @@
 !include configuration/definitions.puml
 
 actor user
-view PlanProjectView
-controller OpenPhasesController
-model Project
-model Phase
 
-user -down-> PlanProjectView
-note on link
-openPhases()
-end note
-PlanProjectView -right-> OpenPhasesController
-note on link
-readPhases()
-end note
-OpenPhasesController -right-> Project
-note on link
-readPhases()
-end note
-Project *-down-> Phase
+view MenuView
+view PhasesView
+
+controller OpenPhasesController
+
+model Phase
+model PhasesDao
+
+user -right-> MenuView
+    note on link
+        openPhases()
+    end note
+MenuView -down-> PhasesView
+    note on link
+        new PhasesView()
+    end note
+PhasesView -right-> OpenPhasesController
+    note on link
+        getAllPhases()
+    end note
+OpenPhasesController -right-> PhasesDao
+    note on link
+        getAll()
+    end note
+
+PhasesView o..> Phase
+OpenPhasesController ..> Phase
 
 @enduml
