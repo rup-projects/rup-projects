@@ -1,7 +1,6 @@
 @startuml
-scale 1200 width
 
-package controllers {
+namespace controllers {
     class StartSystemController
     class CloseSystemController
     class PlanProjectController
@@ -24,18 +23,19 @@ package controllers {
     class PrioritizeUseCasesController
 }
 
-package views {
+namespace views {
     interface Dialog
     interface ConfirmationDialog
 
     class MenuView
-    class IterationView
-    class InitProjectView
-    class PlanProjectView
     class ProjectManagementView
-    class PhaseView
     class MembersManagementView
     class UseCasesManagementView
+
+    class InitProjectView
+    class PlanProjectView
+    class IterationView
+    class PhaseView
 
     class AssignActivityView implements Dialog
     class CreateMemberView implements Dialog
@@ -46,19 +46,45 @@ package views {
     class DeleteUseCaseView implements ConfirmationDialog
     class CloseActivityView implements ConfirmationDialog
     class DeleteMemberView implements ConfirmationDialog
+    
+    MenuView ..> ProjectManagementView
+    MenuView ..> MembersManagementView
+    MenuView ..> UseCasesManagementView
+    
+    ProjectManagementView ..> PhaseView
+    PhaseView --> IterationView
+    
+    MembersManagementView ..> DeleteMemberView
+    MembersManagementView ..> CreateMemberView
+    MembersManagementView ..> UpdateMemberView
+    
+    UseCasesManagementView ..> DeleteUseCaseView
+    UseCasesManagementView ..> CreateUseCaseView
+    UseCasesManagementView ..> UpdateUseCaseView
 
+    IterationView ..> CloseActivityView
 }
 
-package model {
+namespace model {
     class Member
     class UseCase
     class Iteration
     Class Activity
     class Project
     class Phase
+    class Discipline
+    
+    Iteration *-> Member
+    Iteration *-> Activity
+    
+    Member *--> Activity
+    Activity --> Discipline
+    Activity --> UseCase
+    Phase *--> Iteration
+    Project *--> Phase
 }
 
-package helpers {
+namespace helpers {
     class TimeInterval
 }
 
