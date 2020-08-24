@@ -1,0 +1,32 @@
+@startuml
+
+namespace model {
+
+}
+
+namespace view {
+    class MenuView
+
+    namespace project {}
+    namespace members {}
+    namespace usecases {}
+    
+    namespace shared {}
+    
+    view.project --> view.shared
+    view.members --> view.shared
+    view.usecases --> view.shared
+    
+}
+
+namespace controllers {
+    namespace project {}
+    namespace members {}
+    namespace usecases {}
+}
+
+view --> model
+view --> controllers
+controllers --> model
+
+@enduml
