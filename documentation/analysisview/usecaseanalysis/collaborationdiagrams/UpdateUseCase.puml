@@ -38,7 +38,6 @@ UpdateUseCaseController -right-> UseCaseDao
         update(useCase)
     end note
 
-UseCasesView o.down.> UseCase
 UpdateUseCaseController .down.> UseCase
 
 @enduml

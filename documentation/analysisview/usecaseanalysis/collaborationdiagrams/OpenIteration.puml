@@ -28,7 +28,7 @@ OpenIterationsController -right-> IterationDao
         get(iterationId)
     end note
 
-OpenIterationsController -down-> Iteration
-IterationView -down-> Iteration
+OpenIterationsController .down.> Iteration
+IterationView .down.> Iteration
 @enduml
 

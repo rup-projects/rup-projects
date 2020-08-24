@@ -41,7 +41,6 @@ UpdateMemberController -down-> MembersDao
     end note
 
 
-MembersView o.right.> Member
 UpdateMemberDialog .right.> Member
 UpdateMemberController .right.> Member
 

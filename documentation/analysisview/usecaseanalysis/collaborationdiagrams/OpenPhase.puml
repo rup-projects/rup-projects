@@ -7,7 +7,7 @@ skinparam linetype polyline
 
 actor user
 
-view IterationsView
+view PhaseView
 view PhasesView
 
 controller OpenIterationsController
@@ -21,11 +21,11 @@ user -right-> PhasesView
         openPhase(phaseId)
     end note
 
-PhasesView -down-> IterationsView
+PhasesView -down-> PhaseView
 note on link
-    new IterationsView(phaseId)
+    new PhaseView(phaseId)
 end note
-IterationsView -right-> OpenIterationsController
+PhaseView -right-> OpenIterationsController
     note on link
         getPhase(phaseId)
     end note
@@ -36,7 +36,6 @@ OpenIterationsController -right-> PhaseDao
         getPhase(phaseId)
     end note
 
-IterationsView ..> Iteration
-PhaseDao --> Phase
+PhaseView o..> Iteration
 Phase o--> Iteration
 @enduml

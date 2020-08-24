@@ -24,10 +24,6 @@ note on link
     patch(activity)
 end note
 
-IterationView --> Iteration
-IterationView --> Member
-IterationView --> Activity
-
 AssignActivityController --> Activity
 Activity o--> Member
 @enduml

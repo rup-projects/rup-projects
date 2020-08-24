@@ -34,7 +34,7 @@ CreateUseCaseController -right-> UseCaseDao
     note on link
     create(useCase)
     end note
-CreateUseCaseController -down-> UseCase
-UseCaseDao *-down-> UseCase
+CreateUseCaseController .down.> UseCase
+UseCaseDao .down.> UseCase
 
 @enduml

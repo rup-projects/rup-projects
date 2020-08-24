@@ -26,7 +26,6 @@ MembersManagementView -right-> OpenMembersController
         getAllMembers()
     end note
 
-
 OpenMembersController -right-> MembersDao
     note on link
         getAll()
