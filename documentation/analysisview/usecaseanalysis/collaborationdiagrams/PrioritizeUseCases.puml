@@ -1,0 +1,32 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+
+view UseCasesManagementView
+
+controller PrioritizeUseCaseController
+
+model UseCaseDao
+model UseCase
+
+user -down-> UseCasesManagementView
+    note on link
+        prioritize(useCaseId, priorityValue)
+    end note
+UseCasesManagementView -right-> PrioritizeUseCaseController
+    note on link
+        updateUseCase(useCase)
+    end note
+PrioritizeUseCaseController -right-> UseCaseDao
+    note on link
+        update(useCase)
+    end note
+
+UseCasesManagementView o-down-> UseCase
+PrioritizeUseCaseController o.down.> UseCase
+UseCaseDao .down.> UseCase
+
+@enduml

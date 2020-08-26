@@ -1,0 +1,41 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+skinparam linetype polyline
+
+actor user
+
+view PhaseView
+view PhasesView
+
+controller OpenIterationsController
+
+model Phase
+model Iteration
+model PhaseDao
+
+user -right-> PhasesView
+    note on link
+        openPhase(phaseId)
+    end note
+
+PhasesView -down-> PhaseView
+note on link
+    new PhaseView(phaseId)
+end note
+PhaseView -right-> OpenIterationsController
+    note on link
+        getPhase(phaseId)
+    end note
+
+OpenIterationsController ..> Phase
+OpenIterationsController -right-> PhaseDao
+    note on link
+        getPhase(phaseId)
+    end note
+
+PhaseView o..> Iteration
+Phase o--> Iteration
+@enduml

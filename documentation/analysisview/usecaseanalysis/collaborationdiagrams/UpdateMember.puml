@@ -3,60 +3,48 @@
 !include configuration/skinParams.puml
 !include configuration/definitions.puml
 
-skinparam linetype polyline
-left to right direction
-
 actor user
+
 view MembersView
+view UpdateMemberDialog
+
 controller UpdateMemberController
-controller OpenMembersController as ":OpenMembersController"
-model MembersDAO
+
+model MembersDao
 model Member
 
 user -right-> MembersView
-note on link
-    startUpdate(memberId)
-    setName(name)
-    setRoles(rolesList)
-    updateMember(memberId, member)
-    cancel()
-end note
+    note on link
+        updateMember(memberId)
+    end note
 
-MembersView --> UpdateMemberController
-note on link
-    readMember(memberId)
-    updateMember(memberId, member)
-    cancel()
-end note
+user -down-> UpdateMemberDialog
+    note on link
+        setName(name)
+        setRoles(roles)
+        confirm()
+        cancel()
+    end note
 
-MembersView --> OpenMembersController
-note on link
-    openMembers()
-end note
+MembersView -down-> UpdateMemberDialog
+    note on link
+        new UpdateMemberDialog(memberId)
+    end note
+
+UpdateMemberDialog -down-> UpdateMemberController
+    note on link
+            updateMember(member)
+    end note
+UpdateMemberController -down-> MembersDao
+    note on link
+        updateMember(member)
+    end note
 
 
-MembersView --> Member
-note on link
-    getName()
-    getRoles()
-    setName(name)
-    setRoles(rolesList)
-end note
+UpdateMemberDialog .right.> Member
+UpdateMemberController .right.> Member
 
-UpdateMemberController --> MembersDAO
-note on link
-    readMember(memberId)
-    updateMember(memberId, member)
-end note
-
-UpdateMemberController -- Member
-
-OpenMembersController --> MembersDAO
-note on link
-readMembers()
-end note
-
-MembersDAO -- Member
+MembersDao .right.> Member
 
 
 @enduml

@@ -4,70 +4,52 @@
 !include configuration/definitions.puml
 
 actor user
+
 view IterationView
 view SplitActivityView
-view ConfirmDialog
-controller OpenIterationController
+
 controller SplitActivityController
-model Iteration
+
 model Activity
-model ActivitiesDAO
+model UseCase
+model ActivitiesDao
+model UseCaseDao
 
 user -right-> IterationView
-
-note on link
-splitActivity()
-end note
-user -down-> SplitActivityView
-note on link
-setTipeActivity()
-setDescriptionActivity()
-setAssignedCost()
-end note
-
-user -down-> ConfirmDialog
-note on link
-confirm()
-cancel()
-end note
-
-
-SplitActivityView -left-> ConfirmDialog
-
+    note on link
+        splitActivity(disciplineId)
+    end note
+user --> SplitActivityView
+    note on link
+        setUseCaseId()
+        setDescription()
+        setCost()
+        confirm()
+        cancel()
+    end note
 IterationView -down-> SplitActivityView
-note on link
-new SplitActivityView()
-end note
+    note on link
+        new SplitActivityView(disciplineId)
+    end note
+SplitActivityView -right-> SplitActivityController
+    note on link
+        splitActivity(activity)
+        getAllUseCases()
+    end note
+SplitActivityController -down-> ActivitiesDao
+    note on link
+        createActivity(activity)
+    end note
+SplitActivityController -down-> UseCaseDao
+    note on link
+        getAllUseCases()
+    end note
 
-IterationView -down--> OpenIterationController
-note on link
-    getIteration(currentIteration)
-end note
+SplitActivityView ..> Activity
+SplitActivityView o..> UseCase
+SplitActivityController ..> Activity
 
-SplitActivityView -down-> SplitActivityController
-note on link 
-    splitActivity(typeActivity, 
-    		descriptionActivity, 
-    		assignedCost)
-    updateNotAsignerCost()
-end note
-
-SplitActivityController -down-> ActivitiesDAO
-note on link
-createActivity(activityId)
-end note
-
-OpenIterationController -down--> Iteration
-note on link
-    getIteration(currentIteration)
-end note
-
-SplitActivityController -right-> Activity
-note on link
-    new Activity()
-end note
-
-Iteration *-down- Activity
-ActivitiesDAO "use" -right-> Activity
+UseCaseDao ..> UseCase
+ActivitiesDao ..> Activity
 
 @enduml

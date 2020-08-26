@@ -1,0 +1,36 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+
+view MenuView
+view PhasesView
+
+controller OpenPhasesController
+
+model Phase
+model PhasesDao
+
+user -right-> MenuView
+    note on link
+        openPhases()
+    end note
+MenuView -down-> PhasesView
+    note on link
+        new PhasesView()
+    end note
+PhasesView -right-> OpenPhasesController
+    note on link
+        getAllPhases()
+    end note
+OpenPhasesController -right-> PhasesDao
+    note on link
+        getAll()
+    end note
+
+PhasesView o..> Phase
+OpenPhasesController ..> Phase
+
+@enduml

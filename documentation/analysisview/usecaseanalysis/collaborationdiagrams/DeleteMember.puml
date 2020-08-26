@@ -4,14 +4,14 @@
 !include configuration/definitions.puml
 
 actor user
-view IterationView
+view MembersManagementView
 view ConfirmDialog
-controller MergeActivityController
-model ActivitiesDao
+controller DeleteMemberController
+model MemberDao
 
-user -right-> IterationView
+user -right-> MembersManagementView
     note on link
-        mergeActivity(activityId)
+    deleteMember(memberId)
     end note
 user -down-> ConfirmDialog
     note on link
@@ -19,18 +19,18 @@ user -down-> ConfirmDialog
         cancel()
     end note
 
-IterationView --> ConfirmDialog
+MembersManagementView --> ConfirmDialog
     note on link
         new ConfirmDialog()
     end note
 
-IterationView -right-> MergeActivityController
+MembersManagementView -right-> DeleteMemberController
     note on link
-        merge(activityId)
+        delete(memberId)
     end note
-MergeActivityController -down-> ActivitiesDao
+DeleteMemberController -down-> MemberDao
     note on link
-        delete(activityId)
+        delete(memberId)
     end note
 
 @enduml

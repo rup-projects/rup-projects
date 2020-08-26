@@ -4,33 +4,31 @@
 !include configuration/definitions.puml
 
 actor user
-view IterationView
+view UseCasesView
 view ConfirmDialog
-controller MergeActivityController
-model ActivitiesDao
+controller DeleteUseCaseController
+model UseCaseDao
 
-user -right-> IterationView
+user -right-> UseCasesView
     note on link
-        mergeActivity(activityId)
+        deleteUseCase(useCaseId)
     end note
-user -down-> ConfirmDialog
+user --> ConfirmDialog
     note on link
         confirm()
         cancel()
     end note
-
-IterationView --> ConfirmDialog
+UseCasesView --> ConfirmDialog
     note on link
         new ConfirmDialog()
     end note
-
-IterationView -right-> MergeActivityController
+UseCasesView -right-> DeleteUseCaseController
     note on link
-        merge(activityId)
+        delete(useCaseId)
     end note
-MergeActivityController -down-> ActivitiesDao
+DeleteUseCaseController -down-> UseCaseDao
     note on link
-        delete(activityId)
+        delete(useCaseId)
     end note
 
 @enduml

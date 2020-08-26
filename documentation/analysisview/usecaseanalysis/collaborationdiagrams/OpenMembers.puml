@@ -1,0 +1,39 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+
+view MenuView
+view MembersManagementView
+
+controller OpenMembersController
+
+model MembersDao
+model Member
+
+user -right-> MenuView
+    note on link
+        openMembers()
+    end note
+MenuView -down-> MembersManagementView
+    note on link
+        new MembersManagementView()
+    end note
+MembersManagementView -right-> OpenMembersController
+    note on link
+        getAllMembers()
+    end note
+
+OpenMembersController -right-> MembersDao
+    note on link
+        getAll()
+    end note
+
+MembersManagementView o..> Member
+OpenMembersController ..> Member
+
+MembersDao .down.> Member
+
+@enduml

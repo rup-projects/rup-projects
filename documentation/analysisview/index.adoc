@@ -2,6 +2,6 @@
 
 [plantuml,svg,align="center"]
 ----
-include::analysis.puml[]
+include::AnalysisArchitecture.puml[]
 ----
 

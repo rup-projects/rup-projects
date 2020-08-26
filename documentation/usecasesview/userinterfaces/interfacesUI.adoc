@@ -127,6 +127,9 @@ image::https://share.balsamiq.com/c/c1Mkbx1NQ3BQJqNYZv6PE7.png[]
 
 image::https://share.balsamiq.com/c/6e6SMgKPvjCdVPsDgyFv5w.png[]
 
+Right click:
+
+image::https://share.balsamiq.com/c/qJMuLikZyKzLQgnXTgdEvd.png[]
 * <<_usecaseManagement>>
 * <<_memberManagement>>
 * <<_projectManagement>>

@@ -1,0 +1,43 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+view IterationView
+
+controller ShowIterationController
+
+model IterationDao
+model MemberDao
+model Iteration
+model Discipline
+model Activity
+model Member
+
+IterationView -right-> ShowIterationController
+    note on link
+        getIteration(iterationId)
+        getAllMembers()
+    end note
+
+ShowIterationController -up-> MemberDao
+    note on link
+        getAllMembers()
+    end note
+ShowIterationController -right-> IterationDao
+note on link
+    get(iterationId)
+end note
+
+IterationView -down-> Iteration
+IterationView o-down-> Member
+IterationView o-down-> Discipline
+IterationView o-down-> Activity
+
+ShowIterationController .down.> Iteration
+ShowIterationController o.down.> Member
+ShowIterationController o.down.> Discipline
+ShowIterationController o.down.> Activity
+
+@enduml
+

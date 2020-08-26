@@ -6,10 +6,8 @@
 actor user
 view MembersManagementView
 view CreateMemberDialog
-view ConfirmDialog
 controller CreateMemberController
-controller OpenMembersController
-model MembersDAO
+model MembersDao
 model Member
 
 user -right-> MembersManagementView
@@ -25,35 +23,18 @@ cancel()
 end note
 MembersManagementView -down-> CreateMemberDialog
 note on link
-new MemberDialog()
-end note
-CreateMemberDialog -down-> ConfirmDialog
-note on link
-new ConfirmDialog()
-confirm()
-cancel()
+    new MemberDialog()
 end note
 CreateMemberDialog -right-> CreateMemberController
 note on link
- createMember(member)
+    createMember(member)
 end note
 CreateMemberDialog -right-> Member
+CreateMemberController -right-> MembersDao
 note on link
-new Member()
+    create(member)
 end note
-MembersManagementView -right-> OpenMembersController
-note on link
-readMembers()
-end note
-CreateMemberController -right-> MembersDAO
-note on link
-create(member)
-end note
-CreateMemberController -down- Member
-OpenMembersController -down-> MembersDAO
-note on link
-readMembers()
-end note
-MembersDAO *-down- Member
 
+CreateMemberController .down.> Member
+MembersDao ..> Member
 @enduml

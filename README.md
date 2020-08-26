@@ -18,4 +18,4 @@
 
 * Las clases tipo Modelo se pone el nombre de la clase sin sufijos tipo (Entity, Model) Ej. `Member`
 
-* Las clases modelo de tipo Colleccion se ponen en plural y sufijo final DAO. Ej. `MembersDAO`
+* Las clases modelo de tipo Colleccion se ponen en plural y sufijo final Dao. Ej. `MembersDao`

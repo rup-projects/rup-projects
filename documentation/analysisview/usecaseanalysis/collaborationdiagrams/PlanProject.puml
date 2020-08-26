@@ -1,0 +1,31 @@
+@startuml
+
+!include configuration/skinParams.puml
+!include configuration/definitions.puml
+
+actor user
+
+view PlanProjectView
+controller PlanProjectController
+model Project
+
+user -right-> PlanProjectView
+    note on link
+        setStartDate(date startDate)
+        setEndDate(date endDate)
+        setCost(float cost)
+        setIterationSize(int days)
+        refreshEstimatedPhases(ProjectData)
+        confirm()
+        cancel()
+    end note
+PlanProjectView -right-> PlanProjectController
+    note on link
+        planProject(project)
+    end note
+PlanProjectController -down-> Project
+    note on link
+        create(project)
+    end note
+
+@enduml
