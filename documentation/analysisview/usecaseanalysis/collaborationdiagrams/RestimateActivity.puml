@@ -24,7 +24,7 @@ IterationView -right-> RestimateActivityController
 
 RestimateActivityController -down-> ActivitiesDao
     note on link
-        patch(activity)
+        update(activity)
     end note
 
 RestimateActivityController .down.> Activity

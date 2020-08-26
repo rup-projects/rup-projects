@@ -15,17 +15,16 @@ note on link
 end note
 IterationView -right-> AssignActivityController
 note on link
-    assignActivityToMember(activityId, memberId)
+    assignActivityToMember(activity, member)
 end note
 AssignActivityController --> ActivityDao
 note on link
-    getActivity(activityId)
     save(activity)
 end note
 
 AssignActivityController --> Activity
 note on link
-    setMemberId(memberId)
+    setMember(member)
 end note
 ActivityDao ..> Activity
 @enduml

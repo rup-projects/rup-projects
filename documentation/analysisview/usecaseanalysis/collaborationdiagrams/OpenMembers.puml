@@ -34,6 +34,6 @@ OpenMembersController -right-> MembersDao
 MembersManagementView o..> Member
 OpenMembersController ..> Member
 
-MembersDao -down-> Member
+MembersDao .down.> Member
 
 @enduml

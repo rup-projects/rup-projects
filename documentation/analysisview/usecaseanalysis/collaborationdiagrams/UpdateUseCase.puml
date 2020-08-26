@@ -32,12 +32,13 @@ UpdateUseCaseDialog -right-> UpdateUseCaseController
     note on link
         updateUseCase(useCase)
     end note
-UpdateUseCaseDialog .right.> UseCase
+UpdateUseCaseDialog -right-> UseCase
 UpdateUseCaseController -right-> UseCaseDao
     note on link
         update(useCase)
     end note
 
 UpdateUseCaseController .down.> UseCase
+UseCaseDao ..> UseCase
 
 @enduml

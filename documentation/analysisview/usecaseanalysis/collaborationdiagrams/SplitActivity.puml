@@ -49,4 +49,7 @@ SplitActivityView ..> Activity
 SplitActivityView o..> UseCase
 SplitActivityController ..> Activity
 
+UseCaseDao ..> UseCase
+ActivitiesDao ..> Activity
+
 @enduml

@@ -34,6 +34,7 @@ CreateMemberController -right-> MembersDao
 note on link
     create(member)
 end note
-CreateMemberController .down.> Member
 
+CreateMemberController .down.> Member
+MembersDao ..> Member
 @enduml

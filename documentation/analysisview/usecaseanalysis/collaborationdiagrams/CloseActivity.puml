@@ -32,9 +32,10 @@ end note
 
 CloseActivityController -down-> ActivitiesDao
 note on link
-    patch(activity)
+    update(activity)
 end note
 
-CloseActivityView --> Activity
+CloseActivityView ..> Activity
 CloseActivityController ..> Activity
+ActivitiesDao ..> Activity
 @enduml

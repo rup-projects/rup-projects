@@ -24,7 +24,7 @@ StartSystemController -right-> ProjectDao
         getProject()
     end note
 
-InitProjectView .down.> Project
+InitProjectView -down-> Project
 StartSystemController .down.> Project
-
+ProjectDao ..> Project
 @enduml

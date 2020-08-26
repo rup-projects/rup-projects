@@ -18,15 +18,15 @@ user -down-> UseCasesManagementView
     end note
 UseCasesManagementView -right-> PrioritizeUseCaseController
     note on link
-        patchUseCase(useCase)
+        updateUseCase(useCase)
     end note
 PrioritizeUseCaseController -right-> UseCaseDao
     note on link
-        patch(useCase)
+        update(useCase)
     end note
 
-UseCasesManagementView o.down.> UseCase
+UseCasesManagementView o-down-> UseCase
 PrioritizeUseCaseController o.down.> UseCase
-UseCaseDao o.down.> UseCase
+UseCaseDao .down.> UseCase
 
 @enduml

@@ -29,10 +29,10 @@ note on link
     get(iterationId)
 end note
 
-IterationView .down.> Iteration
-IterationView o.down.> Member
-IterationView o.down.> Discipline
-IterationView o.down.> Activity
+IterationView -down-> Iteration
+IterationView o-down-> Member
+IterationView o-down-> Discipline
+IterationView o-down-> Activity
 
 ShowIterationController .down.> Iteration
 ShowIterationController o.down.> Member
