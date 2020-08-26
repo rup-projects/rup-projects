@@ -30,5 +30,7 @@ OpenIterationsController -right-> IterationDao
 
 OpenIterationsController .down.> Iteration
 IterationView .down.> Iteration
+IterationDao .down.> Iteration
+
 @enduml
 

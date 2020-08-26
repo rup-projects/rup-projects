@@ -6,10 +6,8 @@
 actor user
 view IterationView
 controller AssignActivityController
-model Iteration
 model ActivityDao
 model Activity
-model Member
 
 user -down-> IterationView
 note on link
@@ -21,9 +19,13 @@ note on link
 end note
 AssignActivityController --> ActivityDao
 note on link
-    patch(activity)
+    getActivity(activityId)
+    save(activity)
 end note
 
 AssignActivityController --> Activity
-Activity o--> Member
+note on link
+    setMemberId(memberId)
+end note
+ActivityDao ..> Activity
 @enduml

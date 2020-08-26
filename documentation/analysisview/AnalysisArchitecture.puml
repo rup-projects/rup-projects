@@ -23,6 +23,8 @@ namespace controllers {
     class PrioritizeUseCasesController
 }
 
+newPage
+
 namespace views {
     interface Dialog
     interface ConfirmationDialog
@@ -64,6 +66,8 @@ namespace views {
 
     IterationView ..> CloseActivityView
 }
+
+newPage
 
 namespace model {
     class Member
