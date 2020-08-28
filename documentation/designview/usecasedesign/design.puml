@@ -26,6 +26,7 @@
 
 
     XView -right-> XController
+    XView --> XEntity
     XController -right-> XEntity
     XController -right-> XEntities
 
