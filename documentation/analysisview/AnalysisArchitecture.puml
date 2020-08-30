@@ -1,70 +1,80 @@
 @startuml
+ skinparam linetype polyline
 
 namespace controllers {
-    class StartSystemController
-    class CloseSystemController
-    class PlanProjectController
-    class OpenPhasesController
-    class OpenIterationsController
-    class OpenIterationController
-    class AssignActivityController
-    class ReestimateActivityController
-    class MergeActivityController
-    class SplitActivityController
-    class CloseActivityController
-    class OpenMembersController
-    class CreateMemberController
-    class UpdateMemberController
-    class DeleteMemberController
-    class OpenUseCasesController
-    class CreateUseCaseController
-    class UpdateUseCaseController
-    class DeleteUseCaseController
-    class PrioritizeUseCasesController
+    namespace controllers.projectmanagement {
+        class StartSystemController
+        class CloseSystemController
+        class PlanProjectController
+        class OpenPhasesController
+        class OpenIterationsController
+        class OpenIterationController
+        class AssignActivityController
+        class ReestimateActivityController
+        class MergeActivityController
+        class SplitActivityController
+        class CloseActivityController
+    }
+    namespace controllers.members {
+        class OpenMembersController
+        class CreateMemberController
+        class UpdateMemberController
+        class DeleteMemberController
+    }
+    namespace controllers.usecases {
+        class OpenUseCasesController
+        class CreateUseCaseController
+        class UpdateUseCaseController
+        class DeleteUseCaseController
+        class PrioritizeUseCasesController
+    }
 }
 
 newPage
 
 namespace views {
-    interface Dialog
-    interface ConfirmationDialog
-
     class MenuView
-    class ProjectManagementView
-    class MembersManagementView
-    class UseCasesManagementView
+    namespace views.shared {
+        interface Dialog
+        interface ConfirmationDialog
+    }
+    namespace views.projectmamagement {
+        class ProjectManagementView
+        class InitProjectView
+        class PlanProjectView
+        class IterationView
+        class PhaseView
+        class AssignActivityView implements views.shared.Dialog
+        class CloseActivityView implements views.shared.ConfirmationDialog
 
-    class InitProjectView
-    class PlanProjectView
-    class IterationView
-    class PhaseView
+        ProjectManagementView ..> PhaseView
+        PhaseView --> IterationView
+        IterationView ..> CloseActivityView
+    }
+    namespace views.members {
+        class MembersManagementView
+        class CreateMemberView implements views.shared.Dialog
+        class UpdateMemberView implements views.shared.Dialog
+        class DeleteMemberView implements views.shared.ConfirmationDialog
 
-    class AssignActivityView implements Dialog
-    class CreateMemberView implements Dialog
-    class UpdateMemberView implements Dialog
-    class CreateUseCaseView implements Dialog
-    class UpdateUseCaseView implements Dialog
+        MembersManagementView ..> DeleteMemberView
+        MembersManagementView ..> CreateMemberView
+        MembersManagementView ..> UpdateMemberView
+    }
+    namespace views.usecases {
+        class UseCasesManagementView
+        class CreateUseCaseView implements views.shared.Dialog
+        class UpdateUseCaseView implements views.shared.Dialog
+        class DeleteUseCaseView implements views.shared.ConfirmationDialog
 
-    class DeleteUseCaseView implements ConfirmationDialog
-    class CloseActivityView implements ConfirmationDialog
-    class DeleteMemberView implements ConfirmationDialog
-    
-    MenuView ..> ProjectManagementView
-    MenuView ..> MembersManagementView
-    MenuView ..> UseCasesManagementView
-    
-    ProjectManagementView ..> PhaseView
-    PhaseView --> IterationView
-    
-    MembersManagementView ..> DeleteMemberView
-    MembersManagementView ..> CreateMemberView
-    MembersManagementView ..> UpdateMemberView
-    
-    UseCasesManagementView ..> DeleteUseCaseView
-    UseCasesManagementView ..> CreateUseCaseView
-    UseCasesManagementView ..> UpdateUseCaseView
+        UseCasesManagementView ..> DeleteUseCaseView
+        UseCasesManagementView ..> CreateUseCaseView
+        UseCasesManagementView ..> UpdateUseCaseView
+    }
 
-    IterationView ..> CloseActivityView
+    views.MenuView ..> views.projectmamagement.ProjectManagementView
+    views.MenuView ..> views.members.MembersManagementView
+    views.MenuView ..> views.usecases.UseCasesManagementView
 }
 
 newPage
@@ -86,10 +96,6 @@ namespace model {
     Activity --> UseCase
     Phase *--> Iteration
     Project *--> Phase
-}
-
-namespace helpers {
-    class TimeInterval
 }
 
 @enduml

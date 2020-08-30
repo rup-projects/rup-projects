@@ -5,22 +5,21 @@ namespace model {
 }
 
 namespace view {
-    class MenuView
 
-    namespace project {}
+    namespace projectmanagement {}
     namespace members {}
     namespace usecases {}
     
     namespace shared {}
     
-    view.project --> view.shared
+    view.projectmanagement --> view.shared
     view.members --> view.shared
     view.usecases --> view.shared
     
 }
 
 namespace controllers {
-    namespace project {}
+    namespace projectmanagement {}
     namespace members {}
     namespace usecases {}
 }
