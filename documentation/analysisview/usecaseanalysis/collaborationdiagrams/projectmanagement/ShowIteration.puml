@@ -1,7 +1,7 @@
 @startuml
 
-!include configuration/skinParams.puml
-!include configuration/definitions.puml
+!include ../configuration/skinParams.puml
+!include ../configuration/definitions.puml
 
 view IterationView
 
