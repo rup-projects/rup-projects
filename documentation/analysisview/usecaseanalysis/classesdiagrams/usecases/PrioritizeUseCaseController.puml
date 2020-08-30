@@ -1,0 +1,9 @@
+@startuml
+	class PrioritizeUseCaseController {
+	+updateUseCase(useCase)
+	}
+
+	UseCasesManagementView --> PrioritizeUseCaseController
+	PrioritizeUseCaseController --> UseCaseDao
+	PrioritizeUseCaseController o..> UseCase
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+	class MembersDao {
+	+create(member)
+	+updateMember(member)
+	+getAll()
+	}
+
+	MembersDao ..> Member
+	CreateMemberController --> MembersDao
+	UpdateMemberController --> MembersDao
+	OpenMembersController --> MembersDao
+@enduml

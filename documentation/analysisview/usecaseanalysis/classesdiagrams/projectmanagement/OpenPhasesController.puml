@@ -1,0 +1,9 @@
+@startuml
+	class OpenPhasesController {
+	+getAllPhases()
+	}
+
+	OpenPhasesController ..> Phase
+	OpenPhasesController --> PhasesDao
+	PhasesView --> OpenPhasesController
+@enduml

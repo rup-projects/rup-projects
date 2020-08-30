@@ -1,0 +1,8 @@
+@startuml
+	class DeleteMemberController {
+	+delete(memberId)
+	}
+
+	MembersManagementView --> DeleteMemberController
+	DeleteMemberController --> MemberDao
+@enduml

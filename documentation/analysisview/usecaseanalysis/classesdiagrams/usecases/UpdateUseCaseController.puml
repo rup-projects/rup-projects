@@ -1,0 +1,9 @@
+@startuml
+	class UpdateUseCaseController {
+	+updateUseCase(useCase)
+	}
+
+	UpdateUseCaseDialog --> UpdateUseCaseController
+	UpdateUseCaseController ..> UseCase
+	UpdateUseCaseController --> UseCaseDao
+@enduml

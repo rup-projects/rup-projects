@@ -1,0 +1,9 @@
+@startuml
+	class CloseActivityController {
+	+close(activity)
+	}
+
+	CloseActivityView --> CloseActivityController
+	CloseActivityController --> ActivitiesDao
+	CloseActivityController ..> Activity
+@enduml

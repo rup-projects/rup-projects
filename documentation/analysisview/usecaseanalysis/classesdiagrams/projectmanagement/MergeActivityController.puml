@@ -1,0 +1,8 @@
+@startuml
+	class MergeActivityController {
+	+merge(activityId)
+	}
+
+	IterationView --> MergeActivityController
+	MergeActivityController --> ActivitiesDao
+@enduml

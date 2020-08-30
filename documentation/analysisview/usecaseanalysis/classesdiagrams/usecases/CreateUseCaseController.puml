@@ -1,0 +1,9 @@
+@startuml
+	class CreateUseCaseController {
+	+createUseCase(useCase)
+	}
+
+	CreateUseCaseController --> UseCaseDao
+	CreateUseCaseDialog --> CreateUseCaseController
+	CreateUseCaseController ..> UseCase
+@enduml

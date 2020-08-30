@@ -1,0 +1,13 @@
+@startuml
+	class ActivitiesDao {
+	+delete(activityId)
+	+createActivity(activity)
+	+update(activity)
+	}
+
+	ActivitiesDao ..> Activity
+	RestimateActivityController --> ActivitiesDao
+	MergeActivityController --> ActivitiesDao
+	SplitActivityController --> ActivitiesDao
+	CloseActivityController --> ActivitiesDao
+@enduml

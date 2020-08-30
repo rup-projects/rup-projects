@@ -1,0 +1,9 @@
+@startuml
+	class UpdateMemberController {
+	+updateMember(member)
+	}
+
+	UpdateMemberDialog --> UpdateMemberController
+	UpdateMemberController --> MembersDao
+	UpdateMemberController ..> Member
+@enduml

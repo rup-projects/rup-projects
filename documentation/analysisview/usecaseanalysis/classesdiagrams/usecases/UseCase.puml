@@ -1,0 +1,11 @@
+@startuml
+	class UseCase {
+	}
+
+	CreateUseCaseDialog --> UseCase
+	UpdateUseCaseController ..> UseCase
+	UseCaseDao ..> UseCase
+	UpdateUseCaseDialog --> UseCase
+	UseCasesManagementView o--> UseCase
+	CreateUseCaseController ..> UseCase
+@enduml

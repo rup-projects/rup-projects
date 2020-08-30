@@ -10,7 +10,7 @@ namespace controllers {
         class OpenIterationsController
         class OpenIterationController
         class AssignActivityController
-        class ReestimateActivityController
+        class RestimateActivityController
         class MergeActivityController
         class SplitActivityController
         class CloseActivityController
@@ -26,7 +26,7 @@ namespace controllers {
         class CreateUseCaseController
         class UpdateUseCaseController
         class DeleteUseCaseController
-        class PrioritizeUseCasesController
+        class PrioritizeUseCaseController
     }
 }
 

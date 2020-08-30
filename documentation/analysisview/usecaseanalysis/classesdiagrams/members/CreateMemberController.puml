@@ -1,0 +1,9 @@
+@startuml
+	class CreateMemberController {
+	+createMember(member)
+	}
+
+	CreateMemberController ..> Member
+	CreateMemberDialog --> CreateMemberController
+	CreateMemberController --> MembersDao
+@enduml

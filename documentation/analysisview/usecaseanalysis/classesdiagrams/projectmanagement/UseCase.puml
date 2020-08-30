@@ -1,0 +1,7 @@
+@startuml
+	class UseCase {
+	}
+
+	SplitActivityView o..> UseCase
+	UseCaseDao ..> UseCase
+@enduml
