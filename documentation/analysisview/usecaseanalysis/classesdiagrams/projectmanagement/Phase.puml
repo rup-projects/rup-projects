@@ -1,0 +1,8 @@
+@startuml
+	class Phase {
+	}
+
+	OpenIterationsController ..> Phase
+	PhasesView o..> Phase
+	Phase o--> Iteration
+@enduml

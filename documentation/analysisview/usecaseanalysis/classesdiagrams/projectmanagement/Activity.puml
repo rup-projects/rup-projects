@@ -1,0 +1,15 @@
+@startuml
+	class Activity {
+	+setMember(member)
+	}
+
+	SplitActivityView ..> Activity
+	ActivitiesDao ..> Activity
+	RestimateActivityController ..> Activity
+	IterationView o--> Activity
+	ActivityDao ..> Activity
+	SplitActivityController ..> Activity
+	AssignActivityController --> Activity
+	ShowIterationController o..> Activity
+	CloseActivityView ..> Activity
+@enduml

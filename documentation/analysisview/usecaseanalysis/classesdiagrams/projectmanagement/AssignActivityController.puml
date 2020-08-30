@@ -1,0 +1,9 @@
+@startuml
+	class AssignActivityController {
+	+assignActivityToMember(activity, member)
+	}
+
+	AssignActivityController --> ActivityDao
+	IterationView --> AssignActivityController
+	AssignActivityController --> Activity
+@enduml

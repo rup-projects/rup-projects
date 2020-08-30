@@ -1,0 +1,9 @@
+@startuml
+	class Project {
+	+create(project)
+	}
+
+	PlanProjectController --> Project
+	ProjectDao ..> Project
+	InitProjectView --> Project
+@enduml

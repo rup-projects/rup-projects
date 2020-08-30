@@ -1,0 +1,7 @@
+@startuml
+	class Discipline {
+	}
+
+	IterationView o--> Discipline
+	ShowIterationController o..> Discipline
+@enduml

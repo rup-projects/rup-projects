@@ -1,0 +1,8 @@
+@startuml
+	class DeleteUseCaseController {
+	+delete(useCaseId)
+	}
+
+	UseCasesView --> DeleteUseCaseController
+	DeleteUseCaseController --> UseCaseDao
+@enduml

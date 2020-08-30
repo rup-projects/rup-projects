@@ -1,0 +1,7 @@
+@startuml
+	class MemberDao {
+	+getAllMembers()
+	}
+
+	ShowIterationController --> MemberDao
+@enduml

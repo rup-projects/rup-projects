@@ -7,7 +7,7 @@ actor user
 view IterationsView
 view IterationView
 
-controller OpenIterationsController
+controller OpenIterationController
 model IterationDao
 model Iteration
 
@@ -19,16 +19,16 @@ IterationsView -down-> IterationView
     note on link
         new IterationsView(iterationId)
     end note
-IterationView -right-> OpenIterationsController
+IterationView -right-> OpenIterationController
     note on link
         get(iterationId)
     end note
-OpenIterationsController -right-> IterationDao
+OpenIterationController -right-> IterationDao
     note on link
         get(iterationId)
     end note
 
-OpenIterationsController .down.> Iteration
+OpenIterationController .down.> Iteration
 IterationView .down.> Iteration
 IterationDao .down.> Iteration
 

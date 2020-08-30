@@ -1,0 +1,9 @@
+@startuml
+	class RestimateActivityController {
+	+reestimateActivity(activityId, duration)
+	}
+
+	IterationView --> RestimateActivityController
+	RestimateActivityController ..> Activity
+	RestimateActivityController --> ActivitiesDao
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+	class OpenMembersController {
+	+getAllMembers()
+	}
+
+	OpenMembersController ..> Member
+	OpenMembersController --> MembersDao
+	MembersManagementView --> OpenMembersController
+@enduml

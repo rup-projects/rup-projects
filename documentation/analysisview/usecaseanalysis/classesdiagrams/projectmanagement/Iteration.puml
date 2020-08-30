@@ -1,0 +1,10 @@
+@startuml
+	class Iteration {
+	}
+
+	IterationsView o..> Iteration
+	ShowIterationController ..> Iteration
+	OpenIterationController ..> Iteration
+	IterationDao ..> Iteration
+	IterationView --> Iteration
+@enduml

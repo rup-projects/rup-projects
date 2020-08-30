@@ -1,0 +1,8 @@
+@startuml
+	class ActivityDao {
+	+save(activity)
+	}
+
+	AssignActivityController --> ActivityDao
+	ActivityDao ..> Activity
+@enduml

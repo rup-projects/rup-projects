@@ -1,0 +1,9 @@
+@startuml
+	class StartSystemController {
+	+getProject()
+	}
+
+	StartSystemController ..> Project
+	InitProjectView --> StartSystemController
+	StartSystemController --> ProjectDao
+@enduml
