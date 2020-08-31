@@ -31,20 +31,20 @@ MembersView -down-> UpdateMemberDialog
         new UpdateMemberDialog(memberId)
     end note
 
-UpdateMemberDialog -down-> UpdateMemberController
+UpdateMemberDialog -right-> UpdateMemberController
     note on link
             updateMember(member)
     end note
-UpdateMemberController -down-> MembersDao
+UpdateMemberController -right-> MembersDao
     note on link
         updateMember(member)
     end note
 
 
-UpdateMemberDialog .right.> Member
-UpdateMemberController .right.> Member
+UpdateMemberDialog ..> Member
+UpdateMemberController ..> Member
 
-MembersDao .right.> Member
+MembersDao ..> Member
 
 
 @enduml

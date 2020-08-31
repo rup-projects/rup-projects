@@ -6,6 +6,7 @@
 actor user
 
 view PlanProjectView
+model ProjectDao
 controller PlanProjectController
 model Project
 
@@ -23,9 +24,13 @@ PlanProjectView -right-> PlanProjectController
     note on link
         planProject(project)
     end note
-PlanProjectController -down-> Project
+PlanProjectController -right-> ProjectDao
     note on link
         create(project)
     end note
+
+ProjectDao .down.> Project
+PlanProjectController ..> Project
+PlanProjectView ..> Project
 
 @enduml
