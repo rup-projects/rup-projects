@@ -23,13 +23,13 @@ cancel()
 end note
 MembersManagementView -down-> CreateMemberDialog
 note on link
-    new MemberDialog()
+    new CreateMemberDialog()
 end note
 CreateMemberDialog -right-> CreateMemberController
 note on link
     createMember(member)
 end note
-CreateMemberDialog -right-> Member
+CreateMemberDialog .right.> Member
 CreateMemberController -right-> MembersDao
 note on link
     create(member)
