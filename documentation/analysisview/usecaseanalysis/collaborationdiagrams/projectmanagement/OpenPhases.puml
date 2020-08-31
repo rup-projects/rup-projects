@@ -23,7 +23,7 @@ MenuView -down-> ProjectManagementView
         new ProjectManagementView()
     end note
 
-ProjectManagementView -down-> PhasesView
+ProjectManagementView -right-> PhasesView
     note on link
         new PhasesView()
     end note
@@ -38,5 +38,6 @@ OpenPhasesController -right-> PhasesDao
 
 PhasesView o..> Phase
 OpenPhasesController ..> Phase
+PhasesDao ..> Phase
 
 @enduml

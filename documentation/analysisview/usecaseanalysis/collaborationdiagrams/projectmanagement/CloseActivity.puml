@@ -30,7 +30,7 @@ note on link
     close(activity)
 end note
 
-CloseActivityController -down-> ActivitiesDao
+CloseActivityController -right-> ActivitiesDao
 note on link
     update(activity)
 end note

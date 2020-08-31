@@ -28,7 +28,7 @@ IterationView -right-> MergeActivityController
     note on link
         merge(activityId)
     end note
-MergeActivityController -down-> ActivitiesDao
+MergeActivityController -right-> ActivitiesDao
     note on link
         delete(activityId)
     end note

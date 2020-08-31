@@ -37,5 +37,6 @@ OpenIterationsController -right-> PhaseDao
     end note
 
 IterationsView o..> Iteration
+PhaseDao ..> Phase
 Phase o--> Iteration
 @enduml

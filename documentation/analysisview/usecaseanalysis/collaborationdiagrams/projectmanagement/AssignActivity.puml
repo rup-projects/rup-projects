@@ -17,7 +17,7 @@ IterationView -right-> AssignActivityController
 note on link
     assignActivityToMember(activity, member)
 end note
-AssignActivityController --> ActivityDao
+AssignActivityController -right-> ActivityDao
 note on link
     save(activity)
 end note

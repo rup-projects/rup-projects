@@ -22,12 +22,12 @@ IterationView -right-> RestimateActivityController
         reestimateActivity(activityId, duration)
     end note
 
-RestimateActivityController -down-> ActivitiesDao
+RestimateActivityController -right-> ActivitiesDao
     note on link
         update(activity)
     end note
 
-RestimateActivityController .down.> Activity
-ActivitiesDao .left.> Activity
+RestimateActivityController ..> Activity
+ActivitiesDao ..> Activity
 
 @enduml

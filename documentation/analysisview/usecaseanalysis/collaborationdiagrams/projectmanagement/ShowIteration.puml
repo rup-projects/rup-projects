@@ -20,7 +20,7 @@ IterationView -right-> ShowIterationController
         getAllMembers()
     end note
 
-ShowIterationController -up-> MemberDao
+ShowIterationController --> MemberDao
     note on link
         getAllMembers()
     end note
@@ -31,13 +31,14 @@ end note
 
 IterationView -down-> Iteration
 IterationView o-down-> Member
-IterationView o-down-> Discipline
-IterationView o-down-> Activity
 
 ShowIterationController .down.> Iteration
 ShowIterationController o.down.> Member
-ShowIterationController o.down.> Discipline
-ShowIterationController o.down.> Activity
+Iteration *-right-> "*" Discipline
+Discipline *-right-> "*" Activity
+
+IterationDao ....> Iteration
+MemberDao ..> Member
 
 @enduml
 
