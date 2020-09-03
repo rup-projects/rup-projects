@@ -1,38 +1,31 @@
 @startuml
 
 	class Member {
-		-String : nombre
-		+Member()
-		+String : getId()
+		-memberId
 	}
 	
-	class MembersDao <<Singleton>> {
-		-MemberDao : instance
-		+MemberDao : getInstance()
-		+Member : getMember(memberId)
-		+void : create(member)
-		+Member : delete(memberId)
-		+Member : updateMember(member)
-		+List : getAll()
+	class MembersDao {
+		+create(member)
+		+delete(memberId)
+		+updateMember(member)
+		+getAll()
 	}
 	
 	class CreateMemberController {
-		-MembersManagementView : membersManagementView
-		+CreateMemberController()
-		+void : createMember(member)
+		createMember(member)
 	}
 
 	class MembersManagementView {
 		+MembersManagementView()
-		+void : createMember()
+		+createMember()
 	}
 
 	class CreateMemberDialog { 
 		+CreateMemberDialog()
-		+void : setName(name)
-		+void : setRoles(roles)
-		+void : confirm()
-		+void : cancel()
+		setName(name)
+		setRoles(roles)
+		confirm()
+		cancel()
 	}
 	 
 	MembersDao .left.> Member
