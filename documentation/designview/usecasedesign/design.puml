@@ -4,7 +4,6 @@
 
  skinparam linetype polyline
 
-
     'analysis
     boundary XView #9FB7E5
     control XController #C4E4AB
@@ -15,6 +14,7 @@
     boundary XStyle as "XStyle - CSS"
     boundary XTemplate as "XTemplate - HTML"
     boundary XComponent as "XComponent - TypeScript"
+    boundary XValidator as "XValidator - TypeScript"
     control XResource as "XResource - java"
     entity HTTPService
     control XControllerDesign as "XController - java"
@@ -24,9 +24,9 @@
     entity XDtoJava as "XDto - java"
     entity XEntityDesign as "XEntity - java"
 
-
     XView -right-> XController
     XView --> XEntity
+    XComponent --> XValidator
     XController -right-> XEntity
     XController -right-> XEntities
 
@@ -57,9 +57,5 @@
     XControllerDesign -right-> XDtoJava
     XDtoJava -right-> XEntityDesign
     XRepository -right-> XEntityDesign
-
-
-
-
 
 @enduml

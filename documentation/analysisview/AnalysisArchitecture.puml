@@ -34,52 +34,44 @@ newPage
 
 namespace views {
     class MenuView
-    namespace views.shared {
         interface Dialog
         interface ConfirmationDialog
-    }
-    namespace views.projectmamagement {
         class ProjectManagementView
         class InitProjectView
         class PlanProjectView
         class IterationView
         class PhaseView
-        class AssignActivityView implements views.shared.Dialog
-        class CloseActivityView implements views.shared.ConfirmationDialog
+        class AssignActivityView implements views.Dialog
+        class CloseActivityView implements views.ConfirmationDialog
 
         ProjectManagementView ..> PhaseView
         PhaseView --> IterationView
         IterationView ..> CloseActivityView
-    }
-    namespace views.members {
         class MembersManagementView
-        class CreateMemberView implements views.shared.Dialog
-        class UpdateMemberView implements views.shared.Dialog
-        class DeleteMemberView implements views.shared.ConfirmationDialog
+        class CreateMemberView implements views.Dialog
+        class UpdateMemberView implements views.Dialog
+        class DeleteMemberView implements views.ConfirmationDialog
 
         MembersManagementView ..> DeleteMemberView
         MembersManagementView ..> CreateMemberView
         MembersManagementView ..> UpdateMemberView
-    }
-    namespace views.usecases {
         class UseCasesManagementView
-        class CreateUseCaseView implements views.shared.Dialog
-        class UpdateUseCaseView implements views.shared.Dialog
-        class DeleteUseCaseView implements views.shared.ConfirmationDialog
+        class CreateUseCaseView implements views.Dialog
+        class UpdateUseCaseView implements views.Dialog
+        class DeleteUseCaseView implements views.ConfirmationDialog
 
         UseCasesManagementView ..> DeleteUseCaseView
         UseCasesManagementView ..> CreateUseCaseView
         UseCasesManagementView ..> UpdateUseCaseView
-    }
 
-    views.MenuView ..> views.projectmamagement.ProjectManagementView
-    views.MenuView ..> views.members.MembersManagementView
-    views.MenuView ..> views.usecases.UseCasesManagementView
+    views.MenuView ..> views.ProjectManagementView
+    views.MenuView ..> views.MembersManagementView
+    views.MenuView ..> views.UseCasesManagementView
 }
 
 newPage
 
-namespace model {
+namespace entities {
     class Member
     class UseCase
     class Iteration
