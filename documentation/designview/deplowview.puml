@@ -1,14 +1,35 @@
 @startuml
 
-package "Some Group" {
-HTTP - [First Component]
-[Another Component]
-}
+node client
+node server
+node docker as "Docker Container"
 
-package "Other Groups" {
-FTP - [Second Component]
+node webAppContainer as "WebApp"
+node webServerContainer as "ApiRest Server"
+node databaseContainer as "BBDD"
 
-[First Component] --> FTP
-}
+node webClient
+client <|-- webClient
+
+component webApp as "rup-project webApp" <<angular>>
+component webServerApp as "rup-project.jar" <<java>>
+component pumlGenerator as "puml-generator.jar" <<java>>
+database rupProjectsDataBase as "rupProjectsDataBase" <<MariaDB>>
+
+server o--> docker
+webClient --> webApp
+
+docker <|-- webAppContainer
+docker <|-- webServerContainer
+docker <|-- databaseContainer
+
+webAppContainer --> webApp
+webServerContainer --> webServerApp
+webServerContainer --> pumlGenerator
+webServerApp -left-> pumlGenerator
+databaseContainer --> rupProjectsDataBase
+webServerApp -right-> rupProjectsDataBase
+
+
 
 @enduml
