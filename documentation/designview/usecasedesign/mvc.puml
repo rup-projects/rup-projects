@@ -1,0 +1,69 @@
+@startuml
+skinparam linetype polyline
+
+resource -[hidden]right-> service
+resource .[hidden]down..> dto
+service -[hidden]right-> repository
+service .[hidden]down...> dto
+service .[hidden]down..> entity
+repository -[hidden]down-> entity
+
+namespace spring {
+    interface JpaRepository<ENTITY, ID>
+    class ModelMapper
+}
+
+namespace entity {
+    class Member
+    class UseCase
+    class Iteration
+    Class Activity
+    class Project
+    class Phase
+    class Discipline
+
+    Iteration *-> Member
+    Iteration *-> Activity
+
+    Member *--> Activity
+    Activity --> Discipline
+    Activity --> UseCase
+    Phase *--> Iteration
+    Project *--> Phase
+}
+
+namespace dto {
+    class MemberDto
+}
+
+namespace repository {
+    interface MemberRepository<Member, Long> extends spring.JpaRepository
+
+    MemberRepository ..> entity.Member
+}
+
+namespace service {
+    interface CrudService<DTO> {
+        + List<DTO> getAll()
+        + DTO get(Long id)
+        + create(DTO t)
+        + update(DTO t)
+        + delete(Long id)
+    }
+
+    class MemberService<MemberDto> implements CrudService
+
+    MemberService -> repository.MemberRepository
+    MemberService ..> dto.MemberDto
+    MemberService ..> entity.Member
+    MemberService -> spring.ModelMapper
+}
+
+namespace resource {
+    class MemberResource
+
+    MemberResource -> service.MemberService
+    MemberResource ..> dto.MemberDto
+}
+
+@enduml

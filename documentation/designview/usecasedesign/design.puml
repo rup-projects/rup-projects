@@ -8,7 +8,7 @@
     boundary XView #9FB7E5
     control XController #C4E4AB
     entity XEntity #F8D987
-    entity XEntities #F8D987
+    entity XDao #F8D987
 
     'Design
     boundary XStyle as "XStyle - CSS"
@@ -24,22 +24,22 @@
     entity XDtoJava as "XDto - java"
     entity XEntityDesign as "XEntity - java"
 
-    XView -right-> XController
+    XView -> XController
     XView --> XEntity
     XComponent --> XValidator
-    XController -right-> XEntity
-    XController -right-> XEntities
+    XController .right.> XEntity
+    XController -right-> XDao
 
     XTemplate ...[#Gray]up.> XView : <<trace>>
     XStyle ...[#Gray]up.> XView : <<trace>>
     XComponent ...[#Gray]up.> XView : <<trace>>
     XService ...[#Gray]up.> XController : <<trace>>
     XDto ...[#Gray]up.> XEntity : <<trace>>
-    XResource ...[#Gray]up.> XController : <<trace>>
-    XControllerDesign ...[#Gray]up.> XController : <<trace>>
+    XResource ...[#Gray]up.> XDao : <<trace>>
+    XControllerDesign ...[#Gray]up.> XDao : <<trace>>
     XDtoJava ...[#Gray]up.> XEntity : <<trace>>
     XEntityDesign ...[#Gray]up.> XEntity : <<trace>>
-    XRepository ...[#Gray]up.> XEntities : <<trace>>
+    XRepository ...[#Gray]up.> XDao : <<trace>>
 
     XComponent -left-> XTemplate
     XTemplate -left-> XStyle
