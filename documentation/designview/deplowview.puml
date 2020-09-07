@@ -2,34 +2,39 @@
 
 node client
 node server
-node docker as "Docker Container"
 
-node webAppContainer as "WebApp"
-node webServerContainer as "ApiRest Server"
-node databaseContainer as "BBDD"
+'together con todas las del servidor
+' '' con las del cliente
+' DHTML fuera, porque lo escupe uno y lo lee el otro
+
+node webAppContainer <<docker-container>> as "WebApp"
+node webServerContainer <<docker-container>>  as "ApiRest Server"
+node databaseContainer <<docker-container>>  as "BBDD"
 
 node webClient
 client <|-- webClient
 
-component webApp as "rup-project webApp" <<angular>>
+component webApp as "rup-project-webApp" <<angular>>
+component angular as "angular" <<angular>>
 component webServerApp as "rup-project.jar" <<java>>
 component pumlGenerator as "puml-generator.jar" <<java>>
 database rupProjectsDataBase as "rupProjectsDataBase" <<MariaDB>>
 
-server o--> docker
-webClient --> webApp
+artifact DHTML
 
-docker <|-- webAppContainer
-docker <|-- webServerContainer
-docker <|-- databaseContainer
+server --> webAppContainer
+server --> webServerContainer
+server --> databaseContainer
+webClient ..> DHTML
 
-webAppContainer --> webApp
+webAppContainer *--> webApp
+webAppContainer *--> angular
+webApp .down.>angular
+webApp ..> DHTML
 webServerContainer --> webServerApp
 webServerContainer --> pumlGenerator
 webServerApp -left-> pumlGenerator
 databaseContainer --> rupProjectsDataBase
 webServerApp -right-> rupProjectsDataBase
-
-
 
 @enduml
