@@ -36,7 +36,8 @@ OpenIterationsController -right-> PhaseDao
         getPhase(phaseId)
     end note
 
-IterationsView o..> Iteration
-PhaseDao ..> Phase
+IterationsView -> Phase
+IterationsView .> Iteration
 Phase o--> Iteration
+PhaseDao ..> Phase
 @enduml
