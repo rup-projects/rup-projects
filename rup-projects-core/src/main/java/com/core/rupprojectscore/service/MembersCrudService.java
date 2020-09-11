@@ -29,8 +29,10 @@ public class MembersCrudService implements CrudService<MemberDto> {
     }
 
     @Override
-    public void save(MemberDto memberDto) {
-        repository.save(mapper.map(memberDto, Member.class));
+    public MemberDto save(MemberDto memberDto) {
+        return mapper.map(
+                repository.save(mapper.map(memberDto, Member.class)), MemberDto.class
+        );
     }
 
     @Override

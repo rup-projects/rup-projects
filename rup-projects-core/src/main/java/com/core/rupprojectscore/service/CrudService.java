@@ -7,7 +7,7 @@ public interface CrudService<DTO> {
 
     DTO getById(Long id);
 
-    void save(DTO dto);
+    DTO save(DTO dto);
 
     void delete(Long id);
 }
