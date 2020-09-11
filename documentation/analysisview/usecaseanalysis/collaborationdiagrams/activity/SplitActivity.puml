@@ -42,7 +42,7 @@ SplitActivityController -down-> ActivitiesDao
     end note
 SplitActivityController -down-> UseCaseDao
     note on link
-        getAllUseCases()
+        getAll()
     end note
 
 SplitActivityView ..> Activity
