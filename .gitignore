@@ -11,3 +11,5 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 /.idea/workspace.xml
 /.idea/
+/rup-projects-core/.mvn/wrapper/maven-wrapper.jar
+/out/
