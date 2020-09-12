@@ -18,8 +18,13 @@ namespace components {
         MembersManagement -> MemberDialog
     }
 
+    namespace projectmanagement <<module>> {
+        class ProjectManagementView <<component>>
+    }
+
     components.Menu -down-> components.usecase.UseCaseManagement
     components.Menu -down-> components.member.MembersManagement
+    components.Menu -down-> components.projectmanagement.ProjectManagementView
 }
 
 components.member.MembersManagement --> services.MemberService
