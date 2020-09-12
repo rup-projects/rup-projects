@@ -16,4 +16,14 @@
                 <column name="description" type="varchar(100)"></column>
             </createTable>
         </changeSet>
+    <changeSet id="create_usecase" author="ruskab">
+        <createTable tableName="usecase">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(25)"/>
+            <column name="description" type="varchar(200)"/>
+            <column name="priority" type="int" defaultValue="0"/>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
