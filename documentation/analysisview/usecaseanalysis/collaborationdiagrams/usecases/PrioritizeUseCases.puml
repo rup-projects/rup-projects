@@ -14,11 +14,13 @@ model UseCase
 
 user -down-> UseCasesManagementView
     note on link
-        prioritize(useCaseId, priorityValue)
+        prioritize(useCaseId, priority)
+        confirm()
+        cancel()
     end note
 UseCasesManagementView -right-> PrioritizeUseCaseController
     note on link
-        updateUseCase(useCase)
+        prioritizeUseCases(useCases)
     end note
 PrioritizeUseCaseController -right-> UseCaseDao
     note on link
