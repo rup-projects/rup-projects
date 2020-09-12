@@ -12,31 +12,29 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class MembersCrudService implements CrudService<MemberDto> {
+public class MemberService {
 
     private final MemberRepository repository;
     private final ModelMapper mapper = new ModelMapper();
 
-    @Override
-    public List<MemberDto> getAll() {
+    public List<MemberDto> openMembers() {
         return mapper.map(repository.findAll(), new TypeToken<List<MemberDto>>() {
         }.getType());
     }
 
-    @Override
-    public MemberDto getById(Long id) {
-        return mapper.map(repository.findById(id), MemberDto.class);
-    }
-
-    @Override
-    public MemberDto save(MemberDto memberDto) {
+    public MemberDto createMember(MemberDto memberDto) {
         return mapper.map(
                 repository.save(mapper.map(memberDto, Member.class)), MemberDto.class
         );
     }
 
-    @Override
-    public void delete(Long id) {
+    public MemberDto updateMember(MemberDto dto) {
+        return mapper.map(
+                repository.save(mapper.map(dto, Member.class)), MemberDto.class
+        );
+    }
+
+    public void deleteMember(Long id) {
         repository.deleteById(id);
     }
 }
