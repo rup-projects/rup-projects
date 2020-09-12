@@ -1,9 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { Member } from '../models/member';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class MemberService {
 
-  constructor() { }
+  openMembers(): Observable<Member[]> {
+    return of([
+      new Member(1, 'Pedro'),
+      new Member(2, 'Yllia'),
+      new Member(3, 'Luis')
+    ])
+  }
+  
 }

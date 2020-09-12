@@ -60,7 +60,6 @@ namespace services {
 services.MemberService .right..> models.Member
 services.UseCaseService .right..> models.UseCase
 
-
 components -down[hidden]> services
 components -down[hidden]> models
 services -right[hidden]> models

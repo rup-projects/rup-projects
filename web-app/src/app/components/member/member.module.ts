@@ -1,9 +1,9 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MembersManagementComponent } from './members-management/members-management.component';
+import { NgModule } from '@angular/core';
+import { MemberService } from '../../services/member.service';
 import { MemberDialogComponent } from './member-dialog/member-dialog.component';
 import { MemberRoutingModule } from './member-routing.module';
-
+import { MembersManagementComponent } from './members-management/members-management.component';
 
 
 @NgModule({
@@ -11,6 +11,7 @@ import { MemberRoutingModule } from './member-routing.module';
   imports: [
     CommonModule,
     MemberRoutingModule
-  ]
+  ],
+  providers: [MemberService]
 })
 export class MemberModule { }
