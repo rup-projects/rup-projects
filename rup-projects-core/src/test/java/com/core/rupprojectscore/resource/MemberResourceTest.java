@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.DefaultUriBuilderFactory;
+
+import java.net.URI;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -21,9 +24,12 @@ class MemberResourceTest {
     private RestTemplate restTemplate = new RestTemplate();
 
     @Test
-    void openMembers() {
+    void openMembersTest() {
         // Arrangement
-        String endpointToTest = String.format("http://localhost:%s/%s", port, "members");
+        URI endpointToTest = new DefaultUriBuilderFactory("http://localhost").builder()
+                .port(port)
+                .path("members")
+                .build();
 
         // Actions
         ResponseEntity<String> response = restTemplate.getForEntity(endpointToTest, String.class);

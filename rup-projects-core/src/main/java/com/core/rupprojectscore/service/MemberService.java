@@ -5,10 +5,11 @@ import com.core.rupprojectscore.entity.Member;
 import com.core.rupprojectscore.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.modelmapper.TypeToken;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+import static java.util.stream.Collectors.toList;
 
 @RequiredArgsConstructor
 @Service
@@ -18,8 +19,9 @@ public class MemberService {
     private final ModelMapper mapper = new ModelMapper();
 
     public List<MemberDto> openMembers() {
-        return mapper.map(repository.findAll(), new TypeToken<List<MemberDto>>() {
-        }.getType());
+        return repository.findAll().stream()
+                .map(member -> mapper.map(member, MemberDto.class))
+                .collect(toList());
     }
 
     public MemberDto createMember(MemberDto memberDto) {

@@ -20,7 +20,7 @@ class MemberServiceTest {
     private MemberRepository repository;
 
     @Test
-    void openMembers() {
+    void openMembersTest() {
         // Arrangement
         Member build = Member.builder()
                 .name("name1")
@@ -36,18 +36,7 @@ class MemberServiceTest {
         assertThat(all).hasSize(1);
         assertThat(all.get(0).getName()).isEqualTo("name1");
         assertThat(all.get(0).getDescription()).isEqualTo("description1");
-        assertThat(all.get(0).getId()).isGreaterThan(0);
+        assertThat(all.get(0).getId()).isPositive();
     }
 
-    @Test
-    void createMember() {
-    }
-
-    @Test
-    void updateMember() {
-    }
-
-    @Test
-    void deleteMember() {
-    }
 }
