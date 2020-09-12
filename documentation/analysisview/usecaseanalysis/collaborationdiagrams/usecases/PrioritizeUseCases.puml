@@ -27,8 +27,11 @@ PrioritizeUseCaseController -right-> UseCaseDao
         update(useCase)
     end note
 
-UseCasesManagementView o-down-> UseCase
-PrioritizeUseCaseController o.down.> UseCase
+UseCasesManagementView o-down-> "*" UseCase
+note on link
+    setPriority(priority)
+end note
+PrioritizeUseCaseController .down.> "*" UseCase
 UseCaseDao .down.> UseCase
 
 @enduml

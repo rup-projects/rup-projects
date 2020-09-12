@@ -15,7 +15,13 @@ namespace spring {
 
 namespace entity {
     class Member
-    class UseCase
+    class UseCase {
+    - Long id
+    - String name
+    - String description
+    - Int priority
+
+    }
     class Iteration
     Class Activity
     class Project
