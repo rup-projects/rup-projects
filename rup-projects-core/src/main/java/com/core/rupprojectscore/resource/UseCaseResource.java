@@ -23,6 +23,7 @@ import java.util.List;
 public class UseCaseResource {
 
     public static final String USE_CASES = "/usecases";
+    public static final String PRIORITIZE_USE_CASES = "usecases/prioritize";
     public static final String USE_CASE_ID = "{id}";
 
     private final UseCaseService service;
@@ -43,7 +44,7 @@ public class UseCaseResource {
         return ResponseEntity.ok(service.updateUseCase(dto));
     }
 
-    @PutMapping(USE_CASE_ID)
+    @PostMapping(path = PRIORITIZE_USE_CASES)
     public ResponseEntity prioritizeUseCases(final @RequestBody List<UseCaseDto> useCasesDto) {
         service.prioritizeUseCases(useCasesDto);
         return ResponseEntity.ok().build();
