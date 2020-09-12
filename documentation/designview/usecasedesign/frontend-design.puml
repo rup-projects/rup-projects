@@ -1,0 +1,68 @@
+@startuml
+
+namespace components {
+
+    class Menu
+
+    namespace usecase <<module>> {
+        class UseCaseManagement <<component>>
+        class UseCaseDialog <<component>>
+
+        UseCaseManagement -> UseCaseDialog
+    }
+
+    namespace member <<module>> {
+        class MembersManagement <<component>>
+        class MemberDialog <<component>>
+
+        MembersManagement -> MemberDialog
+    }
+
+    components.Menu -down-> components.usecase.UseCaseManagement
+    components.Menu -down-> components.member.MembersManagement
+}
+
+components.member.MembersManagement --> services.MemberService
+components.member.MemberDialog --> services.MemberService
+components.member.MembersManagement o.> models.Member
+components.member.MemberDialog .> models.Member
+
+components.usecase.UseCaseManagement --> services.UseCaseService
+components.usecase.UseCaseDialog --> services.UseCaseService
+components.usecase.UseCaseManagement o.> models.UseCase
+components.usecase.UseCaseDialog .> models.UseCase
+
+
+namespace models {
+    class Member
+    class UseCase
+    class Iteration
+    Class Activity
+    class Project
+    class Phase
+    class Discipline
+
+    Iteration *-> Member
+    Iteration *-> Activity
+
+    Member *--> Activity
+    Activity --> Discipline
+    Activity --> UseCase
+    Phase *--> Iteration
+    Project *-> Phase
+}
+
+namespace services {
+    class MemberService
+    class UseCaseService
+}
+
+services.MemberService .right..> models.Member
+services.UseCaseService .right..> models.UseCase
+
+
+components -down[hidden]> services
+components -down[hidden]> models
+services -right[hidden]> models
+
+@enduml
