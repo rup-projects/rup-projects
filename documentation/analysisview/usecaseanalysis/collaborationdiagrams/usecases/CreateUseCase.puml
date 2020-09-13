@@ -17,7 +17,7 @@ user -right-> UseCasesManagementView
 user -right-> CreateUseCaseDialog
     note on link
         setName(name)
-        setRole(role)
+        setDescription(description)
         confirm()
         cancel()
     end note

@@ -4,5 +4,6 @@
    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <include file="db.203.create-member-table.xml" relativeToChangelogFile="true"/>
+    <include file="db.205.create-use_case-table.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

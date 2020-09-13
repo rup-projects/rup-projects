@@ -30,8 +30,8 @@ OpenUseCasesController -right-> UseCaseDao
         getAllUseCases()
     end note
 
-UseCasesManagementView o--> UseCase
-OpenUseCasesController o..> UseCase
+UseCasesManagementView o--> "*" UseCase
+OpenUseCasesController ..> UseCase
 UseCaseDao ..> UseCase
 
 @enduml
