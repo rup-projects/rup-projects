@@ -1,16 +1,18 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Member } from '../models/member';
 
 @Injectable()
 export class MemberService {
 
-  openMembers(): Observable<Member[]> {
-    return of([
-      new Member(1, 'Pedro'),
-      new Member(2, 'Yllia'),
-      new Member(3, 'Luis')
-    ])
+  URL_BASE: string = 'http://localhost:8080';
+
+  constructor(private httpClient: HttpClient) {
   }
-  
+
+  openMembers(): Observable<Member[]> {
+    return this.httpClient.get<Member[]>(`${this.URL_BASE}/members`);
+  }
+
 }
