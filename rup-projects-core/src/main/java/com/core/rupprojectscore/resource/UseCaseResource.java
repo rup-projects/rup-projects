@@ -18,11 +18,9 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = UseCaseResource.USE_CASES_ENDPOINT, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "use_cases", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 public class UseCaseResource {
-
-    public static final String USE_CASES_ENDPOINT = "use_cases";
 
     private final UseCaseService service;
 

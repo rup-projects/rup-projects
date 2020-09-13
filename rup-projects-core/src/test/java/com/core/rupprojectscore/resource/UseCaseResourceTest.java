@@ -38,7 +38,7 @@ class UseCaseResourceTest {
 
         var endpointToTest = new DefaultUriBuilderFactory("http://localhost").builder()
                 .port(port)
-                .path(UseCaseResource.USE_CASES_ENDPOINT)
+                .path("use_cases")
                 .build();
 
         // Actions
@@ -54,7 +54,7 @@ class UseCaseResourceTest {
         // Arrangement
         var endpointToTest = new DefaultUriBuilderFactory("http://localhost").builder()
                 .port(port)
-                .path(UseCaseResource.USE_CASES_ENDPOINT)
+                .path("use_cases")
                 .build();
 
         // Actions
@@ -74,7 +74,7 @@ class UseCaseResourceTest {
                 .build();
         var endpointToTest = new DefaultUriBuilderFactory("http://localhost").builder()
                 .port(port)
-                .path(UseCaseResource.USE_CASES_ENDPOINT)
+                .path("use_cases")
                 .pathSegment(usecaseDto.getId().toString())
                 .build();
 
@@ -91,7 +91,7 @@ class UseCaseResourceTest {
 
         var endpointToTest = new DefaultUriBuilderFactory("http://localhost").builder()
                 .port(port)
-                .path(UseCaseResource.USE_CASES_ENDPOINT)
+                .path("use_cases")
                 .build();
 
         // Actions
@@ -103,14 +103,25 @@ class UseCaseResourceTest {
     @Test
     void deleteUseCase() {
         // Arrangement
-        var endpointToTest = new DefaultUriBuilderFactory("http://localhost").builder()
+        UseCaseDto usecaseDto = UseCaseDto.builder()
+                .id(1L)
+                .name("usecase")
+                .description("description")
+                .build();
+        var createEndPoint = new DefaultUriBuilderFactory("http://localhost").builder()
                 .port(port)
-                .path(UseCaseResource.USE_CASES_ENDPOINT)
-                .pathSegment("1")
+                .path("use_cases")
+                .build();
+        ResponseEntity<UseCaseDto> response = restTemplate.postForEntity(createEndPoint, usecaseDto, UseCaseDto.class);;
+        String useCaseIdToDelete = response.getBody().getId().toString();
+        var deleteEndPoint = new DefaultUriBuilderFactory("http://localhost").builder()
+                .port(port)
+                .path("use_cases")
+                .pathSegment(useCaseIdToDelete)
                 .build();
 
         // Actions
-        restTemplate.delete(endpointToTest);
+        restTemplate.delete(deleteEndPoint);
 
         // Asserts
     }
