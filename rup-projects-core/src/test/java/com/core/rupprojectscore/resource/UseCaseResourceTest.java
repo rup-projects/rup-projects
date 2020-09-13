@@ -1,5 +1,6 @@
 package com.core.rupprojectscore.resource;
 
+import com.core.rupprojectscore.dto.UseCaseDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -9,8 +10,13 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
+import java.util.List;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
@@ -21,13 +27,34 @@ class UseCaseResourceTest {
 
     private RestTemplate restTemplate = new RestTemplate();
 
+    @Test
+    void createUseCases() {
+        // Arrangement
+        UseCaseDto usecaseDto = UseCaseDto.builder()
+                .id(1L)
+                .name("usecase")
+                .description("description")
+                .build();
+
+        var endpointToTest = new DefaultUriBuilderFactory("http://localhost").builder()
+                .port(port)
+                .path(UseCaseResource.USE_CASES_ENDPOINT)
+                .build();
+
+        // Actions
+        ResponseEntity<UseCaseDto> response = restTemplate.postForEntity(endpointToTest, usecaseDto, UseCaseDto.class);
+
+        // Asserts
+        assertThat(response.getStatusCode(), is(HttpStatus.OK));
+        assertThat(response.getBody().getId(), is(notNullValue()));
+    }
 
     @Test
     void openUseCases() {
         // Arrangement
         var endpointToTest = new DefaultUriBuilderFactory("http://localhost").builder()
                 .port(port)
-                .path(UseCaseResource.USE_CASES)
+                .path(UseCaseResource.USE_CASES_ENDPOINT)
                 .build();
 
         // Actions
@@ -36,4 +63,56 @@ class UseCaseResourceTest {
         // Asserts
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
     }
+
+    @Test
+    void updateUseCase() {
+        // Arrangement
+        UseCaseDto usecaseDto = UseCaseDto.builder()
+                .id(1L)
+                .name("usecase")
+                .description("description")
+                .build();
+        var endpointToTest = new DefaultUriBuilderFactory("http://localhost").builder()
+                .port(port)
+                .path(UseCaseResource.USE_CASES_ENDPOINT)
+                .pathSegment(usecaseDto.getId().toString())
+                .build();
+
+        // Actions
+        restTemplate.put(endpointToTest, usecaseDto);
+
+        // Asserts
+    }
+
+    @Test
+    void prioritizeUseCase() {
+        // Arrangement
+        List<UseCaseDto> dtos = Stream.generate(() -> UseCaseDto.builder().build()).limit(5).collect(toList());
+
+        var endpointToTest = new DefaultUriBuilderFactory("http://localhost").builder()
+                .port(port)
+                .path(UseCaseResource.USE_CASES_ENDPOINT)
+                .build();
+
+        // Actions
+        restTemplate.put(endpointToTest, dtos);
+
+        // Asserts
+    }
+
+    @Test
+    void deleteUseCase() {
+        // Arrangement
+        var endpointToTest = new DefaultUriBuilderFactory("http://localhost").builder()
+                .port(port)
+                .path(UseCaseResource.USE_CASES_ENDPOINT)
+                .pathSegment("1")
+                .build();
+
+        // Actions
+        restTemplate.delete(endpointToTest);
+
+        // Asserts
+    }
+
 }

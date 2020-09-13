@@ -17,7 +17,7 @@
             </createTable>
         </changeSet>
     <changeSet id="create_usecase" author="ruskab">
-        <createTable tableName="usecase">
+        <createTable tableName="use_case">
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>

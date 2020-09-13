@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "usecase")
+@Table(name = "use_case")
 public class UseCase {
 
     @Id

@@ -18,13 +18,11 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = UseCaseResource.USE_CASES, produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = UseCaseResource.USE_CASES_ENDPOINT, produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 public class UseCaseResource {
 
-    public static final String USE_CASES = "/usecases";
-    public static final String PRIORITIZE_USE_CASES = "usecases/prioritize";
-    public static final String USE_CASE_ID = "{id}";
+    public static final String USE_CASES_ENDPOINT = "use_cases";
 
     private final UseCaseService service;
 
@@ -38,19 +36,19 @@ public class UseCaseResource {
         return this.service.openUseCases();
     }
 
-    @PutMapping(USE_CASE_ID)
-    public ResponseEntity<UseCaseDto> updateUseCase(final @PathVariable("id") Long id, final @RequestBody UseCaseDto dto) {
+    @PutMapping("{id}")
+    public void updateUseCase(final @PathVariable("id") Long id, final @RequestBody UseCaseDto dto) {
         dto.setId(id);
-        return ResponseEntity.ok(service.updateUseCase(dto));
+        service.updateUseCase(dto);
     }
 
-    @PostMapping(path = PRIORITIZE_USE_CASES)
+    @PutMapping()
     public ResponseEntity prioritizeUseCases(final @RequestBody List<UseCaseDto> useCasesDto) {
         service.prioritizeUseCases(useCasesDto);
         return ResponseEntity.ok().build();
     }
 
-    @DeleteMapping(value = USE_CASE_ID)
+    @DeleteMapping("{id}")
     public void delete(@PathVariable Long id) {
         this.service.deleteUseCase(id);
     }
