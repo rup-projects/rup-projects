@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Member } from '../../../models/member';
 import { MemberService } from '../../../services/member.service';
@@ -8,15 +8,12 @@ import { MemberService } from '../../../services/member.service';
   templateUrl: './members-management.component.html',
   styleUrls: ['./members-management.component.scss']
 })
-export class MembersManagementComponent implements OnInit {
+export class MembersManagementComponent {
 
   members: Observable<Member[]>;
 
   constructor(private memberService: MemberService) {
     this.members = this.memberService.openMembers();
-  }
-
-  ngOnInit(): void {
   }
 
 }
