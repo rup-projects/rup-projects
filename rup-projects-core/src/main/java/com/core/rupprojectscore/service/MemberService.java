@@ -9,34 +9,40 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
-
 @RequiredArgsConstructor
 @Service
 public class MemberService {
 
     private final MemberRepository repository;
-    private final ModelMapper mapper = new ModelMapper();
+    private final MapperFacade mapperFacade;
 
     public List<MemberDto> openMembers() {
-        return repository.findAll().stream()
-                .map(member -> mapper.map(member, MemberDto.class))
-                .collect(toList());
+        return toDto(repository.findAll());
     }
 
-    public MemberDto createMember(MemberDto memberDto) {
-        return mapper.map(
-                repository.save(mapper.map(memberDto, Member.class)), MemberDto.class
-        );
+    public MemberDto createMember(MemberDto dto) {
+        return toDto(repository.save(from(dto)));
     }
 
     public MemberDto updateMember(MemberDto dto) {
-        return mapper.map(
-                repository.save(mapper.map(dto, Member.class)), MemberDto.class
-        );
+        return toDto(repository.save(from(dto)));
     }
 
     public void deleteMember(Long id) {
         repository.deleteById(id);
     }
+
+    // TODO Could be extract this to MapperFacade as generics ??
+    private MemberDto toDto(Member toMap) {
+        return mapperFacade.map(toMap, MemberDto.class);
+    }
+
+    private Member from(MemberDto toMap) {
+        return mapperFacade.map(toMap, Member.class);
+    }
+
+    private List<MemberDto> toDto(List<Member> listToMap) {
+        return mapperFacade.mapList(listToMap, MemberDto.class);
+    }
+
 }
