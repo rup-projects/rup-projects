@@ -13,24 +13,22 @@ class UseCaseServiceTest {
 
     @Autowired
     private UseCaseService service;
-    @Autowired
-    private UseCaseRepository repository;
 
     @Test
     void createUseCase() {
         // Arrangement
-        UseCaseDto usecaseDto = UseCaseDto.builder()
+        UseCaseDto toCreate = UseCaseDto.builder()
                 .name("usecase")
                 .description("description")
                 .build();
 
         // Actions
-        UseCaseDto useCaseDto = service.createUseCase(usecaseDto);
+        UseCaseDto result = service.createUseCase(toCreate);
 
         // Asserts
-        assertThat(usecaseDto.getId()).isNotNull();
-        assertThat(usecaseDto.getName()).isEqualTo("usecase");
-        assertThat(usecaseDto.getDescription()).isEqualTo("description");
-        assertThat(usecaseDto.getId()).isGreaterThan(0);
+        assertThat(result.getId()).isNotNull();
+        assertThat(result.getName()).isEqualTo("usecase");
+        assertThat(result.getDescription()).isEqualTo("description");
+        assertThat(result.getId()).isGreaterThan(0);
     }
 }
