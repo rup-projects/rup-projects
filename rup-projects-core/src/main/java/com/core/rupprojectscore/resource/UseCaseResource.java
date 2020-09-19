@@ -4,7 +4,6 @@ import com.core.rupprojectscore.dto.UseCaseDto;
 import com.core.rupprojectscore.service.UseCaseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,8 +24,8 @@ public class UseCaseResource {
     private final UseCaseService service;
 
     @PostMapping
-    public ResponseEntity<UseCaseDto> createUseCase(final @RequestBody UseCaseDto dto) {
-        return ResponseEntity.ok(this.service.createUseCase(dto));
+    public UseCaseDto createUseCase(final @RequestBody UseCaseDto dto) {
+        return this.service.createUseCase(dto);
     }
 
     @GetMapping
@@ -41,9 +40,8 @@ public class UseCaseResource {
     }
 
     @PutMapping()
-    public ResponseEntity prioritizeUseCases(final @RequestBody List<UseCaseDto> useCasesDto) {
+    public void prioritizeUseCases(final @RequestBody List<UseCaseDto> useCasesDto) {
         service.prioritizeUseCases(useCasesDto);
-        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("{id}")
