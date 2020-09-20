@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { MembersManagementComponent } from './components/members-management/members-management.component';
 
 const routes: Routes = [
-  {
-    path: 'members-management',
-    loadChildren: () => import('./components/member/member.module').then(m => m.MemberModule)
-  }
+  {path: 'members-management', component: MembersManagementComponent}
 ];
 
 
