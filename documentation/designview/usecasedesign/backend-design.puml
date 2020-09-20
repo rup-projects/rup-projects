@@ -1,75 +1,59 @@
 @startuml
 skinparam linetype polyline
 
-resource -[hidden]right-> service
-resource .[hidden]down..> dto
-service -[hidden]right-> repository
-service .[hidden]down...> dto
-service .[hidden]down..> entity
-repository -[hidden]down-> entity
+resource -[hidden]down> service
+resource .[hidden]down> dto
+service -[hidden]down> repository
+service .[hidden]down> dto
+service .[hidden]down> entity
+repository -[hidden]down> entity
 
-namespace spring {
-    interface JpaRepository<ENTITY, ID>
-    class ModelMapper
-}
-
-namespace entity {
-    class Member
-    class UseCase {
-    - Long id
-    - String name
-    - String description
-    - Int priority
-
-    }
-    class Iteration
-    Class Activity
-    class Project
-    class Phase
-    class Discipline
-
-    Iteration *-> Member
-    Iteration *-> Activity
-
-    Member *--> Activity
-    Activity --> Discipline
-    Activity --> UseCase
-    Phase *--> Iteration
-    Project *--> Phase
-}
-
-namespace dto {
-    class MemberDto
-}
-
-namespace repository {
-    interface MemberRepository<Member, Long> extends spring.JpaRepository
-
-    MemberRepository ..> entity.Member
-}
-
-namespace service {
-    interface CrudService<DTO> {
-        + List<DTO> getAll()
-        + DTO get(Long id)
-        + create(DTO t)
-        + update(DTO t)
-        + delete(Long id)
-    }
-
-    class MemberService<MemberDto> implements CrudService
-
-    MemberService -> repository.MemberRepository
-    MemberService ..> dto.MemberDto
-    MemberService ..> entity.Member
-    MemberService -> spring.ModelMapper
-}
+interface JpaRepository<ENTITY, ID>
+class ModelMapper
 
 namespace resource {
     class MemberResource
+    class UseCaseResource
+    class PhaseResource
+    class ProjectResource
+    class SystemResource
+    class IterationResource
+    class ActivityResource
 
-    MemberResource -> service.MemberService
-    MemberResource ..> dto.MemberDto
+    class XResource
+
+    MemberResource .down. XResource
+    UseCaseResource .down. XResource
+    PhaseResource .down. XResource
+    ProjectResource .down. XResource
+    SystemResource .down. XResource
+    IterationResource .down. XResource
+    ActivityResource .down. XResource
 }
+namespace service {
+    class XService
+    class MapperFacade
+
+    XService -> MapperFacade
+}
+namespace repository {
+    interface XRepository<X, Long> extends .JpaRepository
+}
+namespace entity {
+    class X
+}
+namespace dto {
+    class XDto
+}
+
+    resource.XResource -down--> service.XService
+    resource.XResource .down.> dto.XDto
+
+    service.XService -down-> repository.XRepository
+    service.XService .down.> dto.XDto
+    service.XService .down> entity.X
+    service.MapperFacade -up-> ModelMapper
+
+    repository.XRepository ..> entity.X
 
 @enduml

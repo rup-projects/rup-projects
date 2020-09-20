@@ -1,72 +1,35 @@
 @startuml
 
 namespace components {
-
     class Menu
 
-    namespace usecase <<module>> {
-        class UseCaseManagement <<component>>
-        class UseCaseDialog <<component>>
+    class UseCaseManagement <<component>>
+    class UseCaseDialog <<component>>
 
-        UseCaseManagement .> UseCaseDialog
-    }
+    class MembersManagement <<component>>
+    class MemberDialog <<component>>
 
-    namespace member <<module>> {
-        class MembersManagement <<component>>
-        class MemberDialog <<component>>
+    class ProjectManagementView <<component>>
 
-        MembersManagement .> MemberDialog
-    }
+    components.Menu .down.> components.UseCaseManagement
+    components.Menu .down.> components.MembersManagement
+    components.Menu .down.> components.ProjectManagementView
 
-    namespace projectmanagement <<module>> {
-        class ProjectManagementView <<component>>
-    }
-
-    components.Menu -down.> components.usecase.UseCaseManagement
-    components.Menu -down.> components.member.MembersManagement
-    components.Menu -down.> components.projectmanagement.ProjectManagementView
+    UseCaseManagement .> UseCaseDialog
+    MembersManagement .> MemberDialog
 }
 
-components.member.MembersManagement --> services.MemberService
-components.member.MemberDialog --> services.MemberService
-components.member.MembersManagement o.> models.Member
-components.member.MemberDialog .> models.Member
+components.MembersManagement -down-> services.MemberService
+components.MemberDialog -down-> services.MemberService
 
-components.usecase.UseCaseManagement --> services.UseCaseService
-components.usecase.UseCaseDialog --> services.UseCaseService
-components.usecase.UseCaseManagement o.> models.UseCase
-components.usecase.UseCaseDialog .> models.UseCase
-
-
-namespace models {
-    class Member
-    class UseCase
-    class Iteration
-    Class Activity
-    class Project
-    class Phase
-    class Discipline
-
-    Iteration *-> Member
-    Iteration *-> Activity
-
-    Member *--> Activity
-    Activity --> Discipline
-    Activity --> UseCase
-    Phase *--> Iteration
-    Project *-> Phase
-}
+components.UseCaseManagement -down-> services.UseCaseService
+components.UseCaseDialog -down-> services.UseCaseService
 
 namespace services {
     class MemberService
     class UseCaseService
 }
 
-services.MemberService .right..> models.Member
-services.UseCaseService .right..> models.UseCase
-
 components -down[hidden]> services
-components -down[hidden]> models
-services -right[hidden]> models
 
 @enduml
