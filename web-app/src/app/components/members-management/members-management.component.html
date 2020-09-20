@@ -1,20 +1,49 @@
-<div class="mat-elevation-z8">
-
-  <table mat-table [dataSource]="members | async">
-
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> Id</th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef> Name</th>
-      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="['id','name']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['id','name'];"></tr>
-
-  </table>
-
+<div class="row">
+  <div class="col">
+    <h2>Members</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Surname</th>
+        <th scope="col">Email</th>
+        <th scope="col">Roles</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- TODO Extract component -->
+      <tr *ngFor="let member of members; index as i"
+          (click)="select(member)"
+          (dblclick)="updateMember(member)"
+          [ngClass]="isSelected(member.id) ? 'table-active':''">
+        <td>{{ member.name }}</td>
+        <td>{{ member.surName }}</td>
+        <td>{{ member.email }}</td>
+        <td>{{ member.role }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <button type="button" class="btn btn-outline-primary" (click)="createMember()">
+      Create
+    </button>
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-outline-warning" (click)="updateMember()" [disabled]="nonSelected()">
+      Update
+    </button>
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-outline-danger" (click)="deleteMember()" [disabled]="nonSelected()">
+      Delete
+    </button>
+  </div>
+  <div class="col offset-8"></div>
 </div>

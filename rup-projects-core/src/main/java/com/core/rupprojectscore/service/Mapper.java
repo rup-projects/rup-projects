@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class MapperFacade {
+public class Mapper {
 
     private final ModelMapper mapperAdapted = new ModelMapper();
 

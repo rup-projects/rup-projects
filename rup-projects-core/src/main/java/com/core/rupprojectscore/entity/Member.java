@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -29,8 +30,15 @@ public class Member {
     @Column
     private String name;
 
+    @Column(name = "surname")
+    private String surName;
+
     @Column
-    private String description;
+    private String email;
+
+    @Column
+    @Enumerated
+    private MemberRole role;
 
 }
 

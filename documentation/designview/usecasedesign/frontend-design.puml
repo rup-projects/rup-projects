@@ -15,8 +15,8 @@ namespace components {
     components.Menu .down.> components.MembersManagement
     components.Menu .down.> components.ProjectManagementView
 
-    UseCaseManagement .> UseCaseDialog
-    MembersManagement .> MemberDialog
+    UseCaseManagement .down.> UseCaseDialog
+    MembersManagement .down.> MemberDialog
 }
 
 components.MembersManagement -down-> services.MemberService

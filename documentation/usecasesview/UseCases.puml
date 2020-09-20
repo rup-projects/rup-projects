@@ -3,58 +3,67 @@ left to right direction
 
 actor "User" as user
 
-package general {
-    :user: -left--> (startSystem)
-    :user: -left--> (closeSystem)
-    :user: -left--> (OpenProject)
-    :user: -left--> (openPhases)
-    :user: -left--> (openIterations)
-    :user: -left--> (PlanProject)
-    :user: -left--> (CloseIteration)
+user -> project
+user -> members
+user -> usecases
+user -> iterations
+user -> activities
+
+package project {
+    (startSystem)
+    (closeSystem)
+    (OpenProject)
+    (openPhases)
+    (PlanProject)
 }
 
 package members {
-    :user: -up-> (OpenMembers)
-    :user: -up-> (CreateMember)
-    :user: -up-> (UpdateMember)
-    :user: -up-> (DeleteMember)
+    (OpenMembers)
+    (CreateMember)
+    (UpdateMember)
+    (DeleteMember)
+
+    (CreateMember) ..> (OpenMembers)
+    (UpdateMember) ..> (OpenMembers)
+    (DeleteMember) ..> (OpenMembers)
 }
 
 package usecases {
-    :user: -right-> (OpenUseCases)
-    :user: -right-> (CreateUseCase)
-    :user: -right-> (DeleteUseCase)
-    :user: -right-> (UpdateUseCase)
-    :user: -right-> (PrioritizeUseCases)
+    (OpenUseCases)
+    (CreateUseCase)
+    (DeleteUseCase)
+    (UpdateUseCase)
+    (PrioritizeUseCases)
 
     (CreateUseCase) ..> (OpenUseCases)
     (DeleteUseCase) ..> (OpenUseCases)
     (UpdateUseCase) ..> (OpenUseCases)
     (PrioritizeUseCases) ..> (OpenUseCases)
-
 }
 
-package disciplines {
-    :user: -down-> (OpenIteration)
-    :user: -down-> (AssignActivity)
-    :user: -down-> (Re-estimateActivity)
-    :user: -down-> (SplitActivity)
-    :user: -down-> (CloseActivity)
-    :user: -down-> (MergeActivity)
+package iterations {
+    (openIterations)
+    (CloseIteration)
+    (OpenIteration)
 }
 
-package shared {
-    (DeleteConfirmation)
-    (SaveConfirmation)
+package activities {
+    (AssignActivity)
+    (Re-estimateActivity)
+    (SplitActivity)
+    (CloseActivity)
+    (MergeActivity)
+}
 
-    (DeleteUseCase) ..> (DeleteConfirmation)
-    (DeleteMember) ..> (DeleteConfirmation)
+package generic-subsequences {
+    (ConfirmationCancel)
+    usecase OpenModel <<abstract>>
 
-    (CreateUseCase) ..> (SaveConfirmation)
-    (CreateMember) ..> (SaveConfirmation)
+    (DeleteUseCase) ..> (ConfirmationCancel)
+    (DeleteMember) ..> (ConfirmationCancel)
 
-    (UpdateUseCase) ..> (SaveConfirmation)
-    (UpdateMember) ..> (SaveConfirmation)
+    (OpenMembers) --|> (OpenModel)
+    (OpenUseCases) --|> (OpenModel)
 }
 
 @enduml
