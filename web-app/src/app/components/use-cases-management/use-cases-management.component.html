@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col">
+    <h2>Use cases</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Priority</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- TODO Extract component -->
+      <tr *ngFor="let useCase of useCases; index as i"
+          (click)="select(useCase)"
+          (dblclick)="updateUseCase(useCase)"
+          [ngClass]="isSelected(useCase.id) ? 'table-active':''">
+        <td>{{ useCase.name }}</td>
+        <td>{{ useCase.description }}</td>
+        <td>{{ useCase.priority }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <button type="button" class="btn btn-outline-primary" (click)="createUseCase()">
+      Create
+    </button>
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-outline-warning" (click)="updateUseCase()" [disabled]="nonSelected()">
+      Update
+    </button>
+  </div>
+  <div class="col">
+    <button type="button" class="btn btn-outline-danger" (click)="deleteUseCase()" [disabled]="nonSelected()">
+      Delete
+    </button>
+  </div>
+  <div class="col offset-8"></div>
+</div>

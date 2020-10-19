@@ -13,21 +13,26 @@ import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { MemberDialogComponent } from './components/member-dialog/member-dialog.component';
 import { MembersManagementComponent } from './components/members-management/members-management.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { UseCaseDialogComponent } from './components/use-case-dialog/use-case-dialog.component';
+import { UseCasesManagementComponent } from './components/use-cases-management/use-cases-management.component';
 import { MemberService } from './services/member.service';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UseCaseService } from './services/use-case.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     MembersManagementComponent,
     MemberDialogComponent,
-    MenuComponent
+    MenuComponent,
+    UseCasesManagementComponent,
+    UseCaseDialogComponent
   ],
   imports: [
     AppRoutingModule,
@@ -49,6 +54,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   providers: [
     MemberService,
+    UseCaseService,
     MatDialog
   ],
   bootstrap: [AppComponent]
