@@ -2,6 +2,11 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
@@ -15,6 +20,7 @@ import { MemberDialogComponent } from './components/member-dialog/member-dialog.
 import { MembersManagementComponent } from './components/members-management/members-management.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { MemberService } from './services/member.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -30,13 +36,20 @@ import { MemberService } from './services/member.service';
     CdkTableModule,
     CommonModule,
     HttpClientModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatInputModule,
     MatMenuModule,
     MatSliderModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
-    MemberService
+    MemberService,
+    MatDialog
   ],
   bootstrap: [AppComponent]
 })

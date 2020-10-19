@@ -1,8 +1,6 @@
 @startuml
- skinparam linetype polyline
 
 namespace controllers {
-    namespace controllers.projectmanagement {
         class StartSystemController
         class CloseSystemController
         class PlanProjectController
@@ -14,65 +12,44 @@ namespace controllers {
         class MergeActivityController
         class SplitActivityController
         class CloseActivityController
-    }
-    namespace controllers.members {
         class OpenMembersController
         class CreateMemberController
         class UpdateMemberController
         class DeleteMemberController
-    }
-    namespace controllers.usecases {
         class OpenUseCasesController
         class CreateUseCaseController
         class UpdateUseCaseController
         class DeleteUseCaseController
         class PrioritizeUseCaseController
-    }
 }
 
 newPage
 
 namespace views {
     class MenuView
-        interface Dialog
-        interface ConfirmationDialog
-        class ProjectManagementView
-        class InitProjectView
-        class PlanProjectView
-        class IterationView
-        class PhaseView
-        class AssignActivityView implements views.Dialog
-        class CloseActivityView implements views.ConfirmationDialog
-
-        ProjectManagementView ..> PhaseView
-        PhaseView --> IterationView
-        IterationView ..> CloseActivityView
-        class MembersManagementView
-        class CreateMemberView implements views.Dialog
-        class UpdateMemberView implements views.Dialog
-        class DeleteMemberView implements views.ConfirmationDialog
-
-        MembersManagementView ..> DeleteMemberView
-        MembersManagementView ..> CreateMemberView
-        MembersManagementView ..> UpdateMemberView
-        class UseCasesManagementView
-        class CreateUseCaseView implements views.Dialog
-        class UpdateUseCaseView implements views.Dialog
-        class DeleteUseCaseView implements views.ConfirmationDialog
-
-        UseCasesManagementView ..> DeleteUseCaseView
-        UseCasesManagementView ..> CreateUseCaseView
-        UseCasesManagementView ..> UpdateUseCaseView
-
-    views.MenuView ..> views.ProjectManagementView
-    views.MenuView ..> views.MembersManagementView
-    views.MenuView ..> views.UseCasesManagementView
+    class ProjectManagementView
+    class InitProjectView
+    class PlanProjectView
+    class IterationView
+    class PhaseView
+    class AssignActivityView
+    class MembersManagementView
+    class CreateMemberView
+    class UpdateMemberView
+    class UseCasesManagementView
+    class CreateUseCaseView
+    class UpdateUseCaseView
 }
 
 newPage
 
 namespace entities {
-    class Member
+    class Member {
+        name
+        surname
+        email
+        roles: { Architect, Developer}
+    }
     class UseCase
     class Iteration
     Class Activity

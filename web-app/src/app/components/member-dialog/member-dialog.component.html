@@ -1,1 +1,39 @@
-<p>member-dialog works!</p>
+<h2 mat-dialog-title>Add Member</h2>
+<form [formGroup]="form" (ngSubmit)="saveMember()" class="form">
+  <div class="row">
+    <div class="form-group col-6">
+      <label>Name</label>
+      <input type="text" class="form-control" [formControl]="form.name">
+    </div>
+    <div class="form-group col-6">
+      <label>Surname</label>
+      <input type="text" class="form-control" [formControl]="form.surName">
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" class="form-control" [formControl]="form.email">
+  </div>
+  <div class="form-group">
+    <label>Role</label>
+    <select class="form-control" [formControl]="form.role">
+      <option *ngFor="let role of getMemberRoles()">{{ role }}</option>
+    </select>
+  </div>
+
+  <mat-dialog-actions>
+    <div class="col col-2 offset-sm-8">
+      <button type="button" class="btn btn-outline-danger" mat-dialog-close>
+        Cancel
+      </button>
+    </div>
+    <div class="col col-2">
+      <button type="submit" class="btn btn-outline-primary" mat-dialog-close>
+        Accept
+      </button>
+    </div>
+  </mat-dialog-actions>
+
+</form>
+
+

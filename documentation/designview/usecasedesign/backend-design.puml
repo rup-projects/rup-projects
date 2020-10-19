@@ -20,16 +20,16 @@ namespace resource {
     class IterationResource
     class ActivityResource
 
-    class XResource
 
-    MemberResource .down. XResource
-    UseCaseResource .down. XResource
-    PhaseResource .down. XResource
-    ProjectResource .down. XResource
-    SystemResource .down. XResource
-    IterationResource .down. XResource
-    ActivityResource .down. XResource
+    MemberResource .down.> XResource
+    UseCaseResource .down.> XResource
+    PhaseResource .down.> XResource
+    ProjectResource .down.> XResource
+    SystemResource .down.> XResource
+    IterationResource .down.> XResource
+    ActivityResource .down.> XResource
 }
+
 namespace service {
     class XService
     class MapperFacade

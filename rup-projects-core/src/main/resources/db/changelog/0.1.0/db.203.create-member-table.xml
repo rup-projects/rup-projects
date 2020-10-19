@@ -9,7 +9,9 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="name" type="varchar(100)"/>
-            <column name="description" type="varchar(100)"/>
+            <column name="surname" type="varchar(100)"/>
+            <column name="email" type="varchar(100)"/>
+            <column name="role" type="varchar(100)"/>
         </createTable>
     </changeSet>
 

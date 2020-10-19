@@ -2,6 +2,7 @@ package com.core.rupprojectscore.service;
 
 import com.core.rupprojectscore.dto.MemberDto;
 import com.core.rupprojectscore.entity.Member;
+import com.core.rupprojectscore.entity.MemberRole;
 import com.core.rupprojectscore.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,9 @@ class MemberServiceTest {
         // Arrangement
         Member build = Member.builder()
                 .name("name1")
-                .description("description1")
+                .surName("surname1")
+                .email("email1")
+                .role(MemberRole.Architect)
                 .build();
 
         repository.save(build);
@@ -35,7 +38,10 @@ class MemberServiceTest {
         // Asserts
         assertThat(all).hasSize(1);
         assertThat(all.get(0).getName()).isEqualTo("name1");
-        assertThat(all.get(0).getDescription()).isEqualTo("description1");
+        assertThat(all.get(0).getSurName()).isEqualTo("surname1");
+        assertThat(all.get(0).getEmail()).isEqualTo("email1");
+        assertThat(all.get(0).getRole()).isEqualTo(MemberRole.Architect);
+
         assertThat(all.get(0).getId()).isPositive();
     }
 
