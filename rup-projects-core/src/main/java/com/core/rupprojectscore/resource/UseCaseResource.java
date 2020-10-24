@@ -17,7 +17,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping(value = "use_cases", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "use-cases", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 public class UseCaseResource {
 

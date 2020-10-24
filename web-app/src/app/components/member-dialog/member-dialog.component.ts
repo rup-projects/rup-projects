@@ -3,7 +3,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Member } from '../../models/member';
 import { MemberRole } from '../../models/member-role.enum';
 import { MemberService } from '../../services/member.service';
-import { Dialog } from './dialog';
 import { MemberFormGroup } from './member-form-group';
 
 @Component({
@@ -11,13 +10,12 @@ import { MemberFormGroup } from './member-form-group';
   templateUrl: './member-dialog.component.html',
   styleUrls: ['./member-dialog.component.scss']
 })
-export class MemberDialogComponent extends Dialog {
+export class MemberDialogComponent {
   form: MemberFormGroup = new MemberFormGroup();
 
   constructor(private memberService: MemberService,
               public dialogRef: MatDialogRef<MemberDialogComponent>,
               @Inject(MAT_DIALOG_DATA) public selected: Member) {
-    super(dialogRef);
     if (selected) {
       this.form.patchValue(selected);
     }
