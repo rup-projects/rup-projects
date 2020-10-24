@@ -1,7 +1,7 @@
 package com.core.rupprojectscore.resource;
 
 import com.core.rupprojectscore.dto.UseCaseDto;
-import com.core.rupprojectscore.service.UseCaseService;
+import com.core.rupprojectscore.service.UseCaseServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,7 +21,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UseCaseResource {
 
-    private final UseCaseService service;
+    private final UseCaseServiceImpl service;
 
     @PostMapping
     public UseCaseDto createUseCase(final @RequestBody UseCaseDto dto) {

@@ -1,0 +1,34 @@
+@startuml
+
+actor user
+
+boundary UseCasesManagementView
+
+control PrioritizeUseCaseController
+
+entity UseCaseDao
+entity UseCase
+
+user -down-> UseCasesManagementView
+    note on link
+        prioritize(useCaseId, priority)
+        confirm()
+        cancel()
+    end note
+UseCasesManagementView -right-> PrioritizeUseCaseController
+    note on link
+        prioritizeUseCases(useCases)
+    end note
+PrioritizeUseCaseController -right-> UseCaseDao
+    note on link
+        update(useCase)
+    end note
+
+UseCasesManagementView o-down-> "*" UseCase
+    note on link
+        setPriority(priority)
+    end note
+PrioritizeUseCaseController .down.> "*" UseCase
+UseCaseDao .down.> UseCase
+
+@enduml

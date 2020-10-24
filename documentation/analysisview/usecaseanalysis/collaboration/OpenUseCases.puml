@@ -1,0 +1,34 @@
+@startuml
+
+actor user
+
+boundary MenuView
+boundary UseCasesManagementView
+
+control OpenUseCasesController
+
+entity UseCaseDao
+entity UseCase
+
+user -right-> MenuView
+    note on link
+        openUseCases()
+    end note
+MenuView -down-> UseCasesManagementView
+    note on link
+        new UseCasesManagementView()
+    end note
+UseCasesManagementView -right-> OpenUseCasesController
+    note on link
+        getAllUseCases()
+    end note
+OpenUseCasesController -right-> UseCaseDao
+    note on link
+        getAllUseCases()
+    end note
+
+UseCasesManagementView o--> "*" UseCase
+OpenUseCasesController ..> UseCase
+UseCaseDao ..> UseCase
+
+@enduml

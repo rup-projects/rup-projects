@@ -1,0 +1,30 @@
+@startuml
+
+actor user
+
+boundary IterationView
+
+control RestimateActivityController
+
+entity Activity
+entity ActivitiesDao
+
+user -down-> IterationView
+    note on link
+        reestimateActivity(activityId, duration)
+    end note
+
+IterationView -right-> RestimateActivityController
+    note on link
+        reestimateActivity(activityId, duration)
+    end note
+
+RestimateActivityController -right-> ActivitiesDao
+    note on link
+        update(activity)
+    end note
+
+RestimateActivityController ..> Activity
+ActivitiesDao ..> Activity
+
+@enduml

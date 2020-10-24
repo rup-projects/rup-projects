@@ -1,0 +1,11 @@
+@startuml
+
+actor user
+boundary MenuView
+
+user -right-> MenuView
+note on link
+closeSystem()
+end note
+
+@enduml

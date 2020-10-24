@@ -1,0 +1,40 @@
+@startuml
+
+actor user
+
+boundary MenuView
+boundary ProjectManagementView
+boundary PhasesView
+
+control OpenPhasesController
+
+entity Phase
+entity PhasesDao
+
+user -right-> MenuView
+    note on link
+        openPhases()
+    end note
+MenuView -down-> ProjectManagementView
+    note on link
+        new ProjectManagementView()
+    end note
+
+ProjectManagementView -right-> PhasesView
+    note on link
+        new PhasesView()
+    end note
+PhasesView -right-> OpenPhasesController
+    note on link
+        getAllPhases()
+    end note
+OpenPhasesController -right-> PhasesDao
+    note on link
+        getAll()
+    end note
+
+PhasesView o..> Phase
+OpenPhasesController ..> Phase
+PhasesDao ..> Phase
+
+@enduml

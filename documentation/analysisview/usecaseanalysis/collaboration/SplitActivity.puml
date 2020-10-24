@@ -1,0 +1,52 @@
+@startuml
+
+actor user
+
+boundary IterationView
+boundary SplitActivityView
+
+control SplitActivityController
+
+entity Activity
+entity UseCase
+entity ActivitiesDao
+entity UseCaseDao
+
+user -right-> IterationView
+    note on link
+        splitActivity(disciplineId)
+    end note
+user --> SplitActivityView
+    note on link
+        setUseCaseId()
+        setDescription()
+        setCost()
+        confirm()
+        cancel()
+    end note
+IterationView -down-> SplitActivityView
+    note on link
+        new SplitActivityView(disciplineId)
+    end note
+SplitActivityView -right-> SplitActivityController
+    note on link
+        splitActivity(activity)
+        getAllUseCases()
+    end note
+SplitActivityController -down-> ActivitiesDao
+    note on link
+        createActivity(activity)
+    end note
+SplitActivityController -down-> UseCaseDao
+    note on link
+        getAll()
+    end note
+
+SplitActivityView ..> Activity
+SplitActivityView o..> UseCase
+SplitActivityController ..> Activity
+
+UseCaseDao ..> UseCase
+ActivitiesDao ..> Activity
+
+@enduml

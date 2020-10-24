@@ -1,0 +1,33 @@
+@startuml
+
+actor user
+boundary IterationsView
+boundary IterationView
+
+control OpenIterationController
+entity IterationDao
+entity Iteration
+
+user -right->IterationsView
+    note on link
+        openIteration(iterationId)
+    end note
+IterationsView -down-> IterationView
+    note on link
+        new IterationsView(iterationId)
+    end note
+IterationView -right-> OpenIterationController
+    note on link
+        get(iterationId)
+    end note
+OpenIterationController -right-> IterationDao
+    note on link
+        get(iterationId)
+    end note
+
+OpenIterationController .down.> Iteration
+IterationView .down.> Iteration
+IterationDao .down.> Iteration
+
+@enduml
+

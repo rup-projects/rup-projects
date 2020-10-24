@@ -1,4 +1,5 @@
 @startuml
+left to right direction
 
 namespace controllers {
         class StartSystemController
@@ -23,8 +24,6 @@ namespace controllers {
         class PrioritizeUseCaseController
 }
 
-newPage
-
 namespace views {
     class MenuView
     class ProjectManagementView
@@ -40,8 +39,6 @@ namespace views {
     class CreateUseCaseView
     class UpdateUseCaseView
 }
-
-newPage
 
 namespace entities {
     class Member {
