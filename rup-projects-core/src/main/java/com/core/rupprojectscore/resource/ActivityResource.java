@@ -19,10 +19,21 @@ public class ActivityResource {
 
     private final ActivityService service;
 
-    @PutMapping("{id}/member/{memberId}")
+    @PostMapping
+    public ActivityDto splitActivity(final @RequestBody ActivityDto dto) {
+        return service.splitActivity(dto);
+    }
+
+    @PutMapping(value = "{id}", params = {"memberId"})
     public ActivityDto assignActivity(final @PathVariable("id") Long activityId,
                                       final @PathVariable("memberId") Long memberId) {
         return service.assignActivity(activityId, memberId);
+    }
+
+    @PutMapping(value = "{id}", params = "{duration}")
+    public ActivityDto reestimateActivity(final @PathVariable("id") Long id,
+                                          final @RequestBody Long duration) {
+        return service.reestimateActivity(id, duration);
     }
 
     @PutMapping(value = "{id}", params = "!duration")
@@ -33,17 +44,6 @@ public class ActivityResource {
     @DeleteMapping("{id}")
     public ActivityDto mergeActivity(final @PathVariable("id") Long id) {
         return service.mergeActivity(id);
-    }
-
-    @PutMapping(value = "{id}", params = "{duration}")
-    public ActivityDto reestimateActivity(final @PathVariable("id") Long id,
-                                          final @RequestBody Long duration) {
-        return service.reestimateActivity(id, duration);
-    }
-
-    @PostMapping
-    public ActivityDto splitActivity(final @RequestBody ActivityDto dto) {
-        return service.splitActivity(dto);
     }
 
 }

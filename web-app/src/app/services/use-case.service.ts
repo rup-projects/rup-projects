@@ -2,12 +2,11 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { resourceServer } from '../../environments/environment';
 import { UseCase } from '../models/use-case';
 
 @Injectable()
 export class UseCaseService {
-
-  URL_BASE: string = 'http://localhost:8080';
 
   private RESOURCE: string = 'use-cases';
 
@@ -15,22 +14,22 @@ export class UseCaseService {
   }
 
   openUseCases(): Observable<UseCase[]> {
-    return this.httpClient.get<UseCase[]>(`${this.URL_BASE}/${this.RESOURCE}`);
+    return this.httpClient.get<UseCase[]>(`${resourceServer}/${this.RESOURCE}`);
   }
 
   createUseCase(useCase: UseCase): Promise<UseCase> {
-    return this.httpClient.post<UseCase>(`${this.URL_BASE}/${this.RESOURCE}`, {...useCase})
+    return this.httpClient.post<UseCase>(`${resourceServer}/${this.RESOURCE}`, {...useCase})
       .pipe(map((json: any): UseCase => UseCase.build(json)))
       .toPromise()
   }
 
   updateUseCase(useCase: UseCase): Promise<UseCase> {
-    return this.httpClient.put<UseCase>(`${this.URL_BASE}/${this.RESOURCE}/${useCase.id}`, {...useCase})
+    return this.httpClient.put<UseCase>(`${resourceServer}/${this.RESOURCE}/${useCase.id}`, {...useCase})
       .pipe(map((json: any): UseCase => UseCase.build(json)))
       .toPromise()
   }
 
   delete(id: number): Promise<void> {
-    return this.httpClient.delete<void>(`${this.URL_BASE}/${this.RESOURCE}/${id}`).toPromise();
+    return this.httpClient.delete<void>(`${resourceServer}/${this.RESOURCE}/${id}`).toPromise();
   }
 }
