@@ -1,27 +1,12 @@
 @startuml
 
 namespace model {
-
 }
 
 namespace view {
-
-    namespace projectmanagement {}
-    namespace members {}
-    namespace usecases {}
-    
-    namespace shared {}
-    
-    view.projectmanagement --> view.shared
-    view.members --> view.shared
-    view.usecases --> view.shared
-    
 }
 
 namespace controllers {
-    namespace projectmanagement {}
-    namespace members {}
-    namespace usecases {}
 }
 
 view --> model

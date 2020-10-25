@@ -1,0 +1,37 @@
+@startuml
+
+actor user
+boundary UseCasesManagementView
+boundary CreateUseCaseDialog
+control CreateUseCaseController
+entity UseCaseDao
+entity UseCase
+
+user -right-> UseCasesManagementView
+    note on link
+        createUseCase()
+    end note
+user -right-> CreateUseCaseDialog
+    note on link
+        setName(name)
+        setDescription(description)
+        confirm()
+        cancel()
+    end note
+UseCasesManagementView -down-> CreateUseCaseDialog
+    note on link
+    new UseCaseDialog()
+    end note
+CreateUseCaseDialog -right-> CreateUseCaseController
+    note on link
+     createUseCase(useCase)
+    end note
+CreateUseCaseDialog -right-> UseCase
+CreateUseCaseController -right-> UseCaseDao
+    note on link
+    create(useCase)
+    end note
+CreateUseCaseController .down.> UseCase
+UseCaseDao .down.> UseCase
+
+@enduml

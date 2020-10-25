@@ -1,0 +1,31 @@
+@startuml
+
+actor user
+boundary UseCasesView
+boundary ConfirmDialog
+control DeleteUseCaseController
+entity UseCaseDao
+
+user -right-> UseCasesView
+    note on link
+        deleteUseCase(useCaseId)
+    end note
+user --> ConfirmDialog
+    note on link
+        confirm()
+        cancel()
+    end note
+UseCasesView --> ConfirmDialog
+    note on link
+        new ConfirmDialog()
+    end note
+UseCasesView -right-> DeleteUseCaseController
+    note on link
+        delete(useCaseId)
+    end note
+DeleteUseCaseController -down-> UseCaseDao
+    note on link
+        delete(useCaseId)
+    end note
+
+@enduml

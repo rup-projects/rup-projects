@@ -1,0 +1,38 @@
+@startuml
+
+actor user
+boundary MembersManagementView
+boundary CreateMemberDialog
+control CreateMemberController
+entity MembersDao
+entity Member
+
+user -right-> MembersManagementView
+note on link
+createMember()
+end note
+user -right-> CreateMemberDialog
+note on link
+setName(name)
+setRoles(roles)
+confirm()
+cancel()
+end note
+MembersManagementView -down-> CreateMemberDialog
+note on link
+    new CreateMemberDialog()
+end note
+CreateMemberDialog -right-> CreateMemberController
+note on link
+    createMember(member)
+end note
+CreateMemberDialog .right.> Member
+CreateMemberController .right.> MembersDao
+note on link
+    create(member)
+end note
+
+CreateMemberController .down.> Member
+MembersDao ..> Member
+
+@enduml

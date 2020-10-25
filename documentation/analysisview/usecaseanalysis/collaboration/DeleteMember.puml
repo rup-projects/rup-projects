@@ -1,0 +1,33 @@
+@startuml
+
+actor user
+boundary MembersManagementView
+boundary ConfirmDialog
+control DeleteMemberController
+entity MemberDao
+
+user -right-> MembersManagementView
+    note on link
+    deleteMember(memberId)
+    end note
+user -down-> ConfirmDialog
+    note on link
+        confirm()
+        cancel()
+    end note
+
+MembersManagementView --> ConfirmDialog
+    note on link
+        new ConfirmDialog()
+    end note
+
+MembersManagementView -right-> DeleteMemberController
+    note on link
+        delete(memberId)
+    end note
+DeleteMemberController -down-> MemberDao
+    note on link
+        delete(memberId)
+    end note
+
+@enduml

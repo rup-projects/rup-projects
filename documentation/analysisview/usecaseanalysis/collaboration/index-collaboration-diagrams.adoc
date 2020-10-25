@@ -1,0 +1,146 @@
+==== Assign activity
+
+[plantuml,svg,align="center"]
+----
+include::AssignActivity.puml[]
+----
+
+==== Close activity
+
+[plantuml,svg,align="center"]
+----
+include::CloseActivity.puml[]
+----
+
+==== Merge activity
+
+[plantuml,svg,align="center"]
+----
+include::MergeActivity.puml[]
+----
+
+==== Reestimate activity
+
+[plantuml,svg,align="center"]
+----
+include::RestimateActivity.puml[]
+----
+
+==== Split activity
+
+[plantuml,svg,align="center"]
+----
+include::SplitActivity.puml[]
+----
+
+==== Open iterations
+
+[plantuml,svg,align="center"]
+----
+include::OpenIterations.puml[]
+----
+
+==== Open iteration
+
+[plantuml,svg,align="center"]
+----
+include::OpenIteration.puml[]
+----
+
+==== Show iteration
+
+[plantuml,svg,align="center"]
+----
+include::ShowIteration.puml[]
+----
+
+==== Open phases
+
+[plantuml,svg,align="center"]
+----
+include::OpenPhases.puml[]
+----
+
+==== Plan project
+
+[plantuml,svg,align="center"]
+----
+include::PlanProject.puml[]
+----
+
+==== Start system
+
+[plantuml,svg,align="center"]
+----
+include::StartSystem.puml[]
+----
+
+==== Close system
+
+[plantuml,svg,align="center"]
+----
+include::CloseSystem.puml[]
+----
+
+==== Create member
+
+[plantuml,svg,align="center"]
+----
+include::CreateMember.puml[]
+----
+
+==== Delete member
+
+[plantuml,svg,align="center"]
+----
+include::DeleteMember.puml[]
+----
+
+==== Open members
+
+[plantuml,svg,align="center"]
+----
+include::OpenMembers.puml[]
+----
+
+==== Update member
+
+[plantuml,svg,align="center"]
+----
+include::UpdateMember.puml[]
+----
+
+==== Create UseCase
+
+[plantuml,svg,align="center"]
+----
+include::CreateUseCase.puml[]
+----
+
+==== Delete UseCase
+
+[plantuml,svg,align="center"]
+----
+include::DeleteUseCase.puml[]
+----
+
+==== Open UseCases
+
+[plantuml,svg,align="center"]
+----
+include::OpenUseCases.puml[]
+----
+
+==== Prioritize UseCases
+
+[plantuml,svg,align="center"]
+----
+include::PrioritizeUseCases.puml[]
+----
+
+==== Update UseCase
+
+[plantuml,svg,align="center"]
+----
+include::UpdateUseCase.puml[]
+----

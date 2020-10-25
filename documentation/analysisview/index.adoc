@@ -1,7 +1,19 @@
 = Analisys View
 
+== Architecture analysis
+
+=== Classes
 [plantuml,svg,align="center"]
 ----
 include::AnalysisArchitecture.puml[]
 ----
 
+=== Package view
+
+[plantuml,svg,align="center"]
+----
+include::PackageDiagram.puml[]
+----
+
+== Use cases analysis
+include::{docdir}/usecaseanalysis/collaboration/index-collaboration-diagrams.adoc[]
