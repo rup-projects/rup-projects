@@ -1,5 +1,6 @@
-package com.core.rupprojectscore.dto;
+package com.core.rupprojectscore.entity;
 
+import com.core.rupprojectscore.dto.PhaseType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PhaseDto {
-    private List<IterationDto> iterations;
+public class Phase {
+    private PhaseType type;
+    private List<Iteration> iterations;
 }

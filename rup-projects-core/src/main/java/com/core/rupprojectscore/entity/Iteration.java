@@ -1,4 +1,4 @@
-package com.core.rupprojectscore.dto;
+package com.core.rupprojectscore.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -6,13 +6,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PhaseDto {
-    private List<IterationDto> iterations;
+public class Iteration {
+    private LocalDate startDate;
+    private LocalDate endDate;
 }
