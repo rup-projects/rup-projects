@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "activities", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "iteration", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 public class IterationResource {
 
