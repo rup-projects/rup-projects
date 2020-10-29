@@ -1,0 +1,23 @@
+@startuml
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    StateBackgroundColor #green
+}
+
+(*) -down-> "<img:png/initProject.png>" as initProject #LawnGreen
+
+initProject -down-> "<img:png/project_management iterations.png>" as projectManagement #LawnGreen
+
+projectManagement -right-> "<img:png/member_management.png>" #LawnGreen
+
+projectManagement -left-> "<img:png/usecase_management.png>" #LawnGreen
+
+projectManagement -down-> "<img:png/iteration management.png>" as iterationManagement #LawnGreen
+note on link
+    open iteration
+end note
+
+@enduml
+
+

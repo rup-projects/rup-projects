@@ -1,0 +1,44 @@
+= Design View
+
+[#_index]
+== Index
+
+* <<_Architecture>>
+* <<_Trazability>>
+* <<_Mechanisms>>
+
+
+[#_Architecture]
+== Architecture
+
+[plantuml,align="center"]
+----
+include::repository/packages.puml[]
+----
+<<_index>>
+
+[#_Trazability]
+== Analysis Design Traceability
+
+[plantuml,align="center"]
+----
+include::repository/design.puml[]
+----
+<<_index>>
+
+[#_Mechanisms]
+== Mechanisms
+
+=== Frontend design
+[plantuml,align="center"]
+----
+include::repository/frontend-design.puml[]
+----
+<<_index>>
+
+=== Backend design
+[plantuml,align="center"]
+----
+include::repository/backend-design.puml[]
+----
+<<_index>>
