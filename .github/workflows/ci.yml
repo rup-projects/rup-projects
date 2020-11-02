@@ -21,4 +21,4 @@ jobs:
             ${{ runner.os }}-maven-
 
       - name: Unit & Integration Tests
-        run: mvn verify
+        run: mvn verify -f rup-projects-core/
