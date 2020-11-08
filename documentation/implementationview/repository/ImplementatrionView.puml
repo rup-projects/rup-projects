@@ -1,0 +1,22 @@
+@startuml
+
+
+'together con todas las del servidor
+' '' con las del cliente
+
+component webApp as "rup-project-webApp" <<angular>>
+component angular as "angular" <<angular>>
+component webServerApp as "rup-project.jar" <<java>>
+component rupProjectsDataBase as "rupProjectsDataBase" <<MariaDB>>
+package rupprojectscore as "rup-projects-core"
+package webapp as "web-app"
+
+
+
+webApp .down.>angular
+webServerApp -right-> rupProjectsDataBase
+
+rupprojectscore ..> webServerApp : <<trace>>
+webapp ..> webApp : <<trace>>
+
+@enduml

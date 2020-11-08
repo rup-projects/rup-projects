@@ -1,0 +1,16 @@
+= ImplementationView
+
+[#_index]
+== Index
+
+* <<_Implementation>>
+
+
+[#_Implementation]
+== Implementation
+
+[plantuml,align="center"]
+----
+include::repository/ImplementatrionView.puml[]
+----
+<<_index>>
