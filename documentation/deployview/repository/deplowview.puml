@@ -5,7 +5,6 @@ node server
 
 'together con todas las del servidor
 ' '' con las del cliente
-' DHTML fuera, porque lo escupe uno y lo lee el otro
 
 node webAppContainer <<docker-container>> as "WebApp"
 node webServerContainer <<docker-container>>  as "ApiRest Server"
@@ -20,17 +19,15 @@ component webServerApp as "rup-project.jar" <<java>>
 component pumlGenerator as "puml-generator.jar" <<java>>
 database rupProjectsDataBase as "rupProjectsDataBase" <<MariaDB>>
 
-artifact DHTML
+client .[hidden]right. server
+webServerApp .[hidden]left. webApp
 
 server --> webAppContainer
 server --> webServerContainer
 server --> databaseContainer
-webClient ..> DHTML
-
 webAppContainer *--> webApp
 webAppContainer *--> angular
 webApp .down.>angular
-webApp ..> DHTML
 webServerContainer --> webServerApp
 webServerContainer --> pumlGenerator
 webServerApp -left-> pumlGenerator

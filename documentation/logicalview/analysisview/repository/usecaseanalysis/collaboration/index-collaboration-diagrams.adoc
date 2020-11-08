@@ -5,6 +5,9 @@
 include::AssignActivity.puml[]
 ----
 
+<<_index>>
+
+
 ==== Close activity
 
 [plantuml,svg,align="center"]
