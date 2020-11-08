@@ -19,6 +19,9 @@ component webServerApp as "rup-project.jar" <<java>>
 component pumlGenerator as "puml-generator.jar" <<java>>
 database rupProjectsDataBase as "rupProjectsDataBase" <<MariaDB>>
 
+client .[hidden]right. server
+webServerApp .[hidden]left. webApp
+
 server --> webAppContainer
 server --> webServerContainer
 server --> databaseContainer
