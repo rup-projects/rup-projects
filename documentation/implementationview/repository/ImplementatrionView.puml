@@ -4,17 +4,21 @@
 'together con todas las del servidor
 ' '' con las del cliente
 
-component webApp as "rup-project-webApp" <<angular>>
-component angular as "angular" <<angular>>
-component webServerApp as "rup-project.jar" <<java>>
-component rupProjectsDataBase as "rupProjectsDataBase" <<MariaDB>>
+component webApp as "web-app" <<angular>>
+component angular as "Angular"
+component webServerApp as "rup-project-core.jar" <<Spring>>
+component spring as "Spring"
+artifact rupProjectsDataBase as "rupProjectsDataBase" <<MariaDB>>
+component mariaDB as "MariaDB"
 package rupprojectscore as "rup-projects-core"
 package webapp as "web-app"
 
 
 
 webApp .down.>angular
-webServerApp -right-> rupProjectsDataBase
+webServerApp .down.> spring
+webServerApp .down.> mariaDB
+mariaDB --> rupProjectsDataBase
 
 rupprojectscore ..> webServerApp : <<trace>>
 webapp ..> webApp : <<trace>>

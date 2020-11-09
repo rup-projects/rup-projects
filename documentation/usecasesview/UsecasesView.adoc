@@ -74,6 +74,6 @@ include::{docdir}/repository/specifications/members/Members.adoc[]
 <<_index>>
 
 [#_Webmap]
-=== Webmap
+=== Prototype user interface
 image::repository/userinterfaces/svg/WebMapOnlyMainPages.svg[]
 <<_index>>
