@@ -1,37 +1,49 @@
 @startuml
 
-node client
-node server
+node webClient
+node server {
+
+node webAppContainer <<docker-container>> as "WebApp" {
+
+component webApp as "web-app" <<angular>>
+component angular as "Angular"
+}
+
+
+node webServerContainer <<docker-container>>  as "rup-project-core" {
+component webServerApp as "rup-project-core.jar" <<Spring>>
+component Spring as "Spring"
+}
+
+
+
+node databaseContainer <<docker-container>>  as "BBDD" {
+database rupProjectsDataBase as "rupProjectsDataBase" <<MariaDB>>
+component MariaDB as "MariaDB"
+
+}
+
+}
 
 'together con todas las del servidor
 ' '' con las del cliente
 
-node webAppContainer <<docker-container>> as "WebApp"
-node webServerContainer <<docker-container>>  as "ApiRest Server"
-node databaseContainer <<docker-container>>  as "BBDD"
 
-node webClient
-client <|-- webClient
+webAppContainer .[hidden]down. webServerApp
+webServerApp .[hidden]down. databaseContainer
 
-component webApp as "rup-project-webApp" <<angular>>
-component angular as "angular" <<angular>>
-component webServerApp as "rup-project.jar" <<java>>
-component pumlGenerator as "puml-generator.jar" <<java>>
-database rupProjectsDataBase as "rupProjectsDataBase" <<MariaDB>>
+webClient -right-> server
 
-client .[hidden]right. server
-webServerApp .[hidden]left. webApp
-
-server --> webAppContainer
-server --> webServerContainer
-server --> databaseContainer
-webAppContainer *--> webApp
-webAppContainer *--> angular
-webApp .down.>angular
-webServerContainer --> webServerApp
-webServerContainer --> pumlGenerator
-webServerApp -left-> pumlGenerator
-databaseContainer --> rupProjectsDataBase
-webServerApp -right-> rupProjectsDataBase
+'server --> webAppContainer
+'server --> webServerContainer
+'server --> databaseContainer
+'webAppContainer *--> webApp
+'webAppContainer *--> angular
+'webApp .down.>angular
+'webServerContainer --> webServerApp
+'webServerContainer --> pumlGenerator
+'webServerApp -left-> pumlGenerator
+'databaseContainer --> rupProjectsDataBase
+'webServerApp -right-> rupProjectsDataBase
 
 @enduml
