@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static java.util.Objects.isNull;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -28,5 +30,11 @@ public class ProjectDto {
         return phases.stream()
                 .flatMap(phaseDto -> phaseDto.getIterations().stream())
                 .collect(Collectors.toList());
+    }
+
+    public Long getNumberOfIterations() {
+        return isNull(numberOfIterations)
+                ? 10L
+                : numberOfIterations;
     }
 }
