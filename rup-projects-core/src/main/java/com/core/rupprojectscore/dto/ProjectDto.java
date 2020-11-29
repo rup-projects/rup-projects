@@ -37,4 +37,5 @@ public class ProjectDto {
                 ? 10L
                 : numberOfIterations;
     }
+
 }

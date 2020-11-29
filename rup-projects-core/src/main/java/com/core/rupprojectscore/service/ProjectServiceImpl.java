@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -30,45 +29,39 @@ public class ProjectServiceImpl implements ProjectService {
 
         createPhases(project, iterations);
 
-
-        project.addPhase(Phase.builder()
-                .type(PhaseType.Init)
-                .iterations(iterations.subList(0, 2))
-                .build());
-
-        project.addPhase(Phase.builder()
-                .type(PhaseType.Elaboration)
-                .iterations(iterations.subList(3, 6))
-                .build());
-        project.addPhase(Phase.builder()
-                .type(PhaseType.Construction)
-                .iterations(iterations.subList(7, 10))
-                .build());
-        project.addPhase(Phase.builder()
-                .type(PhaseType.Transition)
-                .iterations(iterations.subList(11, 12))
-                .build());
-
         ProjectDto map = mapper.map(project, ProjectDto.class);
 
         return map;
     }
 
     private void createPhases(Project project, List<Iteration> iterations) {
-        createInitialPhase(project, iterations);
-//        createInitialPhase();
-//        createInitialPhase();
-//        createInitialPhase();
+        createPhase(project, iterations, PhaseType.Init);
+        createPhase(project, iterations, PhaseType.Elaboration);
+        createPhase(project, iterations, PhaseType.Construction);
+        createPhase(project, iterations, PhaseType.Transition);
     }
 
-    private void createInitialPhase(Project project, List<Iteration> iterations) {
+    private void createPhase(Project project, List<Iteration> iterations, PhaseType phaseType) {
+        Integer numberOfIterations = Math.toIntExact(Math.round(iterations.size() * phaseType.getPercentage()));
         project.addPhase(
                 Phase.builder()
-                        .type(PhaseType.Init)
-                        .iterations(Arrays.asList(iterations.get(0)))
+                        .type(phaseType)
+                        .iterations(iterations.subList(project.getNumberOfIterations(), project.getNumberOfIterations() + numberOfIterations))
                         .build()
         );
     }
+
+//        private void createPhases(Project project) {
+//
+//           Integer numberOfIterations = Math.toIntExact(Math.round(iterations.size() * phaseType.getPercentage()));
+//            project.addPhase(
+//                    Phase.builder()
+//                            .type(phaseType)
+//                            .iterations(iterations.subList(0, numberOfIterations))
+//                            .build()
+//            );
+//        }
+
 
     private void calculateProjectIterationSize(ProjectDto projectDto) {
         Duration duration = Duration.between(projectDto.getStartDate().atTime(0, 0), projectDto.getEndDate().atTime(0, 0));
@@ -81,7 +74,7 @@ public class ProjectServiceImpl implements ProjectService {
         for (LocalDate index = dto.getStartDate(); index.isBefore(dto.getEndDate()); index = index.plusDays(dto.getIterationSize())) {
             result.add(Iteration.builder()
                     .startDate(index)
-                    .endDate(index.plusDays(dto.getIterationSize()))
+                    .endDate(index.plusDays(dto.getIterationSize() - 1))
                     .build());
         }
         return result;

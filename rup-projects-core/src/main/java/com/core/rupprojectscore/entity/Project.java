@@ -25,4 +25,16 @@ public class Project {
         }
         this.phases.add(build);
     }
+
+    public List<Phase> getPhases() {
+        if (isNull(phases)) {
+            phases = new ArrayList<>();
+        }
+
+        return phases;
+    }
+
+    public Integer getNumberOfIterations() {
+        return Math.toIntExact(getPhases().stream().flatMap(phase -> phase.getIterations().stream()).count());
+    }
 }
