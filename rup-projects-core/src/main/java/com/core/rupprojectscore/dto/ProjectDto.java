@@ -22,7 +22,8 @@ public class ProjectDto {
     private LocalDate endDate;
     private Long cost;
     private Long iterationSize;
-    private Long numberOfIterations;
+    @Builder.Default
+    private Long numberOfIterations = 10L;
 
     private List<PhaseDto> phases;
 
@@ -30,12 +31,6 @@ public class ProjectDto {
         return phases.stream()
                 .flatMap(phaseDto -> phaseDto.getIterations().stream())
                 .collect(Collectors.toList());
-    }
-
-    public Long getNumberOfIterations() {
-        return isNull(numberOfIterations)
-                ? 10L
-                : numberOfIterations;
     }
 
 }

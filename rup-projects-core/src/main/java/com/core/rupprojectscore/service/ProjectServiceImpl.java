@@ -22,23 +22,46 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ProjectDto planProject(ProjectDto dto) {
         Project project = Project.builder().build();
-
-        calculateProjectIterationSize(dto);
-
-        List<Iteration> iterations = createIterations(dto);
-
-        createPhases(project, iterations);
-
-        ProjectDto map = mapper.map(project, ProjectDto.class);
-
-        return map;
+        initProject(project, dto);
+        //projectRepository.save(project);
+        return mapper.map(project, ProjectDto.class);
     }
 
-    private void createPhases(Project project, List<Iteration> iterations) {
+    @Override
+    public ProjectDto startSystem() {
+        return null;
+    }
+
+    private void initProject(Project project, ProjectDto dto) {
+        project.setStartDate(dto.getStartDate());
+        project.setEndDate(dto.getEndDate());
+        project.setIterationSize(calculateProjectIterationSize(project, dto.getNumberOfIterations()));
+        initPhases(project);
+    }
+
+    private long calculateProjectIterationSize(Project project, long numberOfIterations) {
+        Duration projectDuration = Duration.between(project.getStartDate().atTime(0, 0), project.getEndDate()
+                .atTime(0, 0));
+        return projectDuration.toDays() / numberOfIterations;
+    }
+
+    private void initPhases(Project project) {
+        List<Iteration> iterations = createIterations(project);
         createPhase(project, iterations, PhaseType.Init);
         createPhase(project, iterations, PhaseType.Elaboration);
         createPhase(project, iterations, PhaseType.Construction);
         createPhase(project, iterations, PhaseType.Transition);
+    }
+
+    private List<Iteration> createIterations(Project project) {
+        List<Iteration> result = new ArrayList<>();
+        for (LocalDate index = project.getStartDate(); index.isBefore(project.getEndDate()); index = index.plusDays(project.getIterationSize())) {
+            result.add(Iteration.builder()
+                    .startDate(index)
+                    .endDate(index.plusDays(project.getIterationSize() - 1))
+                    .build());
+        }
+        return result;
     }
 
     private void createPhase(Project project, List<Iteration> iterations, PhaseType phaseType) {
@@ -49,39 +72,5 @@ public class ProjectServiceImpl implements ProjectService {
                         .iterations(iterations.subList(project.getNumberOfIterations(), project.getNumberOfIterations() + numberOfIterations))
                         .build()
         );
-    }
-
-//        private void createPhases(Project project) {
-//
-//           Integer numberOfIterations = Math.toIntExact(Math.round(iterations.size() * phaseType.getPercentage()));
-//            project.addPhase(
-//                    Phase.builder()
-//                            .type(phaseType)
-//                            .iterations(iterations.subList(0, numberOfIterations))
-//                            .build()
-//            );
-//        }
-
-
-    private void calculateProjectIterationSize(ProjectDto projectDto) {
-        Duration duration = Duration.between(projectDto.getStartDate().atTime(0, 0), projectDto.getEndDate().atTime(0, 0));
-        long iterationDuration = duration.toDays() / projectDto.getNumberOfIterations();
-        projectDto.setIterationSize(iterationDuration);
-    }
-
-    private List<Iteration> createIterations(ProjectDto dto) {
-        List<Iteration> result = new ArrayList<>();
-        for (LocalDate index = dto.getStartDate(); index.isBefore(dto.getEndDate()); index = index.plusDays(dto.getIterationSize())) {
-            result.add(Iteration.builder()
-                    .startDate(index)
-                    .endDate(index.plusDays(dto.getIterationSize() - 1))
-                    .build());
-        }
-        return result;
-    }
-
-    @Override
-    public ProjectDto startSystem() {
-        return null;
     }
 }
