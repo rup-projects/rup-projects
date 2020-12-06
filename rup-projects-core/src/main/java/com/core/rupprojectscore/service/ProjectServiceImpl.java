@@ -5,6 +5,7 @@ import com.core.rupprojectscore.dto.ProjectDto;
 import com.core.rupprojectscore.entity.Iteration;
 import com.core.rupprojectscore.entity.Phase;
 import com.core.rupprojectscore.entity.Project;
+import com.core.rupprojectscore.repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,17 +14,22 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Objects.nonNull;
+
 @Service
 @RequiredArgsConstructor
 public class ProjectServiceImpl implements ProjectService {
 
     final private Mapper mapper;
+    final private ProjectRepository projectRepository;
 
     @Override
     public ProjectDto planProject(ProjectDto dto) {
-        Project project = Project.builder().build();
-        initProject(project, dto);
-        //projectRepository.save(project);
+        if (nonNull(dto.getId())) {
+            projectRepository.deleteById(dto.getId());
+        }
+        Project project = initProject(dto);
+        projectRepository.save(project);
         return mapper.map(project, ProjectDto.class);
     }
 
@@ -32,11 +38,13 @@ public class ProjectServiceImpl implements ProjectService {
         return null;
     }
 
-    private void initProject(Project project, ProjectDto dto) {
+    private Project initProject(ProjectDto dto) {
+        Project project = Project.builder().build();
         project.setStartDate(dto.getStartDate());
         project.setEndDate(dto.getEndDate());
         project.setIterationSize(calculateProjectIterationSize(project, dto.getNumberOfIterations()));
         initPhases(project);
+        return project;
     }
 
     private long calculateProjectIterationSize(Project project, long numberOfIterations) {

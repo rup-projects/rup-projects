@@ -18,6 +18,7 @@ import static java.util.Objects.isNull;
 @AllArgsConstructor
 @Builder
 public class ProjectDto {
+    private Long id;
     private LocalDate startDate;
     private LocalDate endDate;
     private Long cost;
