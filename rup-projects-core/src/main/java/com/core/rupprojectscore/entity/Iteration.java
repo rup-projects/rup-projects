@@ -14,6 +14,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class Iteration {
+
+    public static final int MINIMUM_ITERATION_SIZE = 10;
     private LocalDate startDate;
     private LocalDate endDate;
 }

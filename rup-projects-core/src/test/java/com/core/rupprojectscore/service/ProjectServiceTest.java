@@ -4,7 +4,6 @@ import com.core.rupprojectscore.dto.IterationDto;
 import com.core.rupprojectscore.dto.PhaseDto;
 import com.core.rupprojectscore.dto.PhaseType;
 import com.core.rupprojectscore.dto.ProjectDto;
-import com.core.rupprojectscore.repository.MemberRepository;
 import com.core.rupprojectscore.repository.ProjectRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,78 +22,77 @@ import static org.mockito.Mockito.verify;
 public class ProjectServiceTest {
 
     private ProjectService projectService;
-    private MemberRepository repository;
-    private ProjectDto project;
-    private ProjectDto projectDto;
+    private ProjectDto trainedProjectDto;
+    private ProjectDto createdProjectDto;
     private ProjectRepository projectRepository = mock(ProjectRepository.class);
 
     @BeforeEach
     public void before() {
-        projectService = new ProjectServiceImpl(new Mapper(),projectRepository);
+        projectService = new ProjectServiceImpl(new Mapper(), projectRepository);
     }
 
     @Test
     void planProjectTest_having_defaultNumberOfIterations() {
-        project = createProjectDto(LocalDate.of(1, 1, 1), LocalDate.of(1, 6, 30), cost(100000L));
-        projectDto = projectService.planProject(project);
-        verify(projectRepository,times(1)).save(any());
+        trainedProjectDto = createProjectDto(LocalDate.of(1, 1, 1), LocalDate.of(1, 6, 30), cost(100000L));
+
+        createdProjectDto = projectService.planProject(trainedProjectDto);
+
+        verify(projectRepository, times(1)).save(any());
         assertProject(PhaseType.values(), iterations(10));
         assertPhases(
-                List.of(1, LocalDate.of(1, 1, 1), LocalDate.of(1, 1, 18)),
-                List.of(3, LocalDate.of(1, 1, 19), LocalDate.of(1, 3, 13)),
-                List.of(5, LocalDate.of(1, 3, 14), LocalDate.of(1, 6, 11)),
-                List.of(1, LocalDate.of(1, 6, 12), LocalDate.of(1, 6, 29))
+                List.of(1, LocalDate.of(1, 1, 1), LocalDate.of(1, 1, 19)),
+                List.of(3, LocalDate.of(1, 1, 20), LocalDate.of(1, 3, 17)),
+                List.of(5, LocalDate.of(1, 3, 18), LocalDate.of(1, 6, 20)),
+                List.of(1, LocalDate.of(1, 6, 21), LocalDate.of(1, 6, 30))
         );
         assertIterations(
-                List.of(LocalDate.of(1, 1, 1), LocalDate.of(1, 1, 18)),
-                List.of(LocalDate.of(1, 1, 19), LocalDate.of(1, 2, 5)),
-                List.of(LocalDate.of(1, 2, 6), LocalDate.of(1, 2, 23)),
-                List.of(LocalDate.of(1, 2, 24), LocalDate.of(1, 3, 13)),
-                List.of(LocalDate.of(1, 3, 14), LocalDate.of(1, 3, 31)),
-                List.of(LocalDate.of(1, 4, 1), LocalDate.of(1, 4, 18)),
-                List.of(LocalDate.of(1, 4, 19), LocalDate.of(1, 5, 6)),
-                List.of(LocalDate.of(1, 5, 7), LocalDate.of(1, 5, 24)),
-                List.of(LocalDate.of(1, 5, 25), LocalDate.of(1, 6, 11)),
-                List.of(LocalDate.of(1, 6, 12), LocalDate.of(1, 6, 29))
+                List.of(LocalDate.of(1, 1, 1), LocalDate.of(1, 1, 19)),
+                List.of(LocalDate.of(1, 1, 20), LocalDate.of(1, 2, 7)),
+                List.of(LocalDate.of(1, 2, 8), LocalDate.of(1, 2, 26)),
+                List.of(LocalDate.of(1, 2, 27), LocalDate.of(1, 3, 17)),
+                List.of(LocalDate.of(1, 3, 18), LocalDate.of(1, 4, 5)),
+                List.of(LocalDate.of(1, 4, 6), LocalDate.of(1, 4, 24)),
+                List.of(LocalDate.of(1, 4, 25), LocalDate.of(1, 5, 13)),
+                List.of(LocalDate.of(1, 5, 14), LocalDate.of(1, 6, 1)),
+                List.of(LocalDate.of(1, 6, 2), LocalDate.of(1, 6, 20)),
+                List.of(LocalDate.of(1, 6, 21), LocalDate.of(1, 6, 30))
         );
     }
 
     @Test
-    void planProjectTest_having_5NumberIterations_and_id_then_itCreates5IterationsAndRemovePrevious() {
-        project = createProjectDto(
-                LocalDate.of(1, 1, 1),
-                LocalDate.of(1, 6, 30),
-                cost(100000L));
-        project.setNumberOfIterations(5L);
-        project.setId(5L);
+    void planProjectTest_having_20NumberIterations_and_id_then_itCreates20IterationsAndRemovePrevious() {
+        trainedProjectDto = createProjectDto(LocalDate.of(1, 1, 1), LocalDate.of(1, 9, 25), cost(100000L));
+        trainedProjectDto.setNumberOfIterations(20L);
+        trainedProjectDto.setId(5L);
 
-        projectDto = projectService.planProject(project);
+        createdProjectDto = projectService.planProject(trainedProjectDto);
+
         verify(projectRepository, times(1)).save(any());
-        assertProject(PhaseType.values(), iterations(10));
+        assertProject(PhaseType.values(), iterations(20));
         assertPhases(
-                List.of(1, LocalDate.of(1, 1, 1), LocalDate.of(1, 1, 18)),
-                List.of(2, LocalDate.of(1, 1, 19), LocalDate.of(1, 3, 13)),
-                List.of(1, LocalDate.of(1, 3, 14), LocalDate.of(1, 6, 11)),
-                List.of(1, LocalDate.of(1, 6, 12), LocalDate.of(1, 6, 29))
+                List.of(2, LocalDate.of(1, 1, 1), LocalDate.of(1, 1, 28)),
+                List.of(6, LocalDate.of(1, 1, 29), LocalDate.of(1, 4, 22)),
+                List.of(10, LocalDate.of(1, 4, 23), LocalDate.of(1, 9, 9)),
+                List.of(2, LocalDate.of(1, 9, 10), LocalDate.of(1, 9, 25))
         );
     }
 
-    private ProjectDto createProjectDto(LocalDate start, LocalDate end, long cost) {
+    private ProjectDto createProjectDto(LocalDate startDate, LocalDate endDate, long cost) {
         return ProjectDto.builder()
-                .startDate(LocalDate.of(1, 1, 1))
-                .endDate(LocalDate.of(1, 6, 30))
-                .cost(100000L)
+                .startDate(startDate)
+                .endDate(endDate)
+                .cost(cost)
                 .build();
     }
 
     public void assertProject(PhaseType[] phaseTypes, int iterations) {
-        assertThat(projectDto.getPhases().size()).isEqualTo(phaseTypes.length);
-        assertThat(projectDto.getIterations().size()).isEqualTo(iterations);
+        assertThat(createdProjectDto.getPhases().size()).isEqualTo(phaseTypes.length);
+        assertThat(createdProjectDto.getIterations().size()).isEqualTo(iterations);
     }
 
     private void assertPhases(List<? extends Serializable>... expectedPhases) {
         for (PhaseType phaseType : PhaseType.values()) {
-            assertPhase(projectDto, phaseType, expectedPhases[phaseType.ordinal()]);
+            assertPhase(createdProjectDto, phaseType, expectedPhases[phaseType.ordinal()]);
         }
     }
 
@@ -113,19 +111,13 @@ public class ProjectServiceTest {
     }
 
     private void assertIterations(List<? extends Serializable>... expectedIterations) {
-        for (IterationDto iteration : projectDto.getIterations()) {
+        for (IterationDto iteration : createdProjectDto.getIterations()) {
             assertIteration(iteration, expectedIterations);
         }
     }
 
     private void assertIteration(IterationDto iteration, List<? extends Serializable>[] expectedIterationInfo) {
         assertThat(Arrays.asList(iteration.getStartDate(), iteration.getEndDate())).isIn(expectedIterationInfo);
-    }
-
-
-    private boolean isIn(List<? extends Serializable> expected, IterationDto iteration) {
-        return expected.get(0).equals(iteration.getStartDate())
-                && expected.get(1).equals(iteration.getEndDate());
     }
 
     private long cost(long cost) {

@@ -19,11 +19,15 @@ import static java.util.Objects.isNull;
 @Builder
 public class Project {
 
-    private Long cost;
-    private Long iterationSize;
-    private List<Phase> phases;
+    private Long id;
     private LocalDate startDate;
     private LocalDate endDate;
+    private Long cost;
+    private List<Phase> phases;
+    private Long iterationSize;
+    @Builder.Default
+    private Long numberOfIterations = 10L;
+
 
     public void addPhase(Phase build) {
         if (isNull(phases)) {

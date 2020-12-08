@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class IterationDto {
+
     private LocalDate startDate;
     private LocalDate endDate;
 }

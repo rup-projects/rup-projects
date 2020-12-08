@@ -18,15 +18,15 @@ import static java.util.Objects.isNull;
 @AllArgsConstructor
 @Builder
 public class ProjectDto {
+
     private Long id;
     private LocalDate startDate;
     private LocalDate endDate;
     private Long cost;
-    private Long iterationSize;
+    private List<PhaseDto> phases;
+    private int iterationSize;
     @Builder.Default
     private Long numberOfIterations = 10L;
-
-    private List<PhaseDto> phases;
 
     public List<IterationDto> getIterations() {
         return phases.stream()
