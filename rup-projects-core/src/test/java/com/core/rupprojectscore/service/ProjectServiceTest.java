@@ -28,7 +28,7 @@ public class ProjectServiceTest {
 
     @BeforeEach
     public void before() {
-        projectService = new ProjectServiceImpl(new Mapper(), projectRepository);
+        projectService = new ProjectServiceImpl( projectRepository);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class ProjectServiceTest {
                 List.of(1, LocalDate.of(1, 6, 21), LocalDate.of(1, 6, 30))
         );
         assertIterations(
-                List.of(LocalDate.of(1, 1, 1), LocalDate.of(1, 1, 19)),
+//                getInterval(LocalDate.of(1, 1, 1),10, 20), TODO
                 List.of(LocalDate.of(1, 1, 20), LocalDate.of(1, 2, 7)),
                 List.of(LocalDate.of(1, 2, 8), LocalDate.of(1, 2, 26)),
                 List.of(LocalDate.of(1, 2, 27), LocalDate.of(1, 3, 17)),
@@ -57,6 +57,11 @@ public class ProjectServiceTest {
                 List.of(LocalDate.of(1, 6, 2), LocalDate.of(1, 6, 20)),
                 List.of(LocalDate.of(1, 6, 21), LocalDate.of(1, 6, 30))
         );
+    }
+
+    private List<List<LocalDate>> getInterval(LocalDate localDate, int shift, int times) {
+//        return List.of(localDate, localDate.plusDays(shift));
+        return null;
     }
 
     @Test
