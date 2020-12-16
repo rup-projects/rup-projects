@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -17,7 +18,7 @@ import java.util.List;
 public class PhaseDto {
 
     private PhaseType type;
-    private List<IterationDto> iterations;
+    private List<IterationDto> iterations = new ArrayList<>();
 
     public LocalDate getStartDate() {
         return getIterations().get(0).getStartDate();

@@ -9,7 +9,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Singular;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +30,8 @@ public class ProjectDto {
     private LocalDate startDate;
     private LocalDate endDate;
     private Long cost;
-    private List<PhaseDto> phases;
+    @Singular
+    private List<PhaseDto> phases = new ArrayList<>();
     private Long iterationSize;
     @Builder.Default
     private Long numberOfIterations = 10L;
@@ -51,9 +54,15 @@ public class ProjectDto {
         Project project = Project.builder().build();
         project.setStartDate(this.getStartDate());
         project.setEndDate(this.getEndDate());
-        project.setIterationSize(this.getIterationSize());
+        project.setCost(this.getCost());
+        project.setIterationSize(calculateProjectIterationSize());
         this.createPhases(project);
         return project;
+    }
+
+    private Long calculateProjectIterationSize() {
+        Duration projectDuration = Duration.between(this.getStartDate().atTime(0, 0), this.getEndDate().atTime(0, 0));
+        return projectDuration.toDays() / numberOfIterations + 1;
     }
 
     private void createPhases(Project project) {
