@@ -18,7 +18,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ProjectDto planProject(ProjectDto dto) {
         assert dto.isValid();
-        if (dto.hasId()) {
+        if (dto.hasId() && projectRepository.existsById(dto.getId())) {
             projectRepository.deleteById(dto.getId());
         }
         Project project = dto.createProject();

@@ -2,7 +2,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,10 +20,14 @@ import { AppComponent } from './app.component';
 import { MemberDialogComponent } from './components/member-dialog/member-dialog.component';
 import { MembersManagementComponent } from './components/members-management/members-management.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { PlanProjectComponent } from './components/plan-project/plan-project.component';
 import { UseCaseDialogComponent } from './components/use-case-dialog/use-case-dialog.component';
 import { UseCasesManagementComponent } from './components/use-cases-management/use-cases-management.component';
 import { MemberService } from './services/member.service';
+import { ProjectService } from './services/project.service';
 import { UseCaseService } from './services/use-case.service';
+import { BasicDataComponent } from './components/plan-project/basic-data/basic-data.component';
+import { IterationSizeComponent } from './components/plan-project/iteration-size/iteration-size.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,10 @@ import { UseCaseService } from './services/use-case.service';
     MemberDialogComponent,
     MenuComponent,
     UseCasesManagementComponent,
-    UseCaseDialogComponent
+    UseCaseDialogComponent,
+    PlanProjectComponent,
+    BasicDataComponent,
+    IterationSizeComponent
   ],
   imports: [
     AppRoutingModule,
@@ -50,10 +57,12 @@ import { UseCaseService } from './services/use-case.service';
     MatTabsModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [
     MemberService,
+    ProjectService,
     UseCaseService,
     MatDialog
   ],

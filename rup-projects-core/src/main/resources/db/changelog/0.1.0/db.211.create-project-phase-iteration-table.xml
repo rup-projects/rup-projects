@@ -18,6 +18,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
             <column name="type" type="varchar(50)"/>
+            <column name="project_id" type="int"/>
         </createTable>
 
         <createTable tableName="phase_iterations">
@@ -40,15 +41,14 @@
             <column name="numberofiterations" type="int"/>
         </createTable>
 
-        <createTable tableName="project_phases">
-            <column name="project_id" type="int">
-                <constraints primaryKey="true" nullable="false" />
-            </column>
-            <column name="phases_id" type="int">
-                <constraints primaryKey="true" nullable="false" />
-            </column>
-        </createTable>
+    </changeSet>
 
+    <changeSet author="plfgavilan" id="addForeignKeyConstraint-example">
+        <addForeignKeyConstraint baseColumnNames="project_id"
+                                 baseTableName="phase"
+                                 constraintName="fk_project_phase"
+                                 referencedColumnNames="id"
+                                 referencedTableName="project"/>
     </changeSet>
 
 </databaseChangeLog>
