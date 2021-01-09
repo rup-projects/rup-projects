@@ -20,15 +20,16 @@ import { AppComponent } from './app.component';
 import { MemberDialogComponent } from './components/member-dialog/member-dialog.component';
 import { MembersManagementComponent } from './components/members-management/members-management.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { BasicDataComponent } from './components/plan-project/basic-data/basic-data.component';
+import { IterationSizeComponent } from './components/plan-project/iteration-size/iteration-size.component';
 import { PlanProjectComponent } from './components/plan-project/plan-project.component';
+import { ProjectManagementComponent } from './components/project-management/project-management.component';
 import { UseCaseDialogComponent } from './components/use-case-dialog/use-case-dialog.component';
 import { UseCasesManagementComponent } from './components/use-cases-management/use-cases-management.component';
 import { MemberService } from './services/member.service';
+import { PhaseService } from './services/phase.service';
 import { ProjectService } from './services/project.service';
 import { UseCaseService } from './services/use-case.service';
-import { BasicDataComponent } from './components/plan-project/basic-data/basic-data.component';
-import { IterationSizeComponent } from './components/plan-project/iteration-size/iteration-size.component';
-import { ProjectManagementComponent } from './components/project-management/project-management.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { ProjectManagementComponent } from './components/project-management/proj
     MemberService,
     ProjectService,
     UseCaseService,
-    MatDialog
+    MatDialog,
+    PhaseService
   ],
   bootstrap: [AppComponent]
 })

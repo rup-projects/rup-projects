@@ -17,6 +17,8 @@ import java.util.List;
 @Builder
 public class PhaseDto {
 
+    private Long id;
+
     private PhaseType type;
     private List<IterationDto> iterations = new ArrayList<>();
 

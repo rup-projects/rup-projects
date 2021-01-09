@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Phase } from '../../models/phase';
+import { PhaseService } from '../../services/phase.service';
 
 @Component({
   selector: 'app-project-management',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectManagementComponent implements OnInit {
 
-  constructor() { }
+  phases: Phase[];
+
+  constructor(private phaseService: PhaseService, private router: Router) {
+  }
 
   ngOnInit(): void {
+    this.phaseService.openPhases().subscribe(phases => this.phases = phases);
+  }
+
+  openIterations(phase: Phase) {
+    this.router.navigateByUrl(`/iterations-management/${phase.id}`).then();
   }
 
 }

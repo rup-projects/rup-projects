@@ -4,7 +4,7 @@ import com.core.rupprojectscore.dto.PhaseDto;
 import com.core.rupprojectscore.service.PhaseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +17,7 @@ public class PhaseResource {
 
     private final PhaseService service;
 
-    @PostMapping
+    @GetMapping
     public List<PhaseDto> openPhases() {
         return service.openPhases();
     }

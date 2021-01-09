@@ -5,7 +5,7 @@ import { resourceServer } from '../../environments/environment';
 import { Phase } from '../models/phase';
 
 @Injectable()
-export class MemberService {
+export class PhaseService {
 
   private RESOURCE = 'phases';
 
