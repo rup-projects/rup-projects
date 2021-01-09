@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Project } from '../../models/project';
 import { ProjectService } from '../../services/project.service';
 import { CreateProjectFormGroup } from './create-project-form-group';
@@ -13,7 +14,7 @@ export class PlanProjectComponent implements OnInit {
 
   project: Project;
 
-  constructor(private projectService: ProjectService) {
+  constructor(private projectService: ProjectService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -29,7 +30,7 @@ export class PlanProjectComponent implements OnInit {
     if (!this.project) {
       this.planProject()
     } else {
-      // Navegar a ProjectManagement
+      this.router.navigateByUrl('/project-management').then();
     }
   }
 }
