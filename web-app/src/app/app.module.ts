@@ -28,6 +28,7 @@ import { ProjectService } from './services/project.service';
 import { UseCaseService } from './services/use-case.service';
 import { BasicDataComponent } from './components/plan-project/basic-data/basic-data.component';
 import { IterationSizeComponent } from './components/plan-project/iteration-size/iteration-size.component';
+import { ProjectManagementComponent } from './components/project-management/project-management.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { IterationSizeComponent } from './components/plan-project/iteration-size
     UseCaseDialogComponent,
     PlanProjectComponent,
     BasicDataComponent,
-    IterationSizeComponent
+    IterationSizeComponent,
+    ProjectManagementComponent
   ],
   imports: [
     AppRoutingModule,
