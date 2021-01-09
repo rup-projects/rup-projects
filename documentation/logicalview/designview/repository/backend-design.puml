@@ -34,7 +34,7 @@ namespace service {
     class XService
     class MapperFacade
 
-    XService -> MapperFacade
+    XService --> MapperFacade
 }
 namespace repository {
     interface XRepository<X, Long> extends .JpaRepository
@@ -52,7 +52,7 @@ namespace dto {
     service.XService -down-> repository.XRepository
     service.XService .down.> dto.XDto
     service.XService .down> entity.X
-    service.MapperFacade -up-> ModelMapper
+    service.MapperFacade --> ModelMapper
 
     repository.XRepository ..> entity.X
 

@@ -1,0 +1,23 @@
+<br/>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="!project ? 'active' : ''" aria-current="page" href="#">Basic info</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="project ? 'active' : ''" href="#">Iteration size</a>
+    </li>
+  </ul>
+  <br/>
+  <app-basic-data *ngIf="!project" [form]="form"></app-basic-data>
+  <app-iteration-size *ngIf="project" [project]="project"></app-iteration-size>
+</div>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <button class="btn btn-primary me-md-2" type="button">Cancel</button>
+  <button class="btn btn-primary" type="button"
+          [disabled]="form.invalid"
+          (click)="next()">Next
+  </button>
+</div>
+

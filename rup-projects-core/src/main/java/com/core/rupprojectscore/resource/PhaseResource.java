@@ -18,7 +18,7 @@ public class PhaseResource {
     private final PhaseService service;
 
     @PostMapping
-    public List<PhaseDto> planProject() {
+    public List<PhaseDto> openPhases() {
         return service.openPhases();
     }
 

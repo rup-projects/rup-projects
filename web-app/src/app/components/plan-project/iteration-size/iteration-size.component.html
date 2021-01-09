@@ -1,0 +1,22 @@
+<div class="mb-3">
+  <label class="form-label">Iterations</label>
+  <input type="number" min="10" max="1000" step="10" class="form-control" [(ngModel)]="project.numberOfIterations"/>
+  <button type="button" class="btn btn-success" (click)="planProject()">refresh</button>
+</div>
+Iteration size: {{ project.iterationSize }}
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Phase</th>
+    <th scope="col">Start date</th>
+    <th scope="col">End date</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let phase of project.phases">
+    <td>{{ phase.type }}</td>
+    <td>{{ phase.startDate | date }}</td>
+    <td>{{ phase.endDate | date }}</td>
+  </tr>
+  </tbody>
+</table>
