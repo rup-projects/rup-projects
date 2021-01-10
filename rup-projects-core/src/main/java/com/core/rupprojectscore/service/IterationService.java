@@ -8,4 +8,6 @@ public interface IterationService {
     List<IterationDto> openIterations();
 
     IterationDto openIteration(Long id);
+
+    List<IterationDto> openIterationByPhase(Long phaseId);
 }

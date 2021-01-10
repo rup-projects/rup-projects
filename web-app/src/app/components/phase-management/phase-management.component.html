@@ -1,0 +1,20 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Iteration</th>
+    <th scope="col">Start date</th>
+    <th scope="col">End date</th>
+    <th scope="col">Duration</th>
+    <th scope="col">Progress(%)</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let iteration of this.iterations" (click)="openIteration(iteration)">
+    <td>{{ iteration.number }}</td>
+    <td>{{ iteration.startDate | date }}</td>
+    <td>{{ iteration.endDate | date }}</td>
+    <td>N/A</td>
+    <td>N/A</td>
+  </tr>
+  </tbody>
+</table>

@@ -14,7 +14,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class IterationDto {
-
+    private Long id;
     private LocalDate startDate;
     private LocalDate endDate;
+    private Integer order = 0;
+
+
 }

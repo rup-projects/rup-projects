@@ -28,7 +28,7 @@ export class PlanProjectComponent implements OnInit {
 
   next(): void {
     if (!this.project) {
-      this.planProject()
+      this.planProject();
     } else {
       this.router.navigateByUrl('/project-management').then();
     }

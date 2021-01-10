@@ -2,6 +2,7 @@ package com.core.rupprojectscore.resource;
 
 import com.core.rupprojectscore.dto.ProjectDto;
 import com.core.rupprojectscore.dto.UseCaseDto;
+import com.core.rupprojectscore.entity.Project;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -32,7 +33,7 @@ class ProjectResourceTest {
         var projectDto = createProjectDto(LocalDate.of(1, 1, 1), LocalDate.of(1, 6, 30), cost(100000L));
         var endpointToTest = createProjectEndPoint();
 
-        ResponseEntity<UseCaseDto> response = restTemplate.postForEntity(endpointToTest, projectDto, UseCaseDto.class);
+        ResponseEntity<ProjectDto> response = restTemplate.postForEntity(endpointToTest, projectDto, ProjectDto.class);
 
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
         assertThat(response.getBody().getId(), is(notNullValue()));

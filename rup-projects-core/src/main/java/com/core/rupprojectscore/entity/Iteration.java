@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.time.LocalDate;
 
 @Getter
@@ -34,4 +35,7 @@ public class Iteration {
 
     @Column(name = "enddate")
     private LocalDate endDate;
+
+    @Transient
+    private Integer order = 0;
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "activities", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(value = "iterations", produces = MediaType.APPLICATION_JSON_VALUE)
 @RequiredArgsConstructor
 public class IterationResource {
 
@@ -23,9 +23,9 @@ public class IterationResource {
         return service.openIterations();
     }
 
-    @GetMapping("{id}")
-    public IterationDto openIteration(final @PathVariable("id") Long id) {
-        return service.openIteration(id);
+    @GetMapping("phase/{id}")
+    public List<IterationDto> openIteration(final @PathVariable("id") Long id) {
+        return service.openIterationByPhase(id);
     }
 
 }

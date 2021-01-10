@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.mockito.ArgumentMatchers.any;
@@ -122,13 +123,15 @@ public class ProjectServiceTest {
     }
 
     private void assertIterations(List<? extends Serializable>... expectedIterations) {
+        AtomicInteger expectedOrder = new AtomicInteger(1);
         for (IterationDto iteration : createdProjectDto.getIterations()) {
-            assertIteration(iteration, expectedIterations);
+            assertIteration((long) expectedOrder.getAndIncrement(), iteration, expectedIterations);
         }
     }
 
-    private void assertIteration(IterationDto iteration, List<? extends Serializable>[] expectedIterationInfo) {
+    private void assertIteration(Long order, IterationDto iteration, List<? extends Serializable>[] expectedIterationInfo) {
         assertThat(Arrays.asList(iteration.getStartDate(), iteration.getEndDate())).isIn(expectedIterationInfo);
+        assertThat(iteration.getOrder()).isEqualTo(order);
     }
 
     private long cost(long cost) {
