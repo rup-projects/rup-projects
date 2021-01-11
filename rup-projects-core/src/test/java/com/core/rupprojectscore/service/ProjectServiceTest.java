@@ -131,7 +131,7 @@ public class ProjectServiceTest {
 
     private void assertIteration(Long order, IterationDto iteration, List<? extends Serializable>[] expectedIterationInfo) {
         assertThat(Arrays.asList(iteration.getStartDate(), iteration.getEndDate())).isIn(expectedIterationInfo);
-        assertThat(iteration.getOrder()).isEqualTo(order);
+        assertThat(iteration.getOrder()).isEqualTo((long) order);
     }
 
     private long cost(long cost) {

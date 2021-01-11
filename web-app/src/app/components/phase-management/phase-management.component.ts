@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Iteration } from '../../models/iteration';
-import { IterationService } from '../../services/iteration.service';
+import {Component, OnInit} from '@angular/core';
+import {Iteration} from '../../models/iteration';
 import {ActivatedRoute, Router} from '@angular/router';
+import {PhaseService} from '../../services/phase.service';
 
 @Component({
   selector: 'app-phase-management',
@@ -13,7 +13,7 @@ export class PhaseManagementComponent implements OnInit {
   iterations: Iteration[];
   private selectedPhaseId: string;
 
-  constructor(private iterationService: IterationService, private router: Router, private route: ActivatedRoute) {
+  constructor(private phaseService: PhaseService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
@@ -22,7 +22,7 @@ export class PhaseManagementComponent implements OnInit {
           this.selectedPhaseId = params.phaseId;
         }
       );
-    this.iterationService.openIterationsByPhase(this.selectedPhaseId).subscribe(iterations => this.iterations = iterations);
+    this.phaseService.openIterations(this.selectedPhaseId).subscribe(iterations => this.iterations = iterations);
   }
 
   openIteration(iteration: Iteration): void {
