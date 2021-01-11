@@ -89,13 +89,13 @@ public class ProjectDto {
              index.plusDays(project.getIterationSize()).isBefore(project.getEndDate());
              index = index.plusDays(project.getIterationSize())) {
             result.add(Iteration.builder()
-                    .order(counter.getAndIncrement())
+                    .number((long) counter.getAndIncrement())
                     .startDate(index)
                     .endDate(index.plusDays(project.getIterationSize() - 1))
                     .build());
         }
         Iteration lastGeneratedIteration = result.get(getNumberOfIterations().intValue() - 2);
-        result.add(Iteration.builder().order(counter.getAndIncrement()).startDate(lastGeneratedIteration.getEndDate().plusDays(1)).endDate(project.getEndDate()).build());
+        result.add(Iteration.builder().number((long) counter.getAndIncrement()).startDate(lastGeneratedIteration.getEndDate().plusDays(1)).endDate(project.getEndDate()).build());
         return result;
     }
 

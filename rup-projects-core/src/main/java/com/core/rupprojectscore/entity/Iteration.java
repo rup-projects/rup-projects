@@ -36,6 +36,6 @@ public class Iteration {
     @Column(name = "enddate")
     private LocalDate endDate;
 
-    @Transient
-    private Integer order = 0;
+    @Column
+    private Long number;
 }

@@ -17,7 +17,7 @@ public class IterationDto {
     private Long id;
     private LocalDate startDate;
     private LocalDate endDate;
-    private Integer order = 0;
+    private Long number;
 
 
 }
