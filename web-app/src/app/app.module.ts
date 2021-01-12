@@ -30,6 +30,8 @@ import { MemberService } from './services/member.service';
 import { PhaseService } from './services/phase.service';
 import { ProjectService } from './services/project.service';
 import { UseCaseService } from './services/use-case.service';
+import { PhaseManagementComponent } from './components/phase-management/phase-management.component';
+import {IterationService} from "./services/iteration.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { UseCaseService } from './services/use-case.service';
     PlanProjectComponent,
     BasicDataComponent,
     IterationSizeComponent,
-    ProjectManagementComponent
+    ProjectManagementComponent,
+    PhaseManagementComponent
   ],
   imports: [
     AppRoutingModule,
@@ -68,7 +71,8 @@ import { UseCaseService } from './services/use-case.service';
     ProjectService,
     UseCaseService,
     MatDialog,
-    PhaseService
+    PhaseService,
+    IterationService
   ],
   bootstrap: [AppComponent]
 })

@@ -11,6 +11,7 @@
             </column>
             <column name="startdate" type="DATE"/>
             <column name="enddate" type="DATE"/>
+            <column name="number" type="int" defaultValue="0"/>
         </createTable>
 
         <createTable tableName="phase">

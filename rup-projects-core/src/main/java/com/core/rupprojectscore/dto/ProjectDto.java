@@ -15,6 +15,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 import static java.util.Objects.nonNull;
@@ -83,16 +84,18 @@ public class ProjectDto {
 
     private List<Iteration> createIterations(Project project) {
         List<Iteration> result = new ArrayList<>();
+        AtomicInteger counter = new AtomicInteger(1);
         for (LocalDate index = project.getStartDate();
              index.plusDays(project.getIterationSize()).isBefore(project.getEndDate());
              index = index.plusDays(project.getIterationSize())) {
             result.add(Iteration.builder()
+                    .number((long) counter.getAndIncrement())
                     .startDate(index)
                     .endDate(index.plusDays(project.getIterationSize() - 1))
                     .build());
         }
         Iteration lastGeneratedIteration = result.get(getNumberOfIterations().intValue() - 2);
-        result.add(Iteration.builder().startDate(lastGeneratedIteration.getEndDate().plusDays(1)).endDate(project.getEndDate()).build());
+        result.add(Iteration.builder().number((long) counter.getAndIncrement()).startDate(lastGeneratedIteration.getEndDate().plusDays(1)).endDate(project.getEndDate()).build());
         return result;
     }
 

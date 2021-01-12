@@ -16,6 +16,11 @@ export class IterationService {
     return this.httpClient.get<Iteration[]>(`${resourceServer}/${this.RESOURCE}`);
   }
 
+  openIterationsByPhase(phaseId: string): Observable<Iteration[]> {
+    return this.httpClient.get<Iteration[]>(`${resourceServer}/${this.RESOURCE}/phase/${phaseId}`);
+  }
+
+
   openIteration(iterationId: number): Observable<Iteration> {
     return this.httpClient.get<Iteration>(`${resourceServer}/${this.RESOURCE}/${iterationId}`);
   }
