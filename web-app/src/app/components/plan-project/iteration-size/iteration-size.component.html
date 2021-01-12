@@ -1,9 +1,20 @@
 <div class="mb-3">
-  <label class="form-label">Iterations</label>
-  <input type="number" min="10" max="1000" step="10" class="form-control" [(ngModel)]="project.numberOfIterations"/>
-  <button type="button" class="btn btn-success" (click)="planProject()">refresh</button>
+
+
+
 </div>
-Iteration size: {{ project.iterationSize }}
+
+<div class="input-group mb-3">
+  <div class="input-group-append">
+    <label class="input-group-text">Iterations in project</label>
+  </div>
+  <input type="number" min="10" max="1000" step="10" class="form-control" [(ngModel)]="project.numberOfIterations"/>
+  <div class="input-group-append">
+    <button type="button" class="btn btn-success" (click)="planProject()">refresh</button>
+  </div>
+</div>
+
+Iteration duration: {{ project.iterationSize }} days
 <table class="table">
   <thead>
   <tr>

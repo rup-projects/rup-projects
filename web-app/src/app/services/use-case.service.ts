@@ -26,7 +26,7 @@ export class UseCaseService {
   updateUseCase(useCase: UseCase): Promise<UseCase> {
     return this.httpClient.put<UseCase>(`${resourceServer}/${this.RESOURCE}/${useCase.id}`, {...useCase})
       .pipe(map((json: any): UseCase => UseCase.build(json)))
-      .toPromise()
+      .toPromise();
   }
 
   delete(id: number): Promise<void> {

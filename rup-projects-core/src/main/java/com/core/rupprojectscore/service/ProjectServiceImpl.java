@@ -13,26 +13,31 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ProjectServiceImpl implements ProjectService {
 
-    final private ProjectRepository projectRepository;
+    final private ProjectRepository repository;
 
     @Override
     public ProjectDto planProject(ProjectDto dto) {
         assert dto.isValid();
-        if (dto.hasId() && projectRepository.existsById(dto.getId())) {
-            projectRepository.deleteById(dto.getId());
+        if (dto.hasId() && repository.existsById(dto.getId())) {
+            repository.deleteById(dto.getId());
         }
         Project project = dto.createProject();
-        projectRepository.save(project);
+        repository.save(project);
         return ProjectDto.create(project);
     }
 
     @Override
     public Optional<ProjectDto> startSystem() {
-        List<Project> projects = projectRepository.findAll();
+        List<Project> projects = repository.findAll();
         if (projects.isEmpty()) {
             return Optional.empty();
         }
         return Optional.of(ProjectDto.create(projects.get(0)));
+    }
+
+    @Override
+    public void deleteProject(Long id) {
+        repository.deleteById(id);
     }
 
 }

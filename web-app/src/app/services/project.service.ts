@@ -13,11 +13,14 @@ export class ProjectService {
   }
 
   startSystem(): Observable<Project> {
-    return this.httpClient.get<Project>(`${resourceServer}/${this.RESOURCE}`);
+    return this.httpClient.get<Project>(`${resourceServer}/${this.RESOURCE}/opened`);
   }
 
   planProject(project: Project): Observable<Project> {
     return this.httpClient.post<Project>(`${resourceServer}/${this.RESOURCE}`, project);
   }
 
+  deleteProject(id: number): Promise<void> {
+    return this.httpClient.delete<void>(`${resourceServer}/${this.RESOURCE}/${id}`).toPromise();
+  }
 }

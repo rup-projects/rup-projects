@@ -4,10 +4,12 @@ import { MembersManagementComponent } from './components/members-management/memb
 import { PlanProjectComponent } from './components/plan-project/plan-project.component';
 import { ProjectManagementComponent } from './components/project-management/project-management.component';
 import { UseCasesManagementComponent } from './components/use-cases-management/use-cases-management.component';
-import {PhaseManagementComponent} from "./components/phase-management/phase-management.component";
+import {PhaseManagementComponent} from './components/phase-management/phase-management.component';
+import {InitProjectComponent} from './components/init-project/init-project.component';
 
 const routes: Routes = [
-  {path: '', component: PlanProjectComponent},
+  {path: '', component: InitProjectComponent},
+  {path: 'plan-project', component: PlanProjectComponent},
   {path: 'use-cases-management', component: UseCasesManagementComponent},
   {path: 'members-management', component: MembersManagementComponent},
   {path: 'project-management', component: ProjectManagementComponent},

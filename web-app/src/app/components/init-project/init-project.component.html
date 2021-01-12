@@ -1,0 +1,30 @@
+<ngb-accordion *ngIf="existsProject()" #acc="ngbAccordion" activeIds="ngb-panel-0">
+  <ngb-panel title="Project">
+    <ng-template ngbPanelContent>
+      <ul>
+        <li>
+          Start date : {{project.startDate | date}}
+        </li>
+        <li>
+          End date : {{project.endDate | date}}
+        </li>
+        <li>
+          Progress : NA
+        </li>
+        <li>
+          Iteration size : {{project.iterationSize}} days
+        </li>
+
+        <button class="btn btn-primary" type="button" (click)="openProject()">
+          Open
+        </button>
+      </ul>
+      <p></p>
+      <p></p>
+    </ng-template>
+  </ngb-panel>
+</ngb-accordion>
+
+<button class="btn btn-primary" type="button" (click)="planProject()">
+  Plan project
+</button>

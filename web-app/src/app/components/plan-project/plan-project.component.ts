@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Project } from '../../models/project';
-import { ProjectService } from '../../services/project.service';
-import { CreateProjectFormGroup } from './create-project-form-group';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Project} from '../../models/project';
+import {ProjectService} from '../../services/project.service';
+import {CreateProjectFormGroup} from './create-project-form-group';
 
 @Component({
   selector: 'app-plan-project',
@@ -23,7 +23,7 @@ export class PlanProjectComponent implements OnInit {
   planProject(): void {
     this.projectService
       .planProject(this.form.getRawValue())
-      .subscribe(project => this.project = project)
+      .subscribe(project => this.project = project);
   }
 
   next(): void {
@@ -32,5 +32,9 @@ export class PlanProjectComponent implements OnInit {
     } else {
       this.router.navigateByUrl('/project-management').then();
     }
+  }
+
+  cancel() {
+    this.router.navigateByUrl('/').then();
   }
 }

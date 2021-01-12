@@ -9,4 +9,5 @@ public interface ProjectService {
 
     Optional<ProjectDto> startSystem();
 
+    void deleteProject(Long id);
 }

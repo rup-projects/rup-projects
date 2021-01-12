@@ -31,7 +31,8 @@ import { PhaseService } from './services/phase.service';
 import { ProjectService } from './services/project.service';
 import { UseCaseService } from './services/use-case.service';
 import { PhaseManagementComponent } from './components/phase-management/phase-management.component';
-import {IterationService} from "./services/iteration.service";
+import { IterationService } from './services/iteration.service';
+import { InitProjectComponent } from './components/init-project/init-project.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {IterationService} from "./services/iteration.service";
     BasicDataComponent,
     IterationSizeComponent,
     ProjectManagementComponent,
-    PhaseManagementComponent
+    PhaseManagementComponent,
+    InitProjectComponent
   ],
   imports: [
     AppRoutingModule,
