@@ -10,10 +10,9 @@
   </div>
   <input type="number" min="10" max="1000" step="10" class="form-control" [(ngModel)]="project.numberOfIterations"/>
   <div class="input-group-append">
-    <button type="button" class="btn btn-success" (click)="planProject()">refresh</button>
+    <button type="button" class="btn btn-success" (click)="refreshProject()">refresh</button>
   </div>
 </div>
-
 Iteration duration: {{ project.iterationSize }} days
 <table class="table">
   <thead>

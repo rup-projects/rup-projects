@@ -6,9 +6,6 @@ state INIT_PROJECTSTART as ":INIT_PROJECT"
 state INIT_PROJECTEND as ":INIT_PROJECT"
 
 INIT_PROJECTSTART --> PlanProject
-note on link
-    User requests to plan project
-end note
 
 state PlanProject {
     state 1 as " "
@@ -20,6 +17,9 @@ state PlanProject {
     state 10 as " "
 
     [*] --> 1
+    note on link
+        User requests to plan project
+    end note
 
     1 --> 2
     note on link
@@ -32,24 +32,19 @@ state PlanProject {
     * cancel
     end note
 
-    2 -[#red]-> 10
-    note on link
-        User requests to cancel
-    end note
-
-    2 --> 1
-    note on link
+    2 --> 3
+   note on link
         <b>User provides</b>
         * start date
         * end date
         * project cost
     end note
 
-    2 --> 3
+    2 -[#red]-> 10
     note on link
-        <color:red><b>//¿La validacion ha de ocurrir el confirmar o al introducir datos?//</b></color>
-        User requests to confirm step
+        User requests to cancel
     end note
+
 
     3 -[#red]-> 1
     note on link
@@ -91,8 +86,8 @@ state PlanProject {
 
     5 --> 4
     note on link
-        <b>User provides</b>
-         * nº of iterations in project
+    <b>User provides</b>
+    * new nº of iterations in project
     end note
 
     5 --> 6

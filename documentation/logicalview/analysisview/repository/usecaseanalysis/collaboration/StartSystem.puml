@@ -10,11 +10,11 @@ entity ProjectDao
 
 user --> InitProjectView
     note on link
-        openApp()
+        startSystem()
     end note
 InitProjectView -right-> StartSystemController
     note on link
-        getProject()
+        getOpenedProject()
     end note
 StartSystemController -right-> ProjectDao
     note on link

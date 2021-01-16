@@ -12,7 +12,7 @@ export class ProjectService {
   constructor(private httpClient: HttpClient) {
   }
 
-  startSystem(): Observable<Project> {
+  getOpenedProject(): Observable<Project> {
     return this.httpClient.get<Project>(`${resourceServer}/${this.RESOURCE}/opened`);
   }
 

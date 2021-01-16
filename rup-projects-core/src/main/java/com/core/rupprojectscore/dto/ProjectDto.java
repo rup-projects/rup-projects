@@ -102,10 +102,12 @@ public class ProjectDto {
     public boolean isValid() {
         return this.getNumberOfIterations() >= 10
                 && this.getNumberOfIterations() % 10 == 0
-                && !isExceedsProjectEndDate();
+                && calculateProjectIterationSize() > 10
+                && !isMinimumProjectDurationExceedsProjectEndDate();
     }
 
-    private boolean isExceedsProjectEndDate() {
-        return this.getStartDate().plusDays(this.getNumberOfIterations() * Iteration.MINIMUM_ITERATION_SIZE).isAfter(this.getEndDate());
+    private boolean isMinimumProjectDurationExceedsProjectEndDate() {
+        return this.getStartDate().plusDays(Iteration.MINIMUM_ITERATION_SIZE * Project.MINIMUM_NUMBER_OF_ITERATIONS).isAfter(this.getEndDate());
     }
+
 }

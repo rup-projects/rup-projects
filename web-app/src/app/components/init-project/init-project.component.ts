@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {ProjectService} from '../../services/project.service';
 import {Project} from '../../models/project';
@@ -15,7 +15,7 @@ export class InitProjectComponent implements OnInit {
   constructor(private projectService: ProjectService, private router: Router) { }
 
   ngOnInit(): void {
-    this.projectService.startSystem().subscribe(project => this.project = project);
+    this.projectService.getOpenedProject().subscribe(project => this.project = project);
   }
 
   planProject(): void {

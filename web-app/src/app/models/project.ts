@@ -9,5 +9,5 @@ export class Project {
   phases: Phase[];
   iterationSize: number;
   numberOfIterations: number;
-  
+
 }
