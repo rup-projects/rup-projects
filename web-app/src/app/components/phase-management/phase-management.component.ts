@@ -29,4 +29,7 @@ export class PhaseManagementComponent implements OnInit {
     this.router.navigateByUrl(`/iteration-management/${iteration.id}`).then();
   }
 
+  openPhases(): void {
+    this.router.navigateByUrl('project-management');
+  }
 }

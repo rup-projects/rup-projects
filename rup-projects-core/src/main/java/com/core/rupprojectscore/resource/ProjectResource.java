@@ -36,9 +36,9 @@ public class ProjectResource {
         return this.service.planProject(dto);
     }
 
-    @DeleteMapping("{id}")
-    public void deleteProject(@PathVariable Long id) {
-        this.service.deleteProject(id);
+    @DeleteMapping()
+    public void deleteProject() {
+        this.service.deleteProject();
     }
 
 }

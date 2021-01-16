@@ -20,7 +20,7 @@ export class ProjectService {
     return this.httpClient.post<Project>(`${resourceServer}/${this.RESOURCE}`, project);
   }
 
-  deleteProject(id: number): Promise<void> {
-    return this.httpClient.delete<void>(`${resourceServer}/${this.RESOURCE}/${id}`).toPromise();
+  deleteProject(): Promise<void> {
+    return this.httpClient.delete<void>(`${resourceServer}/${this.RESOURCE}`).toPromise();
   }
 }
