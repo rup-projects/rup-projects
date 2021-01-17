@@ -1,5 +1,6 @@
 package com.core.rupprojectscore.service;
 
+import com.core.rupprojectscore.dto.PlanProjectDto;
 import com.core.rupprojectscore.dto.ProjectDto;
 import com.core.rupprojectscore.entity.Project;
 import com.core.rupprojectscore.repository.ProjectRepository;
@@ -16,12 +17,19 @@ public class ProjectServiceImpl implements ProjectService {
     final private ProjectRepository repository;
 
     @Override
-    public ProjectDto planProject(ProjectDto projectDto) {
-        projectDto.checkProjectDto();
-        if (projectDto.hasId() && repository.existsById(projectDto.getId())) {
-            repository.deleteById(projectDto.getId());
-        }
-        Project project = projectDto.createProject();
+    public ProjectDto planProject(PlanProjectDto planProjectDto) {
+        planProjectDto.checkProjectDto();
+        Project project = planProjectDto.createProject();
+        repository.save(project);
+        return ProjectDto.create(project);
+    }
+
+    @Override
+    public ProjectDto refreshProject(ProjectDto projectDto) {
+        PlanProjectDto planProjectDto = new PlanProjectDto(projectDto.getStartDate(), projectDto.getEndDate(), projectDto.getCost(), projectDto.getNumberOfIterations());
+        planProjectDto.checkProjectDto();
+        Project project = planProjectDto.createProject();
+        repository.deleteById(projectDto.getId());
         repository.save(project);
         return ProjectDto.create(project);
     }

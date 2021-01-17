@@ -19,7 +19,7 @@ export class IterationSizeComponent implements OnInit {
 
 
   refreshProject(): void {
-    this.projectService.planProject(this.project)
+    this.projectService.refreshProject(this.project)
       .subscribe(project => this.project = project, error => this.projectService.getOpenedProject()
         .subscribe(project => this.project = project));
   }
