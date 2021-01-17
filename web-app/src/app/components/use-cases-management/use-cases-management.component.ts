@@ -39,7 +39,7 @@ export class UseCasesManagementComponent {
   deleteUseCase(): void {
     // TODO Create confirmation dialog
     this.useCaseService.delete(this.selected.id)
-      .then(() => this.openUseCases())
+      .then(() => this.openUseCases());
   }
 
   select(useCase: UseCase): void {

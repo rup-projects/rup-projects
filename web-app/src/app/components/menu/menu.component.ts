@@ -8,20 +8,21 @@ import { ThemePalette } from '@angular/material/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
   links = ['First', 'Second', 'Third'];
   activeLink = this.links[0];
   background: ThemePalette = undefined;
 
-  toggleBackground() {
+  ngOnInit(): void {
+  }
+
+  toggleBackground(): void {
     this.background = this.background ? undefined : 'primary';
   }
 
-  addLink() {
+  addLink(): void {
     this.links.push(`Link ${this.links.length + 1}`);
   }
 

@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Project } from '../../../models/project';
-import { ProjectService } from '../../../services/project.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {Project} from '../../../models/project';
+import {ProjectService} from '../../../services/project.service';
 
 @Component({
   selector: 'app-iteration-size',
@@ -17,8 +17,10 @@ export class IterationSizeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  planProject(): void {
-    this.projectService.planProject(this.project)
-      .subscribe(project => this.project = project);
+
+  refreshProject(): void {
+    this.projectService.refreshProject(this.project)
+      .subscribe(project => this.project = project, error => this.projectService.getOpenedProject()
+        .subscribe(project => this.project = project));
   }
 }

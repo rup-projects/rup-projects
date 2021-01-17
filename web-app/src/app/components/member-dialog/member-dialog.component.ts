@@ -32,7 +32,7 @@ export class MemberDialogComponent {
   getMemberRoles(): MemberRole[] {
     return [
       MemberRole.Developer, MemberRole.Architect
-    ]
+    ];
   }
 
 }

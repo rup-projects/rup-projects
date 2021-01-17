@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { resourceServer } from '../../environments/environment';
 import { Phase } from '../models/phase';
-import {Iteration} from "../models/iteration";
+import {Iteration} from '../models/iteration';
 
 @Injectable()
 export class PhaseService {

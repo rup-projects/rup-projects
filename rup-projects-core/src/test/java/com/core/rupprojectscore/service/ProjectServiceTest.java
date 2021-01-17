@@ -3,6 +3,7 @@ package com.core.rupprojectscore.service;
 import com.core.rupprojectscore.dto.IterationDto;
 import com.core.rupprojectscore.dto.PhaseDto;
 import com.core.rupprojectscore.dto.PhaseType;
+import com.core.rupprojectscore.dto.PlanProjectDto;
 import com.core.rupprojectscore.dto.ProjectDto;
 import com.core.rupprojectscore.repository.ProjectRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,7 +25,7 @@ import static org.mockito.Mockito.verify;
 public class ProjectServiceTest {
 
     private ProjectService projectService;
-    private ProjectDto trainedProjectDto;
+    private PlanProjectDto trainedProjectDto;
     private ProjectDto createdProjectDto;
     private ProjectRepository projectRepository = mock(ProjectRepository.class);
 
@@ -75,7 +76,6 @@ public class ProjectServiceTest {
     void planProjectTest_having_20NumberIterations_and_id_then_itCreates20IterationsAndRemovePrevious() {
         trainedProjectDto = createProjectDto(LocalDate.of(1, 1, 1), LocalDate.of(1, 9, 25), cost(100000L));
         trainedProjectDto.setNumberOfIterations(20L);
-        trainedProjectDto.setId(5L);
 
         createdProjectDto = projectService.planProject(trainedProjectDto);
 
@@ -89,12 +89,8 @@ public class ProjectServiceTest {
         );
     }
 
-    private ProjectDto createProjectDto(LocalDate startDate, LocalDate endDate, long cost) {
-        return ProjectDto.builder()
-                .startDate(startDate)
-                .endDate(endDate)
-                .cost(cost)
-                .build();
+    private PlanProjectDto createProjectDto(LocalDate startDate, LocalDate endDate, long cost) {
+        return new PlanProjectDto(startDate, endDate, cost, 10L);
     }
 
     public void assertProject(PhaseType[] phaseTypes, int iterations) {

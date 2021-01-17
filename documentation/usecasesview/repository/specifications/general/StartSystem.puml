@@ -27,7 +27,6 @@ state StartSystem {
     * project information
     ** start date
     ** end date
-    ** duration (business days)
     ** progress (business days)
     ** iteration duration (business days)
     <b>System allows</b>

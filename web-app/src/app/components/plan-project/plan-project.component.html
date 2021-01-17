@@ -2,10 +2,10 @@
 <div class="container">
   <ul class="nav nav-tabs">
     <li class="nav-item">
-      <a class="nav-link" [ngClass]="!project ? 'active' : ''" aria-current="page" href="#">Basic info</a>
+      <label class="nav-link" [ngClass]="!project ? 'active' : ''" aria-current="page" >Basic info</label>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [ngClass]="project ? 'active' : ''" href="#">Iteration size</a>
+      <label class="nav-link mat-button-disabled" [ngClass]="project ? 'active' : ''" >Iteration size</label>
     </li>
   </ul>
   <br/>
@@ -14,7 +14,8 @@
 </div>
 
 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <button class="btn btn-primary me-md-2" type="button">Cancel</button>
+  <button class="btn btn-primary me-md-2" type="button"
+          (click)="cancel()">Cancel</button>
   <button class="btn btn-primary" type="button"
           [disabled]="form.invalid"
           (click)="next()">Next
