@@ -18,6 +18,4 @@ public class IterationDto {
     private LocalDate startDate;
     private LocalDate endDate;
     private Long number;
-
-
 }

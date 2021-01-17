@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,6 +21,11 @@ public class IterationResource {
     @GetMapping
     public List<IterationDto> openIterations() {
         return service.openIterations();
+    }
+
+    @GetMapping("/{id}")
+    public IterationDto openIteration(@RequestParam Long id) {
+        return service.openIteration(id);
     }
 
 }

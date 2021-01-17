@@ -29,7 +29,6 @@ export class ProjectService {
     return this.httpService.post(`${resourceServer}/${this.RESOURCE}/refresh`, project);
   }
 
-
 }
 
 
