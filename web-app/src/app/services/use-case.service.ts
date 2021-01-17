@@ -8,7 +8,7 @@ import { UseCase } from '../models/use-case';
 @Injectable()
 export class UseCaseService {
 
-  private RESOURCE: string = 'use-cases';
+  private RESOURCE = 'use-cases';
 
   constructor(private httpClient: HttpClient) {
   }
@@ -20,7 +20,7 @@ export class UseCaseService {
   createUseCase(useCase: UseCase): Promise<UseCase> {
     return this.httpClient.post<UseCase>(`${resourceServer}/${this.RESOURCE}`, {...useCase})
       .pipe(map((json: any): UseCase => UseCase.build(json)))
-      .toPromise()
+      .toPromise();
   }
 
   updateUseCase(useCase: UseCase): Promise<UseCase> {

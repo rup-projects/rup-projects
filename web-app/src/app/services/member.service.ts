@@ -20,13 +20,13 @@ export class MemberService {
   createMember(member: Member): Promise<Member> {
     return this.httpClient.post<Member>(`${resourceServer}/${this.RESOURCE}`, {...member})
       .pipe(map((json: any): Member => Member.build(json)))
-      .toPromise()
+      .toPromise();
   }
 
   updateMember(member: Member): Promise<Member> {
     return this.httpClient.put<Member>(`${resourceServer}/${this.RESOURCE}/${member.id}`, {...member})
       .pipe(map((json: any): Member => Member.build(json)))
-      .toPromise()
+      .toPromise();
   }
 
   delete(id: number): Promise<void> {

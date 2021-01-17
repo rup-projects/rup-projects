@@ -33,7 +33,7 @@ import { UseCaseService } from './services/use-case.service';
 import { PhaseManagementComponent } from './components/phase-management/phase-management.component';
 import { IterationService } from './services/iteration.service';
 import { InitProjectComponent } from './components/init-project/init-project.component';
-import {MatSnackBar} from "@angular/material/snack-bar";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [

@@ -34,7 +34,7 @@ export class MembersManagementComponent {
   deleteMember(): void {
     // TODO Create confirmation dialog
     this.memberService.delete(this.selected.id)
-      .then(() => this.openMembers())
+      .then(() => this.openMembers());
   }
 
   select(member: Member): void {

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
 };
-export const resourceServer = "http://localhost:8080"
+export const resourceServer = 'http://localhost:8080';
 
 
 /*
