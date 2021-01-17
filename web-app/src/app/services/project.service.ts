@@ -1,26 +1,29 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { resourceServer } from '../../environments/environment';
 import { Project } from '../models/project';
+import {HttpService} from './http.service';
 
 @Injectable()
 export class ProjectService {
 
   private RESOURCE = 'projects';
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpService: HttpService) {
   }
 
   getOpenedProject(): Observable<Project> {
-    return this.httpClient.get<Project>(`${resourceServer}/${this.RESOURCE}/opened`);
+    return this.httpService.get(`${resourceServer}/${this.RESOURCE}/opened`);
   }
 
   planProject(project: Project): Observable<Project> {
-    return this.httpClient.post<Project>(`${resourceServer}/${this.RESOURCE}`, project);
+    return this.httpService.post(`${resourceServer}/${this.RESOURCE}`, project);
   }
 
-  deleteProject(): Promise<void> {
-    return this.httpClient.delete<void>(`${resourceServer}/${this.RESOURCE}`).toPromise();
+  deleteProject(): Observable<void> {
+    return this.httpService.delete(`${resourceServer}/${this.RESOURCE}`);
   }
+
 }
+
+

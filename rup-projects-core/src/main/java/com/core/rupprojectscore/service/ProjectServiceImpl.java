@@ -16,12 +16,12 @@ public class ProjectServiceImpl implements ProjectService {
     final private ProjectRepository repository;
 
     @Override
-    public ProjectDto planProject(ProjectDto dto) {
-        assert dto.isValid();
-        if (dto.hasId() && repository.existsById(dto.getId())) {
-            repository.deleteById(dto.getId());
+    public ProjectDto planProject(ProjectDto projectDto) {
+        projectDto.checkProjectDto();
+        if (projectDto.hasId() && repository.existsById(projectDto.getId())) {
+            repository.deleteById(projectDto.getId());
         }
-        Project project = dto.createProject();
+        Project project = projectDto.createProject();
         repository.save(project);
         return ProjectDto.create(project);
     }

@@ -31,7 +31,8 @@ import static java.util.Objects.isNull;
 @Table(name = "project")
 public class Project {
 
-    public static final int MINIMUM_NUMBER_OF_ITERATIONS = 10;
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -72,6 +73,8 @@ public class Project {
 
         return phases;
     }
+
+
 
     public Integer getNumberOfIterations() {
         return Math.toIntExact(getPhases().stream().flatMap(phase -> phase.getIterations().stream()).count());

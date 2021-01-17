@@ -1,6 +1,7 @@
 package com.core.rupprojectscore.resource;
 
 import com.core.rupprojectscore.dto.ProjectDto;
+import com.core.rupprojectscore.exceptions.NotFoundException;
 import com.core.rupprojectscore.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @RestController
@@ -25,14 +27,13 @@ public class ProjectResource {
     public ProjectDto startSystem() {
         Optional<ProjectDto> projectDto = this.service.startSystem();
         if (projectDto.isEmpty()) {
-            //todo project not created return or status 404 or 204 o exception o null Object DTO ?
             return null;
         }
         return projectDto.get();
     }
 
     @PostMapping
-    public ProjectDto planProject(final @RequestBody ProjectDto dto) {
+    public ProjectDto planProject(final @Valid @RequestBody ProjectDto dto) {
         return this.service.planProject(dto);
     }
 
