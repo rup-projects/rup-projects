@@ -1,7 +1,13 @@
 package com.core.rupprojectscore.entity;
 
+import com.core.rupprojectscore.dto.PhaseType;
+
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProjectBuilder {
 
@@ -38,40 +44,64 @@ public class ProjectBuilder {
     }
 
     public Project build() {
-        // asserts... startDate
-        Project project = new Project(this.startDate, this.endDate, this.numberOfIterations);
+        assert this.validate();
+        Project project = new Project(this.startDate, this.endDate, this.numberOfIterations, calculateIterationSize());
+        initPhases(project);
+        enumerateProjectIterations(project);
         if (this.cost > 0) {
             project.setCost(this.cost);
         }
         return project;
     }
 
-    public String getError() {
-        if (this.startDate.isAfter(this.endDate)) {
-            return String.format("start date %s before end date %s", this.startDate, this.endDate);
+    private void initPhases(Project project) {
+        List<Phase> phases = new ArrayList<>();
+        LocalDate phaseStartDate = this.startDate;
+        for (PhaseType phaseType : PhaseType.values()) {
+            PhaseBuilder phaseBuilder = new PhaseBuilder();
+            Phase phase = phaseBuilder
+                    .phaseType(phaseType)
+                    .startDate(phaseStartDate)
+                    .withIterations(project.getIterationSize(), this.numberOfIterations)
+                    .build();
+            phaseStartDate = phase.getEndDate().plusDays(1);
+            phases.add(phase);
         }
-        if (!this.isValidNumberOfIterations()) {
-            return String.format("invalid project number of iterations %s", this.numberOfIterations);
+        Iteration lastIteration = phases.stream()
+                .flatMap(phase -> phase.getIterations().stream())
+                .max(Comparator.comparing(Iteration::getEndDate))
+                .get();
+        if (!this.endDate.equals(lastIteration)) {
+            lastIteration.setEndDate(this.endDate);
         }
-        if (!this.isValidIterationSize()) {
-            return String.format("invalid project iteration size %s", this.calculateIterationSize());
-        }
-        if (startDate.plusDays(MINIMUM_DURATION).isAfter(endDate)) {
-            return String.format("project with minimum duration exceeds supplied end date %s", this.endDate);
-        }
-        return null;
+        project.setPhases(phases);
     }
 
-    private boolean isValidNumberOfIterations() {
-        return numberOfIterations >= MINIMUM_NUMBER_OF_ITERATIONS && numberOfIterations % 10 == 0;
-    }
-
-    private boolean isValidIterationSize() {
-        return calculateIterationSize() >= MINIMUM_ITERATION_SIZE;
+    private void enumerateProjectIterations(Project project) {
+        AtomicInteger atomicInteger = new AtomicInteger(1);
+        project.getPhases()
+                .stream()
+                .flatMap(phase -> phase.getIterations().stream())
+                .forEach(iteration -> iteration.setNumber((long) atomicInteger.getAndIncrement()));
     }
 
     private Long calculateIterationSize() {
         Duration projectDuration = Duration.between(this.startDate.atTime(0, 0), this.endDate.atTime(0, 0));
-        return projectDuration.toDays() / numberOfIterations + 1;
+        return projectDuration.toDays() / numberOfIterations;
+    }
+
+    private boolean validate() {
+        return this.startDate.isBefore(this.endDate) && numberOfIterations % 10 == 0;
+    }
+
+    public String getError() {
+        if (startDate.plusDays(MINIMUM_DURATION).isAfter(endDate)) {
+            return String.format("project with minimum duration exceeds supplied end date %s", this.endDate);
+        }
+        long iterationSize = Duration.between(this.startDate.atTime(0, 0), this.endDate.atTime(0, 0)).toDays() / numberOfIterations + 1;
+        if (iterationSize < MINIMUM_ITERATION_SIZE) {
+            return String.format("invalid project iteration size %s", iterationSize);
+        }
+        return null;
     }
 }

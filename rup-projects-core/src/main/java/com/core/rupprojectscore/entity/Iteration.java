@@ -36,4 +36,10 @@ public class Iteration {
 
     @Column
     private Long number;
+
+    public Iteration(LocalDate startDate, LocalDate endDate) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
 }

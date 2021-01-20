@@ -17,6 +17,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -38,4 +39,13 @@ public class Phase {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Iteration> iterations;
+
+    public Phase(PhaseType phaseType, List<Iteration> iterations) {
+        this.type = phaseType;
+        this.iterations = iterations;
+    }
+
+    public LocalDate getEndDate() {
+        return this.getIterations().get(this.getIterations().size() -1).getEndDate();
+    }
 }

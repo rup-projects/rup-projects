@@ -18,7 +18,6 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectDto planProject(PlanProjectDto planProjectDto) {
-        assert planProjectDto.isValid(); // TODO Can be done by annotations > custom annotation @StartDateIsBeforeEndDate
         Project project = planProjectDto.createProject();
         repository.save(project);
         return ProjectDto.create(project);
