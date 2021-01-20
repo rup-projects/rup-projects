@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PhaseBuilder {
+public class PhaseBuilder implements PhaseBuilders.StartDate, PhaseBuilders.PhaseType, PhaseBuilders.WithIterations, PhaseBuilders.Optionals{
 
 
     private LocalDate startDate;
@@ -14,17 +14,21 @@ public class PhaseBuilder {
     private Long numberOfIterations;
     private PhaseType phaseType;
 
-    public PhaseBuilder startDate(LocalDate startDate) {
+    public static PhaseBuilders.PhaseType PhaseBuilder() {
+        return new PhaseBuilder();
+    }
+
+    public PhaseBuilders.WithIterations startDate(LocalDate startDate) {
         this.startDate = startDate;
         return this;
     }
 
-    public PhaseBuilder phaseType(PhaseType phaseType) {
+    public PhaseBuilders.StartDate phaseType(PhaseType phaseType) {
         this.phaseType = phaseType;
         return this;
     }
 
-    public PhaseBuilder withIterations(Long iterationSize, Long numberOfIterations) {
+    public PhaseBuilders.Optionals withIterations(Long iterationSize, Long numberOfIterations) {
         this.iterationSize = iterationSize;
         this.numberOfIterations = numberOfIterations;
         return this;

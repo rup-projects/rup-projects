@@ -2,6 +2,7 @@ package com.core.rupprojectscore.dto;
 
 import com.core.rupprojectscore.entity.Project;
 import com.core.rupprojectscore.entity.ProjectBuilder;
+import com.core.rupprojectscore.entity.ProjectBuilders;
 import com.core.rupprojectscore.exceptions.BadRequestException;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
@@ -28,8 +29,7 @@ public class PlanProjectDto {
     private Long numberOfIterations = 10L;
 
     public Project createProject() {
-        ProjectBuilder projectBuilder = new ProjectBuilder();
-        projectBuilder
+        ProjectBuilders.Optionals projectBuilder = ProjectBuilder.instance()
                 .dates(this.startDate, this.endDate)
                 .numberOfIterations(this.numberOfIterations)
                 .cost(this.cost);
