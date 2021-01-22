@@ -24,8 +24,8 @@ public class PlanProjectDto {
     private LocalDate endDate;
     @Min(0)
     private Long cost;
-    @Min(ProjectBuilder.MINIMUM_NUMBER_OF_ITERATIONS)
-    private Long numberOfIterations = 10L;
+    @Min(Project.MINIMUM_NUMBER_OF_ITERATIONS)
+    private Long numberOfIterations = Project.MINIMUM_NUMBER_OF_ITERATIONS;
 
     public Project createProject() {
         ProjectBuilder projectBuilder = new ProjectBuilder();

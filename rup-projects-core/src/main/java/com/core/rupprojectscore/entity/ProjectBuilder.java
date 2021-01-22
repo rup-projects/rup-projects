@@ -11,10 +11,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProjectBuilder {
 
-    public static final int MINIMUM_NUMBER_OF_ITERATIONS = 10;
-    public static final int MINIMUM_ITERATION_SIZE = 10;
-    public static final int MINIMUM_DURATION = MINIMUM_NUMBER_OF_ITERATIONS * MINIMUM_ITERATION_SIZE;
-
     private LocalDate startDate;
     private LocalDate endDate;
     private Long cost;
@@ -24,7 +20,7 @@ public class ProjectBuilder {
         this.startDate = null;
         this.endDate = null;
         this.cost = 0L;
-        this.numberOfIterations = 0L;
+        this.numberOfIterations = Project.MINIMUM_NUMBER_OF_ITERATIONS;
     }
 
     public ProjectBuilder dates(LocalDate startDate, LocalDate endDate) {
@@ -44,7 +40,7 @@ public class ProjectBuilder {
     }
 
     public Project build() {
-        assert this.validate();
+        assert this.isValid();
         Project project = new Project(this.startDate, this.endDate, this.numberOfIterations, calculateIterationSize());
         initPhases(project);
         enumerateProjectIterations(project);
@@ -90,16 +86,16 @@ public class ProjectBuilder {
         return projectDuration.toDays() / numberOfIterations;
     }
 
-    private boolean validate() {
+    private boolean isValid() {
         return this.startDate.isBefore(this.endDate) && numberOfIterations % 10 == 0;
     }
 
     public String getError() {
-        if (startDate.plusDays(MINIMUM_DURATION).isAfter(endDate)) {
+        if (startDate.plusDays(Project.MINIMUM_DURATION).isAfter(endDate)) {
             return String.format("project with minimum duration exceeds supplied end date %s", this.endDate);
         }
         long iterationSize = Duration.between(this.startDate.atTime(0, 0), this.endDate.atTime(0, 0)).toDays() / numberOfIterations + 1;
-        if (iterationSize < MINIMUM_ITERATION_SIZE) {
+        if (iterationSize < Project.MINIMUM_ITERATION_SIZE) {
             return String.format("invalid project iteration size %s", iterationSize);
         }
         return null;

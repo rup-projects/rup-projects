@@ -29,6 +29,10 @@ import java.util.List;
 @Table(name = "project")
 public class Project {
 
+    public static final Long MINIMUM_NUMBER_OF_ITERATIONS = 10L;
+    public static final Long MINIMUM_ITERATION_SIZE = 10L;
+    public static final Long MINIMUM_DURATION = MINIMUM_NUMBER_OF_ITERATIONS * MINIMUM_ITERATION_SIZE;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -51,7 +55,7 @@ public class Project {
 
     @Column(name = "numberofiterations")
     @Builder.Default
-    private Long numberOfIterations = 10L;
+    private Long numberOfIterations = Project.MINIMUM_NUMBER_OF_ITERATIONS;
 
     public Project(LocalDate startDate, LocalDate endDate, Long numberOfIterations, Long iterationSize) {
         this.startDate = startDate;
@@ -59,7 +63,6 @@ public class Project {
         this.numberOfIterations = numberOfIterations;
         this.iterationSize = iterationSize;
     }
-
 
 
 }
