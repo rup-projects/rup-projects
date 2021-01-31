@@ -4,7 +4,6 @@ import com.core.rupprojectscore.dto.PhaseType;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class ProjectBuilder {
@@ -21,7 +20,7 @@ public class ProjectBuilder {
         this.startDate = null;
         this.endDate = null;
         this.cost = 0L;
-        this.numberOfIterations = 0L;
+        this.numberOfIterations = Project.MINIMUM_NUMBER_OF_ITERATIONS;
     }
 
     public ProjectBuilder dates(LocalDate startDate, LocalDate endDate) {
