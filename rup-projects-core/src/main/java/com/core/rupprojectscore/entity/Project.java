@@ -1,5 +1,6 @@
 package com.core.rupprojectscore.entity;
 
+import com.core.rupprojectscore.dto.PhaseType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,6 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -40,26 +42,44 @@ public class Project {
     private LocalDate endDate;
 
     @Column
-    private Long cost;
+    private Long cost = 0L;
 
     @Column(name = "iterationsize")
     private Long iterationSize;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "project_id")
-    private List<Phase> phases;
+    private List<Phase> phases = new ArrayList<>();
 
     @Column(name = "numberofiterations")
     @Builder.Default
     private Long numberOfIterations = 10L;
 
-    public Project(LocalDate startDate, LocalDate endDate, Long numberOfIterations, Long iterationSize) {
+    public Project(LocalDate startDate, LocalDate endDate, Long numberOfIterations) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.numberOfIterations = numberOfIterations;
-        this.iterationSize = iterationSize;
+        this.iterationSize = calculateIterationSize();
+    }
+
+    private Long calculateIterationSize() {
+        Duration projectDuration = Duration.between(this.startDate.atTime(0, 0), this.endDate.atTime(0, 0));
+        return projectDuration.toDays() / numberOfIterations;
     }
 
 
+    public Iteration getLastIteration() {
+        return this.getPhases().get(PhaseType.MAX).getLastIteration();
+    }
 
+    public void setPhases(List<Phase> phases) {
+        this.phases = phases;
+        long number = 0;
+        for (Phase phase : project.getPhases()) {
+            for (Iteration iteration : phase.getIterations()) {
+                number++;
+                iteration.setNumber(number);
+            }
+        }
+    }
 }

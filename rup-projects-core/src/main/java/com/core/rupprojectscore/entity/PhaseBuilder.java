@@ -8,11 +8,17 @@ import java.util.List;
 
 public class PhaseBuilder {
 
-
     private LocalDate startDate;
     private Long iterationSize;
     private Long numberOfIterations;
     private PhaseType phaseType;
+
+    public PhaseBuilder() {
+        this.phaseType = null;
+        this.startDate = null;
+        this.iterationSize = 0L;
+        this.numberOfIterations = 0L;
+    }
 
     public PhaseBuilder startDate(LocalDate startDate) {
         this.startDate = startDate;
@@ -38,14 +44,14 @@ public class PhaseBuilder {
 
     private List<Iteration> createIterations(LocalDate iterationStartDate, Long iterationSize, Long numberOfIterations) {
         List<Iteration> iterations = new ArrayList<>();
-        for (int i = 0; i < getNumberOfIterationsByPhases(this.phaseType, numberOfIterations); i++) {
+        for (int i = 0; i < getNumberOfIterationsByPhase(this.phaseType, numberOfIterations); i++) {
             iterations.add(new Iteration(iterationStartDate, iterationStartDate.plusDays(iterationSize)));
             iterationStartDate = iterationStartDate.plusDays(iterationSize).plusDays(1);
         }
         return iterations;
     }
 
-    private int getNumberOfIterationsByPhases(PhaseType phaseType, Long numberOfIterations) {
+    private int getNumberOfIterationsByPhase(PhaseType phaseType, Long numberOfIterations) {
         return Math.toIntExact(Math.round(numberOfIterations * phaseType.getPercentage()));
     }
 

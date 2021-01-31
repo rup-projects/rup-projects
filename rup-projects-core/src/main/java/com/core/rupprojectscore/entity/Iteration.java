@@ -24,6 +24,8 @@ import java.time.LocalDate;
 @Table(name = "iteration")
 public class Iteration {
 
+    public static final int MIN_SIZE = 10;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

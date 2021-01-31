@@ -6,6 +6,7 @@ public enum PhaseType {
     Construction(0.5),
     Transition(0.1);
 
+    public static final int MAX = values().length;
     private double percentage;
 
     private PhaseType(double percentage) {
@@ -15,5 +16,4 @@ public enum PhaseType {
     public double getPercentage() {
         return percentage;
     }
-
 }

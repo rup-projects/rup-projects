@@ -24,15 +24,12 @@ public class PlanProjectDto {
     private LocalDate endDate;
     @Min(0)
     private Long cost;
-    @Min(ProjectBuilder.MINIMUM_NUMBER_OF_ITERATIONS)
+    @Min(ProjectBuilder.MIN_ITERATIONS)
     private Long numberOfIterations = 10L;
 
     public Project createProject() {
         ProjectBuilder projectBuilder = new ProjectBuilder();
-        projectBuilder
-                .dates(this.startDate, this.endDate)
-                .numberOfIterations(this.numberOfIterations)
-                .cost(this.cost);
+        projectBuilder.dates(this.startDate, this.endDate).numberOfIterations(this.numberOfIterations).cost(this.cost);
         String error = projectBuilder.getError();
         if (error != null) {
             throw new BadRequestException(error);

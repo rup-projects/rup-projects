@@ -18,6 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -38,7 +39,7 @@ public class Phase {
     private PhaseType type;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Iteration> iterations;
+    private List<Iteration> iterations = new ArrayList<>();
 
     public Phase(PhaseType phaseType, List<Iteration> iterations) {
         this.type = phaseType;
@@ -47,5 +48,9 @@ public class Phase {
 
     public LocalDate getEndDate() {
         return this.getIterations().get(this.getIterations().size() -1).getEndDate();
+    }
+
+    public Iteration getLastIteration() {
+        return null
     }
 }

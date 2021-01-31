@@ -2,18 +2,15 @@ package com.core.rupprojectscore.entity;
 
 import com.core.rupprojectscore.dto.PhaseType;
 
-import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 public class ProjectBuilder {
 
-    public static final int MINIMUM_NUMBER_OF_ITERATIONS = 10;
-    public static final int MINIMUM_ITERATION_SIZE = 10;
-    public static final int MINIMUM_DURATION = MINIMUM_NUMBER_OF_ITERATIONS * MINIMUM_ITERATION_SIZE;
+    public static final int MIN_ITERATIONS = 10;
+    public static final int MIN_DURATION = MIN_ITERATIONS * Iteration.MIN_SIZE;
 
     private LocalDate startDate;
     private LocalDate endDate;
@@ -45,9 +42,8 @@ public class ProjectBuilder {
 
     public Project build() {
         assert this.validate();
-        Project project = new Project(this.startDate, this.endDate, this.numberOfIterations, calculateIterationSize());
-        initPhases(project);
-        enumerateProjectIterations(project);
+        Project project = new Project(this.startDate, this.endDate, this.numberOfIterations);
+        this.initPhases(project);
         if (this.cost > 0) {
             project.setCost(this.cost);
         }
@@ -59,35 +55,18 @@ public class ProjectBuilder {
         LocalDate phaseStartDate = this.startDate;
         for (PhaseType phaseType : PhaseType.values()) {
             PhaseBuilder phaseBuilder = new PhaseBuilder();
-            Phase phase = phaseBuilder
-                    .phaseType(phaseType)
+            Phase phase = phaseBuilder.phaseType(phaseType)
                     .startDate(phaseStartDate)
                     .withIterations(project.getIterationSize(), this.numberOfIterations)
                     .build();
             phaseStartDate = phase.getEndDate().plusDays(1);
             phases.add(phase);
         }
-        Iteration lastIteration = phases.stream()
-                .flatMap(phase -> phase.getIterations().stream())
-                .max(Comparator.comparing(Iteration::getEndDate))
-                .get();
-        if (!this.endDate.equals(lastIteration)) {
+        Iteration lastIteration = project.getLastIteration();
+        if (!this.endDate.equals(lastIteration.getEndDate())) {
             lastIteration.setEndDate(this.endDate);
         }
         project.setPhases(phases);
-    }
-
-    private void enumerateProjectIterations(Project project) {
-        AtomicInteger atomicInteger = new AtomicInteger(1);
-        project.getPhases()
-                .stream()
-                .flatMap(phase -> phase.getIterations().stream())
-                .forEach(iteration -> iteration.setNumber((long) atomicInteger.getAndIncrement()));
-    }
-
-    private Long calculateIterationSize() {
-        Duration projectDuration = Duration.between(this.startDate.atTime(0, 0), this.endDate.atTime(0, 0));
-        return projectDuration.toDays() / numberOfIterations;
     }
 
     private boolean validate() {
@@ -95,11 +74,11 @@ public class ProjectBuilder {
     }
 
     public String getError() {
-        if (startDate.plusDays(MINIMUM_DURATION).isAfter(endDate)) {
+        if (startDate.plusDays(MIN_DURATION).isAfter(endDate)) {
             return String.format("project with minimum duration exceeds supplied end date %s", this.endDate);
         }
-        long iterationSize = Duration.between(this.startDate.atTime(0, 0), this.endDate.atTime(0, 0)).toDays() / numberOfIterations + 1;
-        if (iterationSize < MINIMUM_ITERATION_SIZE) {
+        long iterationSize = new Project(this.startDate, this.endDate, this.numberOfIterations).getIterationSize();
+        if (iterationSize < Iteration.MIN_SIZE) {
             return String.format("invalid project iteration size %s", iterationSize);
         }
         return null;
