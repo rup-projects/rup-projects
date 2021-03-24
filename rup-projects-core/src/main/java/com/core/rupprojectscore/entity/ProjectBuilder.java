@@ -1,10 +1,6 @@
 package com.core.rupprojectscore.entity;
 
-import com.core.rupprojectscore.dto.PhaseType;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ProjectBuilder {
 
@@ -42,30 +38,10 @@ public class ProjectBuilder {
     public Project build() {
         assert this.validate();
         Project project = new Project(this.startDate, this.endDate, this.numberOfIterations);
-        this.initPhases(project);
         if (this.cost > 0) {
             project.setCost(this.cost);
         }
         return project;
-    }
-
-    private void initPhases(Project project) {
-        List<Phase> phases = new ArrayList<>();
-        LocalDate phaseStartDate = this.startDate;
-        for (PhaseType phaseType : PhaseType.values()) {
-            PhaseBuilder phaseBuilder = new PhaseBuilder();
-            Phase phase = phaseBuilder.phaseType(phaseType)
-                    .startDate(phaseStartDate)
-                    .withIterations(project.getIterationSize(), this.numberOfIterations)
-                    .build();
-            phaseStartDate = phase.getEndDate().plusDays(1);
-            phases.add(phase);
-        }
-        Iteration lastIteration = project.getLastIteration();
-        if (!this.endDate.equals(lastIteration.getEndDate())) {
-            lastIteration.setEndDate(this.endDate);
-        }
-        project.setPhases(phases);
     }
 
     private boolean validate() {
@@ -75,10 +51,6 @@ public class ProjectBuilder {
     public String getError() {
         if (startDate.plusDays(MIN_DURATION).isAfter(endDate)) {
             return String.format("project with minimum duration exceeds supplied end date %s", this.endDate);
-        }
-        long iterationSize = new Project(this.startDate, this.endDate, this.numberOfIterations).getIterationSize();
-        if (iterationSize < Iteration.MIN_SIZE) {
-            return String.format("invalid project iteration size %s", iterationSize);
         }
         return null;
     }

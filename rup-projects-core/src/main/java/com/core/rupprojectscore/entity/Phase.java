@@ -41,16 +41,30 @@ public class Phase {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Iteration> iterations = new ArrayList<>();
 
-    public Phase(PhaseType phaseType, List<Iteration> iterations) {
+    public Phase(PhaseType phaseType, LocalDate startDate, Long firstIterationIdx, Long iterationSize, Long numberOfIterations) {
         this.type = phaseType;
-        this.iterations = iterations;
+        this.iterations = createIterations(startDate, firstIterationIdx, iterationSize, numberOfIterations);
+    }
+
+    private List<Iteration> createIterations(LocalDate iterationStartDate, Long iterationIdx, Long iterationSize, Long numberOfIterations) {
+        List<Iteration> iterations = new ArrayList<>();
+        for (int i = 0; i < getNumberOfIterationsByPhase(this.type, numberOfIterations); i++) {
+            iterations.add(new Iteration(iterationStartDate, iterationStartDate.plusDays(iterationSize), iterationIdx));
+            iterationStartDate = iterationStartDate.plusDays(iterationSize).plusDays(1);
+            iterationIdx++;
+        }
+        return iterations;
+    }
+
+    private int getNumberOfIterationsByPhase(PhaseType phaseType, Long numberOfIterations) {
+        return Math.toIntExact(Math.round(numberOfIterations * phaseType.getPercentage()));
     }
 
     public LocalDate getEndDate() {
-        return this.getIterations().get(this.getIterations().size() -1).getEndDate();
+        return getLastIteration().getEndDate();
     }
 
     public Iteration getLastIteration() {
-        return null
+        return this.iterations.get(this.iterations.size() - 1);
     }
 }

@@ -21,6 +21,7 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -63,27 +64,32 @@ public class Project {
         this.startDate = startDate;
         this.endDate = endDate;
         this.numberOfIterations = numberOfIterations;
-        this.iterationSize = calculateIterationSize();
+        this.iterationSize = Duration.between(this.startDate.atTime(0, 0), this.endDate.atTime(0, 0)).toDays() / numberOfIterations;
+        initPhases();
     }
 
-    private Long calculateIterationSize() {
-        Duration projectDuration = Duration.between(this.startDate.atTime(0, 0), this.endDate.atTime(0, 0));
-        return projectDuration.toDays() / numberOfIterations;
-    }
-
-
-    public Iteration getLastIteration() {
-        return this.getPhases().get(PhaseType.MAX).getLastIteration();
-    }
-
-    public void setPhases(List<Phase> phases) {
-        this.phases = phases;
-        long number = 0;
-        for (Phase phase : phases) {
-            for (Iteration iteration : phase.getIterations()) {
-                number++;
-                iteration.setNumber(number);
-            }
+    private void initPhases() {
+        LocalDate phaseStartDate = this.startDate;
+        PhaseBuilder phaseBuilder = new PhaseBuilder();
+        for (PhaseType phaseType : PhaseType.values()) {
+            Phase phase = phaseBuilder.phaseType(phaseType)
+                    .startDate(phaseStartDate)
+                    .withIterations(this.iterationSize, this.numberOfIterations,(long) this.getIterations().size() == 0 ? 1L : this.getIterations().size() + 1)
+                    .build();
+            phaseStartDate = phase.getEndDate().plusDays(1);
+            this.phases.add(phase);
         }
+        Iteration lastIteration = getLastPhase().getLastIteration();
+        if (!this.endDate.equals(lastIteration.getEndDate())) {
+            lastIteration.setEndDate(this.endDate);
+        }
+    }
+
+    private Phase getLastPhase() {
+        return this.getPhases().get(PhaseType.MAX - 1);
+    }
+
+    private List<Iteration> getIterations() {
+        return this.getPhases().stream().flatMap(phase -> phase.getIterations().stream()).collect(Collectors.toList());
     }
 }

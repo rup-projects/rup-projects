@@ -12,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import java.time.LocalDate;
 
 @Getter
@@ -39,9 +38,10 @@ public class Iteration {
     @Column
     private Long number;
 
-    public Iteration(LocalDate startDate, LocalDate endDate) {
+    public Iteration(LocalDate startDate, LocalDate endDate, Long number) {
         this.startDate = startDate;
         this.endDate = endDate;
+        this.number = number;
     }
 
 }
