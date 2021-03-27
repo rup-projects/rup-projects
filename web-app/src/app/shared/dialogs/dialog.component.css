@@ -1,0 +1,46 @@
+.mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+}
+
+#backup_password {
+  cursor: pointer;
+  font-size: smaller;
+  color: dodgerblue;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  padding: 5px;
+}
+
+#backup_password::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #b47dcd, #e878a2, #eb85ab);
+  z-index: 1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+
+#backup_password:hover::before {
+  transform: scaleX(1);
+}
+
+#backup_password::before {
+  transform-origin: center;
+}
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}

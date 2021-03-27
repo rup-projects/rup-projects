@@ -10,9 +10,8 @@ import {CreateProjectFormGroup} from './create-project-form-group';
 })
 export class PlanProjectComponent implements OnInit {
 
-  form: CreateProjectFormGroup = new CreateProjectFormGroup();
-
   project: Project;
+  form: CreateProjectFormGroup = new CreateProjectFormGroup();
 
   constructor(private projectService: ProjectService, private router: Router) {
   }

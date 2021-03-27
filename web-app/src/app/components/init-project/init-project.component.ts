@@ -11,6 +11,7 @@ import {Project} from '../../models/project';
 export class InitProjectComponent implements OnInit {
 
   project: Project;
+  panelOpenState = false;
 
   constructor(private projectService: ProjectService, private router: Router) { }
 

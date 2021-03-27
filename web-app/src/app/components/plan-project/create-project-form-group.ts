@@ -6,7 +6,7 @@ export class CreateProjectFormGroup extends FormGroup {
     super({
       startDate: new FormControl(null, Validators.required),
       endDate: new FormControl(null, Validators.required),
-      cost: new FormControl(null, Validators.required),
+      cost: new FormControl(1000, Validators.required),
     });
   }
 

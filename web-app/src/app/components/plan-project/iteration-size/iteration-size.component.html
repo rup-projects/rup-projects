@@ -1,32 +1,57 @@
-<div class="mb-3">
-
-
-
+<div class="row">
+  <div class="col-xs-6 col-md-2"></div>
+  <div class="col-xs-6 col-md-8">
+    <div class="input-group mb-3">
+      <div class="input-group-append">
+        <label class="input-group-text">Iterations in project</label>
+      </div>
+      <input type="number" min="10" max="1000" step="10" class="form-control" [(ngModel)]="project.numberOfIterations"/>
+      <div class="input-group-append">
+        <button type="button" class="btn btn-success" (click)="refreshProject()">refresh</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6 col-md-2"></div>
 </div>
 
-<div class="input-group mb-3">
-  <div class="input-group-append">
-    <label class="input-group-text">Iterations in project</label>
+<div class="row">
+  <div class="col-xs-6 col-md-2"></div>
+  <div class="col-xs-6 col-md-8">
+    Iteration duration: {{ project.iterationSize }} days
   </div>
-  <input type="number" min="10" max="1000" step="10" class="form-control" [(ngModel)]="project.numberOfIterations"/>
-  <div class="input-group-append">
-    <button type="button" class="btn btn-success" (click)="refreshProject()">refresh</button>
-  </div>
+  <div class="col-xs-6 col-md-2"></div>
 </div>
-Iteration duration: {{ project.iterationSize }} days
-<table class="table">
-  <thead>
-  <tr>
-    <th scope="col">Phase</th>
-    <th scope="col">Start date</th>
-    <th scope="col">End date</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let phase of project.phases">
-    <td>{{ phase.type }}</td>
-    <td>{{ phase.startDate | date }}</td>
-    <td>{{ phase.endDate | date }}</td>
-  </tr>
-  </tbody>
-</table>
+
+
+<div class="row">
+<div class="col-xs-6 col-md-2"></div>
+<div class="col-xs-6 col-md-8">
+
+<!--  <app-crud  [title]="'phases'" [data]="phases" [deleteAction]="false" [createAction]="false" [updateAction]="false" readAction="false" ></app-crud>-->
+
+  <table mat-table [dataSource]="phases" class="mat-elevation-z8" style="width: 40vw">
+
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef> Phase </th>
+      <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef> StartDate </th>
+      <td mat-cell *matCellDef="let element"> {{element.startDate | date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef> EndDate </th>
+      <td mat-cell *matCellDef="let element"> {{element.endDate | date}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div>
+<div class="col-xs-6 col-md-2"></div>
+</div>
+
+

@@ -21,11 +21,11 @@ export class UseCaseDialogComponent {
   }
 
   saveUseCase(): void {
-    if (this.form.id.value) {
-      this.useCaseService.updateUseCase(this.form.getRawValue()).then(() => console.log('ok'));
-    } else {
-      this.useCaseService.createUseCase(this.form.getRawValue()).then(() => console.log('ok'));
-    }
+    // if (this.form.id.value) {
+    //   this.useCaseService.updateUseCase(this.form.getRawValue()).then(() => console.log('ok'));
+    // } else {
+    //   this.useCaseService.createUseCase(this.form.getRawValue()).then(() => console.log('ok'));
+    // }
   }
 
 }

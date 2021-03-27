@@ -1,35 +1,33 @@
-<div class="row align-items-center">
-  <div class="col-sm"></div>
-  <div class="col-sm ">
-    <ngb-accordion *ngIf="existsProject()" #acc="ngbAccordion" activeIds="ngb-panel-0">
-      <ngb-panel title="Project">
-        <ng-template ngbPanelContent>
-          <ul>
-            <li>
-              Start date : {{project.startDate | date}}
-            </li>
-            <li>
-              End date : {{project.endDate | date}}
-            </li>
-            <li>
-              Progress : NA
-            </li>
-            <li>
-              Iteration size : {{project.iterationSize}} days
-            </li>
-
-            <button class="btn btn-primary" type="button" (click)="openProject()">
-              Open
-            </button>
-          </ul>
-          <p></p>
-          <p></p>
-        </ng-template>
-      </ngb-panel>
-    </ngb-accordion>
-    <button class="btn btn-primary" type="button" (click)="planProject()">
-      Plan project
-    </button>
-  </div>
-  <div class="col-sm"></div>
+<div class="row">
+    <div class="col-xs-6 col-md-4"></div>
+    <div class="col-xs-6 col-md-4">
+        <mat-accordion>
+            <mat-expansion-panel *ngIf="existsProject()" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Project
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Start date : {{project.startDate | date}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>End date : {{project.endDate | date}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Progress : NA</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Iteration size : {{project.iterationSize}} days</mat-list-item>
+                </mat-list>
+                <button mat-button color="primary" type="button" (click)="openProject()">Open</button>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+    <div class="col-xs-6 col-md-4"></div>
+</div>
+<div class="row">
+    <div class="col-xs-6 col-md-4"></div>
+    <div class="col-xs-6 col-md-4">
+        <button mat-button color="primary" type="button" (click)="planProject()">Plan project</button>
+    </div>
+    <div class="col-xs-6 col-md-4"></div>
 </div>
