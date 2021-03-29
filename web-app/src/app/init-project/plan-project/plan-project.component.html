@@ -1,0 +1,67 @@
+<div class="container">
+
+  <mat-horizontal-stepper [linear]="true" #stepper>
+    <mat-step [stepControl]="basicInfoFormGroup">
+      <form [formGroup]="basicInfoFormGroup">
+        <ng-template matStepLabel>Project basic data</ng-template>
+        <mat-form-field>
+          <mat-label>Start Date</mat-label>
+          <input matInput formControlName="startDate" type="date" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>End Date</mat-label>
+          <input matInput formControlName="endDate" type="date" required>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Cost</mat-label>
+          <input matInput formControlName="cost">
+        </mat-form-field>
+        <div>
+          <button mat-button (click)="cancel()">Cancel</button>
+          <button mat-button (click)="toIterationsSizeStep(stepper)" type="button">Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="iterationSizeFormGroup" label="customize iterations">
+      <form [formGroup]="iterationSizeFormGroup">
+        <mat-form-field>
+          <mat-label>Iterations in project</mat-label>
+          <input matInput type="number" min="10" max="1000" step="10" formControlName="numberOfIterations"/>
+        </mat-form-field>
+        <button mat-button type="button" (click)="refreshProject()">refresh</button>
+
+        <mat-card *ngIf="project" class="mat-elevation-z8">Iteration duration: {{ project.iterationSize }} days</mat-card>
+
+        <table *ngIf="project" mat-table [dataSource]="project.phases" class="mat-elevation-z8">
+
+          <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef> Phase</th>
+            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="startDate">
+            <th mat-header-cell *matHeaderCellDef> StartDate</th>
+            <td mat-cell *matCellDef="let element"> {{element.startDate | date}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="endDate">
+            <th mat-header-cell *matHeaderCellDef> EndDate</th>
+            <td mat-cell *matCellDef="let element"> {{element.endDate | date}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+        <div>
+          <button mat-button (click)="backToBasicInfoStep(stepper)">Back</button>
+          <button mat-button (click)="save()">Create</button>
+        </div>
+      </form>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+</div>

@@ -1,5 +1,6 @@
 package com.core.rupprojectscore.entity;
 
+import java.time.Duration;
 import java.time.LocalDate;
 
 public class ProjectBuilder {
@@ -51,6 +52,9 @@ public class ProjectBuilder {
     public String getError() {
         if (startDate.plusDays(MIN_DURATION).isAfter(endDate)) {
             return String.format("project with minimum duration exceeds supplied end date %s", this.endDate);
+        }
+        if ((double) Duration.between(this.startDate.atTime(0, 0), this.endDate.atTime(0, 0)).toDays() / (double) numberOfIterations < 2) {
+            return String.format("project iteration size is less than 1 day, given nº of iterations %s", this.numberOfIterations);
         }
         return null;
     }

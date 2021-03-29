@@ -1,0 +1,121 @@
+@startuml
+allow_mixing
+
+skinparam package {
+    BackgroundColor APPLICATION
+}
+
+skinparam class {
+
+    BackgroundColor<<NgModel>> DarkOrange
+    BorderColor<<NgModel>> Black
+    BackgroundColor<<Routing>> Sienna
+    BorderColor<<Routing>> Black
+
+
+}
+
+package app {
+    class AppRoutingModule <<Routing>>
+    class AppModule <<NgModel>>
+    class AppComponent <<html>> <<scss>> <<typescript>>
+
+    package init-project as initproject <<Lazy>>{
+        class InitProjectModule <<NgModel>>
+        class InitProjectRoutingModule <<Routing>>
+        class InitProject <<html>> <<scss>> <<typescript>>
+
+        package plan-project as planproject{
+            class PlanProject <<html>> <<scss>> <<typescript>>
+        }
+
+    }
+
+    package project-management as projectmanagement <<Lazy>> {
+        class ProjectManagementModule <<NgModel>>
+        class ProjectManagementRoutingModule <<Routing>>
+        class ProjectManagement <<html>> <<scss>> <<typescript>>
+
+        package phase-management as phasemanagement {
+            class PhaseManagement <<html>> <<scss>> <<typescript>>
+        }
+
+    }
+
+    package member-management as membermanagement <<Lazy>> {
+        class MemberManagementModule <<NgModel>>
+        class MemberManagementRoutingModule <<Routing>>
+        class MemberManagement <<html>> <<scss>> <<typescript>>
+
+        package member-dialog as memberdialog {
+            class memberDialog <<html>> <<scss>> <<typescript>>
+
+        }
+    }
+
+    package usecases-management as usecasesmanagement <<Lazy>> {
+        class useCasesManagementModule <<NgModel>>
+        class UsCasesManagementRoutingModule <<Routing>>
+        class UseCasesManagement <<html>> <<scss>> <<typescript>>
+
+        package use-case-dialog as usecasedialog {
+            class UseCaseDialog <<html>> <<scss>> <<typescript>>
+            class UseCaseFormGroup
+        }
+    }
+
+    package core {
+        class CoreModule <<NgModel>>
+        class HttpService
+    }
+
+    package shared {
+
+        class MaterialModule <<NgModel>>
+        class SharedModule <<NgModel>>
+
+        package components {
+            package crud {
+
+            }
+
+            package menu {
+
+            }
+        }
+
+        package dialogs {
+
+        }
+
+        package models {
+
+        }
+
+        package pipes {
+
+        }
+
+        package services {
+
+        }
+
+    }
+
+initproject .[hidden]up. AppModule
+initproject .[hidden]up. AppRoutingModule
+initproject .[hidden]up. AppComponent
+
+usecasesmanagement ...[hidden]down.> shared
+membermanagement ...[hidden]down.> shared
+projectmanagement ...[hidden]down.> shared
+initproject ...[hidden]down.> shared
+
+usecasesmanagement ...[hidden]down.> core
+membermanagement ...[hidden]down.> core
+projectmanagement ...[hidden]down.> core
+initproject ...[hidden]down.> core
+
+}
+
+@enduml

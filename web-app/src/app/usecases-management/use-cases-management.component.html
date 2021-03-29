@@ -1,0 +1,9 @@
+<app-menu></app-menu>
+
+<div class="container">
+
+  <app-crud [data]="useCases" [title]="title"
+            (create)="createUseCase()" (read)="openUsecase($event)"
+            (update)="updateUseCase($event)" (delete)="deleteUseCase($event)"></app-crud>
+
+</div>

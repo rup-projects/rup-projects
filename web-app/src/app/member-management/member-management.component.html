@@ -1,0 +1,9 @@
+<app-menu></app-menu>
+
+<div class="container">
+
+  <app-crud [data]="members" [title]="title"
+            (create)="createMember()" (read)="openMember($event)"
+            (update)="updateMember($event)" (delete)="deleteMember($event)"></app-crud>
+
+</div>
