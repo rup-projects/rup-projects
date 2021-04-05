@@ -18,7 +18,6 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public ProjectDto planProject(PlanProjectDto planProjectDto) {
-        planProjectDto.checkProjectDto();
         Project project = planProjectDto.createProject();
         repository.save(project);
         return ProjectDto.create(project);
@@ -27,7 +26,6 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ProjectDto refreshProject(ProjectDto projectDto) {
         PlanProjectDto planProjectDto = new PlanProjectDto(projectDto.getStartDate(), projectDto.getEndDate(), projectDto.getCost(), projectDto.getNumberOfIterations());
-        planProjectDto.checkProjectDto();
         Project project = planProjectDto.createProject();
         repository.deleteById(projectDto.getId());
         repository.save(project);

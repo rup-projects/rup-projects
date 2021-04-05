@@ -12,7 +12,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import java.time.LocalDate;
 
 @Getter
@@ -23,6 +22,8 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "iteration")
 public class Iteration {
+
+    public static final int MIN_SIZE = 10;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,4 +37,11 @@ public class Iteration {
 
     @Column
     private Long number;
+
+    public Iteration(LocalDate startDate, LocalDate endDate, Long number) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.number = number;
+    }
+
 }

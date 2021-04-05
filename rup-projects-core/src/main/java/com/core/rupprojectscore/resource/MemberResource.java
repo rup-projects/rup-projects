@@ -1,6 +1,7 @@
 package com.core.rupprojectscore.resource;
 
 import com.core.rupprojectscore.dto.MemberDto;
+import com.core.rupprojectscore.dto.UseCaseDto;
 import com.core.rupprojectscore.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -25,6 +26,11 @@ public class MemberResource {
     @GetMapping
     public List<MemberDto> openMembers() {
         return service.openMembers();
+    }
+
+    @GetMapping("/{id}")
+    public MemberDto openMember(@PathVariable Long id) {
+        return service.openMember(id);
     }
 
     @PostMapping

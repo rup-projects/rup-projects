@@ -1,0 +1,32 @@
+<mat-card>
+    <mat-card-title>{{title}}<span *ngIf="empty()"> EMPTY</span></mat-card-title>
+    <mat-card-content>
+        <mat-table #table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+            <mat-header-row *matHeaderRowDef="columnsHeader"></mat-header-row>
+            <mat-row *matRowDef="let item; columns: columnsHeader"></mat-row>
+            <!-- Dynamic column -->
+            <ng-container *ngFor="let def of columns" [matColumnDef]="def">
+                <mat-header-cell *matHeaderCellDef>{{ def }}</mat-header-cell>
+                <mat-cell *matCellDef="let row">{{ row[def] }}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>
+                    <button (click)="onCreate()" *ngIf="createAction==true" mat-button mat-icon-button matSuffix>
+                        <mat-icon color="warn">add</mat-icon>
+                    </button>
+                </mat-header-cell>
+                <mat-cell *matCellDef="let item">
+                    <button (click)="onRead(item)" *ngIf="readAction==true" mat-button mat-icon-button matSuffix>
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button (click)="onUpdate(item)" *ngIf="updateAction==true" mat-button mat-icon-button matSuffix>
+                        <mat-icon color="warn">mode_edit</mat-icon>
+                    </button>
+                    <button (click)="onDelete(item)" *ngIf="deleteAction==true" mat-button mat-icon-button matSuffix>
+                        <mat-icon color="warn">close</mat-icon>
+                    </button>
+                </mat-cell>
+            </ng-container>
+        </mat-table>
+    </mat-card-content>
+</mat-card>

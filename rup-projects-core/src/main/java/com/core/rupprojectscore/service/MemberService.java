@@ -1,6 +1,7 @@
 package com.core.rupprojectscore.service;
 
 import com.core.rupprojectscore.dto.MemberDto;
+import com.core.rupprojectscore.dto.UseCaseDto;
 import com.core.rupprojectscore.entity.Member;
 import com.core.rupprojectscore.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -44,4 +45,7 @@ public class MemberService {
         return mapper.mapList(memberList, MemberDto.class);
     }
 
+    public MemberDto openMember(Long id) {
+        return repository.findById(id).map(member -> mapper.map(member, MemberDto.class)).orElse(null);
+    }
 }

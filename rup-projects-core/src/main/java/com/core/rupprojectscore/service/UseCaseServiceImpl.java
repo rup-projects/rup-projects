@@ -28,6 +28,11 @@ public class UseCaseServiceImpl implements UseCaseService {
                 .collect(toList());
     }
 
+    @Override
+    public UseCaseDto openUseCase(Long id) {
+        return repository.findById(id).map(usecase -> mapper.map(usecase, UseCaseDto.class)).orElse(null);
+    }
+
     public UseCaseDto updateUseCase(UseCaseDto useCaseDto) {
         return mapper.map(repository.save(mapper.map(useCaseDto, UseCase.class)), UseCaseDto.class);
     }

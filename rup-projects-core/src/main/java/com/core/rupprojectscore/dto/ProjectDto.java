@@ -52,6 +52,7 @@ public class ProjectDto {
         return new Mapper().map(project, ProjectDto.class);
     }
 
+    // TODO Revisar. Creo que se puede borrar.
     public List<IterationDto> getIterations() {
         return phases.stream()
                 .flatMap(phaseDto -> phaseDto.getIterations().stream())

@@ -1,5 +1,6 @@
 package com.core.rupprojectscore.entity;
 
+import com.core.rupprojectscore.dto.PhaseType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,11 +17,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.Objects.isNull;
+import java.util.stream.Collectors;
 
 @Getter
 @Setter
@@ -31,7 +32,9 @@ import static java.util.Objects.isNull;
 @Table(name = "project")
 public class Project {
 
-
+    public static final Long MINIMUM_NUMBER_OF_ITERATIONS = 10L;
+    public static final Long MINIMUM_ITERATION_SIZE = 10L;
+    public static final Long MINIMUM_DURATION = MINIMUM_NUMBER_OF_ITERATIONS * MINIMUM_ITERATION_SIZE;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,39 +47,49 @@ public class Project {
     private LocalDate endDate;
 
     @Column
-    private Long cost;
+    private Long cost = 0L;
 
     @Column(name = "iterationsize")
     private Long iterationSize;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "project_id")
-    private List<Phase> phases;
-
+    private List<Phase> phases = new ArrayList<>();
 
     @Column(name = "numberofiterations")
     @Builder.Default
-    private Long numberOfIterations = 10L;
+    private Long numberOfIterations = Project.MINIMUM_NUMBER_OF_ITERATIONS;
 
-
-    public void addPhase(Phase build) {
-        if (isNull(phases)) {
-            this.phases = new ArrayList<>();
-        }
-        this.phases.add(build);
+    public Project(LocalDate startDate, LocalDate endDate, Long numberOfIterations) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.numberOfIterations = numberOfIterations;
+        this.iterationSize = Duration.between(this.startDate.atTime(0, 0), this.endDate.atTime(0, 0)).toDays() / numberOfIterations;
+        initPhases();
     }
 
-    public List<Phase> getPhases() {
-        if (isNull(phases)) {
-            phases = new ArrayList<>();
+    private void initPhases() {
+        LocalDate phaseStartDate = this.startDate;
+        PhaseBuilder phaseBuilder = new PhaseBuilder();
+        for (PhaseType phaseType : PhaseType.values()) {
+            Phase phase = phaseBuilder.phaseType(phaseType)
+                    .startDate(phaseStartDate)
+                    .withIterations(this.iterationSize, this.numberOfIterations,(long) this.getIterations().size() == 0 ? 1L : this.getIterations().size() + 1)
+                    .build();
+            phaseStartDate = phase.getEndDate().plusDays(1);
+            this.phases.add(phase);
         }
-
-        return phases;
+        Iteration lastIteration = getLastPhase().getLastIteration();
+        if (!this.endDate.equals(lastIteration.getEndDate())) {
+            lastIteration.setEndDate(this.endDate);
+        }
     }
 
+    private Phase getLastPhase() {
+        return this.getPhases().get(PhaseType.MAX - 1);
+    }
 
-
-    public Integer getNumberOfIterations() {
-        return Math.toIntExact(getPhases().stream().flatMap(phase -> phase.getIterations().stream()).count());
+    private List<Iteration> getIterations() {
+        return this.getPhases().stream().flatMap(phase -> phase.getIterations().stream()).collect(Collectors.toList());
     }
 }

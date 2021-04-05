@@ -9,6 +9,8 @@ public interface UseCaseService {
 
     List<UseCaseDto> openUseCases();
 
+    UseCaseDto openUseCase(Long id);
+
     UseCaseDto updateUseCase(UseCaseDto useCaseDto);
 
     void deleteUseCase(Long id);

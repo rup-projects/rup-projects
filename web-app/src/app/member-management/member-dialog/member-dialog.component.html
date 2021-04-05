@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Add Member</h2>
+<form [formGroup]="form" class="form">
+  <mat-form-field class="full-width">
+    <mat-label>Name</mat-label>
+    <input [formControl]="form.name" matInput required type="text"/>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Surname</mat-label>
+    <input [formControl]="form.surName" matInput required type="text"/>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Email</mat-label>
+    <input [formControl]="form.email" matInput required type="text"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Roles</mat-label>
+    <mat-select [formControl]="form.role">
+      <mat-option [value]="null">Select one...</mat-option>
+      <mat-option *ngFor="let role of getMemberRoles()" [value]="role"> {{role}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+f
+  <mat-dialog-actions>
+    <div class="col col-2 offset-sm-8">
+      <button type="button" class="btn btn-outline-danger" mat-dialog-close>
+        Cancel
+      </button>
+    </div>
+    <div class="col col-2">
+      <button *ngIf="isCreate(); else updateMember" (click)="create()" [disabled]=!form.valid color="primary" mat-raised-button>Create</button>
+      <ng-template #updateMember>
+        <button (click)="update()" [disabled]=!form.valid color="primary" mat-raised-button>Update</button>
+      </ng-template>
+    </div>
+  </mat-dialog-actions>
+
+</form>
+
+

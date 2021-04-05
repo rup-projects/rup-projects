@@ -1,19 +1,21 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { MembersManagementComponent } from './components/members-management/members-management.component';
-import { PlanProjectComponent } from './components/plan-project/plan-project.component';
-import { ProjectManagementComponent } from './components/project-management/project-management.component';
-import { UseCasesManagementComponent } from './components/use-cases-management/use-cases-management.component';
-import {PhaseManagementComponent} from './components/phase-management/phase-management.component';
-import {InitProjectComponent} from './components/init-project/init-project.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
-  {path: '', component: InitProjectComponent},
-  {path: 'plan-project', component: PlanProjectComponent},
-  {path: 'use-cases-management', component: UseCasesManagementComponent},
-  {path: 'members-management', component: MembersManagementComponent},
-  {path: 'project-management', component: ProjectManagementComponent},
-  {path: 'phase-management', component: PhaseManagementComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'init-project'},
+  {path: 'init-project', loadChildren: () => import('./init-project/init-project.module').then(m => m.InitProjectModule)},
+  {
+    path: 'project-management', loadChildren: () =>
+      import('./project-management/project-management.module').then(m => m.ProjectManagementModule)
+  },
+  {
+    path: 'member-management', loadChildren: () =>
+      import('./member-management/member-management.module').then(m => m.MemberManagementModule)
+  },
+  {
+    path: 'use-cases-management', loadChildren: () =>
+      import('./usecases-management/use-cases-management.module').then(m => m.UseCasesManagementModule)
+  }
 ];
 
 
