@@ -1,8 +1,16 @@
-export class Iteration {
+import {NotAssignedCost} from './not-assigned-cost';
+import {Realization} from './realization';
 
-  id: number;
-  number: number;
-  startDate: Date;
-  endDate: Date;
+
+
+export interface Iteration {
+
+    id: number;
+    number: number;
+    startDate: string;
+    endDate: string;
+    dateTimes: Date[];
+    notAssignedCosts: NotAssignedCost[];
+    realizations: Realization[];
 
 }

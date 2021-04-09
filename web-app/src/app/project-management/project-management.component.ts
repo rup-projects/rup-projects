@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Phase} from '../shared/models/phase';
-import {PhaseService} from '../shared/services/phase.service';
+import {PhaseProxyService} from '../shared/services/phase-proxy.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ export class ProjectManagementComponent implements OnInit {
   displayedColumns: string[] = ['type', 'startDate', 'endDate', 'duration'];
   columnsToDisplay: string[] = this.displayedColumns.slice();
 
-  constructor(private phaseService: PhaseService, private router: Router) {
+  constructor(private phaseService: PhaseProxyService, private router: Router) {
   }
 
   ngOnInit(): void {
