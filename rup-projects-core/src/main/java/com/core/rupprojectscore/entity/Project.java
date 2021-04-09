@@ -52,7 +52,7 @@ public class Project {
     @Column(name = "iterationsize")
     private Long iterationSize;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "project_id")
     private List<Phase> phases = new ArrayList<>();
 

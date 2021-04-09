@@ -38,18 +38,18 @@ public class Phase {
     @Enumerated
     private PhaseType type;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Iteration> iterations = new ArrayList<>();
 
     public Phase(PhaseType phaseType, LocalDate startDate, Long firstIterationIdx, Long iterationSize, Long numberOfIterations) {
         this.type = phaseType;
-        this.iterations = createIterations(startDate, firstIterationIdx, iterationSize, numberOfIterations);
+        this.iterations = createIterations(startDate, firstIterationIdx, iterationSize, numberOfIterations, phaseType);
     }
 
-    private List<Iteration> createIterations(LocalDate iterationStartDate, Long iterationIdx, Long iterationSize, Long numberOfIterations) {
+    private List<Iteration> createIterations(LocalDate iterationStartDate, Long iterationIdx, Long iterationSize, Long numberOfIterations, PhaseType phaseType) {
         List<Iteration> iterations = new ArrayList<>();
         for (int i = 0; i < getNumberOfIterationsByPhase(this.type, numberOfIterations); i++) {
-            iterations.add(new Iteration(iterationStartDate, iterationStartDate.plusDays(iterationSize), iterationIdx));
+            iterations.add(new Iteration(iterationStartDate, iterationStartDate.plusDays(iterationSize), iterationIdx, phaseType));
             iterationStartDate = iterationStartDate.plusDays(iterationSize).plusDays(1);
             iterationIdx++;
         }
@@ -57,7 +57,7 @@ public class Phase {
     }
 
     private int getNumberOfIterationsByPhase(PhaseType phaseType, Long numberOfIterations) {
-        return Math.toIntExact(Math.round(numberOfIterations * phaseType.getPercentage()));
+        return Math.toIntExact(Math.round(numberOfIterations * phaseType.getDurationPercentage()));
     }
 
     public LocalDate getEndDate() {

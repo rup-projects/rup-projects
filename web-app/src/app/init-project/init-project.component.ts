@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Project} from '../shared/models/project';
-import {ProjectService} from '../shared/services/project.service';
+import {ProjectProxyService} from '../shared/services/project-proxy.service';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
 
@@ -14,7 +14,7 @@ export class InitProjectComponent implements OnInit {
   project$: Observable<Project>;
   panelOpenState = false;
 
-  constructor(private projectService: ProjectService, private router: Router) {
+  constructor(private projectService: ProjectProxyService, private router: Router) {
   }
 
   ngOnInit(): void {
