@@ -1,5 +1,7 @@
 package com.core.rupprojectscore.dto;
 
+import com.core.rupprojectscore.entity.UseCase;
+import com.core.rupprojectscore.service.Mapper;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -16,4 +18,12 @@ public class UseCaseDto {
     private String name;
     private String description;
     private Integer priority;
+
+    public static UseCaseDto modelToDto(UseCase useCase) {
+        return new Mapper().map(useCase, UseCaseDto.class);
+    }
+
+    public static UseCase dtoToModel(UseCaseDto dto) {
+        return new Mapper().map(dto, UseCase.class);
+    }
 }

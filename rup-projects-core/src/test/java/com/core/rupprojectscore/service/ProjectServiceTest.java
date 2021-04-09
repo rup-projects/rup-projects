@@ -95,7 +95,6 @@ public class ProjectServiceTest {
 
     public void assertProject(PhaseType[] phaseTypes, int iterations) {
         assertThat(createdProjectDto.getPhases().size()).isEqualTo(phaseTypes.length);
-        assertThat(createdProjectDto.getIterations().size()).isEqualTo(iterations);
     }
 
     private void assertPhases(List<? extends Serializable>... expectedPhases) {

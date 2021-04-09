@@ -5,6 +5,7 @@ import com.core.rupprojectscore.dto.UseCaseDto;
 import java.util.List;
 
 public interface UseCaseService {
+
     UseCaseDto createUseCase(UseCaseDto dto);
 
     List<UseCaseDto> openUseCases();
