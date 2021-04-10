@@ -106,8 +106,8 @@ public class ProjectServiceTest {
     private void assertPhase(ProjectDto projectDto, PhaseType phaseType, List<? extends Serializable> expectedPhaseInformation) {
         PhaseDto phase = getPhase(projectDto, phaseType);
         assertThat(phase.getIterations().size()).isEqualTo((int) expectedPhaseInformation.get(0));
-        assertThat(phase.getStartDate()).isEqualTo(expectedPhaseInformation.get(1));
-        assertThat(phase.getEndDate()).isEqualTo(expectedPhaseInformation.get(2));
+        assertThat(phase.getStartDate()).isEqualTo(expectedPhaseInformation.get(1).toString());
+        assertThat(phase.getEndDate()).isEqualTo(expectedPhaseInformation.get(2).toString());
     }
 
     private PhaseDto getPhase(ProjectDto projectDto, PhaseType phaseType) {
@@ -125,7 +125,7 @@ public class ProjectServiceTest {
     }
 
     private void assertIteration(Long order, IterationDto iteration, List<? extends Serializable>[] expectedIterationInfo) {
-        assertThat(Arrays.asList(iteration.getStartDate(), iteration.getEndDate())).isIn(expectedIterationInfo);
+        assertThat(Arrays.asList(LocalDate.parse(iteration.getStartDate()), LocalDate.parse(iteration.getEndDate()))).isIn(expectedIterationInfo);
         assertThat(iteration.getNumber()).isEqualTo((long) order);
     }
 
