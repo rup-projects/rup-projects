@@ -6,7 +6,7 @@ import { Phase } from '../models/phase';
 import {Iteration} from '../models/iteration';
 
 @Injectable()
-export class PhaseService {
+export class PhaseProxyService {
 
   private RESOURCE = 'phases';
 

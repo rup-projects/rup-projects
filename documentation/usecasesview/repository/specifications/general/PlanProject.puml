@@ -50,8 +50,7 @@ state PlanProject {
     note on link
         [end date before start date
         OR start date after end date
-        OR cost <= 0
-        OR start end date interval < 10 days]
+        OR cost <= 0]
     end note
 
     3 --> 4

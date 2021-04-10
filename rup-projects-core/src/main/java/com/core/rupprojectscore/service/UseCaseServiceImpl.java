@@ -1,7 +1,6 @@
 package com.core.rupprojectscore.service;
 
 import com.core.rupprojectscore.dto.UseCaseDto;
-import com.core.rupprojectscore.entity.UseCase;
 import com.core.rupprojectscore.repository.UseCaseRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -9,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.core.rupprojectscore.dto.UseCaseDto.dtoToModel;
+import static com.core.rupprojectscore.dto.UseCaseDto.modelToDto;
 import static java.util.stream.Collectors.toList;
 
 @RequiredArgsConstructor
@@ -18,23 +19,23 @@ public class UseCaseServiceImpl implements UseCaseService {
     private final UseCaseRepository repository;
     private final ModelMapper mapper = new ModelMapper();
 
+    @Override
     public UseCaseDto createUseCase(UseCaseDto dto) {
-        return mapper.map(repository.save(mapper.map(dto, UseCase.class)), UseCaseDto.class);
+        return mapper.map(repository.save(dtoToModel(dto)), UseCaseDto.class);
     }
 
+    @Override
     public List<UseCaseDto> openUseCases() {
-        return repository.findAll().stream()
-                .map(useCase -> mapper.map(useCase, UseCaseDto.class))
-                .collect(toList());
+        return repository.findAll().stream().map(UseCaseDto::modelToDto).collect(toList());
     }
 
     @Override
     public UseCaseDto openUseCase(Long id) {
-        return repository.findById(id).map(usecase -> mapper.map(usecase, UseCaseDto.class)).orElse(null);
+        return repository.findById(id).map(UseCaseDto::modelToDto).orElse(null);
     }
 
     public UseCaseDto updateUseCase(UseCaseDto useCaseDto) {
-        return mapper.map(repository.save(mapper.map(useCaseDto, UseCase.class)), UseCaseDto.class);
+        return modelToDto(repository.save(dtoToModel(useCaseDto)));
     }
 
     public void deleteUseCase(Long id) {
@@ -43,8 +44,6 @@ public class UseCaseServiceImpl implements UseCaseService {
 
 
     public void prioritizeUseCases(List<UseCaseDto> useCasesDto) {
-        useCasesDto.stream()
-                .map(useCaseDto -> mapper.map(useCaseDto, UseCase.class))
-                .forEach(repository::save);
+        useCasesDto.stream().map(UseCaseDto::dtoToModel).forEach(repository::save);
     }
 }

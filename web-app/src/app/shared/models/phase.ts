@@ -5,7 +5,7 @@ export class Phase {
   id: number;
   type: PhaseType;
   iterations: Iteration;
-  startDate: Date;
-  endDate: Date;
+  startDate: string;
+  endDate: string;
   duration: number;
 }

@@ -4,23 +4,30 @@
     <mat-step [stepControl]="basicInfoFormGroup">
       <form [formGroup]="basicInfoFormGroup">
         <ng-template matStepLabel>Project basic data</ng-template>
-        <mat-form-field>
-          <mat-label>Start Date</mat-label>
-          <input matInput formControlName="startDate" type="date" required>
-        </mat-form-field>
+        <div class="basic-info-container" >
+          <mat-form-field>
+            <mat-label>Project date range</mat-label>
+            <mat-date-range-input [formGroup]="basicInfoFormGroup" [rangePicker]="picker">
+              <input matStartDate formControlName="startDate" placeholder="Start date">
+              <input matEndDate formControlName="endDate" placeholder="End date">
+            </mat-date-range-input>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
 
-        <mat-form-field>
-          <mat-label>End Date</mat-label>
-          <input matInput formControlName="endDate" type="date" required>
-        </mat-form-field>
+            <mat-error *ngIf="basicInfoFormGroup.controls.startDate.hasError('afterNow')">start date should be after today</mat-error>
+          </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Cost</mat-label>
-          <input matInput formControlName="cost">
-        </mat-form-field>
+          <mat-form-field>
+            <mat-label>Cost</mat-label>
+            <input matInput formControlName="cost">
+          </mat-form-field>
+        </div>
+
         <div>
           <button mat-button (click)="cancel()">Cancel</button>
-          <button mat-button (click)="toIterationsSizeStep(stepper)" type="button">Next</button>
+          <button mat-button type="button"
+                  [disabled]="!basicInfoFormGroup.valid"
+                  (click)="toIterationsSizeStep(stepper)" >Next</button>
         </div>
       </form>
     </mat-step>

@@ -6,17 +6,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ActivityDto {
-
+public class NotAssignedCostDto {
     private Long id;
-    private String description;
-    private Long hours;
     private DisciplineType disciplineType;
-    private String startDateTime;
-
+    private Long hours;
+    private List<ActivityDto> notAssignedActivities;
 }

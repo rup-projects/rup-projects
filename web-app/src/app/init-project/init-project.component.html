@@ -1,24 +1,27 @@
 <div class="container">
-    <mat-accordion *ngIf="project$ | async as project">
-      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            Project
-          </mat-panel-title>
-        </mat-expansion-panel-header>
-        <mat-list>
-          <mat-divider></mat-divider>
-          <mat-list-item>Start date : {{project.startDate | date}}</mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>End date : {{project.endDate | date}}</mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>Progress : NA</mat-list-item>
-          <mat-divider></mat-divider>
-          <mat-list-item>Iteration size : {{project.iterationSize}} days</mat-list-item>
-        </mat-list>
-        <button mat-button color="primary" type="button" (click)="openProject()">Open</button>
-      </mat-expansion-panel>
-    </mat-accordion>
+    <ng-container *ngIf="project$ | async as project">
+      <mat-accordion *ngIf="project.id != undefined">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Project
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Start date : {{project.startDate | date}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>End date : {{project.endDate | date}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Progress : NA</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Iteration size : {{project.iterationSize}} days</mat-list-item>
+                </mat-list>
+                <button mat-button color="primary" type="button" (click)="openProject()">Open</button>
+            </mat-expansion-panel>
+        </mat-accordion>
 
-  <button mat-button color="primary" type="button" (click)="planProject()">Plan project</button>
+    </ng-container>
+
+    <button mat-button color="primary" type="button" (click)="planProject()">Plan project</button>
 </div>

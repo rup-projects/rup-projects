@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static com.core.rupprojectscore.dto.ProjectDto.modelToDto;
+
 @Service
 @RequiredArgsConstructor
 public class ProjectServiceImpl implements ProjectService {
@@ -20,7 +22,7 @@ public class ProjectServiceImpl implements ProjectService {
     public ProjectDto planProject(PlanProjectDto planProjectDto) {
         Project project = planProjectDto.createProject();
         repository.save(project);
-        return ProjectDto.create(project);
+        return modelToDto(project);
     }
 
     @Override
@@ -29,7 +31,7 @@ public class ProjectServiceImpl implements ProjectService {
         Project project = planProjectDto.createProject();
         repository.deleteById(projectDto.getId());
         repository.save(project);
-        return ProjectDto.create(project);
+        return modelToDto(project);
     }
 
     @Override
@@ -38,7 +40,7 @@ public class ProjectServiceImpl implements ProjectService {
         if (projects.isEmpty()) {
             return Optional.empty();
         }
-        return Optional.of(ProjectDto.create(projects.get(0)));
+        return Optional.of(modelToDto(projects.get(0)));
     }
 
     @Override

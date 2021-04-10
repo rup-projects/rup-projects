@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Member} from '../shared/models/member';
-import {MemberService} from '../shared/services/member.service';
+import {MemberProxyService} from '../shared/services/member-proxy.service';
 import {MatDialog} from '@angular/material/dialog';
 import {MemberDialogComponent} from './member-dialog/member-dialog.component';
 import {Observable} from 'rxjs';
@@ -17,7 +17,7 @@ export class MemberManagementComponent {
   private selected: Member;
   title: 'Members';
 
-  constructor(private memberService: MemberService,
+  constructor(private memberService: MemberProxyService,
               private matDialog: MatDialog) {
     this.openMembers();
   }
@@ -52,7 +52,7 @@ export class MemberManagementComponent {
   deleteMember(member: Member): void {
     // TODO Create confirmation dialog
     this.memberService
-      .delete(member.id)
+      .deleteMember(member.id)
       .subscribe(() => this.openMembers());
   }
 }

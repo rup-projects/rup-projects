@@ -1,5 +1,11 @@
-export class Activity {
-  constructor(public id: number) {
-  }
+import {DisciplineType} from './discipline.type';
+
+export interface Activity {
+
+    id: number;
+    description: string;
+    hours: number;
+    disciplineType: DisciplineType;
+    startDateTime: string;
 
 }

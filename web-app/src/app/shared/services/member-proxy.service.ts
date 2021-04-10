@@ -5,7 +5,7 @@ import {Member} from '../models/member';
 import {HttpService} from '../../core/http.service';
 
 @Injectable()
-export class MemberService {
+export class MemberProxyService {
 
   private RESOURCE = 'members';
 
@@ -28,7 +28,7 @@ export class MemberService {
     return this.httpService.put(`${resourceServer}/${this.RESOURCE}/${member.id}`, member);
   }
 
-  delete(id: number): Observable<void> {
+  deleteMember(id: number): Observable<void> {
     return this.httpService.delete(`${resourceServer}/${this.RESOURCE}/${id}`);
   }
 }

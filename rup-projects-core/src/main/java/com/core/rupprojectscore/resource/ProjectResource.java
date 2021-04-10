@@ -47,5 +47,4 @@ public class ProjectResource {
     public void deleteProject() {
         this.service.deleteProject();
     }
-
 }

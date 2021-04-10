@@ -1,8 +1,8 @@
 package com.core.rupprojectscore.resource;
 
 import com.core.rupprojectscore.dto.MemberDto;
-import com.core.rupprojectscore.dto.UseCaseDto;
 import com.core.rupprojectscore.service.MemberService;
+import com.core.rupprojectscore.service.MemberServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;

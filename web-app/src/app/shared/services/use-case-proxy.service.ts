@@ -5,7 +5,7 @@ import {UseCase} from '../models/use-case';
 import {HttpService} from '../../core/http.service';
 
 @Injectable()
-export class UseCaseService {
+export class UseCaseProxyService {
 
   private RESOURCE = 'use-cases';
 

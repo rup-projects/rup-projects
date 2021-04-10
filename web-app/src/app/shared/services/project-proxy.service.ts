@@ -6,7 +6,7 @@ import {PlanProjectDto} from '../models/planProjectDto';
 import {HttpService} from '../../core/http.service';
 
 @Injectable()
-export class ProjectService {
+export class ProjectProxyService {
 
   private RESOURCE = 'projects';
 

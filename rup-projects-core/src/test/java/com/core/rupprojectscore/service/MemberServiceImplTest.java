@@ -13,10 +13,10 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-class MemberServiceTest {
+class MemberServiceImplTest {
 
     @Autowired
-    private MemberService crudService;
+    private MemberServiceImpl crudService;
     @Autowired
     private MemberRepository repository;
 
