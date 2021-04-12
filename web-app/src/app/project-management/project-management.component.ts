@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Phase} from '../shared/models/phase';
 import {PhaseProxyService} from '../shared/services/phase-proxy.service';
 import {Router} from '@angular/router';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-project-management',
@@ -10,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class ProjectManagementComponent implements OnInit {
 
-  phases: Phase[];
+  phases$: Observable<Phase[]>;
   displayedColumns: string[] = ['type', 'startDate', 'endDate', 'duration'];
   columnsToDisplay: string[] = this.displayedColumns.slice();
 
@@ -18,7 +19,7 @@ export class ProjectManagementComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.phaseService.openPhases().subscribe(phases => this.phases = phases);
+    this.phases$ = this.phaseService.openPhases();
   }
 
   openIterations(phase: Phase): void {

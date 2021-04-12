@@ -56,7 +56,7 @@ export class UseCasesManagementComponent implements OnInit{
 
   deleteUseCase(useCase: UseCase): void {
     this.useCaseService
-      .delete(useCase.id)
+      .deleteMember(useCase.id)
       .subscribe(() => this.openUseCases());
   }
 }

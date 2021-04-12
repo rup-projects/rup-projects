@@ -39,4 +39,8 @@ public class Realization {
     @JoinColumn(name = "realization_id")
     private List<Activity> activities = new ArrayList<>();
 
+    public Realization(Member member) {
+        this.member = member;
+    }
+
 }

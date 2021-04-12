@@ -14,6 +14,7 @@ import {MenuComponent} from './components/menu/menu.component';
 import {RouterModule} from '@angular/router';
 import {ReadDetailDialogComponent} from './dialogs/read-detail.dialog.component';
 import {ActivityProxyService} from './services/activity-proxy.service';
+import {RealizationProxyService} from './services/realization-proxy.service';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import {ActivityProxyService} from './services/activity-proxy.service';
         UseCaseProxyService,
         IterationProxyService,
         PhaseProxyService,
-        ActivityProxyService
+        ActivityProxyService,
+        RealizationProxyService
     ],
     exports: [
         MenuComponent,

@@ -1,0 +1,11 @@
+<div mat-dialog-content>
+  <p>Available {{data.notAssignedCost.type}} Cost {{data.notAssignedCost.hours}}h</p>
+  <mat-form-field>
+    <mat-label>Duration</mat-label>
+    <input matInput [(ngModel)]="data.activity.hours">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button cdkFocusInitial>Cancel</button>
+  <button mat-button (click)="reestimate()">confirm</button>
+</div>

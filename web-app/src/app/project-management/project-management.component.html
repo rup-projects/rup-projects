@@ -1,6 +1,8 @@
 <app-menu></app-menu>
 
-<div class="container">
+<ng-container *ngIf="phases$ | async as phases">
+
+  <div class="container">
 
     <table mat-table [dataSource]="phases" class="mat-elevation-z8">
 
@@ -30,7 +32,10 @@
     </table>
 
     <button mat-button color="primary" type="button" (click)="closeProject()">Close project</button>
-</div>
+  </div>
+
+</ng-container>
+
 
 
 

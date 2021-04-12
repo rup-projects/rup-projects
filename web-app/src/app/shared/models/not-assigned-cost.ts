@@ -3,7 +3,7 @@ import {Activity} from './activity';
 
 export interface NotAssignedCost {
     id: number;
-    disciplineType: DisciplineType;
+    type: DisciplineType;
     hours: number;
     notAssignedActivities: Activity[];
 }

@@ -13,7 +13,7 @@ export class ProjectProxyService {
   constructor(private httpService: HttpService) {
   }
 
-  getOpenedProject(): Observable<Project> {
+  startSystem(): Observable<Project> {
     return this.httpService.get(`${resourceServer}/${this.RESOURCE}/opened`);
   }
 
@@ -23,10 +23,6 @@ export class ProjectProxyService {
 
   deleteProject(): Observable<void> {
     return this.httpService.delete(`${resourceServer}/${this.RESOURCE}`);
-  }
-
-  refreshProject(project: Project): Observable<Project> {
-    return this.httpService.post(`${resourceServer}/${this.RESOURCE}/refresh`, project);
   }
 
 }
