@@ -9,8 +9,6 @@ public interface ProjectService {
 
     ProjectDto planProject(PlanProjectDto dto);
 
-    ProjectDto refreshProject(ProjectDto dto);
-
     Optional<ProjectDto> startSystem();
 
     void deleteProject();

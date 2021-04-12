@@ -18,7 +18,7 @@ export class InitProjectComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.project$ = this.projectService.getOpenedProject();
+    this.project$ = this.projectService.startSystem();
   }
 
   planProject(): void {

@@ -21,15 +21,9 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public ProjectDto planProject(PlanProjectDto planProjectDto) {
         Project project = planProjectDto.createProject();
-        repository.save(project);
-        return modelToDto(project);
-    }
-
-    @Override
-    public ProjectDto refreshProject(ProjectDto projectDto) {
-        PlanProjectDto planProjectDto = new PlanProjectDto(projectDto.getStartDate(), projectDto.getEndDate(), projectDto.getCost(), projectDto.getNumberOfIterations());
-        Project project = planProjectDto.createProject();
-        repository.deleteById(projectDto.getId());
+        if (!repository.findAll().isEmpty()) {
+            repository.deleteAll();
+        }
         repository.save(project);
         return modelToDto(project);
     }

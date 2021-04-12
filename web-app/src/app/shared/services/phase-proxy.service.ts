@@ -4,21 +4,22 @@ import { Observable } from 'rxjs';
 import { resourceServer } from '../../../environments/environment';
 import { Phase } from '../models/phase';
 import {Iteration} from '../models/iteration';
+import {HttpService} from '../../core/http.service';
 
 @Injectable()
 export class PhaseProxyService {
 
   private RESOURCE = 'phases';
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpService: HttpService) {
   }
 
   openPhases(): Observable<Phase[]> {
-    return this.httpClient.get<Phase[]>(`${resourceServer}/${this.RESOURCE}`);
+    return this.httpService.get(`${resourceServer}/${this.RESOURCE}`);
   }
 
   openIterations(phaseId: string): Observable<Iteration[]> {
-    return this.httpClient.get<Iteration[]>(`${resourceServer}/${this.RESOURCE}/${phaseId}/iterations`);
+    return this.httpService.get(`${resourceServer}/${this.RESOURCE}/${phaseId}/iterations`);
   }
 
 

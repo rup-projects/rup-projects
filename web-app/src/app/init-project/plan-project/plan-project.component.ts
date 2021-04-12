@@ -45,9 +45,7 @@ export class PlanProjectComponent implements OnInit {
 
     refreshProject(): void {
         this.project.numberOfIterations = this.iterationSizeFormGroup.get('numberOfIterations').value as number;
-        this.projectService.refreshProject(this.project)
-            .subscribe(project => this.project = project, error => this.projectService.getOpenedProject()
-                .subscribe(project => this.project = project));
+        this.projectService.planProject(this.project);
     }
 
     toIterationsSizeStep(stepper: MatStepper): void {

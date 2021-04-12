@@ -4,21 +4,34 @@ import {Activity} from '../models/activity';
 import {Observable} from 'rxjs';
 import {NotAssignedCost} from '../models/not-assigned-cost';
 import {HttpService} from '../../core/http.service';
+import {ActivityHours} from '../models/activity-hours';
+import {ActivityMember} from '../models/activity-member';
 
 @Injectable()
 export class ActivityProxyService {
 
-    private RESOURCE = 'activities';
+  private RESOURCE = 'activities';
 
-    constructor(private httpService: HttpService) {
-    }
+  constructor(private httpService: HttpService) {
+  }
 
-    splitActivity(notAssignedCost: NotAssignedCost): Observable<void> {
-        return this.httpService.post(`${resourceServer}/${this.RESOURCE}/splitActivity/${notAssignedCost.id}`);
-    }
+  splitActivity(notAssignedCost: NotAssignedCost): Observable<void> {
+    return this.httpService.post(`${resourceServer}/${this.RESOURCE}/splitActivity/${notAssignedCost.id}`);
+  }
 
-    closeActivity(activityId: number): Observable<Activity> {
-        return this.httpService.put(`${resourceServer}/${this.RESOURCE}/${activityId}`, {});
-    }
+  mergeActivity(activity: Activity): Observable<void> {
+    return this.httpService.delete(`${resourceServer}/${this.RESOURCE}/${activity.id}`);
+  }
 
+  reestimateActivity(id: number, activityHours: ActivityHours): Observable<void> {
+    return this.httpService.put(`${resourceServer}/${this.RESOURCE}/${id}/reestimate`, activityHours);
+  }
+
+  closeActivity(activityId: number): Observable<Activity> {
+    return this.httpService.put(`${resourceServer}/${this.RESOURCE}/${activityId}`, {});
+  }
+
+  assignActivity(activity: Activity, activityMember: ActivityMember): Observable<void> {
+    return this.httpService.put(`${resourceServer}/${this.RESOURCE}/${activity.id}/assign`, activityMember);
+  }
 }

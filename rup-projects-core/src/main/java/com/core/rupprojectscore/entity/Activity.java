@@ -13,6 +13,8 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Getter
@@ -34,16 +36,20 @@ public class Activity {
     @Column
     private Long hours;
 
-    @Column
-    @Enumerated
-    private DisciplineType disciplineType;
+    @ManyToOne
+    @JoinColumn(name = "notassignedcost_id")
+    private NotAssignedCost notAssignedCost;
+
+    @ManyToOne
+    @JoinColumn(name = "realization_id")
+    private Realization realization;
 
     @Column(name = "startdatetime")
     private String startDateTime;
 
-    public Activity(DisciplineType disciplineType, String description, Long hours) {
+    public Activity(NotAssignedCost notAssignedCost, String description, Long hours) {
         this.description = description;
-        this.disciplineType = disciplineType;
+        this.notAssignedCost = notAssignedCost;
         this.hours = hours;
     }
 

@@ -50,36 +50,4 @@ public class NotAssignedCost {
         this.type = type;
         this.hours = hours;
     }
-
-    public DisciplineType getType() {
-        return type;
-    }
-
-    public void setType(DisciplineType disciplineType) {
-        this.type = disciplineType;
-    }
-
-    public Long getHours() {
-        return hours;
-    }
-
-    public void setHours(Long hours) {
-        this.hours = hours;
-    }
-
-    public List<Activity> getActivities() {
-        return activities;
-    }
-
-    public void setActivities(List<Activity> notAssignedActivities) {
-        this.activities = notAssignedActivities;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
