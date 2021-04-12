@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'use-cases-management', loadChildren: () =>
       import('./usecases-management/use-cases-management.module').then(m => m.UseCasesManagementModule)
+  },
+  {
+    path: 'iteration-management', loadChildren: () =>
+      import('./iteration-management/iteration-management.module').then(m => m.IterationManagementModule)
   }
 ];
 

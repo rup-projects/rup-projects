@@ -9,25 +9,32 @@ import com.core.rupprojectscore.entity.NotAssignedCost;
 import com.core.rupprojectscore.entity.Realization;
 import com.core.rupprojectscore.exceptions.BadRequestException;
 import com.core.rupprojectscore.repository.IterationRepository;
-import com.core.rupprojectscore.repository.PhaseRepository;
+import com.core.rupprojectscore.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static com.core.rupprojectscore.dto.IterationDto.dtoToModel;
+import static com.core.rupprojectscore.dto.IterationDto.modelToDto;
 
 @Service
 @RequiredArgsConstructor
 public class IterationServiceImpl implements IterationService {
 
     private final IterationRepository repository;
-    private final ModelMapper mapper = new ModelMapper();
+    private final MemberRepository memberRepository;
 
     @Override
     public List<IterationDto> openIterations() {
-        return repository.findAll().stream().map(iteration ->
-                mapper.map(iteration, IterationDto.class)).collect(Collectors.toList());
+        return repository.findAll().stream().map(IterationDto::modelToDto).collect(Collectors.toList());
     }
 
     @Override

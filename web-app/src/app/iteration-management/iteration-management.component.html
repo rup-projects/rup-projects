@@ -1,0 +1,107 @@
+<app-menu></app-menu>
+
+
+<ng-container *ngIf="iteration !== undefined">
+
+  <div class="iteration-management-container">
+
+    <div class="datetime-container">
+      <div class="horizontal-item">
+        date times
+      </div>
+
+      <mat-list class="datetime-container">
+        <mat-list-item class="datetime" *ngFor="let datetime of iteration.dateTimes">
+          {{datetime | date:'E h:mm a'}}
+        </mat-list-item>
+      </mat-list>
+
+    </div>
+
+    <div class="realizations-container">
+
+      <div class="header-container">
+        <div class="header-item" *ngFor="let realization of iteration.realizations">
+          {{realization.member.name}}
+        </div>
+      </div>
+
+      <div class="realizations-body-container">
+        <div class="realization-body-item" *ngFor="let realization of iteration.realizations">
+          <mat-list>
+            <mat-list-item style="border: black 1px solid;" *ngFor="let activity of realization.activities">
+              <div style="padding-right: 1vw;">
+                {{activity.startDateTime | date:'E h:mm a'}} {{activity.hours}}h
+              </div>
+              <button mat-mini-fab color="basic" (click)="closeActivity(activity)">
+                <mat-icon>
+                  check
+                </mat-icon>
+              </button>
+              <button mat-mini-fab color="basic" (click)="unAssignActivity(activity)">
+                <mat-icon>
+                  person_remove
+                </mat-icon>
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="notAssignedCosts-container">
+
+      <div class="header-container">
+        <div class=header-item *ngFor="let notAssignedCost of iteration.notAssignedCosts">
+          {{notAssignedCost.type}} {{notAssignedCost.hours}}h
+          <div style="padding: 1vw">
+            <button mat-mini-fab color="basic" (click)="splitActivity(notAssignedCost)">
+              <mat-icon>
+                exposure_neg_1
+              </mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="notassignedcost-body-container">
+        <div class="not-assigned-cost-body-item" *ngFor="let notAssignedCost of iteration.notAssignedCosts">
+
+          <mat-list>
+            <mat-list-item style="box-sizing: border-box;   border: black 1px solid;"
+                           *ngFor="let notAssignedActivity of getNotAssignedActivities(notAssignedCost.notAssignedActivities)">
+
+                <div style="padding-right: 1vw;">
+                  {{notAssignedActivity.hours}}h
+                </div>
+                <button mat-mini-fab color="basic" (click)="mergeActivity(notAssignedActivity)">
+                  <mat-icon>
+                    close
+                  </mat-icon>
+                </button>
+                <button mat-mini-fab color="basic" (click)="reestimateActivity(notAssignedActivity, notAssignedCost)">
+                  <mat-icon>
+                    build
+                  </mat-icon>
+                </button>
+                <button mat-mini-fab color="basic" (click)="assignActivity(notAssignedActivity, notAssignedCost)">
+                  <mat-icon>
+                    person_add
+                  </mat-icon>
+                </button>
+
+            </mat-list-item>
+          </mat-list>
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</ng-container>
+

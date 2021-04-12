@@ -10,9 +10,7 @@ public interface ActivityService {
 
     void mergeActivity(Long id);
 
-    ActivityDto splitActivity(ActivityDto dto);
-
-    ActivityDto assignActivity(Long activityId, Long memberId);
+    ActivityDto assignActivity(Long activityId, ActivityMemberDto activityMemberDto);
 
     ActivityDto reestimateActivity(Long id, ActivityHoursDto activityHoursDto);
 

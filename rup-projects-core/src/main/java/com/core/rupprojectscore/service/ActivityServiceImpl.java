@@ -1,9 +1,22 @@
 package com.core.rupprojectscore.service;
 
 import com.core.rupprojectscore.dto.ActivityDto;
+import com.core.rupprojectscore.dto.ActivityHoursDto;
+import com.core.rupprojectscore.dto.ActivityMemberDto;
+import com.core.rupprojectscore.entity.Activity;
+import com.core.rupprojectscore.entity.NotAssignedCost;
+import com.core.rupprojectscore.entity.Realization;
+import com.core.rupprojectscore.exceptions.BadRequestException;
+import com.core.rupprojectscore.repository.ActivityRepository;
+import com.core.rupprojectscore.repository.NotAssignedCostRepository;
+import com.core.rupprojectscore.repository.RealizationRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import static com.core.rupprojectscore.dto.ActivityDto.modelToDto;
+
 @Service
+@RequiredArgsConstructor
 public class ActivityServiceImpl implements ActivityService {
 
     private final ActivityRepository activityRepository;
@@ -22,11 +35,6 @@ public class ActivityServiceImpl implements ActivityService {
         activity.getNotAssignedCost().setHours(activity.getNotAssignedCost().getHours() + activity.getHours());
         notAssignedCostRepository.save(activity.getNotAssignedCost());
         activityRepository.delete(activity);
-    }
-
-    @Override
-    public ActivityDto splitActivity(ActivityDto dto) {
-        return null;
     }
 
     @Override

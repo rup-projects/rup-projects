@@ -22,12 +22,7 @@ public class ActivityResource {
 
     private final ActivityService service;
 
-    @PostMapping
-    public ActivityDto splitActivity(final @RequestBody ActivityDto dto) {
-        return service.splitActivity(dto);
-    }
-
-    @PutMapping(value = "{id}", params = {"memberId"})
+    @PutMapping(value = "{id}/assign")
     public ActivityDto assignActivity(final @PathVariable("id") Long activityId,
                                       final @RequestBody ActivityMemberDto activityMemberDto) {
         return service.assignActivity(activityId, activityMemberDto);
@@ -53,5 +48,6 @@ public class ActivityResource {
     public void mergeActivity(final @PathVariable("id") Long id) {
         service.mergeActivity(id);
     }
+
 
 }
