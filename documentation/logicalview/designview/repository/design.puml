@@ -2,66 +2,65 @@
 
 !include skinParams.puml
 
-
     'analysis
     package analysis {
         boundary XView #9FB7E5
         control XController #C4E4AB
         entity XEntity #F8D987
         entity XDao #F8D987
+
+        XView -down-> XController
+        XView -down-> XEntity
+        XController .down.> XEntity
+        XController -down-> XDao
     }
     'Design
     package front <<angular:10>>{
-        boundary XStyle <<CSS>>
-        boundary XTemplate <<HTML>>
-        boundary XComponent <<TypeScript>>
-        boundary XValidator <<TypeScript>>
+        rectangle component {
+           boundary XTemplate <<HTML>>
+           boundary XStyle <<CSS>>
+           boundary XComponent <<TypeScript>>
+           XComponent .> XTemplate
+           XComponent <- XTemplate
+           XTemplate --> XStyle
+        }
+        boundary XModel
         control XService <<TypeScript>>
         entity HTTPService
-        entity XDto <<java>>
+        XComponent -left-> XService
+        XComponent --> XModel
+        XService --> XModel
+        XService o-- HTTPService
     }
 
-    package backend <<spring:3.2>> {
-        control XResource as "XResource - java"
-        control XControllerDesign as "XController - java"
-        entity XRepository as "XRepository - java"
-        entity XDtoJava as "XDto - java"
-        entity XEntityDesign as "XEntity - java"
+    package backend <<spring:5.3>> {
+        control XResource
+        control XBService
+        entity XRepository
+        entity XDto
+        entity XBEntity
+        XResource --> XBService
+        XResource --> XDto
+        XBService --> XBEntity
+        XBService --> XDto
+        XBService --> XRepository
+        XRepository --> XBEntity
     }
 
-    XView -down-> XController
-    XView -down-> XEntity
-    XComponent -down-> XValidator
-    XController .down.> XEntity
-    XController -down-> XDao
+
 
     XTemplate ...[#Gray]up.> XView : <<trace>>
     XStyle ...[#Gray]up.> XView : <<trace>>
     XComponent ...[#Gray]up.> XView : <<trace>>
+
     XService ...[#Gray]up.> XController : <<trace>>
-    XDto ...[#Gray]up.> XEntity : <<trace>>
+    XService .[#Gray]right.> XResource : <<trace>>
+
     XResource ...[#Gray]up.> XDao : <<trace>>
-    XControllerDesign ...[#Gray]up.> XDao : <<trace>>
-    XDtoJava ...[#Gray]up.> XEntity : <<trace>>
-    XEntityDesign ...[#Gray]up.> XEntity : <<trace>>
+    XBService ...[#Gray]up.> XDao : <<trace>>
     XRepository ...[#Gray]up.> XDao : <<trace>>
 
-    XComponent -left-> XTemplate
-    XTemplate -down-> XStyle
-    XComponent --> XDto
-    XComponent -down-> XService
-
-    XDto .[#Gray]right.> XDtoJava : <<trace>>
-
-    XService .[#Gray]right.> XResource : <<trace>>
-    XResource -right-> XControllerDesign
-    XService --down-> XDto
-    XService o-- HTTPService
-    XResource --down-> XDtoJava
-    XControllerDesign --down-> XEntityDesign
-    XControllerDesign -right-> XRepository
-    XControllerDesign -right-> XDtoJava
-    XDtoJava -right-> XEntityDesign
-    XRepository -right-> XEntityDesign
+    XDto ...[#Gray]up.> XEntity : <<trace>>
+    XBEntity ...[#Gray]up.> XEntity : <<trace>>
 
 @enduml
