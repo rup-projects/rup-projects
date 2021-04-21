@@ -21,7 +21,7 @@ export class AssignMemberDialogComponent implements OnInit {
 
   realizations$: Observable<Realization[]>;
   selectedRealization: number;
-  selectedHour: string;
+  selectedHour: Date;
 
 
   ngOnInit(): void {
@@ -32,7 +32,7 @@ export class AssignMemberDialogComponent implements OnInit {
     this.activityService.assignActivity(this.data.activity,
       {
         realizationId: this.selectedRealization,
-        datetime: this.selectedHour
+        datetime: new Date(this.selectedHour)
 
       }).subscribe(() => this.matDialog.closeAll());
   }

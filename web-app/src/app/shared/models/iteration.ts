@@ -7,8 +7,8 @@ export interface Iteration {
 
     id: number;
     number: number;
-    startDate: string;
-    endDate: string;
+    startDate: Date;
+    endDate: Date;
     dateTimes: Date[];
     notAssignedCosts: NotAssignedCost[];
     realizations: Realization[];

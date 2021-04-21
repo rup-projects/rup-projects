@@ -90,7 +90,7 @@ public class ProjectServiceTest {
     }
 
     private PlanProjectDto createProjectDto(LocalDate startDate, LocalDate endDate, long cost) {
-        return new PlanProjectDto(startDate, endDate, cost, 10L);
+        return new PlanProjectDto(startDate.atStartOfDay(), endDate.atStartOfDay(), cost, 10L);
     }
 
     public void assertProject(PhaseType[] phaseTypes, int iterations) {
@@ -125,7 +125,7 @@ public class ProjectServiceTest {
     }
 
     private void assertIteration(Long order, IterationDto iteration, List<? extends Serializable>[] expectedIterationInfo) {
-        assertThat(Arrays.asList(LocalDate.parse(iteration.getStartDate()), LocalDate.parse(iteration.getEndDate()))).isIn(expectedIterationInfo);
+        assertThat(Arrays.asList(iteration.getStartDate(), iteration.getEndDate())).isIn(expectedIterationInfo);
         assertThat(iteration.getNumber()).isEqualTo((long) order);
     }
 

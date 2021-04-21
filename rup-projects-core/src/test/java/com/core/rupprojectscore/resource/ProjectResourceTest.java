@@ -1,8 +1,6 @@
 package com.core.rupprojectscore.resource;
 
 import com.core.rupprojectscore.dto.ProjectDto;
-import com.core.rupprojectscore.dto.UseCaseDto;
-import com.core.rupprojectscore.entity.Project;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;

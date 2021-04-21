@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,11 +32,11 @@ public class PhaseDto {
         return new Mapper().map(dto, Phase.class);
     }
 
-    public String getStartDate() {
+    public LocalDate getStartDate() {
         return getIterations().get(0).getStartDate();
     }
 
-    public String getEndDate() {
+    public LocalDate getEndDate() {
         return getIterations().get(getIterations().size() - 1).getEndDate();
     }
 

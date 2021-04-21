@@ -35,6 +35,7 @@
         </createTable>
 
 
+
         <!--        <createTable tableName="iteration_not_assigned_costs">-->
         <!--            <column name="iteration_id" type="int">-->
         <!--                <constraints primaryKey="true" nullable="false" />-->
@@ -83,6 +84,22 @@
         <!--                                 constraintName="fk_realization_activity"-->
         <!--                                 referencedColumnNames="id"-->
         <!--                                 referencedTableName="realization"/>-->
+
+    </changeSet>
+
+    <changeSet author="ruskab" id="addFakeData">
+        <insert tableName="member">
+            <column  name="name"  value="member1"/>
+            <column  name="surname"  value="member1"/>
+            <column  name="email"  value="member@mail.com"/>
+            <column  name="role"  value="0"/>
+        </insert>
+        <insert tableName="member">
+            <column  name="name"  value="member2"/>
+            <column  name="surname"  value="member2"/>
+            <column  name="email"  value="member2@mail.com"/>
+            <column  name="role"  value="0"/>
+        </insert>
 
     </changeSet>
 
