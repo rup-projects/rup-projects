@@ -37,10 +37,10 @@ class MemberServiceImplTest {
 
         // Asserts
         assertThat(all).hasSize(3);
-        assertThat(all.get(0).getName()).isEqualTo("name1");
-        assertThat(all.get(0).getSurName()).isEqualTo("surname1");
-        assertThat(all.get(0).getEmail()).isEqualTo("email1");
-        assertThat(all.get(0).getRole()).isEqualTo(MemberRole.Architect);
+        assertThat(all.get(0).getName()).isEqualTo("member1");
+        assertThat(all.get(0).getSurName()).isEqualTo("member1");
+        assertThat(all.get(0).getEmail()).isEqualTo("member@mail.com");
+        assertThat(all.get(0).getRole()).isEqualTo(MemberRole.Developer);
 
         assertThat(all.get(0).getId()).isPositive();
     }
