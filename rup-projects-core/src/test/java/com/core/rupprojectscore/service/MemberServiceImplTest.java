@@ -36,7 +36,7 @@ class MemberServiceImplTest {
         List<MemberDto> all = crudService.openMembers();
 
         // Asserts
-        assertThat(all).hasSize(1);
+        assertThat(all).hasSize(3);
         assertThat(all.get(0).getName()).isEqualTo("name1");
         assertThat(all.get(0).getSurName()).isEqualTo("surname1");
         assertThat(all.get(0).getEmail()).isEqualTo("email1");
