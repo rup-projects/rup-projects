@@ -1,34 +1,30 @@
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {resourceServer} from '../../../environments/environment';
+import {Inject, Injectable} from '@angular/core';
+import {ControllerProjectFacade} from '../../../logic/index';
+import {ProjectDao} from '../../../logic/daos/project.dao';
+import {from, Observable} from 'rxjs';
 import {Project} from '../models/project';
-import {HttpService} from '../../core/http.service';
-import {map} from 'rxjs/operators';
-import {PlanProject} from '../models/planProject';
-import {DtoModelMapper} from './mappers/dto-model-mapper';
+import {ProjectDaoImpl} from '../../infrastructure/project-dao-impl';
 
-@Injectable()
-export class ProjectProxyService {
+@Injectable({
+  providedIn: 'root',
+  deps: [ProjectDaoImpl]
+})
+export class ProjectProxyService extends ControllerProjectFacade {
 
-  private RESOURCE = 'projects';
-
-  constructor(private httpService: HttpService) {
+  constructor(@Inject('ProjectDao') dao: ProjectDao) {
+    super(dao);
   }
 
   startSystem(): Observable<Project> {
-    return this.httpService.get(`${resourceServer}/${this.RESOURCE}/opened`)
-      .pipe(map(DtoModelMapper.projectDtoToModel));
+    return from(this.startSystemAbst());
   }
 
-  planProject(project: PlanProject): Observable<Project> {
-    return this.httpService.post(`${resourceServer}/${this.RESOURCE}`, project)
-      .pipe(map(DtoModelMapper.projectDtoToModel));
+  planProject(project: PlanProjectDto): Observable<Project> {
+    return from(this.planProjectAbst(project));
   }
 
   deleteProject(): Observable<void> {
-    return this.httpService.delete(`${resourceServer}/${this.RESOURCE}`);
+    const projectId = '1';
+    return from(this.deleteProjectAbst(projectId));
   }
-
 }
-
-
