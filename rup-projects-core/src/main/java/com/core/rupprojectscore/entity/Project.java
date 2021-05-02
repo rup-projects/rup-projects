@@ -19,6 +19,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.Duration;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -60,11 +61,11 @@ public class Project {
     @Builder.Default
     private Long numberOfIterations = Project.MINIMUM_NUMBER_OF_ITERATIONS;
 
-    public Project(LocalDate startDate, LocalDate endDate, Long numberOfIterations) {
-        this.startDate = startDate;
-        this.endDate = endDate;
+    public Project(LocalDateTime startDate, LocalDateTime endDate, Long numberOfIterations) {
+        this.startDate = startDate.toLocalDate();
+        this.endDate = endDate.toLocalDate();
         this.numberOfIterations = numberOfIterations;
-        this.iterationSize = Duration.between(this.startDate.atTime(0, 0), this.endDate.atTime(0, 0)).toDays() / numberOfIterations;
+        this.iterationSize = Duration.between(startDate, endDate).toDays() / numberOfIterations;
         initPhases();
     }
 

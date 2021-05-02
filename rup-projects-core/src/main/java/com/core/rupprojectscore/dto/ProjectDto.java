@@ -1,8 +1,8 @@
 package com.core.rupprojectscore.dto;
 
 import com.core.rupprojectscore.entity.Project;
-import com.core.rupprojectscore.entity.UseCase;
 import com.core.rupprojectscore.service.Mapper;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,15 +24,12 @@ import java.util.stream.Collectors;
 @Builder
 public class ProjectDto {
 
-    //todo a lo mejor mover modelo
-    public static final int MINIMUM_NUMBER_OF_ITERATIONS = 10;
-    public static final int MINIMUM_ITERATION_SIZE = 10;
-    public static final int MINIMUM_DURATION = MINIMUM_NUMBER_OF_ITERATIONS * MINIMUM_ITERATION_SIZE;
-
     private Long id;
     @NotNull
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate startDate;
     @NotNull
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate endDate;
     @Min(0)
     private Long cost;

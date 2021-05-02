@@ -7,7 +7,6 @@ import com.core.rupprojectscore.service.ActivityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -40,7 +39,7 @@ public class ActivityResource {
     }
 
     @PutMapping(value = "{id}")
-    public ActivityDto closeActivity(final @PathVariable("id") Long id ) {
+    public ActivityDto closeActivity(final @PathVariable("id") Long id) {
         return service.closeActivity(id);
     }
 
