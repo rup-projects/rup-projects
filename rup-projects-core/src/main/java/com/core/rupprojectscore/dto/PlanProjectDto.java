@@ -20,10 +20,8 @@ import java.time.LocalDateTime;
 public class PlanProjectDto {
 
     @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
     private LocalDateTime startDate;
     @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
     private LocalDateTime endDate;
     @Min(0)
     private Long cost;

@@ -21,7 +21,6 @@ public class ActivityDto {
     private Long id;
     private String description;
     private Long hours;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime startDateTime;
 
     public static ActivityDto modelToDto(Activity activity) {
