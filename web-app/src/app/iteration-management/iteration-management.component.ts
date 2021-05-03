@@ -9,6 +9,8 @@ import {MemberProxyService} from '../shared/services/member-proxy.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ReestimateHoursDialogComponent} from './reestimate-hours-dialog/reestimate-hours-dialog.component';
 import {AssignMemberDialogComponent} from './assign-member-dialog/assign-member-dialog.component';
+import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
+
 
 @Component({
   selector: 'app-iteration-management',
@@ -17,6 +19,9 @@ import {AssignMemberDialogComponent} from './assign-member-dialog/assign-member-
 })
 export class IterationManagementComponent implements OnInit {
 
+  calendarOptions;
+
+
   iteration: Iteration;
 
   constructor(private iterationService: IterationProxyService, private membersService: MemberProxyService, private activityService: ActivityProxyService,
@@ -24,13 +29,44 @@ export class IterationManagementComponent implements OnInit {
   ) {
   }
 
+
   ngOnInit(): void {
+    this.calendarOptions = {
+      plugins: [resourceTimeGridPlugin],
+      schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
+      timeZone: 'UTC',
+      initialView: 'resourceTimeGridDay'
+    };
     this.openIteration();
   }
 
   openIteration(): void {
     this.iterationService.openIteration(this.activatedRoute.snapshot.paramMap.get('id'))
-      .subscribe(iteration => this.iteration = iteration);
+      .subscribe(iteration => {
+        this.iteration = iteration;
+        this.initCalendar(iteration);
+      });
+  }
+
+  private initCalendar(i: Iteration): void {
+    let members = [];
+    let events = [];
+
+    this.iteration.realizations.forEach(realization => members.push({id: realization.id, title: realization.member.name}));
+    this.iteration.realizations.forEach(realization => realization.activities.forEach(activity => events.push({
+      id: activity.id,
+      resourceId: realization.id,
+      start: activity.startDateTime,
+      end: new Date(activity.startDateTime).setHours(new Date(activity.startDateTime).getHours() + activity.hours),
+      title: activity.description
+    })));
+    this.calendarOptions.validRange = {start: this.iteration.startDate, end: this.iteration.endDate};
+    this.calendarOptions.resources = members;
+    this.calendarOptions.events = events;
+  }
+
+  openActivityDetails(id: string): void {
+    //todo open mat dialog with data
   }
 
   splitActivity(notAssignedCost: NotAssignedCost): void {
@@ -48,7 +84,6 @@ export class IterationManagementComponent implements OnInit {
       })
       .afterClosed()
       .subscribe(() => this.openIteration());
-
   }
 
   assignActivity(activity: Activity, notAssignedCost: NotAssignedCost): void {
@@ -61,7 +96,7 @@ export class IterationManagementComponent implements OnInit {
   }
 
   unAssignActivity(activity: Activity): void {
-    this.activityService.assignActivity(activity, {realizationId: null, datetime:null})
+    this.activityService.assignActivity(activity, {realizationId: null, datetime: null})
       .subscribe(() => this.openIteration());
   }
 
@@ -73,4 +108,5 @@ export class IterationManagementComponent implements OnInit {
   getNotAssignedActivities(activities: Activity[]): Activity[] {
     return activities.filter(activity => activity.startDateTime === null);
   }
+
 }

@@ -1,4 +1,4 @@
-export interface Activity {
+export class Activity {
 
   id: number;
   description: string;

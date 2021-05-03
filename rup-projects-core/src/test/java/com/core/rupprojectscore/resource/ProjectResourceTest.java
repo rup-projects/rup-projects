@@ -1,7 +1,7 @@
 package com.core.rupprojectscore.resource;
 
+import com.core.rupprojectscore.dto.PlanProjectDto;
 import com.core.rupprojectscore.dto.ProjectDto;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -27,12 +27,12 @@ class ProjectResourceTest {
 
     private RestTemplate restTemplate = new RestTemplate();
 
-    @Test @Disabled("fix date format")
+    @Test
     void createProject() {
-        var projectDto = createProjectDto(LocalDate.of(1, 1, 1), LocalDate.of(1, 6, 30), cost(100000L));
+        var planProjectDto = createProjectDto(LocalDate.of(1, 1, 1), LocalDate.of(1, 6, 30), cost(100000L));
         var endpointToTest = createProjectEndPoint();
 
-        ResponseEntity<ProjectDto> response = restTemplate.postForEntity(endpointToTest, projectDto, ProjectDto.class);
+        ResponseEntity<ProjectDto> response = restTemplate.postForEntity(endpointToTest, planProjectDto, ProjectDto.class);
 
         assertThat(response.getStatusCode(), is(HttpStatus.OK));
         assertThat(response.getBody().getId(), is(notNullValue()));
@@ -45,12 +45,12 @@ class ProjectResourceTest {
                 .build();
     }
 
-    private ProjectDto createProjectDto(LocalDate startDate, LocalDate endDate, long cost) {
-        return ProjectDto.builder()
-                .startDate(startDate)
-                .endDate(endDate)
-                .cost(cost)
-                .build();
+    private PlanProjectDto createProjectDto(LocalDate startDate, LocalDate endDate, long cost) {
+        PlanProjectDto request = new PlanProjectDto();
+        request.setCost(cost);
+        request.setStartDate(startDate.atStartOfDay());
+        request.setEndDate(endDate.atStartOfDay());
+        return request;
     }
 
     private long cost(long cost) {

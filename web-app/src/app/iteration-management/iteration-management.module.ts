@@ -5,14 +5,18 @@ import {IterationManagementComponent} from './iteration-management.component';
 import {SharedModule} from '../shared/shared.module';
 import {ReestimateHoursDialogComponent} from './reestimate-hours-dialog/reestimate-hours-dialog.component';
 import { AssignMemberDialogComponent } from './assign-member-dialog/assign-member-dialog.component';
+import {FullCalendarModule} from '@fullcalendar/angular';
+
+
 
 
 @NgModule({
     declarations: [IterationManagementComponent, ReestimateHoursDialogComponent, AssignMemberDialogComponent],
-    imports: [
-        SharedModule,
-        IterationManagementRoutingModule
-    ]
+  imports: [
+    SharedModule,
+    IterationManagementRoutingModule,
+    FullCalendarModule
+  ]
 })
 export class IterationManagementModule {
 }
