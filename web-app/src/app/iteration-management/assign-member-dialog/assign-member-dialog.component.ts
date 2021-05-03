@@ -38,4 +38,8 @@ export class AssignMemberDialogComponent implements OnInit {
   }
 
 
+  getAvailableHours(iteration: Iteration): Date[] {
+    // todo borrar de iteration y generar aqui segun iteration start -> end
+    return iteration.dateTimes;
+  }
 }
