@@ -7,6 +7,7 @@ import {Observable} from 'rxjs';
 import {Iteration} from '../../shared/models/iteration';
 import {Realization} from '../../shared/models/realization';
 import {IterationProxyService} from '../../shared/services/iteration-proxy.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-assign-member-dialog',
@@ -16,16 +17,19 @@ import {IterationProxyService} from '../../shared/services/iteration-proxy.servi
 export class AssignMemberDialogComponent implements OnInit {
 
   constructor(private activityService: ActivityProxyService, private iterationProxyService: IterationProxyService, private matDialog: MatDialog,
-              @Inject(MAT_DIALOG_DATA) public data: { activity: Activity, notAssignedCost: NotAssignedCost, iteration: Iteration }) {
+              @Inject(MAT_DIALOG_DATA) public data: { activity: Activity, notAssignedCost: NotAssignedCost, iteration: Iteration }, private formBuilder: FormBuilder) {
   }
 
   realizations$: Observable<Realization[]>;
   selectedRealization: number;
   selectedHour: Date;
-
+  formGroup: FormGroup;
 
   ngOnInit(): void {
     this.realizations$ = this.iterationProxyService.getRealizations(this.data.iteration);
+    this.formGroup = this.formBuilder.group({
+      realizationId: [1, [Validators.required, Validators.min(1), Validators.max(this.data.notAssignedCost.hours)]]
+    });
   }
 
   assignActivity(): void {
@@ -33,7 +37,6 @@ export class AssignMemberDialogComponent implements OnInit {
       {
         realizationId: this.selectedRealization,
         datetime: new Date(this.selectedHour)
-
       }).subscribe(() => this.matDialog.closeAll());
   }
 

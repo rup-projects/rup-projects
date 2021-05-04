@@ -84,7 +84,8 @@
 
     13 -[#red]-> 20
     note on link
-        User requests to cancel assign activity
+        <b>User requests to</b>
+        * cancel assign activity
     end note
 
     25 -[#red]-> 20
@@ -104,10 +105,11 @@
         [activity associated NotAssignedCost destination]
     end note
 
-    27 --> 14
+    27 --> 15
     note on link
     [member schedule destination]
     end note
+
 
     26 --> [*]
     note on link
@@ -134,17 +136,17 @@
     * cancel assign activity
     end note
 
-    14 -down-> 15
+    14 -down---> 15
     note on link
         User provides assign destination
     end note
 
-    15 --> 21
+    15 -[#red]-> 21
     note on link
     [members assigned activity duration exceeds members max capacity]
     end note
 
-    21 --> 22
+    21 ---down[#red]-> [*]
     note on link
     <b>System shows</b>
     * maximum members capacity exceeded for this iteration
@@ -155,7 +157,8 @@
 
     14 -[#red]-> 20
     note on link
-        User requests to cancel assign activity
+                <b>User requests to</b>
+                * cancel assign activity
     end note
 
     20 -[#red]-> [*]
