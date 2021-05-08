@@ -9,67 +9,72 @@ import {MatStepper} from '@angular/material/stepper';
 import {ProjectDateValidator} from '../../shared/validators/project-date.validator';
 
 @Component({
-    selector: 'app-plan-project',
-    templateUrl: './plan-project.component.html',
-    styleUrls: ['./plan-project.component.scss']
+  selector: 'app-plan-project',
+  templateUrl: './plan-project.component.html',
+  styleUrls: ['./plan-project.component.scss']
 
 })
 export class PlanProjectComponent implements OnInit {
-    project: Project;
-    basicInfoFormGroup: FormGroup;
-    iterationSizeFormGroup: FormGroup;
-    numberOfIterations: number;
-    phases: Observable<Phase[]>;
-    displayedColumns: string[] = ['type', 'startDate', 'endDate'];
-    columnsToDisplay: string[] = this.displayedColumns.slice();
+  project: Project;
+  basicInfoFormGroup: FormGroup;
+  iterationSizeFormGroup: FormGroup;
+  numberOfIterations: number;
+  phases: Observable<Phase[]>;
+  displayedColumns: string[] = ['type', 'startDate', 'endDate'];
+  columnsToDisplay: string[] = this.displayedColumns.slice();
 
 
-    constructor(private projectService: ProjectProxyService, private router: Router, private formBuilder: FormBuilder) {
-    }
+  constructor(private projectService: ProjectProxyService, private router: Router, private formBuilder: FormBuilder) {
+  }
 
-    ngOnInit(): void {
-        const now = new Date();
-        const start = new Date();
-        const end = new Date();
-        start.setDate(start.getDate() + 1);
-        end.setDate(end.getDate() + 120);
-        this.basicInfoFormGroup = this.formBuilder.group({
-            startDate: [start, [Validators.required, ProjectDateValidator.afterNow]],
-            endDate: [end, [Validators.required]],
-            cost: [100, [Validators.required, Validators.min(0)]],
-        });
-        this.iterationSizeFormGroup = this.formBuilder.group({
-            numberOfIterations: ['', Validators.required]
-        });
-    }
+  ngOnInit(): void {
+    const now = new Date();
+    const start = new Date();
+    const end = new Date();
+    start.setDate(start.getDate() + 1);
+    end.setDate(end.getDate() + 120);
+    this.basicInfoFormGroup = this.formBuilder.group({
+      startDate: [start, [Validators.required, ProjectDateValidator.afterNow]],
+      endDate: [end, [Validators.required]],
+      cost: [100, [Validators.required, Validators.min(0)]],
+    });
+    this.iterationSizeFormGroup = this.formBuilder.group({
+      numberOfIterations: ['', Validators.required]
+    });
+  }
 
-    refreshProject(): void {
-        this.project.numberOfIterations = this.iterationSizeFormGroup.get('numberOfIterations').value as number;
-        this.projectService.planProject(this.project);
-    }
+  refreshProject(): void {
+    const planProjectDto = {
+      startDate: new Date(this.project.startDate),
+      endDate: new Date(this.project.endDate),
+      cost: this.project.cost,
+      numberOfIterations: this.iterationSizeFormGroup.get('numberOfIterations').value as number
+    };
+    this.projectService.planProject(planProjectDto).subscribe(project => this.project = project);
+  }
 
-    toIterationsSizeStep(stepper: MatStepper): void {
-        this.planProject().subscribe(project => {
-            this.project = project;
-            this.iterationSizeFormGroup.controls['numberOfIterations'].setValue(project.numberOfIterations);
-            stepper.next();
-        });
-    }
+  toIterationsSizeStep(stepper: MatStepper): void {
+    this.planProject().subscribe(project => {
+      this.project = project;
+      this.iterationSizeFormGroup.controls['numberOfIterations'].setValue(project.numberOfIterations);
+      stepper.next();
+    });
+  }
 
-    backToBasicInfoStep(stepper: MatStepper): void {
-        this.projectService.deleteProject().subscribe(() => stepper.previous());
-    }
+  backToBasicInfoStep(stepper: MatStepper): void {
+    this.projectService.deleteProject().subscribe(() => stepper.previous());
+  }
 
 
-    planProject(): Observable<Project> {
-        return this.projectService.planProject(this.basicInfoFormGroup.getRawValue());
-    }
+  planProject(): Observable<Project> {
+    return this.projectService.planProject(this.basicInfoFormGroup.getRawValue());
+  }
 
-    cancel(): void {
-        this.projectService.deleteProject().subscribe(() => this.router.navigateByUrl('/').then());
-    }
+  cancel(): void {
+    this.projectService.deleteProject().subscribe(() => this.router.navigateByUrl('/').then());
+  }
 
-    save(): void {
-        this.router.navigateByUrl('/project-management').then();
-    }
+  save(): void {
+    this.router.navigateByUrl('/project-management').then();
+  }
 }
