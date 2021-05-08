@@ -27,7 +27,7 @@ jobs:
         run: cd rup-projects-core && mvn package && java -jar target/rup-projects-core-0.0.1-SNAPSHOT.jar &
 
       - name: move to web app
-      - run: cd ../web-app
+        run: cd ../web-app
 
       - name: Cypress run
 
