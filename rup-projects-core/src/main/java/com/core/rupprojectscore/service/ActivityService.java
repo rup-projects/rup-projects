@@ -15,4 +15,6 @@ public interface ActivityService {
     ActivityDto reestimateActivity(Long id, ActivityHoursDto activityHoursDto);
 
     ActivityDto splitActivity(Long notAssignedCostId);
+
+    ActivityDto openActivity(Long id);
 }

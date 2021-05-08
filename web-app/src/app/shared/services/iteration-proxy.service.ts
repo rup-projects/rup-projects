@@ -25,7 +25,7 @@ export class IterationProxyService {
     return this.httpService.put(`${resourceServer}/${this.RESOURCE}/${iteration.id}`, iteration);
   }
 
-  getRealizations(iteration: Iteration): Observable<Realization[]> {
-    return this.httpService.get(`${resourceServer}/${this.RESOURCE}/${iteration.id}/realizations`);
+  getRealizations(iterationId: string | number): Observable<Realization[]> {
+    return this.httpService.get(`${resourceServer}/${this.RESOURCE}/${iterationId}/realizations`);
   }
 }

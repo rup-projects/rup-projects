@@ -10,6 +10,7 @@ import {MatDialog} from '@angular/material/dialog';
 import {ReestimateHoursDialogComponent} from './reestimate-hours-dialog/reestimate-hours-dialog.component';
 import {AssignMemberDialogComponent} from './assign-member-dialog/assign-member-dialog.component';
 import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
+import {ActivityDetailsDialogComponent} from './activity-details-dialog/activity-details-dialog.component';
 
 
 @Component({
@@ -35,7 +36,7 @@ export class IterationManagementComponent implements OnInit {
       plugins: [resourceTimeGridPlugin],
       schedulerLicenseKey: 'GPL-My-Project-Is-Open-Source',
       timeZone: 'UTC',
-      initialView: 'resourceTimeGridDay'
+      initialView: 'resourceTimeGridDay',
     };
     this.openIteration();
   }
@@ -63,10 +64,18 @@ export class IterationManagementComponent implements OnInit {
     this.calendarOptions.validRange = {start: this.iteration.startDate, end: this.iteration.endDate};
     this.calendarOptions.resources = members;
     this.calendarOptions.events = events;
+    this.calendarOptions.eventClick = (info) => this.openActivityDetailsDialog(info);
   }
 
-  openActivityDetails(id: string): void {
-    //todo open mat dialog with data
+  openActivityDetailsDialog(info: any): void {
+    const activityId = info.event.id;
+    const iterationId = this.iteration.id;
+    this.matDialog
+      .open(ActivityDetailsDialogComponent, {
+        data: {activityId, iterationId},
+      })
+      .afterClosed()
+      .subscribe(() => this.openIteration());
   }
 
   splitActivity(notAssignedCost: NotAssignedCost): void {

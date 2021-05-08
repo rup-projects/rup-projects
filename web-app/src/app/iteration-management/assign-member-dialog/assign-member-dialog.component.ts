@@ -26,7 +26,7 @@ export class AssignMemberDialogComponent implements OnInit {
   formGroup: FormGroup;
 
   ngOnInit(): void {
-    this.realizations$ = this.iterationProxyService.getRealizations(this.data.iteration);
+    this.realizations$ = this.iterationProxyService.getRealizations(this.data.iteration.id);
     this.formGroup = this.formBuilder.group({
       realizationId: [1, [Validators.required, Validators.min(1), Validators.max(this.data.notAssignedCost.hours)]]
     });

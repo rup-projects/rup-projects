@@ -34,4 +34,9 @@ export class ActivityProxyService {
   assignActivity(activity: Activity, activityMember: ActivityMember): Observable<void> {
     return this.httpService.put(`${resourceServer}/${this.RESOURCE}/${activity.id}/assign`, activityMember);
   }
+
+  openActivity(activityId: string): Observable<Activity> {
+    return this.httpService.get(`${resourceServer}/${this.RESOURCE}/${activityId}`);
+  }
+
 }
