@@ -25,7 +25,7 @@
 
         <div>
           <button mat-button (click)="cancel()">Cancel</button>
-          <button mat-button type="button"
+          <button mat-button type="button" id="planProjectNextStep"
                   [disabled]="!basicInfoFormGroup.valid"
                   (click)="toIterationsSizeStep(stepper)" >Next</button>
         </div>
@@ -65,7 +65,7 @@
 
         <div>
           <button mat-button (click)="backToBasicInfoStep(stepper)">Back</button>
-          <button mat-button (click)="save()">Create</button>
+          <button id="createProject" mat-button (click)="save()">Create</button>
         </div>
       </form>
     </mat-step>

@@ -22,3 +22,17 @@ jobs:
 
       - name: Unit & Integration Tests
         run: mvn verify -f rup-projects-core/
+
+      - name: run spring context
+        run: mvn spring-boot:run
+
+        uses: actions/checkout@v2
+          # Install NPM dependencies, cache them correctly
+          # and run all Cypress tests
+                - name: Cypress run
+                uses: cypress-io/github-action@v2
+                with:
+                  build: npm run build
+                  start: npm start
+
+
