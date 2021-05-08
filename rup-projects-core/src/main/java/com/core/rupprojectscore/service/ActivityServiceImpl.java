@@ -44,7 +44,8 @@ public class ActivityServiceImpl implements ActivityService {
             activity.setRealization(null);
             activity.setStartDateTime(null);
         } else {
-            Realization realization = realizationRepository.findById(activityMemberDto.getRealizationId()).orElseThrow(() -> new BadRequestException("Cant find realization"));
+            Realization realization = realizationRepository.findById(activityMemberDto.getRealizationId())
+                    .orElseThrow(() -> new BadRequestException("Cant find realization"));
             activity.setStartDateTime(activityMemberDto.getDatetime());
             activity.setRealization(realization);
         }
@@ -75,5 +76,11 @@ public class ActivityServiceImpl implements ActivityService {
         notAssignedCost.setHours(notAssignedCost.getHours() - 1);
         notAssignedCostRepository.save(notAssignedCost);
         return modelToDto(activity);
+    }
+
+    @Override
+    public ActivityDto openActivity(Long id) {
+        Activity activity = activityRepository.findById(id).orElseThrow(() -> new BadRequestException("Cant find activity id"));
+        return ActivityDto.modelToDto(activity);
     }
 }
