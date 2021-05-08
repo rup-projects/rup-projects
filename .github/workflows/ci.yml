@@ -26,16 +26,11 @@ jobs:
       - name: run spring context
         run: cd rup-projects-core && mvn package && java -jar target/rup-projects-core-0.0.1-SNAPSHOT.jar &
 
-      - name: move to web app
-        run: ls
-
-      - name: move to web app
-        run: cd web-app && ls
-
       - name: Cypress run
 
         uses: cypress-io/github-action@v2
         with:
+          project: ./web-app
           build: npm run build
           start: npm start
 
