@@ -24,7 +24,7 @@ jobs:
         run: mvn verify -f rup-projects-core/
 
       - name: run spring context
-        run: mvn spring-boot:run
+        run: mvn package && cd rup-projects-core && java -jar target/rup-projects-core-0.0.1-SNAPSHOT.jar
 
       - name: Cypress run
 
