@@ -34,6 +34,5 @@ jobs:
           working-directory: web-app
           build: npm run build
           start: npm start
-          spec: web-app/cypress/integration/spec.ts
 
 
