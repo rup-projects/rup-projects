@@ -26,13 +26,27 @@ jobs:
       - name: run spring context
         run: cd rup-projects-core && mvn package && java -jar target/rup-projects-core-0.0.1-SNAPSHOT.jar &
 
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Install Dependencies
+        run: npm install
+
       - name: Cypress run
-
         uses: cypress-io/github-action@v2
-
         with:
           working-directory: web-app
           build: npm run build
           start: npm start
+          wait-on: "http://localhost:4200"
 
 
