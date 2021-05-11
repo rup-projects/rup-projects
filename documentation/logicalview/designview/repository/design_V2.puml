@@ -67,8 +67,8 @@
     }
 
 
-    XController <.[#Gray].. XResource: <<trace>>
-    XController <.[#Gray].. XBService : <<trace>>
+    XDao <.[#Gray].. XResource: <<trace>>
+    XDao <.[#Gray].. XBService : <<trace>>
 
     XDao <.[#Gray].. XRepository: <<trace>>
 
