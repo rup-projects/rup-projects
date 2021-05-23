@@ -15,51 +15,53 @@ import {RouterModule} from '@angular/router';
 import {ReadDetailDialogComponent} from './dialogs/read-detail.dialog.component';
 import {ActivityProxyService} from './services/activity-proxy.service';
 import {RealizationProxyService} from './services/realization-proxy.service';
+import {DtoModelMapper} from './services/mappers/dto-model-mapper';
 
 
 @NgModule({
-    imports: [
-        CommonModule,
-        FormsModule,
-        MaterialModule,
-        ReactiveFormsModule,
-        RouterModule
-    ],
-    declarations: [
-        CancelYesDialogComponent,
-        CrudComponent,
-        UppercaseWords,
-        MenuComponent,
-        ReadDetailDialogComponent
+  imports: [
+    CommonModule,
+    FormsModule,
+    MaterialModule,
+    ReactiveFormsModule,
+    RouterModule
+  ],
+  declarations: [
+    CancelYesDialogComponent,
+    CrudComponent,
+    UppercaseWords,
+    MenuComponent,
+    ReadDetailDialogComponent
 
-    ],
-    providers: [
-        MemberProxyService,
-        ProjectProxyService,
-        UseCaseProxyService,
-        IterationProxyService,
-        PhaseProxyService,
-        ActivityProxyService,
-        RealizationProxyService
-    ],
-    exports: [
-        MenuComponent,
-        CancelYesDialogComponent,
-        CommonModule,
-        CrudComponent,
-        FormsModule,
-        ReactiveFormsModule,
-        UppercaseWords,
-        MenuComponent,
-        CancelYesDialogComponent,
-        CommonModule,
-        CrudComponent,
-        FormsModule,
-        ReactiveFormsModule,
-        MaterialModule,
-        UppercaseWords,
-        ReadDetailDialogComponent
-    ]
+  ],
+  providers: [
+    MemberProxyService,
+    ProjectProxyService,
+    UseCaseProxyService,
+    IterationProxyService,
+    PhaseProxyService,
+    ActivityProxyService,
+    RealizationProxyService,
+    DtoModelMapper
+  ],
+  exports: [
+    MenuComponent,
+    CancelYesDialogComponent,
+    CommonModule,
+    CrudComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    UppercaseWords,
+    MenuComponent,
+    CancelYesDialogComponent,
+    CommonModule,
+    CrudComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    UppercaseWords,
+    ReadDetailDialogComponent
+  ]
 })
 export class SharedModule {
 }

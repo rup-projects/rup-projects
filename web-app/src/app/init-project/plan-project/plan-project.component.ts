@@ -44,13 +44,12 @@ export class PlanProjectComponent implements OnInit {
   }
 
   refreshProject(): void {
-    const planProjectDto = {
-      startDate: new Date(this.project.startDate),
-      endDate: new Date(this.project.endDate),
+    this.projectService.planProject({
+      startDate: this.project.startDate,
+      endDate: this.project.endDate,
       cost: this.project.cost,
       numberOfIterations: this.iterationSizeFormGroup.get('numberOfIterations').value as number
-    };
-    this.projectService.planProject(planProjectDto).subscribe(project => this.project = project);
+    }).subscribe(project => this.project = project);
   }
 
   toIterationsSizeStep(stepper: MatStepper): void {

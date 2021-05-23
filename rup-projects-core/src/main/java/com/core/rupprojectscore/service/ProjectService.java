@@ -9,7 +9,7 @@ public interface ProjectService {
 
     ProjectDto planProject(PlanProjectDto dto);
 
-    Optional<ProjectDto> startSystem();
+    ProjectDto startSystem();
 
     void deleteProject();
 }

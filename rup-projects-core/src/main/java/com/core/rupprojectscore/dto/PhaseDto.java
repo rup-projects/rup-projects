@@ -2,6 +2,7 @@ package com.core.rupprojectscore.dto;
 
 import com.core.rupprojectscore.entity.Phase;
 import com.core.rupprojectscore.service.Mapper;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -32,10 +33,12 @@ public class PhaseDto {
         return new Mapper().map(dto, Phase.class);
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     public LocalDate getStartDate() {
         return getIterations().get(0).getStartDate();
     }
 
+    @JsonFormat(pattern = "yyyy-MM-dd")
     public LocalDate getEndDate() {
         return getIterations().get(getIterations().size() - 1).getEndDate();
     }

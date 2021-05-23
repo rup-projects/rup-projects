@@ -1,5 +1,4 @@
-import { MemberRole } from './member-role.enum';
-import {Activity} from './activity';
+import {MemberRole} from '../types/member-role';
 
 export class Member {
 
@@ -9,12 +8,11 @@ export class Member {
     public surName: string,
     public email: string,
     public role: MemberRole,
-    public activities: Activity[]
   ) {
   }
 
   static build(member: Member): Member {
-    return new Member(member.id, member.name, member.surName, member.email, member.role, member.activities);
+    return new Member(member.id, member.name, member.surName, member.email, member.role);
   }
 
 }
