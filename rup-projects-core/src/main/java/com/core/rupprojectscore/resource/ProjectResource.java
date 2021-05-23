@@ -24,11 +24,7 @@ public class ProjectResource {
 
     @GetMapping("/opened")
     public ProjectDto startSystem() {
-        Optional<ProjectDto> projectDto = this.service.startSystem();
-        if (projectDto.isEmpty()) {
-            return null;
-        }
-        return projectDto.get();
+        return this.service.startSystem();
     }
 
     @PostMapping

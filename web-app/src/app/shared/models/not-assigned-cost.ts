@@ -1,5 +1,5 @@
-import {DisciplineType} from './discipline.type';
 import {Activity} from './activity';
+import {DisciplineType} from '../types/discipline-type';
 
 export interface NotAssignedCost {
     id: number;

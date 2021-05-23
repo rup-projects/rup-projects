@@ -25,9 +25,9 @@ export class IterationManagementComponent implements OnInit {
 
   iteration: Iteration;
 
-  constructor(private iterationService: IterationProxyService, private membersService: MemberProxyService, private activityService: ActivityProxyService,
-              private router: Router, private activatedRoute: ActivatedRoute, private matDialog: MatDialog
-  ) {
+  constructor(private iterationService: IterationProxyService, private membersService: MemberProxyService,
+              private activityService: ActivityProxyService, private router: Router,
+              private activatedRoute: ActivatedRoute, private matDialog: MatDialog) {
   }
 
 
@@ -50,8 +50,8 @@ export class IterationManagementComponent implements OnInit {
   }
 
   private initCalendar(i: Iteration): void {
-    let members = [];
-    let events = [];
+    const members = [];
+    const events = [];
 
     this.iteration.realizations.forEach(realization => members.push({id: realization.id, title: realization.member.name}));
     this.iteration.realizations.forEach(realization => realization.activities.forEach(activity => events.push({

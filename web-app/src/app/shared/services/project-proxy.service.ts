@@ -2,8 +2,10 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {resourceServer} from '../../../environments/environment';
 import {Project} from '../models/project';
-import {PlanProjectDto} from '../models/planProjectDto';
 import {HttpService} from '../../core/http.service';
+import {map} from 'rxjs/operators';
+import {PlanProject} from '../models/planProject';
+import {DtoModelMapper} from './mappers/dto-model-mapper';
 
 @Injectable()
 export class ProjectProxyService {
@@ -14,11 +16,13 @@ export class ProjectProxyService {
   }
 
   startSystem(): Observable<Project> {
-    return this.httpService.get(`${resourceServer}/${this.RESOURCE}/opened`);
+    return this.httpService.get(`${resourceServer}/${this.RESOURCE}/opened`)
+      .pipe(map(DtoModelMapper.projectDtoToModel));
   }
 
-  planProject(project: PlanProjectDto): Observable<Project> {
-    return this.httpService.post(`${resourceServer}/${this.RESOURCE}`, project);
+  planProject(project: PlanProject): Observable<Project> {
+    return this.httpService.post(`${resourceServer}/${this.RESOURCE}`, project)
+      .pipe(map(DtoModelMapper.projectDtoToModel));
   }
 
   deleteProject(): Observable<void> {

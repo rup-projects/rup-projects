@@ -3,6 +3,7 @@ package com.core.rupprojectscore.service;
 import com.core.rupprojectscore.dto.PlanProjectDto;
 import com.core.rupprojectscore.dto.ProjectDto;
 import com.core.rupprojectscore.entity.Project;
+import com.core.rupprojectscore.exceptions.NotFoundException;
 import com.core.rupprojectscore.repository.ProjectRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,12 +30,12 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    public Optional<ProjectDto> startSystem() {
+    public ProjectDto startSystem() {
         List<Project> projects = repository.findAll();
         if (projects.isEmpty()) {
-            return Optional.empty();
+            throw new NotFoundException("Created project not found");
         }
-        return Optional.of(modelToDto(projects.get(0)));
+        return modelToDto(projects.get(0));
     }
 
     @Override

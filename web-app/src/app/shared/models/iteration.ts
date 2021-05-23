@@ -9,7 +9,7 @@ export interface Iteration {
     number: number;
     startDate: Date;
     endDate: Date;
-    dateTimes: Date[];
+    dateTimes?: Date[];
     notAssignedCosts: NotAssignedCost[];
     realizations: Realization[];
 
