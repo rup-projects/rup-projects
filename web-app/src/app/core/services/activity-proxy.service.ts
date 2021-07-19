@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
 import {resourceServer} from '../../../environments/environment';
-import {Activity} from '../models/activity';
+import {Activity} from '../../../logic/models/activity';
 import {Observable} from 'rxjs';
-import {NotAssignedCost} from '../models/not-assigned-cost';
+import {NotAssignedCost} from '../../../logic/models/not-assigned-cost';
 import {HttpService} from '../../commons/http.service';
-import {ActivityHours} from '../models/activity-hours';
-import {ActivityMember} from '../models/activity-member';
+import {ActivityHours} from '../../../logic/models/activity-hours';
+import {ActivityMember} from '../../../logic/models/activity-member';
 
 @Injectable()
 export class ActivityProxyService {

@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {resourceServer} from '../../../environments/environment';
-import {Iteration} from '../models/iteration';
+import {Iteration} from '../../../logic/models/iteration';
 import {HttpService} from '../../commons/http.service';
-import {Realization} from '../models/realization';
+import {Realization} from '../../../logic/models/realization';
 
 @Injectable()
 export class IterationProxyService {

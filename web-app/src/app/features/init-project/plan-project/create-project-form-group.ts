@@ -1,5 +1,5 @@
 import  { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Project } from '../../../core/models/project';
+import { Project } from '../../../../logic/models/project';
 
 export class CreateProjectFormGroup extends FormGroup {
   constructor() {

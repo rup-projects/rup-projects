@@ -7,7 +7,7 @@ import {PlanProjectComponent} from './plan-project/plan-project.component';
 import {ProjectProxyService} from '../../core/services/project-proxy.service';
 import {ProjectDaoImpl} from '../../infrastructure/project-dao-impl';
 import {ProjectFacadeController} from '../../../logic';
-import {Project} from '../../core/models/project';
+import {Project} from '../../../logic/models/project';
 
 
 const projectFacadeFactory = (dao: ProjectDaoImpl): ProjectFacadeController => {

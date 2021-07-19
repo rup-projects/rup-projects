@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {resourceServer} from '../../../environments/environment';
-import {UseCase} from '../models/use-case';
+import {UseCase} from '../../../logic/models/use-case';
 import {HttpService} from '../../commons/http.service';
 
 @Injectable()

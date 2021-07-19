@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {Project} from '../../core/models/project';
+import {Project} from '../../../logic/models/project';
 import {Router} from '@angular/router';
 import {from, Observable, of} from 'rxjs';
 import {ProjectFacadeController} from '../../../logic';

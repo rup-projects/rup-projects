@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {resourceServer} from '../../../environments/environment';
 import {Observable} from 'rxjs';
 import {HttpService} from '../../commons/http.service';
-import {Realization} from '../models/realization';
+import {Realization} from '../../../logic/models/realization';
 
 @Injectable()
 export class RealizationProxyService {

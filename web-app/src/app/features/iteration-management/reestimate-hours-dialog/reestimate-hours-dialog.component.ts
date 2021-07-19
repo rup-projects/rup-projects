@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 import {ActivityProxyService} from '../../../core/services/activity-proxy.service';
-import {Activity} from '../../../core/models/activity';
-import {NotAssignedCost} from '../../../core/models/not-assigned-cost';
+import {Activity} from '../../../../logic/models/activity';
+import {NotAssignedCost} from '../../../../logic/models/not-assigned-cost';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 

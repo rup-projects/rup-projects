@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UseCase} from '../core/models/use-case';
+import {UseCase} from '../../logic/models/use-case';
 import {UseCaseProxyService} from '../core/services/use-case-proxy.service';
 import {MatDialog} from '@angular/material/dialog';
 import {UseCaseDialogComponent} from './use-case-dialog/use-case-dialog.component';

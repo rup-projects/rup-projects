@@ -1,6 +1,6 @@
 import {ProjectDao} from '../../daos/project.dao';
 import {PlanProjectDto} from '../../models/planProjectDto';
-import {Project} from '../../../app/core/models/project';
+import {Project} from '../../models/project';
 
 
 export class ProjectFacadeController {

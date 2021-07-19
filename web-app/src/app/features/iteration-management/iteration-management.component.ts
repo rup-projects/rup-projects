@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Iteration} from '../../core/models/iteration';
+import {Iteration} from '../../../logic/models/iteration';
 import {ActivityProxyService} from '../../core/services/activity-proxy.service';
-import {Activity} from '../../core/models/activity';
-import {NotAssignedCost} from '../../core/models/not-assigned-cost';
+import {Activity} from '../../../logic/models/activity';
+import {NotAssignedCost} from '../../../logic/models/not-assigned-cost';
 import {IterationProxyService} from '../../core/services/iteration-proxy.service';
 import {MemberProxyService} from '../../core/services/member-proxy.service';
 import {MatDialog} from '@angular/material/dialog';

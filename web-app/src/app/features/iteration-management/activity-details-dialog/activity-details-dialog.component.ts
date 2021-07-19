@@ -2,10 +2,10 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {ActivityProxyService} from '../../../core/services/activity-proxy.service';
 import {IterationProxyService} from '../../../core/services/iteration-proxy.service';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
-import {Activity} from '../../../core/models/activity';
+import {Activity} from '../../../../logic/models/activity';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {Realization} from '../../../core/models/realization';
+import {Realization} from '../../../../logic/models/realization';
 
 @Component({
   selector: 'app-activity-details-dialog',

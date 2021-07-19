@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Iteration} from '../../../core/models/iteration';
+import {Iteration} from '../../../../logic/models/iteration';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PhaseProxyService} from '../../../core/services/phase-proxy.service';
 import {IterationProxyService} from '../../../core/services/iteration-proxy.service';

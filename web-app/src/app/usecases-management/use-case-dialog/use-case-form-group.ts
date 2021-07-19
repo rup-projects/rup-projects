@@ -1,5 +1,5 @@
 import { FormControl, FormGroup } from '@angular/forms';
-import { UseCase } from '../../core/models/use-case';
+import { UseCase } from '../../../logic/models/use-case';
 
 export class UseCaseFormGroup extends FormGroup {
   constructor() {

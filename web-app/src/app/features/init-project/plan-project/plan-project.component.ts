@@ -1,9 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Project} from '../../../core/models/project';
+import {Project} from '../../../../logic/models/project';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {from, Observable} from 'rxjs';
-import {Phase} from '../../../core/models/phase';
+import {Phase} from '../../../../logic/models/phase';
 import {MatStepper} from '@angular/material/stepper';
 import {ProjectDateValidator} from '../../../core/validators/project-date.validator';
 import {ProjectFacadeController} from '../../../../logic';

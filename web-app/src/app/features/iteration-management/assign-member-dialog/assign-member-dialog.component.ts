@@ -1,11 +1,11 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {ActivityProxyService} from '../../../core/services/activity-proxy.service';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
-import {Activity} from '../../../core/models/activity';
-import {NotAssignedCost} from '../../../core/models/not-assigned-cost';
+import {Activity} from '../../../../logic/models/activity';
+import {NotAssignedCost} from '../../../../logic/models/not-assigned-cost';
 import {Observable} from 'rxjs';
-import {Iteration} from '../../../core/models/iteration';
-import {Realization} from '../../../core/models/realization';
+import {Iteration} from '../../../../logic/models/iteration';
+import {Realization} from '../../../../logic/models/realization';
 import {IterationProxyService} from '../../../core/services/iteration-proxy.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 

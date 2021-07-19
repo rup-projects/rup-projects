@@ -1,5 +1,5 @@
 import {Phase} from './phase';
-import {Id} from '../types/id';
+import {Id} from '../../app/core/types/id';
 
 export class Project {
 

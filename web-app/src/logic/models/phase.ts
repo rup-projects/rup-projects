@@ -1,5 +1,5 @@
 import { Iteration } from './iteration';
-import {PhaseType} from '../types/phase-type';
+import {PhaseType} from '../../app/core/types/phase-type';
 
 export class Phase {
   id: number;

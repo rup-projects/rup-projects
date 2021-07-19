@@ -1,4 +1,4 @@
-import {MemberRole} from '../types/member-role';
+import {MemberRole} from '../../app/core/types/member-role';
 
 export class Member {
 
