@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Phase} from '../../core/models/phase';
+import {Phase} from '../../../logic/models/phase';
 import {PhaseProxyService} from '../../core/services/phase-proxy.service';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';

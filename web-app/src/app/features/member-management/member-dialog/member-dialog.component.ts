@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
-import {Member} from '../../../core/models/member';
-import {MemberRole} from '../../../core/models/member-role.enum';
+import {Member} from '../../../../logic/models/member';
+import {MemberRole} from '../../../../logic/models/member-role.enum';
 import {MemberProxyService} from '../../../core/services/member-proxy.service';
 import {MemberFormGroup} from './member-form-group';
 

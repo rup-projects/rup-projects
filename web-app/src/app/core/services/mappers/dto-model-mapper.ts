@@ -1,17 +1,17 @@
 import {ProjectDto} from '../dtos/project-dto';
-import {Project} from '../../models/project';
+import {Project} from '../../../../logic/models/project';
 import {PhaseDto} from '../dtos/phase-dto';
-import {Phase} from '../../models/phase';
+import {Phase} from '../../../../logic/models/phase';
 import {RealizationDto} from '../dtos/realization-dto';
-import {Realization} from '../../models/realization';
+import {Realization} from '../../../../logic/models/realization';
 import {NotAssignedCostDto} from '../dtos/not-assigned-cost-dto';
-import {NotAssignedCost} from '../../models/not-assigned-cost';
+import {NotAssignedCost} from '../../../../logic/models/not-assigned-cost';
 import {MemberDto} from '../dtos/member-dto';
-import {Member} from '../../models/member';
+import {Member} from '../../../../logic/models/member';
 import {IterationDto} from '../dtos/iteration-dto';
-import {Iteration} from '../../models/iteration';
+import {Iteration} from '../../../../logic/models/iteration';
 import {ActivityDto} from '../dtos/activity-dto';
-import {Activity} from '../../models/activity';
+import {Activity} from '../../../../logic/models/activity';
 
 export class DtoModelMapper {
 

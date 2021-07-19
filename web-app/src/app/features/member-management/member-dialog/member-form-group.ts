@@ -1,5 +1,5 @@
 import { FormControl, FormGroup } from '@angular/forms';
-import { Member } from '../../../core/models/member';
+import { Member } from '../../../../logic/models/member';
 
 export class MemberFormGroup extends FormGroup {
   constructor() {

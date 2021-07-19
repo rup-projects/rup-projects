@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Member} from '../../core/models/member';
+import {Member} from '../../../logic/models/member';
 import {MemberProxyService} from '../../core/services/member-proxy.service';
 import {MatDialog} from '@angular/material/dialog';
 import {MemberDialogComponent} from './member-dialog/member-dialog.component';
