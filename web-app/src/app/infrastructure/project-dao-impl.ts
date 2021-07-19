@@ -1,8 +1,8 @@
 import { ProjectDao } from '../../logic/daos/project.dao';
 import { PlanProjectDto } from '../../logic/models/planProjectDto';
-import { HttpService } from '../core/http.service';
+import { HttpService } from '../commons/http.service';
 import { resourceServer } from '../../environments/environment';
-import {Project} from '../shared/models/project';
+import {Project} from '../core/models/project';
 import {Injectable} from '@angular/core';
 import {MAT_DATE_LOCALE} from '@angular/material/core';
 
