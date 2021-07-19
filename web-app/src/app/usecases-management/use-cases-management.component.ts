@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {UseCase} from '../shared/models/use-case';
-import {UseCaseProxyService} from '../shared/services/use-case-proxy.service';
+import {UseCase} from '../core/models/use-case';
+import {UseCaseProxyService} from '../core/services/use-case-proxy.service';
 import {MatDialog} from '@angular/material/dialog';
 import {UseCaseDialogComponent} from './use-case-dialog/use-case-dialog.component';
-import {ReadDetailDialogComponent} from '../shared/dialogs/read-detail.dialog.component';
+import {ReadDetailDialogComponent} from '../core/dialogs/read-detail.dialog.component';
 import {Observable} from 'rxjs';
 
 @Component({

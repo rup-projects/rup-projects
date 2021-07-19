@@ -3,14 +3,14 @@ import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'init-project'},
-  {path: 'init-project', loadChildren: () => import('./init-project/init-project.module').then(m => m.InitProjectModule)},
+  {path: 'init-project', loadChildren: () => import('./features/init-project/init-project.module').then(m => m.InitProjectModule)},
   {
     path: 'project-management', loadChildren: () =>
-      import('./project-management/project-management.module').then(m => m.ProjectManagementModule)
+      import('./features/project-management/project-management.module').then(m => m.ProjectManagementModule)
   },
   {
     path: 'member-management', loadChildren: () =>
-      import('./member-management/member-management.module').then(m => m.MemberManagementModule)
+      import('./features/member-management/member-management.module').then(m => m.MemberManagementModule)
   },
   {
     path: 'use-cases-management', loadChildren: () =>
@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'iteration-management', loadChildren: () =>
-      import('./iteration-management/iteration-management.module').then(m => m.IterationManagementModule)
+      import('./features/iteration-management/iteration-management.module').then(m => m.IterationManagementModule)
   }
 ];
 
