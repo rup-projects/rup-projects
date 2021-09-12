@@ -1,6 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {ProjectDao} from '../../../logic/daos/project.dao';
-import {ProjectFacadeController} from '../../../logic/controllers/project/project.facade-controller';
+import {ProjectFacadeController} from '../../../logic/controllers/project.facade-controller';
 
 @Injectable({
   providedIn: 'root',

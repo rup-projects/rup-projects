@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
-import {UseCaseProxyService} from '../../core/services/use-case-proxy.service';
-import {UseCase} from '../../../logic/models/use-case';
+import {UseCaseProxyService} from '../../../core/services/use-case-proxy.service';
+import {UseCase} from '../../../../logic/models/use-case';
 
 @Component({
   selector: 'app-use-case-dialog',

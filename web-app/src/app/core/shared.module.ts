@@ -1,21 +1,23 @@
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {CancelYesDialogComponent} from './dialogs/cancel-yes-dialog.component';
-import {CrudComponent} from './components/crud/crud.component';
-import {MaterialModule} from './material.module';
-import {UppercaseWords} from './pipes/UppercaseWordsPipe';
-import {MemberProxyService} from './services/member-proxy.service';
-import {ProjectProxyService} from './services/project-proxy.service';
-import {UseCaseProxyService} from './services/use-case-proxy.service';
-import {IterationProxyService} from './services/iteration-proxy.service';
-import {PhaseProxyService} from './services/phase-proxy.service';
-import {MenuComponent} from './components/menu/menu.component';
-import {RouterModule} from '@angular/router';
-import {ReadDetailDialogComponent} from './dialogs/read-detail.dialog.component';
-import {ActivityProxyService} from './services/activity-proxy.service';
-import {RealizationProxyService} from './services/realization-proxy.service';
-import {DtoModelMapper} from './services/mappers/dto-model-mapper';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { CrudComponent } from '../../commons/components/crud/crud.component';
+import { CancelYesDialogComponent } from '../../commons/components/dialogs/cancel-yes-dialog.component';
+import { ReadDetailDialogComponent } from '../../commons/components/dialogs/read-detail.dialog.component';
+import { UppercaseWords } from '../../commons/pipes/UppercaseWordsPipe';
+import { FooterComponent } from './components/footer/footer.component';
+import { GridLayoutComponent } from './components/grid-layout/grid-layout.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { MaterialModule } from './material.module';
+import { ActivityProxyService } from './services/activity-proxy.service';
+import { IterationProxyService } from './services/iteration-proxy.service';
+import { DtoModelMapper } from './services/mappers/dto-model-mapper';
+import { MemberProxyService } from './services/member-proxy.service';
+import { PhaseProxyService } from './services/phase-proxy.service';
+import { ProjectProxyService } from './services/project-proxy.service';
+import { RealizationProxyService } from './services/realization-proxy.service';
+import { UseCaseProxyService } from './services/use-case-proxy.service';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import {DtoModelMapper} from './services/mappers/dto-model-mapper';
     CrudComponent,
     UppercaseWords,
     MenuComponent,
+    FooterComponent,
+    GridLayoutComponent,
     ReadDetailDialogComponent
 
   ],
@@ -45,14 +49,12 @@ import {DtoModelMapper} from './services/mappers/dto-model-mapper';
     DtoModelMapper
   ],
   exports: [
-    MenuComponent,
     CancelYesDialogComponent,
     CommonModule,
     CrudComponent,
     FormsModule,
     ReactiveFormsModule,
     UppercaseWords,
-    MenuComponent,
     CancelYesDialogComponent,
     CommonModule,
     CrudComponent,

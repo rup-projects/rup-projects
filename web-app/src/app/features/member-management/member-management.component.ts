@@ -4,7 +4,7 @@ import {MemberProxyService} from '../../core/services/member-proxy.service';
 import {MatDialog} from '@angular/material/dialog';
 import {MemberDialogComponent} from './member-dialog/member-dialog.component';
 import {Observable} from 'rxjs';
-import {ReadDetailDialogComponent} from '../../core/dialogs/read-detail.dialog.component';
+import {ReadDetailDialogComponent} from '../../../commons/components/dialogs/read-detail.dialog.component';
 
 @Component({
   selector: 'app-member-management',

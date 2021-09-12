@@ -1,20 +1,19 @@
-import { ProjectDao } from '../../logic/daos/project.dao';
-import { PlanProjectDto } from '../../logic/models/planProjectDto';
-import { HttpService } from '../commons/http.service';
+import { Injectable } from '@angular/core';
 import { resourceServer } from '../../environments/environment';
-import {Project} from '../../logic/models/project';
-import {Injectable} from '@angular/core';
-import {MAT_DATE_LOCALE} from '@angular/material/core';
+import { ProjectDao } from '../../logic';
+import { PlanProjectDto } from '../../logic/models/planProjectDto';
+import { Project } from '../../logic/models/project';
+import { HttpService } from '../../commons/services/http.service';
 
 @Injectable({
-  providedIn: 'root',
-  deps: ['HttpService'],
+  providedIn: 'root'
 })
 export class ProjectDaoImpl implements ProjectDao {
 
   private RESOURCE = 'projects';
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService) {
+  }
 
   create(project: PlanProjectDto): Promise<Project> {
     const httpResult = this.httpService.post(`${resourceServer}/${this.RESOURCE}`, project);

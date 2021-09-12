@@ -1,2 +1,2 @@
-export { ProjectFacadeController } from './controllers/project/project.facade-controller';
+export { ProjectFacadeController } from './controllers/project.facade-controller';
 export { ProjectDao } from './daos/project.dao';

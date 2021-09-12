@@ -1,14 +1,14 @@
-import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {EMPTY, Observable, throwError} from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { EMPTY, Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
 
-import {Error} from './error.model';
+import { Error } from '../model/error.model';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class HttpService {
   static CONNECTION_REFUSE = 0;
@@ -97,6 +97,7 @@ export class HttpService {
         catchError(error => this.handleError(error)));
   }
 
+  // TODO This is not needed at all
   authBasic(mobile: number, password: string): HttpService {
     return this.header('Authorization', 'Basic ' + btoa(mobile + ':' + password));
   }

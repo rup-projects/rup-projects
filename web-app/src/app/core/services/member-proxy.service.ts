@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {resourceServer} from '../../../environments/environment';
 import {Member} from '../../../logic/models/member';
-import {HttpService} from '../../commons/http.service';
+import {HttpService} from '../../../commons/services/http.service';
 
 @Injectable()
 export class MemberProxyService {

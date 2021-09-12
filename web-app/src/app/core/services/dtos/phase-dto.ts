@@ -1,6 +1,6 @@
-import {Id} from '../../types/id';
+import {Id} from '../../../../commons/model/id';
 import {IterationDto} from './iteration-dto';
-import {PhaseType} from '../../types/phase-type';
+import {PhaseType} from './phase-type';
 
 
 export interface PhaseDto {

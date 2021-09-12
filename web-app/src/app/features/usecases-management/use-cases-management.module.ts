@@ -4,7 +4,7 @@ import {CommonModule} from '@angular/common';
 import {UseCasesManagementRoutingModule} from './use-cases-management-routing.module';
 import {UseCasesManagementComponent} from './use-cases-management.component';
 import {UseCaseDialogComponent} from './use-case-dialog/use-case-dialog.component';
-import {SharedModule} from '../core/shared.module';
+import {SharedModule} from '../../core/shared.module';
 
 
 @NgModule({

@@ -1,6 +1,6 @@
-import {Id} from '../../types/id';
+import {Id} from '../../../../commons/model/id';
 import {ActivityDto} from './activity-dto';
-import {MemberRole} from '../../types/member-role';
+import {MemberRole} from './member-role';
 
 export interface MemberDto {
 

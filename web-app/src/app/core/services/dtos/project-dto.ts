@@ -1,4 +1,4 @@
-import {Id} from '../../types/id';
+import {Id} from '../../../../commons/model/id';
 import {PhaseDto} from './phase-dto';
 
 

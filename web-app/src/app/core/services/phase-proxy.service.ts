@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { resourceServer } from '../../../environments/environment';
 import { Phase } from '../../../logic/models/phase';
 import {Iteration} from '../../../logic/models/iteration';
-import {HttpService} from '../../commons/http.service';
+import {HttpService} from '../../../commons/services/http.service';
 
 @Injectable()
 export class PhaseProxyService {

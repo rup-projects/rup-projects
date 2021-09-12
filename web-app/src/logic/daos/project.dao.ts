@@ -1,4 +1,4 @@
-import {GetAllDao, CreateDao, DeleteOneDao} from './base/base.dao';
+import {GetAllDao, CreateDao, DeleteOneDao} from '../../commons/services/base.dao';
 import {PlanProjectDto} from '../models/planProjectDto';
 import {Project} from '../models/project';
 

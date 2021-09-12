@@ -1,4 +1,4 @@
-import {MemberRole} from '../../app/core/types/member-role';
+import {MemberRole} from '../../app/core/services/dtos/member-role';
 
 export class Member {
 

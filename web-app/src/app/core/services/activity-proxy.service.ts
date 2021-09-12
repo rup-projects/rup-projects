@@ -3,7 +3,7 @@ import {resourceServer} from '../../../environments/environment';
 import {Activity} from '../../../logic/models/activity';
 import {Observable} from 'rxjs';
 import {NotAssignedCost} from '../../../logic/models/not-assigned-cost';
-import {HttpService} from '../../commons/http.service';
+import {HttpService} from '../../../commons/services/http.service';
 import {ActivityHours} from '../../../logic/models/activity-hours';
 import {ActivityMember} from '../../../logic/models/activity-member';
 

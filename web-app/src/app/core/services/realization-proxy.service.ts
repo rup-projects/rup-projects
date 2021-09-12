@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {resourceServer} from '../../../environments/environment';
 import {Observable} from 'rxjs';
-import {HttpService} from '../../commons/http.service';
+import {HttpService} from '../../../commons/services/http.service';
 import {Realization} from '../../../logic/models/realization';
 
 @Injectable()

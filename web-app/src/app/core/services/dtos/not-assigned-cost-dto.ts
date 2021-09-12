@@ -1,5 +1,5 @@
 import {ActivityDto} from './activity-dto';
-import {DisciplineType} from '../../types/discipline-type';
+import {DisciplineType} from './discipline-type';
 
 export interface NotAssignedCostDto {
     id: number;

@@ -1,0 +1,3 @@
+This directory is to add generic components, and utility classes that are susceptible to be extracted to an external library, to be reused. Ideally we could add that library as dependency in our package.json.
+
+I think a good name for this package would be "infrastructure" but as it is already used, I will leave commons.

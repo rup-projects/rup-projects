@@ -1,4 +1,4 @@
-import {Id} from '../../types/id';
+import {Id} from '../../../../commons/model/id';
 import {ActivityDto} from './activity-dto';
 import {MemberDto} from './member-dto';
 
