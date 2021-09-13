@@ -11,7 +11,7 @@ import interactionPlugin from '@fullcalendar/interaction'; // a plugin
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from './core/shared.module';
+import { SharedModule } from './views/shared.module';
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
