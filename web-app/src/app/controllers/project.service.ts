@@ -5,7 +5,7 @@ import {ProjectController} from '../../logic/controllers/project.controller';
 @Injectable({
   providedIn: 'root',
 })
-export class ProjectProxyService extends ProjectController {
+export class ProjectService extends ProjectController {
 
   constructor(@Inject('ProjectRepository') private dao: ProjectRepository) {
     super(dao);

@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ProjectController } from '../../../../logic';
-import { ProjectProxyService } from '../../../controllers/project-proxy.service';
+import { ProjectService } from '../../../controllers/project.service';
 import { ProjectRepositoryImpl } from '../../../infrastructure/project-repository-impl.service';
 import { SharedModule } from '../../shared.module';
 import { InitProjectRoutingModule } from './init-project-routing.module';
@@ -10,7 +10,7 @@ import { PlanProjectComponent } from './plan-project/plan-project.component';
 
 
 const projectControllerFactory = (dao: ProjectRepositoryImpl): ProjectController => {
-  return new ProjectProxyService(dao);
+  return new ProjectService(dao);
 };
 
 @NgModule({

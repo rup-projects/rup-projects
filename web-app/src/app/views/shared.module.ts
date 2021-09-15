@@ -15,7 +15,7 @@ import { IterationProxyService } from '../controllers/iteration-proxy.service';
 import { DtoModelMapper } from '../controllers/mappers/dto-model-mapper';
 import { MemberProxyService } from '../controllers/member-proxy.service';
 import { PhaseProxyService } from '../controllers/phase-proxy.service';
-import { ProjectProxyService } from '../controllers/project-proxy.service';
+import { ProjectService } from '../controllers/project.service';
 import { RealizationProxyService } from '../controllers/realization-proxy.service';
 import { UseCaseProxyService } from '../controllers/use-case-proxy.service';
 
@@ -40,7 +40,7 @@ import { UseCaseProxyService } from '../controllers/use-case-proxy.service';
   ],
   providers: [
     MemberProxyService,
-    ProjectProxyService,
+    ProjectService,
     UseCaseProxyService,
     IterationProxyService,
     PhaseProxyService,
