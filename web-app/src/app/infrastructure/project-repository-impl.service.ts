@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpService } from '../../commons/services/http.service';
 import { resourceServer } from '../../environments/environment';
-import { ProjectDao } from '../../logic';
+import { ProjectRepository } from '../../logic';
 import { PlanProjectDto } from '../../logic/models/planProjectDto';
 import { Project } from '../../logic/models/project';
-import { HttpService } from '../../commons/services/http.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectDaoImpl implements ProjectDao {
+export class ProjectRepositoryImpl implements ProjectRepository {
 
   private RESOURCE = 'projects';
 

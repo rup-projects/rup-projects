@@ -1,16 +1,15 @@
-import {CommonModule} from '@angular/common';
-import { NgModule} from '@angular/core';
-import {InitProjectRoutingModule} from './init-project-routing.module';
-import {InitProjectComponent} from './init-project.component';
-import {SharedModule} from '../../shared.module';
-import {PlanProjectComponent} from './plan-project/plan-project.component';
-import {ProjectProxyService} from '../../../controllers/project-proxy.service';
-import {ProjectDaoImpl} from '../../../infrastructure/project-dao-impl';
-import {ProjectFacadeController} from '../../../../logic';
-import {Project} from '../../../../logic/models/project';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ProjectController } from '../../../../logic';
+import { ProjectProxyService } from '../../../controllers/project-proxy.service';
+import { ProjectRepositoryImpl } from '../../../infrastructure/project-repository-impl.service';
+import { SharedModule } from '../../shared.module';
+import { InitProjectRoutingModule } from './init-project-routing.module';
+import { InitProjectComponent } from './init-project.component';
+import { PlanProjectComponent } from './plan-project/plan-project.component';
 
 
-const projectFacadeFactory = (dao: ProjectDaoImpl): ProjectFacadeController => {
+const projectControllerFactory = (dao: ProjectRepositoryImpl): ProjectController => {
   return new ProjectProxyService(dao);
 };
 
@@ -19,15 +18,15 @@ const projectFacadeFactory = (dao: ProjectDaoImpl): ProjectFacadeController => {
   imports: [
     CommonModule,
     InitProjectRoutingModule,
-    SharedModule,
+    SharedModule
   ],
   providers: [
     {
-      provide: 'ProjectFacadeController',
-      useFactory: projectFacadeFactory,
-      deps: [ProjectDaoImpl]
+      provide: ProjectController,
+      useFactory: projectControllerFactory,
+      deps: [ProjectRepositoryImpl]
     },
-    {provide: 'ProjectDao', useClass: ProjectDaoImpl}
+    {provide: 'ProjectDao', useClass: ProjectRepositoryImpl}
   ]
 })
 export class InitProjectModule {

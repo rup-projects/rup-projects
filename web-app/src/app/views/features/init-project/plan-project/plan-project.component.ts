@@ -6,7 +6,7 @@ import {from, Observable} from 'rxjs';
 import {Phase} from '../../../../../logic/models/phase';
 import {MatStepper} from '@angular/material/stepper';
 import {ProjectDateValidator} from './project-date.validator';
-import {ProjectFacadeController} from '../../../../../logic';
+import {ProjectController} from '../../../../../logic';
 
 @Component({
     selector: 'app-plan-project',
@@ -25,7 +25,7 @@ export class PlanProjectComponent implements OnInit {
 
 
     constructor(
-      @Inject('ProjectFacadeController') private projectService: ProjectFacadeController,
+      @Inject('ProjectFacadeController') private projectService: ProjectController,
       private router: Router, private formBuilder: FormBuilder) {
     }
 

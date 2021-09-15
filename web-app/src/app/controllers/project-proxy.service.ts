@@ -1,13 +1,13 @@
 import {Inject, Injectable} from '@angular/core';
-import {ProjectDao} from '../../logic/daos/project.dao';
-import {ProjectFacadeController} from '../../logic/controllers/project.facade-controller';
+import {ProjectRepository} from '../../logic/repositories/project.repository';
+import {ProjectController} from '../../logic/controllers/project.controller';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProjectProxyService extends ProjectFacadeController {
+export class ProjectProxyService extends ProjectController {
 
-  constructor(@Inject('ProjectDao') dao: ProjectDao) {
+  constructor(@Inject('ProjectRepository') private dao: ProjectRepository) {
     super(dao);
   }
 
