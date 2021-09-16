@@ -1,4 +1,4 @@
-import { ProjectRepository } from '../repositories/project.repository';
+/*import { ProjectRepository } from '../repositories/project.repository';
 import { PlanProjectDto } from '../models/planProjectDto';
 import { Project } from '../models/project';
 
@@ -22,3 +22,4 @@ export class ProjectController {
   }
 
 }
+*/

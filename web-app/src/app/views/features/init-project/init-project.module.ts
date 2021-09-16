@@ -8,10 +8,10 @@ import { InitProjectRoutingModule } from './init-project-routing.module';
 import { InitProjectComponent } from './init-project.component';
 import { PlanProjectComponent } from './plan-project/plan-project.component';
 
-
-const projectControllerFactory = (dao: ProjectRepositoryImpl): ProjectController => {
-  return new ProjectService(dao);
-};
+/*
+const projectControllerFactory = (repository: ProjectRepositoryImpl): ProjectController => {
+  return new ProjectService(repository);
+};*/
 
 @NgModule({
   declarations: [InitProjectComponent, PlanProjectComponent],
@@ -21,13 +21,9 @@ const projectControllerFactory = (dao: ProjectRepositoryImpl): ProjectController
     SharedModule
   ],
   providers: [
-    {
-      provide: 'ProjectController',
-      useFactory: projectControllerFactory,
-      deps: [ProjectRepositoryImpl]
-    },
-    {provide: 'ProjectDao', useClass: ProjectRepositoryImpl}
-  ]
+    ProjectService,
+    { provide: 'ProjectRepository', useClass: ProjectRepositoryImpl }
+  ],
 })
 export class InitProjectModule {
 }

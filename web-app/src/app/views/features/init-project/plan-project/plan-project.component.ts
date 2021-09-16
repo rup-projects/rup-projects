@@ -6,7 +6,7 @@ import {from, Observable} from 'rxjs';
 import {Phase} from '../../../../../logic/models/phase';
 import {MatStepper} from '@angular/material/stepper';
 import {ProjectDateValidator} from './project-date.validator';
-import {ProjectController} from '../../../../../logic';
+import {ProjectService} from '../../../../controllers/project.service';
 
 @Component({
     selector: 'app-plan-project',
@@ -25,7 +25,7 @@ export class PlanProjectComponent implements OnInit {
 
 
     constructor(
-      @Inject('ProjectController') private projectService: ProjectController,
+      private projectService: ProjectService,
       private router: Router, private formBuilder: FormBuilder) {
     }
 
@@ -51,12 +51,20 @@ export class PlanProjectComponent implements OnInit {
     }
 
     toIterationsSizeStep(stepper: MatStepper): void {
+        this.planProject();
+
+      /**
+       * TODO
+       * Subscribe to VM with planed project and set form control data, etc
+       */
+
+       /**
         const CONTROL_NAME = 'numberOfIterations';
-        this.planProject().subscribe(project => {
-            this.project = project;
-            this.iterationSizeFormGroup.controls[CONTROL_NAME].setValue(project.numberOfIterations);
-            stepper.next();
-        });
+        this.project = project;
+        this.iterationSizeFormGroup.controls[CONTROL_NAME].setValue(project.numberOfIterations);
+        stepper.next();
+       */
+
     }
 
     backToBasicInfoStep(stepper: MatStepper): void {
@@ -64,8 +72,8 @@ export class PlanProjectComponent implements OnInit {
     }
 
 
-    planProject(): Observable<Project> {
-        return from(this.projectService.planProject(this.basicInfoFormGroup.getRawValue()));
+    planProject(): void {
+        this.projectService.planProject(this.basicInfoFormGroup.getRawValue());
     }
 
     cancel(): void {
