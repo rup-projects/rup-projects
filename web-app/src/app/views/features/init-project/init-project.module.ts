@@ -22,7 +22,7 @@ const projectControllerFactory = (dao: ProjectRepositoryImpl): ProjectController
   ],
   providers: [
     {
-      provide: ProjectController,
+      provide: 'ProjectController',
       useFactory: projectControllerFactory,
       deps: [ProjectRepositoryImpl]
     },

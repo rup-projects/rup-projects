@@ -25,7 +25,7 @@ export class PlanProjectComponent implements OnInit {
 
 
     constructor(
-      @Inject('ProjectFacadeController') private projectService: ProjectController,
+      @Inject('ProjectController') private projectService: ProjectController,
       private router: Router, private formBuilder: FormBuilder) {
     }
 

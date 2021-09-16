@@ -14,7 +14,7 @@ export class InitProjectComponent implements OnInit {
   project$: Observable<Project>;
   panelOpenState = false;
 
-  constructor(@Inject('ProjectFacadeController') private projectController: ProjectController, private router: Router) {
+  constructor(@Inject('ProjectController') private projectController: ProjectController, private router: Router) {
   }
 
   ngOnInit(): void {
