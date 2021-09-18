@@ -14,7 +14,7 @@ import { ActivityProxyService } from '../controllers/activity-proxy.service';
 import { IterationProxyService } from '../controllers/iteration-proxy.service';
 import { DtoModelMapper } from '../controllers/mappers/dto-model-mapper';
 import { MemberService } from '../controllers/member.service';
-import { PhaseProxyService } from '../controllers/phase-proxy.service';
+import { PhaseService } from '../controllers/phase.service';
 import { ProjectService } from '../controllers/project.service';
 import { RealizationProxyService } from '../controllers/realization-proxy.service';
 import { UseCaseService } from '../controllers/use-case.service';
@@ -43,7 +43,7 @@ import { UseCaseService } from '../controllers/use-case.service';
     ProjectService,
     UseCaseService,
     IterationProxyService,
-    PhaseProxyService,
+    PhaseService,
     ActivityProxyService,
     RealizationProxyService,
     DtoModelMapper
