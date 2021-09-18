@@ -2,6 +2,10 @@ export interface GetAllDao<Response> {
   getAll(): Promise<Response>;
 }
 
+export interface GetOneDao<I, Response> {
+  getOne(id: I): Promise<Response>;
+}
+
 export interface CreateDao<S, Response> {
   create(dto: S): Promise<Response>;
 }

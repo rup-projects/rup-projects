@@ -5,7 +5,7 @@ import {ActivityProxyService} from '../../../controllers/activity-proxy.service'
 import {Activity} from '../../../../logic/models/activity';
 import {NotAssignedCost} from '../../../../logic/models/not-assigned-cost';
 import {IterationProxyService} from '../../../controllers/iteration-proxy.service';
-import {MemberProxyService} from '../../../controllers/member-proxy.service';
+import {MemberService} from '../../../controllers/member.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ReestimateHoursDialogComponent} from './reestimate-hours-dialog/reestimate-hours-dialog.component';
 import {AssignMemberDialogComponent} from './assign-member-dialog/assign-member-dialog.component';
@@ -25,7 +25,7 @@ export class IterationManagementComponent implements OnInit {
 
   iteration: Iteration;
 
-  constructor(private iterationService: IterationProxyService, private membersService: MemberProxyService,
+  constructor(private iterationService: IterationProxyService, private membersService: MemberService,
               private activityService: ActivityProxyService, private router: Router,
               private activatedRoute: ActivatedRoute, private matDialog: MatDialog) {
   }

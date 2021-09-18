@@ -3,7 +3,7 @@ import {Iteration} from '../../../../../logic/models/iteration';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PhaseProxyService} from '../../../../controllers/phase-proxy.service';
 import {IterationProxyService} from '../../../../controllers/iteration-proxy.service';
-import {MemberProxyService} from '../../../../controllers/member-proxy.service';
+import {MemberService} from '../../../../controllers/member.service';
 import {Observable} from 'rxjs';
 
 @Component({
@@ -17,7 +17,7 @@ export class PhaseManagementComponent implements OnInit {
   displayedColumns: string[] = ['id', 'number', 'startDate', 'endDate'];
   columnsToDisplay: string[] = this.displayedColumns.slice();
 
-  constructor(private phaseService: PhaseProxyService, private iterationService: IterationProxyService, private membersService: MemberProxyService,
+  constructor(private phaseService: PhaseProxyService, private iterationService: IterationProxyService, private membersService: MemberService,
               private router: Router, private activatedRoute: ActivatedRoute,
   ) {
   }
