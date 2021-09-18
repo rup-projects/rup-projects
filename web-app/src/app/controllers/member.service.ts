@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
-import { HttpService } from '../../commons/services/http.service';
-import { resourceServer } from '../../environments/environment';
 import { CreateMemberController } from '../../logic/controllers/create-member.controller';
+import { DeleteMemberController } from '../../logic/controllers/delete-member.controller';
 import { OpenMemberController } from '../../logic/controllers/open-member.controller';
 import { OpenMembersController } from '../../logic/controllers/open-members.controller';
 import { UpdateMemberController } from '../../logic/controllers/update-member.controller';
@@ -12,9 +11,7 @@ import { MemberRepositoryImplService } from '../infrastructure/member-repository
 @Injectable()
 export class MemberService {
 
-  private RESOURCE = 'members';
-
-  constructor(private memberRepository: MemberRepositoryImplService, private httpService: HttpService) {
+  constructor(private memberRepository: MemberRepositoryImplService) {
   }
 
   openMembers(): Observable<Member[]> {
@@ -38,6 +35,7 @@ export class MemberService {
   }
 
   deleteMember(id: number): Observable<void> {
-    return this.httpService.delete(`${resourceServer}/${this.RESOURCE}/${id}`);
+    const command = new DeleteMemberController(this.memberRepository);
+    return from(command.execute(id));
   }
 }

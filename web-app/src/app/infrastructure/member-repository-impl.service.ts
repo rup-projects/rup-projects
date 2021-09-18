@@ -26,8 +26,8 @@ export class MemberRepositoryImplService implements MemberRepository {
     return httpResult.toPromise();
   }
 
-  delete(id: string): Promise<any> {
-    const httpResult = this.httpService.delete(`${resourceServer}/${this.RESOURCE}`);
+  delete(id: number): Promise<any> {
+    const httpResult = this.httpService.delete(`${resourceServer}/${this.RESOURCE}/${id}`);
     return httpResult.toPromise();
   }
 
