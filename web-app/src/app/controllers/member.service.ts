@@ -3,6 +3,7 @@ import { from, Observable } from 'rxjs';
 import { HttpService } from '../../commons/services/http.service';
 import { resourceServer } from '../../environments/environment';
 import { CreateMemberController } from '../../logic/controllers/create-member.controller';
+import { OpenMemberController } from '../../logic/controllers/open-member.controller';
 import { OpenMembersController } from '../../logic/controllers/open-members.controller';
 import { Member } from '../../logic/models/member';
 import { MemberRepositoryImplService } from '../infrastructure/member-repository-impl.service';
@@ -21,7 +22,8 @@ export class MemberService {
   }
 
   openMember(id: number): Observable<Member> {
-    return this.httpService.get(`${resourceServer}/${this.RESOURCE}/${id}`);
+    const command = new OpenMemberController(this.memberRepository);
+    return from(command.execute(id));
   }
 
   async createMember(member: Member): Promise<void> {

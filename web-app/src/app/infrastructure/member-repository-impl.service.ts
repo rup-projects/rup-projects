@@ -16,6 +16,11 @@ export class MemberRepositoryImplService implements MemberRepository {
   constructor(private httpService: HttpService) {
   }
 
+  getOne(id: number): Promise<Member> {
+    const httpResult = this.httpService.get(`${resourceServer}/${this.RESOURCE}/${id}`);
+    return httpResult.toPromise();
+  }
+
   create(project: MemberDto): Promise<Member> {
     const httpResult = this.httpService.post(`${resourceServer}/${this.RESOURCE}`, project);
     return httpResult.toPromise();
