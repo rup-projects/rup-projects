@@ -35,7 +35,7 @@
       <form [formGroup]="iterationSizeFormGroup">
         <mat-form-field>
           <mat-label>Iterations in project</mat-label>
-          <input matInput type="number" min="10" max="1000" step="10" formControlName="numberOfIterations"/>
+          <input matInput type="number" min="10" max="1000" step="10" formControlName="{{ iterationSizeFormGroupControlName }}"/>
         </mat-form-field>
         <button mat-button type="button" (click)="refreshProject()">refresh</button>
 

@@ -6,7 +6,8 @@ import {from, Observable} from 'rxjs';
 import {Phase} from '../../../../../logic/models/phase';
 import {MatStepper} from '@angular/material/stepper';
 import {ProjectDateValidator} from './project-date.validator';
-import {ProjectFacadeController} from '../../../../../logic';
+import {ProjectService} from '../../../../controllers/project.service';
+import { PlanProjectDto } from '../../../../../logic/models/planProjectDto';
 
 @Component({
     selector: 'app-plan-project',
@@ -22,11 +23,20 @@ export class PlanProjectComponent implements OnInit {
     phases: Observable<Phase[]>;
     displayedColumns: string[] = ['type', 'startDate', 'endDate'];
     columnsToDisplay: string[] = this.displayedColumns.slice();
-
+    readonly iterationSizeFormGroupControlName = 'numberOfIterations';
 
     constructor(
-      @Inject('ProjectFacadeController') private projectService: ProjectFacadeController,
-      private router: Router, private formBuilder: FormBuilder) {
+      private projectService: ProjectService,
+      private router: Router, private formBuilder: FormBuilder
+    ) {
+
+      this.projectService.getViewModel().getStateValue().subscribe(project => {
+        this.project = project;
+        if (project !== null) {
+          this.iterationSizeFormGroup.controls[this.iterationSizeFormGroupControlName].setValue(this.project.numberOfIterations);
+        }
+      });
+
     }
 
     ngOnInit(): void {
@@ -45,34 +55,37 @@ export class PlanProjectComponent implements OnInit {
         });
     }
 
-    refreshProject(): void {
-        this.project.numberOfIterations = this.iterationSizeFormGroup.get('numberOfIterations').value as number;
-        this.projectService.planProject(this.project);
+  public async refreshProject(): Promise<void> {
+      const planProjectDto: PlanProjectDto = {
+          startDate: this.project.startDate,
+          endDate: this.project.endDate,
+          cost: this.project.cost,
+          numberOfIterations: this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number
+      };
+      await this.projectService.planProject(planProjectDto);
     }
 
-    toIterationsSizeStep(stepper: MatStepper): void {
-        const CONTROL_NAME = 'numberOfIterations';
-        this.planProject().subscribe(project => {
-            this.project = project;
-            this.iterationSizeFormGroup.controls[CONTROL_NAME].setValue(project.numberOfIterations);
-            stepper.next();
-        });
+    public async toIterationsSizeStep(stepper: MatStepper): Promise<void> {
+      await this.planProject();
+      stepper.next();
     }
 
     backToBasicInfoStep(stepper: MatStepper): void {
         from(this.projectService.deleteProject()).subscribe(() => stepper.previous());
     }
 
-
-    planProject(): Observable<Project> {
-        return from(this.projectService.planProject(this.basicInfoFormGroup.getRawValue()));
+    async cancel(): Promise<void> {
+      await this.projectService.deleteProject();
+      await this.router.navigateByUrl('/');
     }
 
-    cancel(): void {
-      from(this.projectService.deleteProject()).subscribe(() => this.router.navigateByUrl('/').then());
+    async save(): Promise<void> {
+      // TODO: Update itertionsize
+      // this.project.numberOfIterations = this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number;
+        await this.router.navigateByUrl('/project-management');
     }
 
-    save(): void {
-        this.router.navigateByUrl('/project-management').then();
+    private async planProject(): Promise<void> {
+      await this.projectService.planProject(this.basicInfoFormGroup.getRawValue());
     }
 }

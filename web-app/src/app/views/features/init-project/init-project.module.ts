@@ -1,34 +1,32 @@
-import {CommonModule} from '@angular/common';
-import { NgModule} from '@angular/core';
-import {InitProjectRoutingModule} from './init-project-routing.module';
-import {InitProjectComponent} from './init-project.component';
-import {SharedModule} from '../../shared.module';
-import {PlanProjectComponent} from './plan-project/plan-project.component';
-import {ProjectProxyService} from '../../../controllers/project-proxy.service';
-import {ProjectDaoImpl} from '../../../infrastructure/project-dao-impl';
-import {ProjectFacadeController} from '../../../../logic';
-import {Project} from '../../../../logic/models/project';
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { ProjectService } from '../../../controllers/project.service';
+import { ProjectRepositoryImpl } from '../../../infrastructure/project-repository-impl.service';
+import { SharedModule } from '../../shared.module';
+import { InitProjectRoutingModule } from './init-project-routing.module';
+import { InitProjectComponent } from './init-project.component';
+import { PlanProjectComponent } from './plan-project/plan-project.component';
+import { ProjectViewModel } from '../../../controllers/view-models/project-view-model';
 
+// const projectViewModelFactory = new ProjectViewModel();
 
-const projectFacadeFactory = (dao: ProjectDaoImpl): ProjectFacadeController => {
-  return new ProjectProxyService(dao);
-};
+/*const projectMainControllerFactory = (repository: ProjectRepositoryImpl, vm: ProjectViewModel): ProjectControllerFacade => {
+  return new ProjectService(repository, vm);
+};*/
 
 @NgModule({
   declarations: [InitProjectComponent, PlanProjectComponent],
   imports: [
     CommonModule,
     InitProjectRoutingModule,
-    SharedModule,
+    SharedModule
   ],
   providers: [
-    {
-      provide: 'ProjectFacadeController',
-      useFactory: projectFacadeFactory,
-      deps: [ProjectDaoImpl]
-    },
-    {provide: 'ProjectDao', useClass: ProjectDaoImpl}
+    ProjectRepositoryImpl,
+    ProjectViewModel,
+    ProjectService,
   ]
+
 })
 export class InitProjectModule {
 }
