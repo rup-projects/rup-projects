@@ -21,7 +21,7 @@ export class MemberRepositoryImplService implements MemberRepository {
     return httpResult.toPromise();
   }
 
-  create(project: MemberDto): Promise<Member> {
+  create(project: MemberDto): Promise<void> {
     const httpResult = this.httpService.post(`${resourceServer}/${this.RESOURCE}`, project);
     return httpResult.toPromise();
   }
@@ -36,8 +36,8 @@ export class MemberRepositoryImplService implements MemberRepository {
     return httpResult.toPromise();
   }
 
-  update(id: string, dto: Member): Promise<void> {
-    const httpResult: Observable<void> = this.httpService.put(`${resourceServer}/${this.RESOURCE}/${id}`);
+  update(id: number, dto: Member): Promise<void> {
+    const httpResult: Observable<void> = this.httpService.put(`${resourceServer}/${this.RESOURCE}/${id}`, dto);
     return httpResult.toPromise();
   }
 

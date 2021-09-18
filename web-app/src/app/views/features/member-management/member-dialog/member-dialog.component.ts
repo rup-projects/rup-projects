@@ -24,7 +24,7 @@ export class MemberDialogComponent {
   create(): void {
     this.memberService
       .createMember(this.form.getRawValue())
-      .then(() => this.marDialog.closeAll());
+      .subscribe(() => this.marDialog.closeAll());
   }
 
   update(): void {

@@ -5,6 +5,7 @@ import { resourceServer } from '../../environments/environment';
 import { CreateMemberController } from '../../logic/controllers/create-member.controller';
 import { OpenMemberController } from '../../logic/controllers/open-member.controller';
 import { OpenMembersController } from '../../logic/controllers/open-members.controller';
+import { UpdateMemberController } from '../../logic/controllers/update-member.controller';
 import { Member } from '../../logic/models/member';
 import { MemberRepositoryImplService } from '../infrastructure/member-repository-impl.service';
 
@@ -26,13 +27,14 @@ export class MemberService {
     return from(command.execute(id));
   }
 
-  async createMember(member: Member): Promise<void> {
+  createMember(member: Member): Observable<void> {
     const command = new CreateMemberController(this.memberRepository);
-    await command.execute(member);
+    return from(command.execute(member));
   }
 
-  updateMember(member: Member): Observable<Member> {
-    return this.httpService.put(`${resourceServer}/${this.RESOURCE}/${member.id}`, member);
+  updateMember(member: Member): Observable<void> {
+    const command = new UpdateMemberController(this.memberRepository);
+    return from(command.execute(member));
   }
 
   deleteMember(id: number): Observable<void> {
