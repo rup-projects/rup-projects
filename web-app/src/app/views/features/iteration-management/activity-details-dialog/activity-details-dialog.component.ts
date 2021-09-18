@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {ActivityProxyService} from '../../../../controllers/activity-proxy.service';
-import {IterationProxyService} from '../../../../controllers/iteration-proxy.service';
+import {IterationService} from '../../../../controllers/iteration.service';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 import {Activity} from '../../../../../logic/models/activity';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -14,7 +14,7 @@ import {Realization} from '../../../../../logic/models/realization';
 })
 export class ActivityDetailsDialogComponent implements OnInit {
 
-  constructor(private activityService: ActivityProxyService, private iterationProxyService: IterationProxyService,
+  constructor(private activityService: ActivityProxyService, private iterationProxyService: IterationService,
               private matDialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: { activityId: string, iterationId: string },
               private formBuilder: FormBuilder) {
   }
@@ -27,7 +27,7 @@ export class ActivityDetailsDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.activity$ = this.activityService.openActivity(this.data.activityId);
-    this.realizations$ = this.iterationProxyService.getRealizations(this.data.iterationId);
+    this.realizations$ = this.iterationProxyService.getRealizations(Number(this.data.iterationId));
     this.formGroup = this.formBuilder.group({
       realizationId: [1, [Validators.required, Validators.min(1)]]
     });

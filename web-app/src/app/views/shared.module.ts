@@ -11,7 +11,7 @@ import { GridLayoutComponent } from './layout/grid-layout/grid-layout.component'
 import { MenuComponent } from './layout/menu/menu.component';
 import { MaterialModule } from './material.module';
 import { ActivityProxyService } from '../controllers/activity-proxy.service';
-import { IterationProxyService } from '../controllers/iteration-proxy.service';
+import { IterationService } from '../controllers/iteration.service';
 import { DtoModelMapper } from '../controllers/mappers/dto-model-mapper';
 import { MemberService } from '../controllers/member.service';
 import { PhaseService } from '../controllers/phase.service';
@@ -42,7 +42,7 @@ import { UseCaseService } from '../controllers/use-case.service';
     MemberService,
     ProjectService,
     UseCaseService,
-    IterationProxyService,
+    IterationService,
     PhaseService,
     ActivityProxyService,
     RealizationProxyService,
