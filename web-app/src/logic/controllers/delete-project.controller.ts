@@ -1,7 +1,7 @@
-import { Command } from '../domain/controllers/Command';
+import { Command } from './types/command';
 import { ProjectRepository } from '../repositories/project.repository';
 
-export class DeleteProjectController implements Command<string> {
+export class DeleteProjectController implements Command<string, void> {
 
     constructor(
       private repository: ProjectRepository

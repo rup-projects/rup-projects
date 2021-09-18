@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../../commons/services/http.service';
 import { resourceServer } from '../../environments/environment';
-import { ProjectRepository } from '../../logic';
 import { PlanProjectDto } from '../../logic/models/planProjectDto';
 import { Project } from '../../logic/models/project';
+import { ProjectRepository } from '../../logic/repositories/project.repository';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +26,8 @@ export class ProjectRepositoryImpl implements ProjectRepository {
     return httpResult.toPromise();
   }
 
-  getAll(): Promise<any> {
-    const httpResult = this.httpService.get(`${resourceServer}/${this.RESOURCE}/opened`);
+  getAll(): Promise<Project> {
+    const httpResult: Observable<Project> = this.httpService.get(`${resourceServer}/${this.RESOURCE}/opened`);
     return httpResult.toPromise();
   }
 

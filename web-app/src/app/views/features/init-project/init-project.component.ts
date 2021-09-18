@@ -14,17 +14,21 @@ export class InitProjectComponent implements OnInit {
   project$: Observable<Project>;
   panelOpenState = false;
 
-  constructor(private projectService: ProjectService, private router: Router) {}
+  constructor(
+    private projectService: ProjectService,
+    private router: Router,
+  ) {
+    this.project$ = this.projectService.getViewModel().getStateValue();
+  }
 
   ngOnInit(): void {
     this.projectService.startSystem();
   }
 
   async planProject(): Promise<void> {
-
     if (this.project$ !== null) {
       await this.projectService.deleteProject();
-      this.router.navigateByUrl('init-project/new');
+      await this.router.navigateByUrl('init-project/new');
     } else {
       this.router.navigateByUrl('init-project/new').then();
     }

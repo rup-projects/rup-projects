@@ -1,16 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ProjectController } from '../../../../logic';
 import { ProjectService } from '../../../controllers/project.service';
 import { ProjectRepositoryImpl } from '../../../infrastructure/project-repository-impl.service';
 import { SharedModule } from '../../shared.module';
 import { InitProjectRoutingModule } from './init-project-routing.module';
 import { InitProjectComponent } from './init-project.component';
 import { PlanProjectComponent } from './plan-project/plan-project.component';
+import { ProjectViewModel } from '../../../controllers/view-models/project-view-model';
 
-/*
-const projectControllerFactory = (repository: ProjectRepositoryImpl): ProjectController => {
-  return new ProjectService(repository);
+// const projectViewModelFactory = new ProjectViewModel();
+
+/*const projectMainControllerFactory = (repository: ProjectRepositoryImpl, vm: ProjectViewModel): ProjectControllerFacade => {
+  return new ProjectService(repository, vm);
 };*/
 
 @NgModule({
@@ -21,9 +22,11 @@ const projectControllerFactory = (repository: ProjectRepositoryImpl): ProjectCon
     SharedModule
   ],
   providers: [
+    ProjectRepositoryImpl,
+    ProjectViewModel,
     ProjectService,
-    { provide: 'ProjectRepository', useClass: ProjectRepositoryImpl }
-  ],
+  ]
+
 })
 export class InitProjectModule {
 }
