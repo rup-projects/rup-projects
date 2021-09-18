@@ -1,9 +1,9 @@
-import { Command } from './types/command';
+import { Controller } from './types/controller';
 import { ProjectRepository } from '../repositories/project.repository';
 import { PlanProjectDto } from '../models/planProjectDto';
 import { Project } from '../models/project';
 
-export class PlanProjectController implements Command<PlanProjectDto, Project> {
+export class PlanProjectController implements Controller<PlanProjectDto, Project> {
 
     constructor(
       private repository: ProjectRepository,

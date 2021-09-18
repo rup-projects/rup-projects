@@ -1,7 +1,7 @@
-import { Command } from './types/command';
+import { Controller } from './types/controller';
 import { ProjectRepository } from '../repositories/project.repository';
 
-export class StartSystemController implements Command<null, void> {
+export class StartSystemController implements Controller<null, void> {
 
     constructor(
       private repository: ProjectRepository
