@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UseCase} from '../../../../logic/models/use-case';
-import {UseCaseProxyService} from '../../../controllers/use-case-proxy.service';
+import {UseCaseService} from '../../../controllers/use-case.service';
 import {MatDialog} from '@angular/material/dialog';
 import {UseCaseDialogComponent} from './use-case-dialog/use-case-dialog.component';
 import {ReadDetailDialogComponent} from '../../../../commons/components/dialogs/read-detail.dialog.component';
@@ -19,7 +19,7 @@ export class UseCasesManagementComponent implements OnInit{
   columnsToDisplay: string[] = this.displayedColumns.slice();
   title: 'usecases';
 
-  constructor(private useCaseService: UseCaseProxyService, private matDialog: MatDialog) {
+  constructor(private useCaseService: UseCaseService, private matDialog: MatDialog) {
   }
 
 

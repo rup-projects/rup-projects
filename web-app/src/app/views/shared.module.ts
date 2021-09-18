@@ -17,7 +17,7 @@ import { MemberService } from '../controllers/member.service';
 import { PhaseProxyService } from '../controllers/phase-proxy.service';
 import { ProjectService } from '../controllers/project.service';
 import { RealizationProxyService } from '../controllers/realization-proxy.service';
-import { UseCaseProxyService } from '../controllers/use-case-proxy.service';
+import { UseCaseService } from '../controllers/use-case.service';
 
 
 @NgModule({
@@ -41,7 +41,7 @@ import { UseCaseProxyService } from '../controllers/use-case-proxy.service';
   providers: [
     MemberService,
     ProjectService,
-    UseCaseProxyService,
+    UseCaseService,
     IterationProxyService,
     PhaseProxyService,
     ActivityProxyService,

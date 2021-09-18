@@ -1,6 +1,6 @@
 import {Component, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
-import {UseCaseProxyService} from '../../../../controllers/use-case-proxy.service';
+import {UseCaseService} from '../../../../controllers/use-case.service';
 import {UseCase} from '../../../../../logic/models/use-case';
 
 @Component({
@@ -12,7 +12,7 @@ export class UseCaseDialogComponent {
   useCase: UseCase;
 
 
-  constructor(private useCaseService: UseCaseProxyService, private marDialog: MatDialog,
+  constructor(private useCaseService: UseCaseService, private marDialog: MatDialog,
               @Inject(MAT_DIALOG_DATA) data: UseCase) {
     if (data !== null) {
       this.useCase = {id: data.id, name: data.name, description: data.description, priority: data.priority};
