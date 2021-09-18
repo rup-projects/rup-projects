@@ -1,8 +1,8 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { WritableViewModel } from '../../../../logic/controllers/types/writable-view-model';
-import { ViewModelValueStore } from '../../../../logic/controllers/types/view-model-value-store';
-import { ReadableViewModel } from '../../../../logic/controllers/types/readable-view-model';
+import { WritableViewModel } from '../../../../commons/services/types/writable-view-model';
+import { ViewModelValueStore } from '../../../../commons/services/types/view-model-value-store';
+import { ReadableViewModel } from '../../../../commons/services/types/readable-view-model';
 
 export abstract class AbstractViewModelStorage<T> implements ReadableViewModel<T>, WritableViewModel<T> {
 

@@ -6,7 +6,7 @@ import { DeleteProjectController } from '../../logic/controllers/delete-project.
 import { ProjectRepositoryImpl } from '../infrastructure/project-repository-impl.service';
 import { ProjectViewModel } from './view-models/project-view-model';
 import { Project } from '../../logic/models/project';
-import { ReadableViewModel } from '../../logic/controllers/types/readable-view-model';
+import { ReadableViewModel } from '../../commons/services/types/readable-view-model';
 
 @Injectable({
   providedIn: 'root',

@@ -1,14 +1,13 @@
-import { Controller } from './types/controller';
+import { Controller } from '../../commons/services/types/controller';
 import { ProjectRepository } from '../repositories/project.repository';
 
 export class DeleteProjectController implements Controller<string, void> {
 
-    constructor(
-      private repository: ProjectRepository
-      ) {}
+  constructor(private repository: ProjectRepository) {
+  }
 
-    async execute(idProject: string): Promise<void> {
-      const id: any = 'idproject';
-      return await this.repository.delete(id);
-    }
+  async execute(idProject: string): Promise<void> {
+    const id: any = 'idproject';
+    return await this.repository.delete(id);
+  }
 }

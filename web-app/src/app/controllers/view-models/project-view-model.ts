@@ -1,7 +1,7 @@
 import { AbstractViewModelStorage } from './type/abstract-view-model-storage';
 import { Project } from '../../../logic/models/project';
 import { Injectable } from '@angular/core';
-import { ViewModelValueStore } from '../../../logic/controllers/types/view-model-value-store';
+import { ViewModelValueStore } from '../../../commons/services/types/view-model-value-store';
 
 @Injectable()
 export class ProjectViewModel extends AbstractViewModelStorage<Project> {
