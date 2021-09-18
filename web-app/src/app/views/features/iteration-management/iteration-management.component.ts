@@ -4,7 +4,7 @@ import {Iteration} from '../../../../logic/models/iteration';
 import {ActivityProxyService} from '../../../controllers/activity-proxy.service';
 import {Activity} from '../../../../logic/models/activity';
 import {NotAssignedCost} from '../../../../logic/models/not-assigned-cost';
-import {IterationProxyService} from '../../../controllers/iteration-proxy.service';
+import {IterationService} from '../../../controllers/iteration.service';
 import {MemberService} from '../../../controllers/member.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ReestimateHoursDialogComponent} from './reestimate-hours-dialog/reestimate-hours-dialog.component';
@@ -25,7 +25,7 @@ export class IterationManagementComponent implements OnInit {
 
   iteration: Iteration;
 
-  constructor(private iterationService: IterationProxyService, private membersService: MemberService,
+  constructor(private iterationService: IterationService, private membersService: MemberService,
               private activityService: ActivityProxyService, private router: Router,
               private activatedRoute: ActivatedRoute, private matDialog: MatDialog) {
   }
@@ -42,7 +42,8 @@ export class IterationManagementComponent implements OnInit {
   }
 
   openIteration(): void {
-    this.iterationService.openIteration(this.activatedRoute.snapshot.paramMap.get('id'))
+    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.iterationService.openIteration(id)
       .subscribe(iteration => {
         this.iteration = iteration;
         this.initCalendar(iteration);

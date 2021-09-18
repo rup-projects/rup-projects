@@ -6,7 +6,7 @@ import {NotAssignedCost} from '../../../../../logic/models/not-assigned-cost';
 import {Observable} from 'rxjs';
 import {Iteration} from '../../../../../logic/models/iteration';
 import {Realization} from '../../../../../logic/models/realization';
-import {IterationProxyService} from '../../../../controllers/iteration-proxy.service';
+import {IterationService} from '../../../../controllers/iteration.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -16,7 +16,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class AssignMemberDialogComponent implements OnInit {
 
-  constructor(private activityService: ActivityProxyService, private iterationProxyService: IterationProxyService, private matDialog: MatDialog,
+  constructor(private activityService: ActivityProxyService, private iterationProxyService: IterationService, private matDialog: MatDialog,
               @Inject(MAT_DIALOG_DATA) public data: { activity: Activity, notAssignedCost: NotAssignedCost, iteration: Iteration }, private formBuilder: FormBuilder) {
   }
 
