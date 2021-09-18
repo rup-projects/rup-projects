@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Member} from '../../../../logic/models/member';
-import {MemberProxyService} from '../../../controllers/member-proxy.service';
+import {MemberService} from '../../../controllers/member.service';
 import {MatDialog} from '@angular/material/dialog';
 import {MemberDialogComponent} from './member-dialog/member-dialog.component';
 import {Observable} from 'rxjs';
@@ -17,7 +17,7 @@ export class MemberManagementComponent {
   private selected: Member;
   title: 'Members';
 
-  constructor(private memberService: MemberProxyService,
+  constructor(private memberService: MemberService,
               private matDialog: MatDialog) {
     this.openMembers();
   }

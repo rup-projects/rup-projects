@@ -6,7 +6,7 @@ import { SharedModule } from '../../shared.module';
 import { InitProjectRoutingModule } from './init-project-routing.module';
 import { InitProjectComponent } from './init-project.component';
 import { PlanProjectComponent } from './plan-project/plan-project.component';
-import { ProjectViewModel } from '../../../controllers/view-models/project-view-model';
+import { ProjectViewModel } from '../../../controllers/view-models/project.view-model';
 
 // const projectViewModelFactory = new ProjectViewModel();
 

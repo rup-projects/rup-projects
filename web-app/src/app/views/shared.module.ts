@@ -13,7 +13,7 @@ import { MaterialModule } from './material.module';
 import { ActivityProxyService } from '../controllers/activity-proxy.service';
 import { IterationProxyService } from '../controllers/iteration-proxy.service';
 import { DtoModelMapper } from '../controllers/mappers/dto-model-mapper';
-import { MemberProxyService } from '../controllers/member-proxy.service';
+import { MemberService } from '../controllers/member.service';
 import { PhaseProxyService } from '../controllers/phase-proxy.service';
 import { ProjectService } from '../controllers/project.service';
 import { RealizationProxyService } from '../controllers/realization-proxy.service';
@@ -39,7 +39,7 @@ import { UseCaseProxyService } from '../controllers/use-case-proxy.service';
 
   ],
   providers: [
-    MemberProxyService,
+    MemberService,
     ProjectService,
     UseCaseProxyService,
     IterationProxyService,

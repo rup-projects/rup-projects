@@ -31,7 +31,7 @@ export class UseCaseProxyService {
       .put(`${resourceServer}/${this.RESOURCE}/${useCase.id}`, useCase);
   }
 
-  deleteMember(id: number): Observable<void> {
+  deleteUseCase(id: number): Observable<void> {
     return this.httpService.delete(`${resourceServer}/${this.RESOURCE}/${id}`);
   }
 }
