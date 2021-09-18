@@ -26,8 +26,8 @@ export class MemberRepositoryImplService implements MemberRepository {
     return httpResult.toPromise();
   }
 
-  getAll(): Promise<Member> {
-    const httpResult: Observable<Member> = this.httpService.get(`${resourceServer}/${this.RESOURCE}/opened`);
+  getAll(): Promise<Member[]> {
+    const httpResult: Observable<Member[]> = this.httpService.get(`${resourceServer}/${this.RESOURCE}`);
     return httpResult.toPromise();
   }
 

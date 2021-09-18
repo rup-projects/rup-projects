@@ -1,10 +1,10 @@
-import {Component} from '@angular/core';
-import {Member} from '../../../../logic/models/member';
-import {MemberService} from '../../../controllers/member.service';
-import {MatDialog} from '@angular/material/dialog';
-import {MemberDialogComponent} from './member-dialog/member-dialog.component';
-import {Observable} from 'rxjs';
-import {ReadDetailDialogComponent} from '../../../../commons/components/dialogs/read-detail.dialog.component';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
+import { ReadDetailDialogComponent } from '../../../../commons/components/dialogs/read-detail.dialog.component';
+import { Member } from '../../../../logic/models/member';
+import { MemberService } from '../../../controllers/member.service';
+import { MemberDialogComponent } from './member-dialog/member-dialog.component';
 
 @Component({
   selector: 'app-member-management',

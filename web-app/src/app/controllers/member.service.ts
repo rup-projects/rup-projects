@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { HttpService } from '../../commons/services/http.service';
 import { resourceServer } from '../../environments/environment';
 import { CreateMemberController } from '../../logic/controllers/create-member.controller';
+import { OpenMembersController } from '../../logic/controllers/open-members.controller';
 import { Member } from '../../logic/models/member';
 import { MemberRepositoryImplService } from '../infrastructure/member-repository-impl.service';
 
@@ -15,7 +16,8 @@ export class MemberService {
   }
 
   openMembers(): Observable<Member[]> {
-    return this.httpService.get(`${resourceServer}/${this.RESOURCE}`);
+    const command = new OpenMembersController(this.memberRepository);
+    return from(command.execute());
   }
 
   openMember(id: number): Observable<Member> {

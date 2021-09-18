@@ -29,8 +29,8 @@ export class ProjectService {
 
   public async planProject(planProjectDto: PlanProjectDto): Promise<void> {
     const controller = new PlanProjectController(this.repository);
-    const projectPLaned = await controller.execute(planProjectDto);
-    this.projectViewModel.setValue(projectPLaned);
+    const projectPlaned = await controller.execute(planProjectDto);
+    this.projectViewModel.setValue(projectPlaned);
   }
 
   public async deleteProject(): Promise<void> {
