@@ -1,6 +1,7 @@
 import {UseCaseRepository} from '../repositories/use-case.repository';
+import {Controller} from '../../commons/services/types/controller';
 
-export class DeleteUseCaseController {
+export class DeleteUseCaseController implements Controller<number, void>{
     constructor(private repository: UseCaseRepository) {
 
     }
