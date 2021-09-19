@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
-import {ActivityProxyService} from '../../../../controllers/activity-proxy.service';
+import {ActivityService} from '../../../../controllers/activity.service';
 import {Activity} from '../../../../../logic/models/activity';
 import {NotAssignedCost} from '../../../../../logic/models/not-assigned-cost';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -15,7 +15,7 @@ export class ReestimateHoursDialogComponent implements OnInit {
 
   formGroup: FormGroup;
 
-  constructor(private activityService: ActivityProxyService, private matDialog: MatDialog,
+  constructor(private activityService: ActivityService, private matDialog: MatDialog,
               @Inject(MAT_DIALOG_DATA) public data: { activity: Activity, notAssignedCost: NotAssignedCost },
               private formBuilder: FormBuilder) {
   }
@@ -27,8 +27,7 @@ export class ReestimateHoursDialogComponent implements OnInit {
   }
 
   reestimate(): void {
-    this.activityService.reestimateActivity(
-      this.data.activity.id,
-      this.formGroup.getRawValue()).subscribe(() => this.matDialog.closeAll());
+    this.activityService.reEstimateActivity(this.data.activity.id, this.formGroup.getRawValue())
+      .subscribe(() => this.matDialog.closeAll());
   }
 }

@@ -10,13 +10,12 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { GridLayoutComponent } from './layout/grid-layout/grid-layout.component';
 import { MenuComponent } from './layout/menu/menu.component';
 import { MaterialModule } from './material.module';
-import { ActivityProxyService } from '../controllers/activity-proxy.service';
+import { ActivityService } from '../controllers/activity.service';
 import { IterationService } from '../controllers/iteration.service';
 import { DtoModelMapper } from '../controllers/mappers/dto-model-mapper';
 import { MemberService } from '../controllers/member.service';
 import { PhaseService } from '../controllers/phase.service';
 import { ProjectService } from '../controllers/project.service';
-import { RealizationProxyService } from '../controllers/realization-proxy.service';
 import { UseCaseService } from '../controllers/use-case.service';
 
 
@@ -44,8 +43,7 @@ import { UseCaseService } from '../controllers/use-case.service';
     UseCaseService,
     IterationService,
     PhaseService,
-    ActivityProxyService,
-    RealizationProxyService,
+    ActivityService,
     DtoModelMapper
   ],
   exports: [
