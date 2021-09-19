@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {ActivityProxyService} from '../../../../controllers/activity-proxy.service';
+import {ActivityService} from '../../../../controllers/activity.service';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 import {Activity} from '../../../../../logic/models/activity';
 import {NotAssignedCost} from '../../../../../logic/models/not-assigned-cost';
@@ -16,7 +16,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class AssignMemberDialogComponent implements OnInit {
 
-  constructor(private activityService: ActivityProxyService, private iterationProxyService: IterationService, private matDialog: MatDialog,
+  constructor(private activityService: ActivityService, private iterationProxyService: IterationService, private matDialog: MatDialog,
               @Inject(MAT_DIALOG_DATA) public data: { activity: Activity, notAssignedCost: NotAssignedCost, iteration: Iteration }, private formBuilder: FormBuilder) {
   }
 
@@ -33,8 +33,9 @@ export class AssignMemberDialogComponent implements OnInit {
   }
 
   assignActivity(): void {
-    this.activityService.assignActivity(this.data.activity,
+    this.activityService.assignActivity(
       {
+        activityId: this.data.activity.id,
         realizationId: this.selectedRealization,
         datetime: new Date(this.selectedHour)
       }).subscribe(() => this.matDialog.closeAll());

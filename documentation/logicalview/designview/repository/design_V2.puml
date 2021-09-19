@@ -23,38 +23,39 @@
                boundary XComponent <<TypeScript>>
             }
             control HTTPService
-            control XServiceImp <<TypeScript>>
-            entity XDaoImpl
+            control XAngularService <<TypeScript>>
+            control XViewModel
+            entity XRestRepository
         }
-
-
 
 
         entity XDao <<TypeScript>>
 
         rectangle logic {
-            control XService <<TypeScript>>
+            control XLogicService as "XController" <<TypeScript>>
             entity XModel
-            entity XTSDao as "XDao"
+            entity XTSDao as "XRepository"
         }
 
 
-        XComponent -down-> XServiceImp
+        XComponent -down-> XAngularService
+        XComponent -down-> XViewModel
         XComponent -right-> XModel
-        XServiceImp --|> XService
-        XDaoImpl ..|> XTSDao
-        XDaoImpl --> HTTPService
-        XServiceImp ..> XDaoImpl
-        XService ..> XTSDao
-        XService --> XModel
+        XRestRepository ..|> XTSDao
+        XRestRepository --> HTTPService
+        XAngularService ..> XRestRepository
+        XAngularService ..> XLogicService
+        XAngularService ..> XViewModel
+        XLogicService ..> XTSDao
+        XLogicService --> XModel
         XTSDao -down--> XModel
         XTemplate -down- XComponent
         XTemplate -right-> XStyle
     }
 
     package backend <<spring:5.3>> {
-        control XResource
-        control XBService
+        entity XResource
+        entity XBService
         entity XRepository
         entity XDto
         entity XBEntity
@@ -68,17 +69,13 @@
 
 
     XDao <.[#Gray].. XResource: <<trace>>
-    XDao <.[#Gray].. XBService : <<trace>>
 
-    XDao <.[#Gray].. XRepository: <<trace>>
 
-    XEntity <.[#Gray].. XDto : <<trace>>
     XEntity <.[#Gray].. XBEntity: <<trace>>
     XEntity <.[#Gray].. XModel: <<trace>>
 
-    XController <.[#Gray].. XService <<trace>>
-    XView <.[#Gray].. XComponent
-    XView <.[#Gray].. XStyle
-    XView <.[#Gray].. XTemplate
+    XController <.[#Gray].. XLogicService <<trace>>
+    XController <.[#Gray].. XAngularService <<trace>>
+    XView <.[#Gray]. XComponent
     XDao <.[#Gray].. XTSDao: <<trace>>
 @enduml

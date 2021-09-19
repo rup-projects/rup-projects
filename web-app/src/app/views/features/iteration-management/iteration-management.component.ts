@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Iteration} from '../../../../logic/models/iteration';
-import {ActivityProxyService} from '../../../controllers/activity-proxy.service';
+import {ActivityService} from '../../../controllers/activity.service';
 import {Activity} from '../../../../logic/models/activity';
 import {NotAssignedCost} from '../../../../logic/models/not-assigned-cost';
 import {IterationService} from '../../../controllers/iteration.service';
@@ -26,7 +26,7 @@ export class IterationManagementComponent implements OnInit {
   iteration: Iteration;
 
   constructor(private iterationService: IterationService, private membersService: MemberService,
-              private activityService: ActivityProxyService, private router: Router,
+              private activityService: ActivityService, private router: Router,
               private activatedRoute: ActivatedRoute, private matDialog: MatDialog) {
   }
 
@@ -106,7 +106,7 @@ export class IterationManagementComponent implements OnInit {
   }
 
   unAssignActivity(activity: Activity): void {
-    this.activityService.assignActivity(activity, {realizationId: null, datetime: null})
+    this.activityService.assignActivity({activityId: activity.id, realizationId: null, datetime: null})
       .subscribe(() => this.openIteration());
   }
 

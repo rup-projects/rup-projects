@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {ActivityProxyService} from '../../../../controllers/activity-proxy.service';
+import {ActivityService} from '../../../../controllers/activity.service';
 import {IterationService} from '../../../../controllers/iteration.service';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 import {Activity} from '../../../../../logic/models/activity';
@@ -14,7 +14,7 @@ import {Realization} from '../../../../../logic/models/realization';
 })
 export class ActivityDetailsDialogComponent implements OnInit {
 
-  constructor(private activityService: ActivityProxyService, private iterationProxyService: IterationService,
+  constructor(private activityService: ActivityService, private iterationProxyService: IterationService,
               private matDialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: { activityId: string, iterationId: string },
               private formBuilder: FormBuilder) {
   }
@@ -26,7 +26,7 @@ export class ActivityDetailsDialogComponent implements OnInit {
   selectedHour: Date;
 
   ngOnInit(): void {
-    this.activity$ = this.activityService.openActivity(this.data.activityId);
+    this.activity$ = this.activityService.openActivity(Number(this.data.activityId));
     this.realizations$ = this.iterationProxyService.getRealizations(Number(this.data.iterationId));
     this.formGroup = this.formBuilder.group({
       realizationId: [1, [Validators.required, Validators.min(1)]]
@@ -42,19 +42,18 @@ export class ActivityDetailsDialogComponent implements OnInit {
   assignActivity(activity: Activity): void {
     const activityMember = {
       realizationId: this.selectedRealization,
-      datetime: new Date(this.selectedHour)
+      datetime: new Date(this.selectedHour),
+      activityId: activity.id
     };
-    this.activityService.assignActivity(
-      activity,
-      activityMember
-      ).subscribe(() => this.matDialog.closeAll());
+    this.activityService.assignActivity(activityMember).subscribe(() => this.matDialog.closeAll());
   }
 
   assignActivityToNotAssignedCost(activity: Activity): void {
     const activityMember = {
+      activityId: activity.id,
       realizationId: null,
       datetime: null
     };
-    this.activityService.assignActivity(activity, activityMember).subscribe(() => this.matDialog.closeAll());
+    this.activityService.assignActivity(activityMember).subscribe(() => this.matDialog.closeAll());
   }
 }
