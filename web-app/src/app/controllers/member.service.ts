@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
+import { ReadableViewModel } from '../../commons/services/types/readable-view-model';
 import { CreateMemberController } from '../../logic/controllers/create-member.controller';
 import { DeleteMemberController } from '../../logic/controllers/delete-member.controller';
 import { OpenMemberController } from '../../logic/controllers/open-member.controller';
@@ -7,16 +8,23 @@ import { OpenMembersController } from '../../logic/controllers/open-members.cont
 import { UpdateMemberController } from '../../logic/controllers/update-member.controller';
 import { Member } from '../../logic/models/member';
 import { MemberRepositoryImplService } from '../infrastructure/member-repository-impl.service';
+import { MembersViewModel } from './view-models/members.view-model';
 
 @Injectable()
 export class MemberService {
 
-  constructor(private memberRepository: MemberRepositoryImplService) {
+  constructor(private memberRepository: MemberRepositoryImplService,
+              private membersViewModel: MembersViewModel) {
   }
 
-  openMembers(): Observable<Member[]> {
+  getViewModel(): ReadableViewModel<Member[]> {
+    return this.membersViewModel;
+  }
+
+  async openMembers(): Promise<void> {
     const command = new OpenMembersController(this.memberRepository);
-    return from(command.execute());
+    const result = await command.execute();
+    this.membersViewModel.setValue(result);
   }
 
   openMember(id: number): Observable<Member> {
