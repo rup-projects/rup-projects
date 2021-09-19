@@ -22,15 +22,13 @@ export class UseCaseDialogComponent {
   }
 
   create(): void {
-    this.useCaseService
-      .createUseCase(this.useCase)
-      .subscribe(() => this.marDialog.closeAll());
+    this.useCaseService.createUseCase(this.useCase)
+    .then(() => this.marDialog.closeAll());
   }
 
   update(): void {
-    this.useCaseService
-      .updateUseCase(this.useCase)
-      .subscribe(() => this.marDialog.closeAll());
+    this.useCaseService.updateUseCase(this.useCase)
+    .then(() => this.marDialog.closeAll());
   }
 
   invalid(): boolean {

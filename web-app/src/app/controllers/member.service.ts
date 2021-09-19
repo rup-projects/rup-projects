@@ -9,12 +9,14 @@ import { UpdateMemberController } from '../../logic/controllers/update-member.co
 import { Member } from '../../logic/models/member';
 import { MemberRepositoryImplService } from '../infrastructure/member-repository-impl.service';
 import { MembersViewModel } from './view-models/members.view-model';
+import {MemberViewModel} from './view-models/member.view-model';
 
 @Injectable()
 export class MemberService {
 
   constructor(private memberRepository: MemberRepositoryImplService,
-              private membersViewModel: MembersViewModel) {
+              private membersViewModel: MembersViewModel,
+              private memberViewModel: MemberViewModel) {
   }
 
   getViewModel(): ReadableViewModel<Member[]> {
@@ -27,9 +29,10 @@ export class MemberService {
     this.membersViewModel.setValue(result);
   }
 
-  openMember(id: number): Observable<Member> {
+  async openMember(id: number): Promise<void> {
     const command = new OpenMemberController(this.memberRepository);
-    return from(command.execute(id));
+    const result = await command.execute(id);
+    this.memberViewModel.setValue(result);
   }
 
   createMember(member: Member): Observable<void> {
