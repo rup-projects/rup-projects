@@ -24,7 +24,7 @@ import { ProjectViewModel } from '../../../controllers/view-models/project.view-
   providers: [
     ProjectRepositoryImpl,
     ProjectViewModel,
-    ProjectService,
+    ProjectService
   ]
 
 })

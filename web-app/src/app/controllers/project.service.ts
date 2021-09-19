@@ -1,22 +1,21 @@
-import { Inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { ReadableViewModel } from '../../commons/services/types/readable-view-model';
+import { DeleteProjectController } from '../../logic/controllers/delete-project.controller';
+import { PlanProjectController } from '../../logic/controllers/plan-project.controller';
 import { StartSystemController } from '../../logic/controllers/start-system.controller';
 import { PlanProjectDto } from '../../logic/models/planProjectDto';
-import { PlanProjectController } from '../../logic/controllers/plan-project.controller';
-import { DeleteProjectController } from '../../logic/controllers/delete-project.controller';
+import { Project } from '../../logic/models/project';
 import { ProjectRepositoryImpl } from '../infrastructure/project-repository-impl.service';
 import { ProjectViewModel } from './view-models/project.view-model';
-import { Project } from '../../logic/models/project';
-import { ReadableViewModel } from '../../commons/services/types/readable-view-model';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class ProjectService {
 
   constructor(
     private repository: ProjectRepositoryImpl,
     private projectViewModel: ProjectViewModel
-    ) {}
+  ) {
+  }
 
   public getViewModel(): ReadableViewModel<Project> {
     return this.projectViewModel;

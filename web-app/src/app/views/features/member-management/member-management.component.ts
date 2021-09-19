@@ -19,6 +19,7 @@ export class MemberManagementComponent {
 
   constructor(private memberService: MemberService,
               private matDialog: MatDialog) {
+    this.members = this.memberService.getViewModel().getStateValue();
     this.openMembers();
   }
 
@@ -30,7 +31,7 @@ export class MemberManagementComponent {
   }
 
   private openMembers(): void {
-    this.members = this.memberService.openMembers();
+    this.memberService.openMembers();
   }
 
   openMember(member: Member): void {
