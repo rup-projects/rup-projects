@@ -7,7 +7,6 @@ import { ViewModelValueStore } from '../../../commons/services/types/view-model-
 export class ProjectViewModel extends AbstractViewModelStorage<Project> {
 
   public getInitialValue(): ViewModelValueStore<Project> {
-    console.log('hola');
     return  { value: null };
   }
 

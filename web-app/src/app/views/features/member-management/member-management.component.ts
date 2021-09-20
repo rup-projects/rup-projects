@@ -5,6 +5,7 @@ import { ReadDetailDialogComponent } from '../../../../commons/components/dialog
 import { Member } from '../../../../logic/models/member';
 import { MemberService } from '../../../controllers/member.service';
 import { MemberDialogComponent } from './member-dialog/member-dialog.component';
+import {MemberViewModel} from '../../../controllers/view-models/member.view-model';
 
 @Component({
   selector: 'app-member-management',
@@ -18,7 +19,9 @@ export class MemberManagementComponent {
   title: 'Members';
 
   constructor(private memberService: MemberService,
-              private matDialog: MatDialog) {
+              private matDialog: MatDialog,
+              private memberViewModel: MemberViewModel) {
+    this.members = this.memberService.getViewModel().getStateValue();
     this.openMembers();
   }
 
@@ -30,14 +33,15 @@ export class MemberManagementComponent {
   }
 
   private openMembers(): void {
-    this.members = this.memberService.openMembers();
+    this.memberService.openMembers();
   }
 
   openMember(member: Member): void {
+    this.memberService.openMember(member.id);
     this.matDialog.open(ReadDetailDialogComponent, {
       data: {
         title: 'Member Details',
-        object: this.memberService.openMember(member.id)
+        object: this.memberViewModel.getStateValue()
       }
     });
   }
