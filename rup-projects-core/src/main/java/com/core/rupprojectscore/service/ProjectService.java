@@ -3,13 +3,15 @@ package com.core.rupprojectscore.service;
 import com.core.rupprojectscore.dto.PlanProjectDto;
 import com.core.rupprojectscore.dto.ProjectDto;
 
-import java.util.Optional;
+import java.util.List;
 
 public interface ProjectService {
 
-    ProjectDto planProject(PlanProjectDto dto);
+    List<ProjectDto> openProjects();
 
-    ProjectDto startSystem();
+    ProjectDto prePlanProject(PlanProjectDto dto);
+
+    ProjectDto planProject(PlanProjectDto dto);
 
     void deleteProject();
 }

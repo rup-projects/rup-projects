@@ -1,12 +1,14 @@
 import { Controller } from '../../commons/services/types/controller';
 import { ProjectRepository } from '../repositories/project.repository';
+import {Project} from '../models/project';
 
-export class StartSystemController implements Controller<null, void> {
+export class StartSystemController implements Controller<null, Project> {
 
   constructor(private repository: ProjectRepository) {
   }
 
-  async execute(): Promise<void> {
-    const result = await this.repository.getAll();
+  async execute(): Promise<Project> {
+    const projects = await this.repository.getAll();
+    return projects[0];
   }
 }

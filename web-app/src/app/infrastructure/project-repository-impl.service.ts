@@ -16,6 +16,10 @@ export class ProjectRepositoryImpl implements ProjectRepository {
   constructor(private httpService: HttpService) {
   }
 
+  getPlanned(planProjectDto: PlanProjectDto): Promise<Project> {
+    return this.httpService.post(`${resourceServer}/${this.RESOURCE}/planned`, planProjectDto).toPromise();
+  }
+
   create(project: PlanProjectDto): Promise<Project> {
     const httpResult = this.httpService.post(`${resourceServer}/${this.RESOURCE}`, project);
     return httpResult.toPromise();
@@ -26,8 +30,8 @@ export class ProjectRepositoryImpl implements ProjectRepository {
     return httpResult.toPromise();
   }
 
-  getAll(): Promise<Project> {
-    const httpResult: Observable<Project> = this.httpService.get(`${resourceServer}/${this.RESOURCE}/opened`);
+  getAll(): Promise<Project[]> {
+    const httpResult = this.httpService.get(`${resourceServer}/${this.RESOURCE}`);
     return httpResult.toPromise();
   }
 

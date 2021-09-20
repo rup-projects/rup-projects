@@ -9,6 +9,10 @@ export class PlanProjectController implements Controller<PlanProjectDto, Project
   }
 
   async execute(param: PlanProjectDto): Promise<Project> {
+    const existentProjects = await this.repository.getAll();
+    if (existentProjects.length > 0) {
+      await this.repository.delete(existentProjects[0].id.toString());
+    }
     const result = await this.repository.create(param);
     return result;
   }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -22,14 +23,19 @@ public class ProjectResource {
 
     private final ProjectService service;
 
-    @GetMapping("/opened")
-    public ProjectDto startSystem() {
-        return this.service.startSystem();
+    @GetMapping
+    public List<ProjectDto> openProjects() {
+        return this.service.openProjects();
     }
 
     @PostMapping
     public ProjectDto planProject(final @Valid @RequestBody PlanProjectDto dto) {
         return this.service.planProject(dto);
+    }
+
+    @PostMapping("/planned")
+    public ProjectDto prePlanProject(@Valid @RequestBody PlanProjectDto dto) {
+        return this.service.prePlanProject(dto);
     }
 
     @DeleteMapping()
