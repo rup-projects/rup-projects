@@ -26,12 +26,7 @@ export class InitProjectComponent implements OnInit {
   }
 
   async planProject(): Promise<void> {
-    if (this.project$ !== null) {
-      await this.projectService.deleteProject();
-      await this.router.navigateByUrl('init-project/new');
-    } else {
-      this.router.navigateByUrl('init-project/new').then();
-    }
+    this.router.navigateByUrl('init-project/new').then();
   }
 
   openProject(): void {

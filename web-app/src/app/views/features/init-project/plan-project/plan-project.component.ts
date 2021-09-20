@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatStepper } from '@angular/material/stepper';
-import { Router } from '@angular/router';
-import { from, Observable } from 'rxjs';
-import { Phase } from '../../../../../logic/models/phase';
-import { PlanProjectDto } from '../../../../../logic/models/planProjectDto';
-import { Project } from '../../../../../logic/models/project';
-import { ProjectService } from '../../../../controllers/project.service';
-import { ProjectDateValidator } from './project-date.validator';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MatStepper} from '@angular/material/stepper';
+import {Router} from '@angular/router';
+import {from, Observable} from 'rxjs';
+import {Phase} from '../../../../../logic/models/phase';
+import {PlanProjectDto} from '../../../../../logic/models/planProjectDto';
+import {Project} from '../../../../../logic/models/project';
+import {ProjectService} from '../../../../controllers/project.service';
+import {ProjectDateValidator} from './project-date.validator';
 
 @Component({
   selector: 'app-plan-project',
@@ -57,33 +57,30 @@ export class PlanProjectComponent implements OnInit {
 
   public async refreshProject(): Promise<void> {
     const planProjectDto: PlanProjectDto = {
-      ...this.project,
+      ...this.basicInfoFormGroup.getRawValue(),
       numberOfIterations: this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number
     };
-    await this.projectService.planProject(planProjectDto);
+    await this.projectService.prePlanProject(planProjectDto);
   }
 
   public async toIterationsSizeStep(stepper: MatStepper): Promise<void> {
-    await this.planProject();
+    await this.projectService.prePlanProject(this.basicInfoFormGroup.getRawValue());
     stepper.next();
   }
 
-  backToBasicInfoStep(stepper: MatStepper): void {
-    from(this.projectService.deleteProject()).subscribe(() => stepper.previous());
+  public backToBasicInfoStep(stepper: MatStepper): void {
+    stepper.previous();
   }
 
   async cancel(): Promise<void> {
-    await this.projectService.deleteProject();
     await this.router.navigateByUrl('/');
   }
 
   async save(): Promise<void> {
-    // TODO: Update itertionsize
-    // this.project.numberOfIterations = this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number;
-    await this.router.navigateByUrl('/project-management');
-  }
-
-  private async planProject(): Promise<void> {
-    await this.projectService.planProject(this.basicInfoFormGroup.getRawValue());
+    const planProjectDto: PlanProjectDto = {
+      ...this.basicInfoFormGroup.getRawValue(),
+      numberOfIterations: this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number
+    };
+    await this.projectService.planProject(planProjectDto).then( () => this.router.navigateByUrl('/project-management') );
   }
 }
