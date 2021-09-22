@@ -8,6 +8,7 @@ import {Iteration} from '../../../../../logic/models/iteration';
 import {Realization} from '../../../../../logic/models/realization';
 import {IterationService} from '../../../../controllers/iteration.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {RealizationsViewModel} from '../../../../controllers/view-models/realizations-view-model.service';
 
 @Component({
   selector: 'app-assign-member-dialog',
@@ -17,6 +18,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class AssignMemberDialogComponent implements OnInit {
 
   constructor(private activityService: ActivityService, private iterationProxyService: IterationService, private matDialog: MatDialog,
+              private realizationsViewModel: RealizationsViewModel,
               @Inject(MAT_DIALOG_DATA) public data: { activity: Activity, notAssignedCost: NotAssignedCost, iteration: Iteration }, private formBuilder: FormBuilder) {
   }
 
@@ -26,7 +28,8 @@ export class AssignMemberDialogComponent implements OnInit {
   formGroup: FormGroup;
 
   ngOnInit(): void {
-    this.realizations$ = this.iterationProxyService.getRealizations(this.data.iteration.id);
+    this.realizations$ = this.realizationsViewModel.getStateValue();
+    this.iterationProxyService.getRealizations(this.data.iteration.id);
     this.formGroup = this.formBuilder.group({
       realizationId: [1, [Validators.required, Validators.min(1), Validators.max(this.data.notAssignedCost.hours)]]
     });

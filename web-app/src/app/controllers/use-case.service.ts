@@ -13,18 +13,18 @@ import {UseCasesViewModel} from './view-models/use-cases.view-model';
 export class UseCaseService {
 
   constructor(private useCaseRepository: UseCaseRepositoryImplService,
-              private useCaseViewMode: UseCaseViewModel,
-              private useCasesViewMode: UseCasesViewModel) {
+              private useCaseViewModel: UseCaseViewModel,
+              private useCasesViewModel: UseCasesViewModel) {
   }
 
   async openUseCases(): Promise<void> {
     const result = await new OpenUseCasesController(this.useCaseRepository).execute();
-    this.useCasesViewMode.setValue(result);
+    this.useCasesViewModel.setValue(result);
   }
 
   async openUseCase(id: number): Promise<void> {
     const result = await new OpenUseCaseController(this.useCaseRepository).execute(id);
-    this.useCaseViewMode.setValue(result);
+    this.useCaseViewModel.setValue(result);
   }
 
   async createUseCase(useCase: UseCase): Promise<void> {

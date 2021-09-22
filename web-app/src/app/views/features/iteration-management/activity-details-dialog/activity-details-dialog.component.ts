@@ -6,6 +6,7 @@ import {Activity} from '../../../../../logic/models/activity';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {Realization} from '../../../../../logic/models/realization';
+import {RealizationsViewModel} from '../../../../controllers/view-models/realizations-view-model.service';
 
 @Component({
   selector: 'app-activity-details-dialog',
@@ -16,7 +17,7 @@ export class ActivityDetailsDialogComponent implements OnInit {
 
   constructor(private activityService: ActivityService, private iterationProxyService: IterationService,
               private matDialog: MatDialog, @Inject(MAT_DIALOG_DATA) public data: { activityId: string, iterationId: string },
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder, private realizationsViewModel: RealizationsViewModel) {
   }
 
   activity$: Observable<Activity>;
@@ -27,7 +28,8 @@ export class ActivityDetailsDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.activity$ = this.activityService.openActivity(Number(this.data.activityId));
-    this.realizations$ = this.iterationProxyService.getRealizations(Number(this.data.iterationId));
+    this.realizations$ = this.realizationsViewModel.getStateValue();
+    this.iterationProxyService.getRealizations(Number(this.data.iterationId));
     this.formGroup = this.formBuilder.group({
       realizationId: [1, [Validators.required, Validators.min(1)]]
     });

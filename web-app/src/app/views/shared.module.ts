@@ -21,6 +21,8 @@ import {MembersViewModel} from '../controllers/view-models/members.view-model';
 import {MemberViewModel} from '../controllers/view-models/member.view-model';
 import {IterationsViewModel} from '../controllers/view-models/iterations-view-model.service';
 import {PhasesViewModel} from '../controllers/view-models/phases-view-model.service';
+import {IterationViewModel} from '../controllers/view-models/iteration-view-model.service';
+import {RealizationsViewModel} from '../controllers/view-models/realizations-view-model.service';
 
 
 @NgModule({
@@ -52,6 +54,8 @@ import {PhasesViewModel} from '../controllers/view-models/phases-view-model.serv
     MembersViewModel,
     MemberViewModel,
     IterationsViewModel,
+    IterationViewModel,
+    RealizationsViewModel,
     PhasesViewModel
   ],
   exports: [
