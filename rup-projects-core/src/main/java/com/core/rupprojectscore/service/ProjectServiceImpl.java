@@ -21,7 +21,6 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public List<ProjectDto> openProjects() {
     return repository.findAll().stream().map(ProjectDto::modelToDto).collect(Collectors.toList());
-
     }
 
     @Override

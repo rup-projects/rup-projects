@@ -5,6 +5,9 @@ import {ProjectManagementRoutingModule} from './project-management-routing.modul
 import {ProjectManagementComponent} from './project-management.component';
 import {PhaseManagementComponent} from './phase-management/phase-management.component';
 import {SharedModule} from '../../shared.module';
+import {PhasesViewModel} from '../../../controllers/view-models/phases-view-model.service';
+import {IterationsViewModel} from '../../../controllers/view-models/iterations-view-model.service';
+
 
 
 @NgModule({
@@ -13,7 +16,8 @@ import {SharedModule} from '../../shared.module';
     CommonModule,
     ProjectManagementRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [PhasesViewModel, IterationsViewModel]
 })
 export class ProjectManagementModule {
 }
