@@ -11,7 +11,7 @@ import {ReestimateHoursDialogComponent} from './reestimate-hours-dialog/reestima
 import {AssignMemberDialogComponent} from './assign-member-dialog/assign-member-dialog.component';
 import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
 import {ActivityDetailsDialogComponent} from './activity-details-dialog/activity-details-dialog.component';
-import {IterationViewModel} from '../../../controllers/view-models/iteration-view-model.service';
+import {IterationViewModel} from '../../../controllers/view-models/iteration-view-model';
 
 
 @Component({

@@ -3,7 +3,7 @@ import {Phase} from '../../../../logic/models/phase';
 import {PhaseService} from '../../../controllers/phase.service';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
-import {PhasesViewModel} from '../../../controllers/view-models/phases-view-model.service';
+import {PhasesViewModel} from '../../../controllers/view-models/phases-view-model';
 
 @Component({
   selector: 'app-project-management',

@@ -5,8 +5,8 @@ import {IterationRepositoryImplService} from '../infrastructure/iteration-reposi
 import {OpenIterationController} from '../../logic/controllers/open-iteration.controller';
 import {UpdateIterationController} from '../../logic/controllers/update-iteration.controller';
 import {OpenRealizationByIterationController} from '../../logic/controllers/open-realization-by-iteration.controller';
-import {IterationViewModel} from './view-models/iteration-view-model.service';
-import {RealizationsViewModel} from './view-models/realizations-view-model.service';
+import {IterationViewModel} from './view-models/iteration-view-model';
+import {RealizationsViewModel} from './view-models/realizations-view-model';
 
 @Injectable()
 export class IterationService {

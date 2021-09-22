@@ -10,11 +10,12 @@ import {MergeActivityController} from '../../logic/controllers/merge-activity.co
 import {ReEstimateActivityController} from '../../logic/controllers/re-estimate-activity.controller';
 import {OpenActivityController} from '../../logic/controllers/openActivityController';
 import {AssignActivityController} from '../../logic/controllers/assign-activity-controller';
+import {ActivityViewModel} from './view-models/activity-view-model';
 
 @Injectable()
 export class ActivityService {
 
-  constructor(private repository: ActivityRepositoryImplService) {
+  constructor(private repository: ActivityRepositoryImplService, private activityViewModel: ActivityViewModel) {
   }
 
   openActivity(activityId: number): Observable<Activity> {

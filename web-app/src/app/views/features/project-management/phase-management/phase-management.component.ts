@@ -5,7 +5,7 @@ import {PhaseService} from '../../../../controllers/phase.service';
 import {IterationService} from '../../../../controllers/iteration.service';
 import {MemberService} from '../../../../controllers/member.service';
 import {Observable} from 'rxjs';
-import {IterationsViewModel} from '../../../../controllers/view-models/iterations-view-model.service';
+import {IterationsViewModel} from '../../../../controllers/view-models/iterations-view-model';
 
 @Component({
   selector: 'app-phase-management',

@@ -8,7 +8,7 @@ import {Iteration} from '../../../../../logic/models/iteration';
 import {Realization} from '../../../../../logic/models/realization';
 import {IterationService} from '../../../../controllers/iteration.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {RealizationsViewModel} from '../../../../controllers/view-models/realizations-view-model.service';
+import {RealizationsViewModel} from '../../../../controllers/view-models/realizations-view-model';
 
 @Component({
   selector: 'app-assign-member-dialog',

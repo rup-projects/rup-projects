@@ -6,7 +6,7 @@ import {Activity} from '../../../../../logic/models/activity';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {Realization} from '../../../../../logic/models/realization';
-import {RealizationsViewModel} from '../../../../controllers/view-models/realizations-view-model.service';
+import {RealizationsViewModel} from '../../../../controllers/view-models/realizations-view-model';
 
 @Component({
   selector: 'app-activity-details-dialog',

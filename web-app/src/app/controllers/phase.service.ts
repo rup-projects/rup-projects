@@ -2,8 +2,8 @@ import {Injectable} from '@angular/core';
 import {OpenPhasesController} from '../../logic/controllers/open-phases.controller';
 import {OpenIterationsByPhaseController} from '../../logic/controllers/open-iterations-by-phase.controller';
 import {PhaseRepositoryImplService} from '../infrastructure/phase-repository-impl.service';
-import {PhasesViewModel} from './view-models/phases-view-model.service';
-import {IterationsViewModel} from './view-models/iterations-view-model.service';
+import {PhasesViewModel} from './view-models/phases-view-model';
+import {IterationsViewModel} from './view-models/iterations-view-model';
 
 @Injectable()
 export class PhaseService {
