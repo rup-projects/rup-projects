@@ -5,6 +5,7 @@ import {PhaseService} from '../../../../controllers/phase.service';
 import {IterationService} from '../../../../controllers/iteration.service';
 import {MemberService} from '../../../../controllers/member.service';
 import {Observable} from 'rxjs';
+import {IterationsViewModel} from '../../../../controllers/view-models/iterations-view-model.service';
 
 @Component({
   selector: 'app-phase-management',
@@ -18,13 +19,14 @@ export class PhaseManagementComponent implements OnInit {
   columnsToDisplay: string[] = this.displayedColumns.slice();
 
   constructor(private phaseService: PhaseService, private iterationService: IterationService, private membersService: MemberService,
-              private router: Router, private activatedRoute: ActivatedRoute,
+              private router: Router, private activatedRoute: ActivatedRoute, private iterationsViewModel: IterationsViewModel
   ) {
   }
 
   ngOnInit(): void {
     const phaseId = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.iterations$ = this.phaseService.openIterations(phaseId);
+    this.phaseService.openIterations(phaseId);
+    this.iterations$ = this.iterationsViewModel.getStateValue();
   }
 
   openIteration(iteration: Iteration): void {
