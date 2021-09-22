@@ -19,8 +19,11 @@ import { ProjectService } from '../controllers/project.service';
 import { UseCaseService } from '../controllers/use-case.service';
 import {MembersViewModel} from '../controllers/view-models/members.view-model';
 import {MemberViewModel} from '../controllers/view-models/member.view-model';
-import {IterationsViewModel} from '../controllers/view-models/iterations-view-model.service';
-import {PhasesViewModel} from '../controllers/view-models/phases-view-model.service';
+import {IterationsViewModel} from '../controllers/view-models/iterations-view-model';
+import {PhasesViewModel} from '../controllers/view-models/phases-view-model';
+import {IterationViewModel} from '../controllers/view-models/iteration-view-model';
+import {RealizationsViewModel} from '../controllers/view-models/realizations-view-model';
+import {ActivityViewModel} from '../controllers/view-models/activity-view-model';
 
 
 @NgModule({
@@ -52,7 +55,10 @@ import {PhasesViewModel} from '../controllers/view-models/phases-view-model.serv
     MembersViewModel,
     MemberViewModel,
     IterationsViewModel,
-    PhasesViewModel
+    IterationViewModel,
+    RealizationsViewModel,
+    PhasesViewModel,
+    ActivityViewModel
   ],
   exports: [
     CancelYesDialogComponent,

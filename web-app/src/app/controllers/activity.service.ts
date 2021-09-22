@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Activity} from '../../logic/models/activity';
-import {from, Observable} from 'rxjs';
 import {NotAssignedCost} from '../../logic/models/not-assigned-cost';
 import {ActivityHours} from '../../logic/models/activity-hours';
 import {ActivityMember} from '../../logic/models/activity-member';
@@ -10,38 +9,39 @@ import {MergeActivityController} from '../../logic/controllers/merge-activity.co
 import {ReEstimateActivityController} from '../../logic/controllers/re-estimate-activity.controller';
 import {OpenActivityController} from '../../logic/controllers/openActivityController';
 import {AssignActivityController} from '../../logic/controllers/assign-activity-controller';
+import {ActivityViewModel} from './view-models/activity-view-model';
 
 @Injectable()
 export class ActivityService {
 
-  constructor(private repository: ActivityRepositoryImplService) {
+  constructor(private repository: ActivityRepositoryImplService, private activityViewModel: ActivityViewModel) {
   }
 
-  openActivity(activityId: number): Observable<Activity> {
+  async openActivity(activityId: number): Promise<void> {
     const command = new OpenActivityController(this.repository);
-    return from(command.execute(activityId));
+    const result = await command.execute(activityId);
+    this.activityViewModel.setValue(result);
   }
 
-  splitActivity(notAssignedCost: NotAssignedCost): Observable<void> {
+  async splitActivity(notAssignedCost: NotAssignedCost): Promise<void> {
     const command = new SplitActivityController(this.repository);
-    return from(command.execute(notAssignedCost));
+    await command.execute(notAssignedCost);
   }
 
-  mergeActivity(activity: Activity): Observable<void> {
+  async mergeActivity(activity: Activity): Promise<void> {
     const command = new MergeActivityController(this.repository);
-    return from(command.execute(activity));
+    await command.execute(activity);
   }
 
-
-  reEstimateActivity(id: number, activityHours: ActivityHours): Observable<void> {
+  async reEstimateActivity(id: number, activityHours: ActivityHours): Promise<void> {
     const command = new ReEstimateActivityController(this.repository);
     activityHours.activityId = id;
-    return from(command.execute(activityHours));
+    await command.execute(activityHours);
   }
 
-  assignActivity(activityMember: ActivityMember): Observable<void> {
+  async assignActivity(activityMember: ActivityMember): Promise<void> {
     const command = new AssignActivityController(this.repository);
-    return from(command.execute(activityMember));
+    await command.execute(activityMember);
   }
 
 }

@@ -26,8 +26,8 @@ export class ReestimateHoursDialogComponent implements OnInit {
     });
   }
 
-  reestimate(): void {
+  reEstimate(): void {
     this.activityService.reEstimateActivity(this.data.activity.id, this.formGroup.getRawValue())
-      .subscribe(() => this.matDialog.closeAll());
+      .then(() => this.matDialog.closeAll());
   }
 }

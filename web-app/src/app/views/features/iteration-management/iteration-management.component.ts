@@ -11,6 +11,7 @@ import {ReestimateHoursDialogComponent} from './reestimate-hours-dialog/reestima
 import {AssignMemberDialogComponent} from './assign-member-dialog/assign-member-dialog.component';
 import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
 import {ActivityDetailsDialogComponent} from './activity-details-dialog/activity-details-dialog.component';
+import {IterationViewModel} from '../../../controllers/view-models/iteration-view-model';
 
 
 @Component({
@@ -27,7 +28,8 @@ export class IterationManagementComponent implements OnInit {
 
   constructor(private iterationService: IterationService, private membersService: MemberService,
               private activityService: ActivityService, private router: Router,
-              private activatedRoute: ActivatedRoute, private matDialog: MatDialog) {
+              private activatedRoute: ActivatedRoute, private matDialog: MatDialog,
+              private iterationViewModel: IterationViewModel) {
   }
 
 
@@ -44,10 +46,11 @@ export class IterationManagementComponent implements OnInit {
   openIteration(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.iterationService.openIteration(id)
-      .subscribe(iteration => {
-        this.iteration = iteration;
-        this.initCalendar(iteration);
-      });
+      .then( () => this.iterationViewModel.getStateValue()
+        .subscribe(iteration => {
+          this.iteration = iteration;
+          this.initCalendar(iteration);
+        }));
   }
 
   private initCalendar(i: Iteration): void {
@@ -80,11 +83,11 @@ export class IterationManagementComponent implements OnInit {
   }
 
   splitActivity(notAssignedCost: NotAssignedCost): void {
-    this.activityService.splitActivity(notAssignedCost).subscribe(() => this.openIteration());
+    this.activityService.splitActivity(notAssignedCost).then(() => this.openIteration());
   }
 
   mergeActivity(notAssignedActivity: Activity): void {
-    this.activityService.mergeActivity(notAssignedActivity).subscribe(() => this.openIteration());
+    this.activityService.mergeActivity(notAssignedActivity).then(() => this.openIteration());
   }
 
   reestimateActivity(activity: Activity, notAssignedCost: NotAssignedCost): void {
@@ -107,7 +110,7 @@ export class IterationManagementComponent implements OnInit {
 
   unAssignActivity(activity: Activity): void {
     this.activityService.assignActivity({activityId: activity.id, realizationId: null, datetime: null})
-      .subscribe(() => this.openIteration());
+      .then(() => this.openIteration());
   }
 
 
