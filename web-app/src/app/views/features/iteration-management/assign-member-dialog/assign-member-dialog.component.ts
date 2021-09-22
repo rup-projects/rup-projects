@@ -41,7 +41,7 @@ export class AssignMemberDialogComponent implements OnInit {
         activityId: this.data.activity.id,
         realizationId: this.selectedRealization,
         datetime: new Date(this.selectedHour)
-      }).subscribe(() => this.matDialog.closeAll());
+      }).then(() => this.matDialog.closeAll());
   }
 
 

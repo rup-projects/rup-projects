@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatStepper} from '@angular/material/stepper';
 import {Router} from '@angular/router';
-import {from, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Phase} from '../../../../../logic/models/phase';
 import {PlanProjectDto} from '../../../../../logic/models/planProjectDto';
 import {Project} from '../../../../../logic/models/project';
