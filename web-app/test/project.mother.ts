@@ -1,9 +1,8 @@
-import {PlanProject} from '../src/logic/models/planProject';
-import {Project} from '../src/logic/models/project';
+import {Project, ProjectRequest} from '../src/logic/models/project';
 
 export class ProjectMother {
 
-  static planProjectRequest(): PlanProject {
+  static planProjectRequest(): ProjectRequest {
     return {startDate: new Date(2021, 1, 1), endDate: new Date(2021, 12, 31), numberOfIterations: 20, cost: 1000};
   }
 

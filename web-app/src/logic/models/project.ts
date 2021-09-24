@@ -1,17 +1,16 @@
 import {Phase} from './phase';
 import {Id} from '../../commons/model/id';
 
-export class Project {
+export interface Project {
 
-  constructor(
-    public id: Id,
-    public startDate: Date,
-    public endDate: Date,
-    public cost: number,
-    public phases: Phase[],
-    public iterationSize: number,
-    public numberOfIterations: number,
-  ) {
-  }
+  id: Id;
+  startDate: Date;
+  endDate: Date;
+  cost: number;
+  phases: Phase[];
+  iterationSize: number;
+  numberOfIterations: number;
 
 }
+
+export type ProjectRequest = Pick<Project, 'startDate' | 'endDate' | 'cost' | 'numberOfIterations'>;
