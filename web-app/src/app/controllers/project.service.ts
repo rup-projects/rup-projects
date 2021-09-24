@@ -1,13 +1,13 @@
 import {Injectable} from '@angular/core';
 import {ReadableViewModel} from '../../commons/services/types/readable-view-model';
 import {DeleteProjectController} from '../../logic/controllers/delete-project.controller';
-import {PlanProjectController} from '../../logic/controllers/plan-project.controller';
 import {StartSystemController} from '../../logic/controllers/start-system.controller';
-import {PlanProjectDto} from '../../logic/models/planProjectDto';
+import {PlanProject} from '../../logic/models/planProject';
 import {Project} from '../../logic/models/project';
 import {ProjectRepositoryImpl} from '../infrastructure/project-repository-impl.service';
 import {ProjectViewModel} from './view-models/project.view-model';
 import {PrePlanProjectController} from '../../logic/controllers/pre-plan-project.controller';
+import {PlanProjectController} from '../../logic/controllers/plan-project.controller';
 
 @Injectable()
 export class ProjectService {
@@ -29,14 +29,14 @@ export class ProjectService {
     }
   }
 
-  public async prePlanProject(planProjectDto: PlanProjectDto): Promise<void> {
-    const project = await new PrePlanProjectController(this.repository).execute(planProjectDto);
+  public async prePlanProject(planProject: PlanProject): Promise<void> {
+    const project = await new PrePlanProjectController(this.repository).execute(planProject);
     this.projectViewModel.setValue(project);
   }
 
-  public async planProject(planProjectDto: PlanProjectDto): Promise<void> {
+  public async planProject(planProject: PlanProject): Promise<void> {
     const controller = new PlanProjectController(this.repository);
-    const projectPlaned = await controller.execute(planProjectDto);
+    const projectPlaned = await controller.execute(planProject);
     this.projectViewModel.setValue(projectPlaned);
   }
 
