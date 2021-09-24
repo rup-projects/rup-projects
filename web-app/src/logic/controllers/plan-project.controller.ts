@@ -1,14 +1,13 @@
 import { Controller } from '../../commons/services/types/controller';
-import { Project } from '../models/project';
+import {Project, ProjectRequest} from '../models/project';
 import { ProjectRepository } from '../repositories/project.repository';
-import {PlanProject} from '../models/planProject';
 
-export class PlanProjectController implements Controller<PlanProject, Project> {
+export class PlanProjectController implements Controller<ProjectRequest, Project> {
 
   constructor(private repository: ProjectRepository) {
   }
 
-  async execute(param: PlanProject): Promise<Project> {
+  async execute(param: ProjectRequest): Promise<Project> {
     const existentProjects = await this.repository.getAll();
     if (existentProjects.length > 0) {
       await this.repository.delete(existentProjects[0].id.toString());

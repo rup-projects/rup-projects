@@ -1,10 +1,9 @@
 import {GetAllDao, CreateDao, DeleteOneDao} from '../../commons/services/base.dao';
-import {PlanProject} from '../models/planProject';
-import {Project} from '../models/project';
+import {Project, ProjectRequest} from '../models/project';
 
-export interface ProjectRepository extends GetAllDao<Project[]>, CreateDao<PlanProject, Project>, DeleteOneDao<string, any> {
+export interface ProjectRepository extends GetAllDao<Project[]>, CreateDao<ProjectRequest, Project>, DeleteOneDao<string, any> {
 
-  getPlanned(planProject: PlanProject): Promise<Project>;
+  getPlanned(planProject: ProjectRequest): Promise<Project>;
 
 }
 

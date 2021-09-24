@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpService } from '../../commons/services/http.service';
 import { resourceServer } from '../../environments/environment';
-import { PlanProject } from '../../logic/models/planProject';
-import { Project } from '../../logic/models/project';
+import {Project, ProjectRequest} from '../../logic/models/project';
 import { ProjectRepository } from '../../logic/repositories/project.repository';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,11 +14,11 @@ export class ProjectRepositoryImpl implements ProjectRepository {
   constructor(private httpService: HttpService) {
   }
 
-  getPlanned(planProject: PlanProject): Promise<Project> {
+  getPlanned(planProject: ProjectRequest): Promise<Project> {
     return this.httpService.post(`${resourceServer}/${this.RESOURCE}/planned`, planProject).toPromise();
   }
 
-  create(project: PlanProject): Promise<Project> {
+  create(project: ProjectRequest): Promise<Project> {
     const httpResult = this.httpService.post(`${resourceServer}/${this.RESOURCE}`, project);
     return httpResult.toPromise();
   }
