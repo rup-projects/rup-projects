@@ -1,9 +1,10 @@
 import {MemberRole} from '../../app/controllers/dtos/member-role';
+import {Id} from '../../commons/model/id';
 
 export class Member {
 
   constructor(
-    public id: number,
+    public id: Id,
     public name: string,
     public surName: string,
     public email: string,

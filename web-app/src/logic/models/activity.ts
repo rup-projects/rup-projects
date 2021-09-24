@@ -1,6 +1,8 @@
+import {Id} from '../../commons/model/id';
+
 export class Activity {
 
-  id: number;
+  id: Id;
   description: string;
   hours: number;
   startDateTime: Date;

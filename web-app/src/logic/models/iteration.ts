@@ -1,11 +1,12 @@
 import {NotAssignedCost} from './not-assigned-cost';
 import {Realization} from './realization';
+import {Id} from '../../commons/model/id';
 
 
 
 export interface Iteration {
 
-    id: number;
+    id: Id;
     number: number;
     startDate: Date;
     endDate: Date;
