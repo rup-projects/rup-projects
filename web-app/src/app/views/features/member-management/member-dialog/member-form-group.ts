@@ -1,5 +1,5 @@
-import { FormControl, FormGroup } from '@angular/forms';
-import { Member } from '../../../../../logic/models/member';
+import {FormControl, FormGroup} from '@angular/forms';
+import {Member} from '../../../../../logic/models/member';
 
 export class MemberFormGroup extends FormGroup {
   constructor() {
@@ -13,7 +13,7 @@ export class MemberFormGroup extends FormGroup {
   }
 
   getRawValue(): Member {
-    return Member.build(super.getRawValue());
+    return super.getRawValue();
   }
 
   get name(): FormControl {
