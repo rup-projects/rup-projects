@@ -1,4 +1,4 @@
-export class PlanProjectDto {
+export class PlanProject {
 
   startDate: Date;
   endDate: Date;

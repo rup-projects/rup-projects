@@ -14,5 +14,5 @@ export interface ProjectDto {
 
 }
 
-export type PlanProjectDto = Pick<ProjectDto, 'startDate' | 'endDate' | 'cost' | 'numberOfIterations'>;
+export type planProject = Pick<ProjectDto, 'startDate' | 'endDate' | 'cost' | 'numberOfIterations'>;
 

@@ -1,5 +1,5 @@
 import {ProjectRepositoryImpl} from '../../app/infrastructure/project-repository-impl.service';
-import {PlanProjectDto} from '../models/planProjectDto';
+import {PlanProject} from '../models/planProject';
 import {Project} from '../models/project';
 
 export class PrePlanProjectController {
@@ -7,7 +7,7 @@ export class PrePlanProjectController {
 
     }
 
-  async execute(param: PlanProjectDto): Promise<Project> {
+  async execute(param: PlanProject): Promise<Project> {
     const result = await this.repository.getPlanned(param);
     return result;
   }

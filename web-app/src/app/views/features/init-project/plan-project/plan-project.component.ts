@@ -4,7 +4,7 @@ import {MatStepper} from '@angular/material/stepper';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Phase} from '../../../../../logic/models/phase';
-import {PlanProjectDto} from '../../../../../logic/models/planProjectDto';
+import {PlanProject} from '../../../../../logic/models/planProject';
 import {Project} from '../../../../../logic/models/project';
 import {ProjectService} from '../../../../controllers/project.service';
 import {ProjectDateValidator} from './project-date.validator';
@@ -40,7 +40,7 @@ export class PlanProjectComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const now = new Date();
+    new Date();
     const start = new Date();
     const end = new Date();
     start.setDate(start.getDate() + 1);
@@ -56,11 +56,11 @@ export class PlanProjectComponent implements OnInit {
   }
 
   public async refreshProject(): Promise<void> {
-    const planProjectDto: PlanProjectDto = {
+    const planProject: PlanProject = {
       ...this.basicInfoFormGroup.getRawValue(),
       numberOfIterations: this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number
     };
-    await this.projectService.prePlanProject(planProjectDto);
+    await this.projectService.prePlanProject(planProject);
   }
 
   public async toIterationsSizeStep(stepper: MatStepper): Promise<void> {
@@ -77,10 +77,10 @@ export class PlanProjectComponent implements OnInit {
   }
 
   async save(): Promise<void> {
-    const planProjectDto: PlanProjectDto = {
+    const planProject: PlanProject = {
       ...this.basicInfoFormGroup.getRawValue(),
       numberOfIterations: this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number
     };
-    await this.projectService.planProject(planProjectDto).then( () => this.router.navigateByUrl('/project-management') );
+    await this.projectService.planProject(planProject).then( () => this.router.navigateByUrl('/project-management') );
   }
 }
