@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {UseCase} from '../../logic/models/use-case';
-import {UseCaseRepositoryImplService} from '../infrastructure/use-case-repository-impl.service';
+import {UseCaseRestRepository} from '../infrastructure/use-case-rest-repository.service';
 import {OpenUseCasesController} from '../../logic/controllers/open-use-cases.controller';
 import {OpenUseCaseController} from '../../logic/controllers/open-use-case.controller';
 import {CreateUseCaseController} from '../../logic/controllers/create-use-case.controller';
@@ -13,7 +13,7 @@ import {Id} from '../../commons/model/id';
 @Injectable()
 export class UseCaseService {
 
-  constructor(private useCaseRepository: UseCaseRepositoryImplService,
+  constructor(private useCaseRepository: UseCaseRestRepository,
               private useCaseViewModel: UseCaseViewModel,
               private useCasesViewModel: UseCasesViewModel) {
   }

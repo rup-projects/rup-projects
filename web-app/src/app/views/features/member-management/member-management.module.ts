@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MemberService } from 'src/app/controllers/member.service';
 import { MembersViewModel } from 'src/app/controllers/view-models/members.view-model';
-import { MemberRepositoryImplService } from '../../../infrastructure/member-repository-impl.service';
+import { MemberRestRepository } from '../../../infrastructure/member-rest-repository.service';
 import { SharedModule } from '../../shared.module';
 import { MemberDialogComponent } from './member-dialog/member-dialog.component';
 
@@ -17,7 +17,7 @@ import {MemberViewModel} from '../../../controllers/view-models/member.view-mode
     MemberManagementRoutingModule,
     SharedModule
   ],
-  providers: [MemberService, MemberRepositoryImplService, MembersViewModel, MemberViewModel]
+  providers: [MemberService, MemberRestRepository, MembersViewModel, MemberViewModel]
 })
 export class MemberManagementModule {
 }

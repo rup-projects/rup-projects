@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {from, Observable} from 'rxjs';
 import {Iteration} from '../../logic/models/iteration';
-import {IterationRepositoryImplService} from '../infrastructure/iteration-repository-impl.service';
+import {IterationRestRepository} from '../infrastructure/iteration-rest-repository.service';
 import {OpenIterationController} from '../../logic/controllers/open-iteration.controller';
 import {UpdateIterationController} from '../../logic/controllers/update-iteration.controller';
 import {OpenRealizationByIterationController} from '../../logic/controllers/open-realization-by-iteration.controller';
@@ -12,7 +12,7 @@ import {Id} from '../../commons/model/id';
 @Injectable()
 export class IterationService {
 
-  constructor(private repository: IterationRepositoryImplService,
+  constructor(private repository: IterationRestRepository,
               private iterationViewModel: IterationViewModel,
               private realizationsViewModel: RealizationsViewModel) {
   }

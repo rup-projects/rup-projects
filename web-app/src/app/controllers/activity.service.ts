@@ -3,7 +3,7 @@ import {Activity} from '../../logic/models/activity';
 import {NotAssignedCost} from '../../logic/models/not-assigned-cost';
 import {ActivityHours} from '../../logic/models/activity-hours';
 import {ActivityMember} from '../../logic/models/activity-member';
-import {ActivityRepositoryImplService} from '../infrastructure/activity-repository-impl.service';
+import {ActivityRestRepository} from '../infrastructure/activity-repository-impl.service';
 import {SplitActivityController} from '../../logic/controllers/split-activity.controller';
 import {MergeActivityController} from '../../logic/controllers/merge-activity.controller';
 import {ReEstimateActivityController} from '../../logic/controllers/re-estimate-activity.controller';
@@ -15,7 +15,7 @@ import {Id} from '../../commons/model/id';
 @Injectable()
 export class ActivityService {
 
-  constructor(private repository: ActivityRepositoryImplService, private activityViewModel: ActivityViewModel) {
+  constructor(private repository: ActivityRestRepository, private activityViewModel: ActivityViewModel) {
   }
 
   async openActivity(id: Id): Promise<void> {

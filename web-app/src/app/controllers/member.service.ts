@@ -7,7 +7,7 @@ import { OpenMemberController } from '../../logic/controllers/open-member.contro
 import { OpenMembersController } from '../../logic/controllers/open-members.controller';
 import { UpdateMemberController } from '../../logic/controllers/update-member.controller';
 import { Member } from '../../logic/models/member';
-import { MemberRepositoryImplService } from '../infrastructure/member-repository-impl.service';
+import { MemberRestRepository } from '../infrastructure/member-rest-repository.service';
 import { MembersViewModel } from './view-models/members.view-model';
 import {MemberViewModel} from './view-models/member.view-model';
 import {Id} from '../../commons/model/id';
@@ -15,7 +15,7 @@ import {Id} from '../../commons/model/id';
 @Injectable()
 export class MemberService {
 
-  constructor(private memberRepository: MemberRepositoryImplService,
+  constructor(private memberRepository: MemberRestRepository,
               private membersViewModel: MembersViewModel,
               private memberViewModel: MemberViewModel) {
   }
