@@ -5,7 +5,6 @@ import {PhaseService} from '../../../../controllers/phase.service';
 import {IterationService} from '../../../../controllers/iteration.service';
 import {MemberService} from '../../../../controllers/member.service';
 import {Observable} from 'rxjs';
-import {IterationsViewModel} from '../../../../controllers/view-models/iterations-view-model';
 
 @Component({
   selector: 'app-phase-management',
@@ -19,21 +18,22 @@ export class PhaseManagementComponent implements OnInit {
   columnsToDisplay: string[] = this.displayedColumns.slice();
 
   constructor(private phaseService: PhaseService, private iterationService: IterationService, private membersService: MemberService,
-              private router: Router, private activatedRoute: ActivatedRoute, private iterationsViewModel: IterationsViewModel
+              private router: Router, private activatedRoute: ActivatedRoute
   ) {
   }
 
   ngOnInit(): void {
     const phaseId = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.phaseService.openIterations(phaseId);
-    this.iterations$ = this.iterationsViewModel.getStateValue();
+    this.phaseService.openIterations(phaseId).then(
+      () => this.iterations$ = this.phaseService.getIterationsViewModel().getStateValue()
+    );
   }
 
-  openIteration(iteration: Iteration): void {
-    this.router.navigateByUrl(`/iteration-management/${iteration.id}`).then();
+  async openIteration(iteration: Iteration): Promise<void> {
+    await this.router.navigateByUrl(`/iteration-management/${iteration.id}`);
   }
 
-  openPhases(): void {
-    this.router.navigateByUrl('project-management');
+  async openPhases(): Promise<void> {
+    await this.router.navigateByUrl('project-management');
   }
 }

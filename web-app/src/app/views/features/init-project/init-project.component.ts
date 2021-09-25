@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Project } from '../../../../logic/models/project';
@@ -17,19 +17,19 @@ export class InitProjectComponent implements OnInit {
   constructor(
     private projectService: ProjectService,
     private router: Router,
-  ) {
-    this.project$ = this.projectService.getViewModel().getStateValue();
-  }
+  ) {}
 
   ngOnInit(): void {
-    this.projectService.startSystem();
+    this.projectService.startSystem().then(
+      () => this.project$ = this.projectService.getViewModel().getStateValue()
+    );
   }
 
-  async planProject(): Promise<void> {
-    this.router.navigateByUrl('init-project/new').then();
+  async toPlanProjectRoute(): Promise<void> {
+    await this.router.navigateByUrl('init-project/new');
   }
 
-  openProject(): void {
+  toProjectManagementRoute(): void {
     this.router.navigateByUrl('/project-management').then();
   }
 

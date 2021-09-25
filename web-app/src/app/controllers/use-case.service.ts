@@ -9,6 +9,7 @@ import {DeleteUseCaseController} from '../../logic/controllers/delete-use-case.c
 import {UseCaseViewModel} from './view-models/use-case.view-model';
 import {UseCasesViewModel} from './view-models/use-cases.view-model';
 import {Id} from '../../commons/model/id';
+import {ReadableViewModel} from '../../commons/services/types/readable-view-model';
 
 @Injectable()
 export class UseCaseService {
@@ -42,4 +43,14 @@ export class UseCaseService {
     await new DeleteUseCaseController(this.useCaseRepository).execute(id);
     await this.openUseCases();
   }
+
+  public getUseCaseViewModel(): ReadableViewModel<UseCase> {
+    return this.useCaseViewModel;
+  }
+
+  public getUseCasesViewModel(): ReadableViewModel<UseCase[]> {
+    return this.useCasesViewModel;
+  }
+
+
 }
