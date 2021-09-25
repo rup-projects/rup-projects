@@ -1,4 +1,4 @@
-import {ProjectRestRepository} from '../../app/infrastructure/project-repository-impl.service';
+import {ProjectRestRepository} from '../../app/infrastructure/project-rest-repository';
 import {Project, ProjectRequest} from '../models/project';
 
 export class PrePlanProjectController {

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { MemberService } from 'src/app/controllers/member.service';
 import { MembersViewModel } from 'src/app/controllers/view-models/members.view-model';
-import { MemberRestRepository } from '../../../infrastructure/member-rest-repository.service';
+import { MemberRestRepository } from '../../../infrastructure/member-rest-repository';
 import { SharedModule } from '../../shared.module';
 import { MemberDialogComponent } from './member-dialog/member-dialog.component';
 

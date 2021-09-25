@@ -1,4 +1,4 @@
-import {IterationRestRepository} from '../../app/infrastructure/iteration-rest-repository.service';
+import {IterationRestRepository} from '../../app/infrastructure/iteration-rest-repository';
 import {Realization} from '../models/realization';
 import {Controller} from '../../commons/services/types/controller';
 import {Id} from '../../commons/model/id';

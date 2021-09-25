@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {UseCase} from '../../logic/models/use-case';
-import {UseCaseRestRepository} from '../infrastructure/use-case-rest-repository.service';
+import {UseCaseRestRepository} from '../infrastructure/use-case-rest-repository';
 import {OpenUseCasesController} from '../../logic/controllers/open-use-cases.controller';
 import {OpenUseCaseController} from '../../logic/controllers/open-use-case.controller';
 import {CreateUseCaseController} from '../../logic/controllers/create-use-case.controller';

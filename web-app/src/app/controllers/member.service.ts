@@ -7,7 +7,7 @@ import { OpenMemberController } from '../../logic/controllers/open-member.contro
 import { OpenMembersController } from '../../logic/controllers/open-members.controller';
 import { UpdateMemberController } from '../../logic/controllers/update-member.controller';
 import { Member } from '../../logic/models/member';
-import { MemberRestRepository } from '../infrastructure/member-rest-repository.service';
+import { MemberRestRepository } from '../infrastructure/member-rest-repository';
 import { MembersViewModel } from './view-models/members.view-model';
 import {MemberViewModel} from './view-models/member.view-model';
 import {Id} from '../../commons/model/id';
