@@ -3,6 +3,7 @@ import { HttpService } from '../../commons/services/http.service';
 import { resourceServer } from '../../environments/environment';
 import {Project, ProjectRequest} from '../../logic/models/project';
 import { ProjectRepository } from '../../logic/repositories/project.repository';
+import {Id} from '../../commons/model/id';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class ProjectRepositoryImpl implements ProjectRepository {
     return httpResult.toPromise();
   }
 
-  delete(id: string): Promise<any> {
+  delete(id: Id): Promise<void> {
     const httpResult = this.httpService.delete(`${resourceServer}/${this.RESOURCE}`);
     return httpResult.toPromise();
   }

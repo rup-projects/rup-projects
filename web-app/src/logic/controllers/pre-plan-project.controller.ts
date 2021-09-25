@@ -6,8 +6,8 @@ export class PrePlanProjectController {
 
     }
 
-  async execute(param: ProjectRequest): Promise<Project> {
-    const result = await this.repository.getPlanned(param);
+  async execute(projectRequest: ProjectRequest): Promise<Project> {
+    const result = await this.repository.getPlanned(projectRequest);
     return result;
   }
 

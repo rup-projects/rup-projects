@@ -1,5 +1,5 @@
 import {Activity} from './activity';
-import {DisciplineType} from '../../app/controllers/dtos/discipline-type';
+import {DisciplineType} from './discipline-type';
 import {Id} from '../../commons/model/id';
 
 export interface NotAssignedCost {

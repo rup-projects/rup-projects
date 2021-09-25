@@ -7,6 +7,7 @@ import {ProjectRepositoryImpl} from '../infrastructure/project-repository-impl.s
 import {ProjectViewModel} from './view-models/project.view-model';
 import {PrePlanProjectController} from '../../logic/controllers/pre-plan-project.controller';
 import {PlanProjectController} from '../../logic/controllers/plan-project.controller';
+import {Id} from '../../commons/model/id';
 
 @Injectable()
 export class ProjectService {
@@ -39,9 +40,8 @@ export class ProjectService {
     this.projectViewModel.setValue(projectPlaned);
   }
 
-  public async deleteProject(): Promise<void> {
-    const idProject: any = 'idproject';
+  public async deleteProject(id: Id): Promise<void> {
     const controller = new DeleteProjectController(this.repository);
-    await controller.execute(idProject);
+    await controller.execute(id);
   }
 }

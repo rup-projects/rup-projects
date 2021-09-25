@@ -10,6 +10,7 @@ import { Member } from '../../logic/models/member';
 import { MemberRepositoryImplService } from '../infrastructure/member-repository-impl.service';
 import { MembersViewModel } from './view-models/members.view-model';
 import {MemberViewModel} from './view-models/member.view-model';
+import {Id} from '../../commons/model/id';
 
 @Injectable()
 export class MemberService {
@@ -29,7 +30,7 @@ export class MemberService {
     this.membersViewModel.setValue(result);
   }
 
-  async openMember(id: number): Promise<void> {
+  async openMember(id: Id): Promise<void> {
     const command = new OpenMemberController(this.memberRepository);
     const result = await command.execute(id);
     this.memberViewModel.setValue(result);
@@ -45,7 +46,7 @@ export class MemberService {
     return from(command.execute(member));
   }
 
-  deleteMember(id: number): Observable<void> {
+  deleteMember(id: Id): Observable<void> {
     const command = new DeleteMemberController(this.memberRepository);
     return from(command.execute(id));
   }

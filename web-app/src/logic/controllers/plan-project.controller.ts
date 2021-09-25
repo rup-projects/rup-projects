@@ -7,12 +7,12 @@ export class PlanProjectController implements Controller<ProjectRequest, Project
   constructor(private repository: ProjectRepository) {
   }
 
-  async execute(param: ProjectRequest): Promise<Project> {
+  async execute(projectRequest: ProjectRequest): Promise<Project> {
     const existentProjects = await this.repository.getAll();
     if (existentProjects.length > 0) {
-      await this.repository.delete(existentProjects[0].id.toString());
+      await this.repository.delete(existentProjects[0].id);
     }
-    const result = await this.repository.create(param);
+    const result = await this.repository.create(projectRequest);
     return result;
   }
 }

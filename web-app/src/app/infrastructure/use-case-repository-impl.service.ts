@@ -3,6 +3,7 @@ import { HttpService } from '../../commons/services/http.service';
 import { resourceServer } from '../../environments/environment';
 import {UseCaseRepository} from '../../logic/repositories/use-case.repository';
 import {UseCase} from '../../logic/models/use-case';
+import {Id} from '../../commons/model/id';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class UseCaseRepositoryImplService implements UseCaseRepository {
   constructor(private httpService: HttpService) {
   }
 
-  getOne(id: number): Promise<UseCase> {
+  getOne(id: Id): Promise<UseCase> {
     const httpResult = this.httpService.get(`${resourceServer}/${this.RESOURCE}/${id}`);
     return httpResult.toPromise();
   }
@@ -24,7 +25,7 @@ export class UseCaseRepositoryImplService implements UseCaseRepository {
     return httpResult.toPromise();
   }
 
-  delete(id: number): Promise<any> {
+  delete(id: Id): Promise<any> {
     const httpResult = this.httpService.delete(`${resourceServer}/${this.RESOURCE}/${id}`);
     return httpResult.toPromise();
   }
@@ -34,7 +35,7 @@ export class UseCaseRepositoryImplService implements UseCaseRepository {
     return httpResult.toPromise();
   }
 
-  update(id: number, dto: UseCase): Promise<void> {
+  update(id: Id, dto: UseCase): Promise<void> {
     const httpResult = this.httpService.put(`${resourceServer}/${this.RESOURCE}/${id}`, dto);
     return httpResult.toPromise();
   }

@@ -7,8 +7,8 @@ export class CreateMemberController implements Controller<Member, void> {
   constructor(private repository: MemberRepository) {
   }
 
-  async execute(param: Member): Promise<void> {
-    const result = await this.repository.create(param);
+  async execute(member: Member): Promise<void> {
+    const result = await this.repository.create(member);
     return result;
   }
 }

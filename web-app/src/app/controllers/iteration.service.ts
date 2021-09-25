@@ -7,6 +7,7 @@ import {UpdateIterationController} from '../../logic/controllers/update-iteratio
 import {OpenRealizationByIterationController} from '../../logic/controllers/open-realization-by-iteration.controller';
 import {IterationViewModel} from './view-models/iteration-view-model';
 import {RealizationsViewModel} from './view-models/realizations-view-model';
+import {Id} from '../../commons/model/id';
 
 @Injectable()
 export class IterationService {
@@ -16,9 +17,9 @@ export class IterationService {
               private realizationsViewModel: RealizationsViewModel) {
   }
 
-  async openIteration(iterationId: number): Promise<void> {
+  async openIteration(id: Id): Promise<void> {
     const command = new OpenIterationController(this.repository);
-    const result = await command.execute(iterationId);
+    const result = await command.execute(id);
     this.iterationViewModel.setValue(result);
   }
 
@@ -28,9 +29,9 @@ export class IterationService {
 
   }
 
-  async getRealizations(iterationId: number): Promise<void> {
+  async getRealizations(id: Id): Promise<void> {
     const command = new OpenRealizationByIterationController(this.repository);
-    const result = await command.execute(iterationId);
+    const result = await command.execute(id);
     this.realizationsViewModel.setValue(result);
   }
 }

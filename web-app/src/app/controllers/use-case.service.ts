@@ -8,6 +8,7 @@ import {UpdateUseCaseController} from '../../logic/controllers/update-use-case.c
 import {DeleteUseCaseController} from '../../logic/controllers/delete-use-case.controller';
 import {UseCaseViewModel} from './view-models/use-case.view-model';
 import {UseCasesViewModel} from './view-models/use-cases.view-model';
+import {Id} from '../../commons/model/id';
 
 @Injectable()
 export class UseCaseService {
@@ -22,7 +23,7 @@ export class UseCaseService {
     this.useCasesViewModel.setValue(result);
   }
 
-  async openUseCase(id: number): Promise<void> {
+  async openUseCase(id: Id): Promise<void> {
     const result = await new OpenUseCaseController(this.useCaseRepository).execute(id);
     this.useCaseViewModel.setValue(result);
   }
@@ -37,7 +38,7 @@ export class UseCaseService {
     await this.openUseCases();
   }
 
-  async deleteUseCase(id: number): Promise<void> {
+  async deleteUseCase(id: Id): Promise<void> {
     await new DeleteUseCaseController(this.useCaseRepository).execute(id);
     await this.openUseCases();
   }
