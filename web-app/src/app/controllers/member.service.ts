@@ -20,9 +20,14 @@ export class MemberService {
               private memberViewModel: MemberViewModel) {
   }
 
-  getViewModel(): ReadableViewModel<Member[]> {
+  public getMembersViewModel(): ReadableViewModel<Member[]> {
     return this.membersViewModel;
   }
+
+  public getMemberViewModel(): ReadableViewModel<Member> {
+    return this.memberViewModel;
+  }
+
 
   async openMembers(): Promise<void> {
     const command = new OpenMembersController(this.memberRepository);

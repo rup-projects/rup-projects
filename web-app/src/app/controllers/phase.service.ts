@@ -5,6 +5,9 @@ import {PhaseRestRepository} from '../infrastructure/phase-rest-repository.servi
 import {PhasesViewModel} from './view-models/phases-view-model';
 import {IterationsViewModel} from './view-models/iterations-view-model';
 import {Id} from '../../commons/model/id';
+import {ReadableViewModel} from '../../commons/services/types/readable-view-model';
+import {Phase} from '../../logic/models/phase';
+import {Iteration} from '../../logic/models/iteration';
 
 @Injectable()
 export class PhaseService {
@@ -26,5 +29,12 @@ export class PhaseService {
     this.iterationsViewModel.setValue(result);
   }
 
+  public getPhasesViewModel(): ReadableViewModel<Phase[]> {
+    return this.phasesViewModel;
+  }
 
+
+  public getIterationsViewModel(): ReadableViewModel<Iteration[]> {
+    return this.iterationsViewModel;
+  }
 }

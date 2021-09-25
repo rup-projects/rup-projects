@@ -5,8 +5,6 @@ import {MatDialog} from '@angular/material/dialog';
 import {UseCaseDialogComponent} from './use-case-dialog/use-case-dialog.component';
 import {ReadDetailDialogComponent} from '../../../../commons/components/dialogs/read-detail.dialog.component';
 import {Observable} from 'rxjs';
-import {UseCaseViewModel} from '../../../controllers/view-models/use-case.view-model';
-import {UseCasesViewModel} from '../../../controllers/view-models/use-cases.view-model';
 
 @Component({
   selector: 'app-use-cases-management',
@@ -15,45 +13,46 @@ import {UseCasesViewModel} from '../../../controllers/view-models/use-cases.view
 })
 export class UseCasesManagementComponent implements OnInit {
 
-  useCases: Observable<UseCase[]>;
+  useCases$: Observable<UseCase[]>;
   displayedColumns: string[] = ['name', 'description', 'priority'];
   columnsToDisplay: string[] = this.displayedColumns.slice();
   title: 'usecases';
-  private selectedUseCase: Observable<UseCase>;
-  private selected: UseCase;
+  private selectedUseCase$: Observable<UseCase>;
 
   constructor(private useCaseService: UseCaseService,
-              private useCaseViewModel: UseCaseViewModel,
-              private useCasesViewModel: UseCasesViewModel,
               private matDialog: MatDialog) {
   }
 
 
   ngOnInit(): void {
-    this.selectedUseCase = this.useCaseViewModel.getStateValue();
-    this.useCases = this.useCasesViewModel.getStateValue();
-    this.useCaseService.openUseCases();
+    this.useCases$ = this.useCaseService.getUseCasesViewModel().getStateValue()
+    this.selectedUseCase$ = this.useCaseService.getUseCaseViewModel().getStateValue();
+    this.useCaseService.openUseCases().then();
   }
 
   openUsecase(useCase: UseCase): void {
-    this.useCaseService.openUseCase(useCase.id);
-    this.matDialog.open(ReadDetailDialogComponent, {
-      data: {
-        title: 'Usecase Details',
-        object: this.selectedUseCase
-      }
-    });
+    this.useCaseService.openUseCase(useCase.id).then(
+      () => this.openUseCaseDetailDialog());
   }
 
   createUseCase(): void {
     this.matDialog.open(UseCaseDialogComponent);
   }
 
-  updateUseCase(useCase?: UseCase): void {
-    this.matDialog.open(UseCaseDialogComponent, {data: useCase ? useCase : this.selected});
+  updateUseCase(useCase: UseCase): void {
+    this.matDialog.open(UseCaseDialogComponent, {data: useCase});
   }
 
-  deleteUseCase(useCase: UseCase): void {
-    this.useCaseService.deleteUseCase(useCase.id);
+  async deleteUseCase(useCase: UseCase): Promise<void> {
+    await this.useCaseService.deleteUseCase(useCase.id);
+  }
+
+  private openUseCaseDetailDialog(): void {
+    this.matDialog.open(ReadDetailDialogComponent, {
+      data: {
+        title: 'Usecase Details',
+        object: this.selectedUseCase$
+      }
+    });
   }
 }
