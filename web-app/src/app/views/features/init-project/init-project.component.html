@@ -17,11 +17,11 @@
                     <mat-divider></mat-divider>
                     <mat-list-item>Iteration size : {{ project.iterationSize }} days</mat-list-item>
                 </mat-list>
-                <button mat-button color="primary" type="button" (click)="openProject()">Open</button>
+                <button mat-button color="primary" type="button" (click)="toProjectManagementRoute()">Open</button>
             </mat-expansion-panel>
         </mat-accordion>
 
     </ng-container>
 
-    <button id="planProject" mat-button color="primary" type="button" (click)="planProject()">Plan project</button>
+    <button id="planProject" mat-button color="primary" type="button" (click)="toPlanProjectRoute()">Plan project</button>
 </div>

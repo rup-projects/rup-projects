@@ -15,7 +15,7 @@ import {ProjectDateValidator} from './project-date.validator';
 
 })
 export class PlanProjectComponent implements OnInit {
-  project: Project;
+  project$: Observable<Project>;
   basicInfoFormGroup: FormGroup;
   iterationSizeFormGroup: FormGroup;
   numberOfIterations: number;
@@ -28,18 +28,10 @@ export class PlanProjectComponent implements OnInit {
     private projectService: ProjectService,
     private router: Router, private formBuilder: FormBuilder
   ) {
-
-    this.projectService.getViewModel().getStateValue().subscribe(project => {
-      this.project = project;
-      if (project !== null) {
-        this.iterationSizeFormGroup.controls[this.iterationSizeFormGroupControlName].setValue(this.project.numberOfIterations);
-      }
-    });
-
+     this.project$ = this.projectService.getViewModel().getStateValue();
   }
 
   ngOnInit(): void {
-    new Date();
     const start = new Date();
     const end = new Date();
     start.setDate(start.getDate() + 1);
@@ -63,23 +55,28 @@ export class PlanProjectComponent implements OnInit {
   }
 
   public async toIterationsSizeStep(stepper: MatStepper): Promise<void> {
-    await this.projectService.prePlanProject(this.basicInfoFormGroup.getRawValue());
-    stepper.next();
+    this.projectService.prePlanProject(this.basicInfoFormGroup.getRawValue())
+      .then( () => {
+        this.project$ = this.projectService.getViewModel().getStateValue();
+        this.project$.subscribe(project =>
+          this.iterationSizeFormGroup.controls[this.iterationSizeFormGroupControlName].setValue(project.numberOfIterations));
+        stepper.next();
+      });
   }
 
   public backToBasicInfoStep(stepper: MatStepper): void {
     stepper.previous();
   }
 
-  async cancel(): Promise<void> {
+  async cancelPlanProject(): Promise<void> {
     await this.router.navigateByUrl('/');
   }
 
-  async save(): Promise<void> {
+  planProject(): void {
     const planProject: ProjectRequest = {
       ...this.basicInfoFormGroup.getRawValue(),
       numberOfIterations: this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number
     };
-    await this.projectService.planProject(planProject).then( () => this.router.navigateByUrl('/project-management') );
+    this.projectService.planProject(planProject).then( () => this.router.navigateByUrl('/project-management') );
   }
 }
