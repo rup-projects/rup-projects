@@ -8,7 +8,7 @@ import {Id} from '../../commons/model/id';
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectRepositoryImpl implements ProjectRepository {
+export class ProjectRestRepository implements ProjectRepository {
 
   private RESOURCE = 'projects';
 

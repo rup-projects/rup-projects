@@ -8,7 +8,7 @@ import {Id} from '../../commons/model/id';
 @Injectable({
   providedIn: 'root'
 })
-export class UseCaseRepositoryImplService implements UseCaseRepository {
+export class UseCaseRestRepository implements UseCaseRepository {
 
   private RESOURCE = 'use-cases';
 

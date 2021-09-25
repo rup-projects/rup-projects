@@ -3,7 +3,7 @@ import {ReadableViewModel} from '../../commons/services/types/readable-view-mode
 import {DeleteProjectController} from '../../logic/controllers/delete-project.controller';
 import {StartSystemController} from '../../logic/controllers/start-system.controller';
 import {Project, ProjectRequest} from '../../logic/models/project';
-import {ProjectRepositoryImpl} from '../infrastructure/project-repository-impl.service';
+import {ProjectRestRepository} from '../infrastructure/project-repository-impl.service';
 import {ProjectViewModel} from './view-models/project.view-model';
 import {PrePlanProjectController} from '../../logic/controllers/pre-plan-project.controller';
 import {PlanProjectController} from '../../logic/controllers/plan-project.controller';
@@ -13,7 +13,7 @@ import {Id} from '../../commons/model/id';
 export class ProjectService {
 
   constructor(
-    private repository: ProjectRepositoryImpl,
+    private repository: ProjectRestRepository,
     private projectViewModel: ProjectViewModel
   ) {
   }

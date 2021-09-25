@@ -9,7 +9,7 @@ import {Id} from '../../commons/model/id';
 @Injectable({
   providedIn: 'root'
 })
-export class PhaseRepositoryImplService implements PhaseRepository {
+export class PhaseRestRepository implements PhaseRepository {
 
   private RESOURCE = 'phases';
 

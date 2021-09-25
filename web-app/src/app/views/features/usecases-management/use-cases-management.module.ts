@@ -6,7 +6,7 @@ import {UseCasesManagementComponent} from './use-cases-management.component';
 import {UseCaseDialogComponent} from './use-case-dialog/use-case-dialog.component';
 import {SharedModule} from '../../shared.module';
 import {UseCaseService} from '../../../controllers/use-case.service';
-import {UseCaseRepositoryImplService} from '../../../infrastructure/use-case-repository-impl.service';
+import {UseCaseRestRepository} from '../../../infrastructure/use-case-rest-repository.service';
 import {UseCaseViewModel} from '../../../controllers/view-models/use-case.view-model';
 import {UseCasesViewModel} from '../../../controllers/view-models/use-cases.view-model';
 
@@ -18,7 +18,7 @@ import {UseCasesViewModel} from '../../../controllers/view-models/use-cases.view
     UseCasesManagementRoutingModule,
     SharedModule
   ],
-  providers: [UseCaseService, UseCaseRepositoryImplService, UseCaseViewModel, UseCasesViewModel]
+  providers: [UseCaseService, UseCaseRestRepository, UseCaseViewModel, UseCasesViewModel]
 })
 export class UseCasesManagementModule {
 }
