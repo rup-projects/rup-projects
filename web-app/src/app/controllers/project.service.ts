@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {ReadableViewModel} from '../../commons/services/types/readable-view-model';
 import {DeleteProjectController} from '../../logic/controllers/delete-project.controller';
 import {StartSystemController} from '../../logic/controllers/start-system.controller';
-import {Project, ProjectRequest} from '../../logic/models/project';
+import {Project, CreateProjectDto} from '../../logic/models/project';
 import {ProjectRestRepository} from '../infrastructure/project-rest-repository';
 import {ProjectViewModel} from './view-models/project.view-model';
 import {PrePlanProjectController} from '../../logic/controllers/pre-plan-project.controller';
@@ -29,12 +29,12 @@ export class ProjectService {
     }
   }
 
-  public async prePlanProject(planProject: ProjectRequest): Promise<void> {
+  public async prePlanProject(planProject: CreateProjectDto): Promise<void> {
     const project = await new PrePlanProjectController(this.repository).execute(planProject);
     this.projectViewModel.setValue(project);
   }
 
-  public async planProject(planProject: ProjectRequest): Promise<void> {
+  public async planProject(planProject: CreateProjectDto): Promise<void> {
     const controller = new PlanProjectController(this.repository);
     const projectPlaned = await controller.execute(planProject);
     this.projectViewModel.setValue(projectPlaned);

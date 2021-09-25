@@ -13,4 +13,4 @@ export interface Project {
 
 }
 
-export type ProjectRequest = Pick<Project, 'startDate' | 'endDate' | 'cost' | 'numberOfIterations'>;
+export type CreateProjectDto = Pick<Project, 'startDate' | 'endDate' | 'cost' | 'numberOfIterations'>;

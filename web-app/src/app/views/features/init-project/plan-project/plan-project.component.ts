@@ -4,7 +4,7 @@ import {MatStepper} from '@angular/material/stepper';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Phase} from '../../../../../logic/models/phase';
-import {Project, ProjectRequest} from '../../../../../logic/models/project';
+import {Project, CreateProjectDto} from '../../../../../logic/models/project';
 import {ProjectService} from '../../../../controllers/project.service';
 import {ProjectDateValidator} from './project-date.validator';
 
@@ -47,7 +47,7 @@ export class PlanProjectComponent implements OnInit {
   }
 
   public async refreshProject(): Promise<void> {
-    const planProject: ProjectRequest = {
+    const planProject: CreateProjectDto = {
       ...this.basicInfoFormGroup.getRawValue(),
       numberOfIterations: this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number
     };
@@ -73,7 +73,7 @@ export class PlanProjectComponent implements OnInit {
   }
 
   planProject(): void {
-    const planProject: ProjectRequest = {
+    const planProject: CreateProjectDto = {
       ...this.basicInfoFormGroup.getRawValue(),
       numberOfIterations: this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number
     };
