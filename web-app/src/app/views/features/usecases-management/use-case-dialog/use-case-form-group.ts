@@ -12,7 +12,7 @@ export class UseCaseFormGroup extends FormGroup {
   }
 
   getRawValue(): UseCase {
-    return UseCase.build(super.getRawValue());
+    return super.getRawValue();
   }
 
   get id(): FormControl {

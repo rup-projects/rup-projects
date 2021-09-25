@@ -12,7 +12,6 @@ import { MenuComponent } from './layout/menu/menu.component';
 import { MaterialModule } from './material.module';
 import { ActivityService } from '../controllers/activity.service';
 import { IterationService } from '../controllers/iteration.service';
-import { DtoModelMapper } from '../controllers/mappers/dto-model-mapper';
 import { MemberService } from '../controllers/member.service';
 import { PhaseService } from '../controllers/phase.service';
 import { ProjectService } from '../controllers/project.service';
@@ -51,7 +50,6 @@ import {ActivityViewModel} from '../controllers/view-models/activity-view-model'
     IterationService,
     PhaseService,
     ActivityService,
-    DtoModelMapper,
     MembersViewModel,
     MemberViewModel,
     IterationsViewModel,

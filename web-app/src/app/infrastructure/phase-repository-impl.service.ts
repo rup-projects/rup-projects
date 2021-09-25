@@ -4,6 +4,7 @@ import { resourceServer } from '../../environments/environment';
 import {PhaseRepository} from '../../logic/repositories/phase.repository';
 import {Phase} from '../../logic/models/phase';
 import {Iteration} from '../../logic/models/iteration';
+import {Id} from '../../commons/model/id';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,8 @@ export class PhaseRepositoryImplService implements PhaseRepository {
     return httpResult.toPromise();
   }
 
-  getIterations(id: number): Promise<Iteration[]> {
-    const httpResult = this.httpService.get(`${resourceServer}/${this.RESOURCE}/${id}/iterations`);
+  getIterations(phaseId: Id): Promise<Iteration[]> {
+    const httpResult = this.httpService.get(`${resourceServer}/${this.RESOURCE}/${phaseId}/iterations`);
     return httpResult.toPromise();
   }
 

@@ -1,6 +1,8 @@
+import {Id} from '../../commons/model/id';
+
 export interface ActivityHours {
 
-  activityId: number;
+  activityId: Id;
   duration: number;
 
 }

@@ -4,6 +4,7 @@ import {OpenIterationsByPhaseController} from '../../logic/controllers/open-iter
 import {PhaseRepositoryImplService} from '../infrastructure/phase-repository-impl.service';
 import {PhasesViewModel} from './view-models/phases-view-model';
 import {IterationsViewModel} from './view-models/iterations-view-model';
+import {Id} from '../../commons/model/id';
 
 @Injectable()
 export class PhaseService {
@@ -19,9 +20,9 @@ export class PhaseService {
 
   }
 
-  async openIterations(phaseId: number): Promise<void> {
+  async openIterations(id: Id): Promise<void> {
     const command = new OpenIterationsByPhaseController(this.repository);
-    const result = await command.execute(phaseId);
+    const result = await command.execute(id);
     this.iterationsViewModel.setValue(result);
   }
 

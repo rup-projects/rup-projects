@@ -1,8 +1,9 @@
 import { Iteration } from './iteration';
-import {PhaseType} from '../../app/controllers/dtos/phase-type';
+import {PhaseType} from './phase-type';
+import {Id} from '../../commons/model/id';
 
 export class Phase {
-  id: number;
+  id: Id;
   type: PhaseType;
   iterations: Iteration[];
   startDate: Date;

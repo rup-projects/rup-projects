@@ -4,7 +4,7 @@ import { HttpService } from '../../commons/services/http.service';
 import { resourceServer } from '../../environments/environment';
 import { Member } from '../../logic/models/member';
 import { MemberRepository } from '../../logic/repositories/member.repository';
-import { MemberDto } from '../controllers/dtos/member-dto';
+import {Id} from '../../commons/model/id';
 
 @Injectable({
   providedIn: 'root'
@@ -16,17 +16,17 @@ export class MemberRepositoryImplService implements MemberRepository {
   constructor(private httpService: HttpService) {
   }
 
-  getOne(id: number): Promise<Member> {
+  getOne(id: Id): Promise<Member> {
     const httpResult = this.httpService.get(`${resourceServer}/${this.RESOURCE}/${id}`);
     return httpResult.toPromise();
   }
 
-  create(project: MemberDto): Promise<void> {
-    const httpResult = this.httpService.post(`${resourceServer}/${this.RESOURCE}`, project);
+  create(member: Member): Promise<void> {
+    const httpResult = this.httpService.post(`${resourceServer}/${this.RESOURCE}`, member);
     return httpResult.toPromise();
   }
 
-  delete(id: number): Promise<any> {
+  delete(id: Id): Promise<any> {
     const httpResult = this.httpService.delete(`${resourceServer}/${this.RESOURCE}/${id}`);
     return httpResult.toPromise();
   }
@@ -36,7 +36,7 @@ export class MemberRepositoryImplService implements MemberRepository {
     return httpResult.toPromise();
   }
 
-  update(id: number, dto: Member): Promise<void> {
+  update(id: Id, dto: Member): Promise<void> {
     const httpResult: Observable<void> = this.httpService.put(`${resourceServer}/${this.RESOURCE}/${id}`, dto);
     return httpResult.toPromise();
   }

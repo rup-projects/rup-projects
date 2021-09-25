@@ -4,6 +4,7 @@ import {resourceServer} from '../../environments/environment';
 import {ActivityRepository} from '../../logic/repositories/activity.repository';
 import {Activity} from '../../logic/models/activity';
 import {ActivityMember} from '../../logic/models/activity-member';
+import {Id} from '../../commons/model/id';
 
 @Injectable({
   providedIn: 'root'
@@ -15,11 +16,11 @@ export class ActivityRepositoryImplService implements ActivityRepository {
   constructor(private httpService: HttpService) {
   }
 
-  getOne(id: number): Promise<Activity> {
+  getOne(id: Id): Promise<Activity> {
     return this.httpService.get(`${resourceServer}/${this.RESOURCE}/${id}`).toPromise();
   }
 
-  splitActivity(notAssignedCostId: number): Promise<void> {
+  splitActivity(notAssignedCostId: Id): Promise<void> {
     return this.httpService.post(`${resourceServer}/${this.RESOURCE}/splitActivity/${notAssignedCostId}`).toPromise();
   }
 
@@ -27,7 +28,7 @@ export class ActivityRepositoryImplService implements ActivityRepository {
     return this.httpService.delete(`${resourceServer}/${this.RESOURCE}/${activity.id}`).toPromise();
   }
 
-  reEstimateActivity(id: number, duration: number): Promise<void> {
+  reEstimateActivity(id: Id, duration: number): Promise<void> {
     return this.httpService.put(`${resourceServer}/${this.RESOURCE}/${id}/reestimate`, {duration}).toPromise();
   }
 
