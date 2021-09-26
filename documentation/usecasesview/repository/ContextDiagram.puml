@@ -6,11 +6,17 @@ skinparam {
 
 [*] --> INIT_PROJECT
  note on link
-    start System
+    Start System
  end note
+
+ INIT_PROJECT --> INIT_PROJECT
+    note on link
+        Delete project (if exists)
+    end note
+
 INIT_PROJECT -down-> PROJECT_MANAGEMENT
     note on link
-        Plan project
+        Plan project (if not exists)
         Open Phases
     end note
 

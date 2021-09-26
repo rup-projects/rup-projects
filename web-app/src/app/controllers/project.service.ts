@@ -41,7 +41,6 @@ export class ProjectService {
   }
 
   public async deleteProject(id: Id): Promise<void> {
-    const controller = new DeleteProjectController(this.repository);
-    await controller.execute(id);
+    await new DeleteProjectController(this.repository).execute(id);
   }
 }

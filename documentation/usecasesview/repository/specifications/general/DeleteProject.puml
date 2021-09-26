@@ -1,0 +1,25 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+state init as ":INIT_PROJECT"
+state end as ":INIT_PROJECT"
+init ---> DeleteProject
+
+note on link
+    User request delete Project
+end note
+
+state DeleteProject {
+
+    [*] --> DeleteConfirmation
+    DeleteConfirmation --> [*]
+}
+
+DeleteProject --> end
+note on link
+    <b>System allows</b>
+    * close system
+    * plan project
+end note
+
+@enduml

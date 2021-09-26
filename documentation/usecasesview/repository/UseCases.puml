@@ -15,6 +15,7 @@ package project {
     (OpenProject)
     (openPhases)
     (PlanProject)
+    (DeleteProject)
 }
 
 package members {
