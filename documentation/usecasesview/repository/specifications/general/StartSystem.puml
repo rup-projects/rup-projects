@@ -10,11 +10,18 @@ end note
 
 state StartSystem {
     state 5 as " "
+    state 6 as " "
     state 2 <<choice>>
 
     [*] --> 2
 
-    2 --> [*]
+    2 -[#red]-> 6
+
+    6 --> [*]
+    note on link
+        <b>System allows</b>
+        * plan project
+    end note
 
     2 --> 5
     note on link
@@ -31,13 +38,13 @@ state StartSystem {
     ** iteration duration (business days)
     <b>System allows</b>
     * open phases
+    * delete project
     end note
 }
 
 StartSystem --> 4
     note on link
     <b>System allows</b>
-    * plan project
     * close system
     end note
 @enduml
