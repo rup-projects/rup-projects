@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import {Observable, of, Subscription} from 'rxjs';
 import { Project } from '../../../../logic/models/project';
 import { ProjectService } from '../../../controllers/project.service';
 
@@ -14,15 +14,21 @@ export class InitProjectComponent implements OnInit {
   project$: Observable<Project>;
   panelOpenState = false;
 
+  private vmSubscription: Subscription;
+
   constructor(
     private projectService: ProjectService,
     private router: Router,
-  ) {}
+  ) {
+    this.projectService.getViewModel().getStateValue().subscribe(
+      val => {
+        this.project$ = of(val.data);
+      }
+    )
+  }
 
-  ngOnInit(): void {
-    this.projectService.startSystem().then(
-      () => this.project$ = this.projectService.getViewModel().getStateValue()
-    );
+  async ngOnInit(): Promise<void> {
+    await this.projectService.startSystem();
   }
 
   async toPlanProjectRoute(): Promise<void> {

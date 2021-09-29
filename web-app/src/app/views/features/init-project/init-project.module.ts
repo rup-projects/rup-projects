@@ -8,23 +8,17 @@ import { InitProjectComponent } from './init-project.component';
 import { PlanProjectComponent } from './plan-project/plan-project.component';
 import { ProjectViewModel } from '../../../controllers/view-models/project.view-model';
 
-// const projectViewModelFactory = new ProjectViewModel();
-
-/*const projectMainControllerFactory = (repository: ProjectRepositoryImpl, vm: ProjectViewModel): ProjectControllerFacade => {
-  return new ProjectService(repository, vm);
-};*/
-
 @NgModule({
   declarations: [InitProjectComponent, PlanProjectComponent],
   imports: [
     CommonModule,
     InitProjectRoutingModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     ProjectRestRepository,
     ProjectViewModel,
-    ProjectService
+    ProjectService,
   ]
 
 })

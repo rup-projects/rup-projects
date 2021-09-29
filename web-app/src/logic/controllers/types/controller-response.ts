@@ -3,14 +3,14 @@ import { AppError } from './app-error';
 export interface ControllerResponse<T> {
   readonly status: ControllerResponseStatus;
   readonly data: T;
-  readonly error: AppError;
+  readonly error?: AppError;
 }
 
 export enum ControllerResponseStatus {
   OK, ERROR
 }
 
-export class ControllerResponseImplementation<T> implements ControllerResponse<T> {
+/*export class ControllerResponseImplementation<T> implements ControllerResponse<T> {
   constructor(
     public status: ControllerResponseStatus,
     public data: T,
@@ -21,6 +21,6 @@ export class ControllerResponseImplementation<T> implements ControllerResponse<T
     }
   }
 }
-
+*/
 
 

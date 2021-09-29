@@ -7,6 +7,7 @@ import {Phase} from '../../../../../logic/models/phase';
 import {Project, CreateProjectDto} from '../../../../../logic/models/project';
 import {ProjectService} from '../../../../controllers/project.service';
 import {ProjectDateValidator} from './project-date.validator';
+import {map} from "rxjs/operators";
 
 @Component({
   selector: 'app-plan-project',
@@ -28,9 +29,9 @@ export class PlanProjectComponent implements OnInit {
     private projectService: ProjectService,
     private router: Router, private formBuilder: FormBuilder
   ) {
-     this.project$ = this.projectService.getViewModel().getStateValue();
+     this.project$ = this.projectService.getViewModel().getStateValue().pipe(map(value => value.data));
   }
-
+git
   ngOnInit(): void {
     const start = new Date();
     const end = new Date();
@@ -57,7 +58,7 @@ export class PlanProjectComponent implements OnInit {
   public async toIterationsSizeStep(stepper: MatStepper): Promise<void> {
     this.projectService.prePlanProject(this.basicInfoFormGroup.getRawValue())
       .then( () => {
-        this.project$ = this.projectService.getViewModel().getStateValue();
+        this.project$ = this.projectService.getViewModel().getStateValue().pipe(map( val => val.data ));
         this.project$.subscribe(project =>
           this.iterationSizeFormGroup.controls[this.iterationSizeFormGroupControlName].setValue(project.numberOfIterations));
         stepper.next();

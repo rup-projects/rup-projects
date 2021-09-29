@@ -4,10 +4,11 @@ import {DeleteProjectController} from '../../logic/controllers/delete-project.co
 import {StartSystemController} from '../../logic/controllers/start-system.controller';
 import {Project, CreateProjectDto} from '../../logic/models/project';
 import {ProjectRestRepository} from '../infrastructure/project-rest-repository';
-import {ProjectViewModel} from './view-models/project.view-model';
 import {PrePlanProjectController} from '../../logic/controllers/pre-plan-project.controller';
 import {PlanProjectController} from '../../logic/controllers/plan-project.controller';
 import {Id} from '../../commons/model/id';
+import { ProjectViewModel } from "./view-models/project.view-model";
+import {ControllerResponse} from "../../logic/controllers/types/controller-response";
 
 @Injectable()
 export class ProjectService {
@@ -18,30 +19,25 @@ export class ProjectService {
   ) {
   }
 
-  public getViewModel(): ReadableViewModel<Project> {
+  public getViewModel(): ReadableViewModel<ControllerResponse<Project>> {
     return this.projectViewModel;
   }
 
   public async startSystem(): Promise<void> {
-    const project = await new StartSystemController(this.repository).execute();
-    if (project !== null) {
-      this.projectViewModel.setValue(project);
-    }
+    await new StartSystemController(this.repository, this.projectViewModel).execute();
   }
 
   public async prePlanProject(planProject: CreateProjectDto): Promise<void> {
-    const project = await new PrePlanProjectController(this.repository).execute(planProject);
-    this.projectViewModel.setValue(project);
+    await new PrePlanProjectController(this.repository, this.projectViewModel).execute(planProject);
   }
 
   public async planProject(planProject: CreateProjectDto): Promise<void> {
-    const controller = new PlanProjectController(this.repository);
-    const projectPlaned = await controller.execute(planProject);
-    this.projectViewModel.setValue(projectPlaned);
+    const controller = new PlanProjectController(this.repository, this.projectViewModel);
+    await controller.execute(planProject);
   }
 
   public async deleteProject(id: Id): Promise<void> {
-    const controller = new DeleteProjectController(this.repository);
+    const controller = new DeleteProjectController(this.repository, this.projectViewModel);
     await controller.execute(id);
   }
 }
