@@ -19,35 +19,13 @@ rectangle server {
 }
 
 rectangle frontend {
-    package presentation <<angular>> {
+    package ui <<angular>> {
         package components{
         }
-
-        package proxyServices{
+        package services{
         }
-    }
-
-    package infrastructureImp{
-
-        package DaoImp{
-        }
-
-    }
-
-    package logic {
-
-    package models {
-    }
-
-    package usecases {
-    }
-
-
-
-     package infrastructure {
-
-            package dao {
-
+        package infrastructure{
+            package rest_repositories{
             }
         }
 
@@ -55,12 +33,23 @@ rectangle frontend {
 
 
 
+    package logic {
+        package models {
+        }
+        package controllers {
+        }
+        package repositories {
+        }
+    }
 
 
 
-    components -down-> models
-    components -down-> usecases
-    usecases -down-> infrastructure
+
+
+    services --> controllers
+    components -down-> services
+    services -down-> rest_repositories
+    controllers -down-> repositories
 
 
 }

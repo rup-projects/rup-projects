@@ -29,12 +29,6 @@ include::repository/design.puml[]
 [#_Mechanisms]
 == Mechanisms
 
-=== Frontend design
-[plantuml,align="center"]
-----
-include::repository/frontend-design.puml[]
-----
-<<_index>>
 
 === Backend design
 [plantuml,align="center"]
