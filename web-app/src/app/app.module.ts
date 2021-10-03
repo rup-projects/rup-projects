@@ -12,6 +12,7 @@ import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './views/shared.module';
+import {ErrorViewModel} from "../commons/services/view-models/error.view-model";
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,

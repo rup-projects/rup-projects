@@ -21,8 +21,8 @@ export class InitProjectComponent implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
+    this.project$ = this.projectService.getProject$();
     await this.projectService.startSystem();
-    this.project$ = this.projectService.getViewModel().getStateValue()
   }
 
   async deleteProject(id: Id): Promise<void>{

@@ -7,6 +7,7 @@ import {Phase} from '../../../../../logic/models/phase';
 import {Project, CreateProjectDto} from '../../../../../logic/models/project';
 import {ProjectService} from '../../../../controllers/project.service';
 import {ProjectDateValidator} from './project-date.validator';
+import {filter, first, tap} from "rxjs/operators";
 
 @Component({
   selector: 'app-plan-project',
@@ -28,7 +29,10 @@ export class PlanProjectComponent implements OnInit {
     private projectService: ProjectService,
     private router: Router, private formBuilder: FormBuilder
   ) {
-     this.project$ = this.projectService.getViewModel().getStateValue();
+     this.project$ = this.projectService.getProject$();
+     this.project$.pipe(filter(project => !(!project))).subscribe(project =>
+       this.iterationSizeFormGroup.controls[this.iterationSizeFormGroupControlName].setValue(project.numberOfIterations)
+     );
   }
 
   ngOnInit(): void {
@@ -55,13 +59,10 @@ export class PlanProjectComponent implements OnInit {
   }
 
   public async toIterationsSizeStep(stepper: MatStepper): Promise<void> {
-    this.projectService.prePlanProject(this.basicInfoFormGroup.getRawValue())
-      .then( () => {
-        this.project$ = this.projectService.getViewModel().getStateValue();
-        this.project$.subscribe(project =>
-          this.iterationSizeFormGroup.controls[this.iterationSizeFormGroupControlName].setValue(project.numberOfIterations));
-        stepper.next();
-      });
+    await this.projectService.prePlanProject(this.basicInfoFormGroup.getRawValue())
+    /*this.project$.pipe(filter(project => !(!project)), first()).subscribe(project =>
+          this.iterationSizeFormGroup.controls[this.iterationSizeFormGroupControlName].setValue(project.numberOfIterations));*/
+    stepper.next();
   }
 
   public backToBasicInfoStep(stepper: MatStepper): void {
@@ -72,11 +73,12 @@ export class PlanProjectComponent implements OnInit {
     await this.router.navigateByUrl('/');
   }
 
-  planProject(): void {
+  async planProject(): Promise<void> {
     const planProject: CreateProjectDto = {
       ...this.basicInfoFormGroup.getRawValue(),
       numberOfIterations: this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number
     };
-    this.projectService.planProject(planProject).then( () => this.router.navigateByUrl('/project-management') );
+    await this.projectService.planProject(planProject)
+    await this.router.navigateByUrl('/project-management');
   }
 }

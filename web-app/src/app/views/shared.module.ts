@@ -23,6 +23,7 @@ import {PhasesViewModel} from '../controllers/view-models/phases-view-model';
 import {IterationViewModel} from '../controllers/view-models/iteration-view-model';
 import {RealizationsViewModel} from '../controllers/view-models/realizations-view-model';
 import {ActivityViewModel} from '../controllers/view-models/activity-view-model';
+import {ShowErrorComponent} from "../../commons/components/show-error/show-error.component";
 
 
 @NgModule({
@@ -40,8 +41,8 @@ import {ActivityViewModel} from '../controllers/view-models/activity-view-model'
     MenuComponent,
     FooterComponent,
     GridLayoutComponent,
-    ReadDetailDialogComponent
-
+    ReadDetailDialogComponent,
+    ShowErrorComponent,
   ],
   providers: [
     MemberService,
@@ -56,7 +57,7 @@ import {ActivityViewModel} from '../controllers/view-models/activity-view-model'
     IterationViewModel,
     RealizationsViewModel,
     PhasesViewModel,
-    ActivityViewModel
+    ActivityViewModel,
   ],
   exports: [
     CancelYesDialogComponent,
@@ -72,7 +73,8 @@ import {ActivityViewModel} from '../controllers/view-models/activity-view-model'
     ReactiveFormsModule,
     MaterialModule,
     UppercaseWords,
-    ReadDetailDialogComponent
+    ReadDetailDialogComponent,
+    ShowErrorComponent,
   ]
 })
 export class SharedModule {

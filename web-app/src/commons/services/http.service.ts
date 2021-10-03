@@ -2,8 +2,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { EMPTY, Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import {EMPTY, Observable, of, throwError} from 'rxjs';
+import {catchError, map, retry} from 'rxjs/operators';
 
 import { Error } from '../model/error.model';
 
@@ -12,6 +12,7 @@ import { Error } from '../model/error.model';
 })
 export class HttpService {
   static CONNECTION_REFUSE = 0;
+  static NOT_RESPONSE = 400;
   static UNAUTHORIZED = 401;
 
   private headers: HttpHeaders;
@@ -146,33 +147,26 @@ export class HttpService {
     }
   }
 
-  private showError(notification: string): void {
-    if (this.errorNotification) {
-      this.snackBar.open(this.errorNotification, 'Error', {duration: 5000});
-      this.errorNotification = undefined;
-    } else {
-      this.snackBar.open(notification, 'Error', {duration: 5000});
-    }
-  }
-
   private handleError(response): any {
-    let error: Error;
-    if (response.status === HttpService.UNAUTHORIZED) {
-      this.showError('Unauthorized');
-      this.router.navigate(['']).then();
-      return EMPTY;
-    } else if (response.status === HttpService.CONNECTION_REFUSE) {
-      this.showError('Connection Refuse');
-      return EMPTY;
-    } else {
-      try {
-        error = response.error; // with 'text': JSON.parse(response.error);
-        this.showError(error.error + ' (' + response.status + '): ' + error.message);
-        return throwError(error);
-      } catch (e) {
-        this.showError('Not response');
-        return throwError(response.error);
+    console.log(response);
+    switch (response.status) {
+      case HttpService.UNAUTHORIZED: {
+        throw new Error('Unauthorized');
+        break;
       }
+      case HttpService.CONNECTION_REFUSE: {
+        throw new Error('Connection Refuse');
+        break;
+      }
+      case HttpService.NOT_RESPONSE: {
+        throw new Error('Not response');
+        break;
+      }
+      default: {
+        throw new Error(response.error.message);
+        break;
+      }
+
     }
   }
 

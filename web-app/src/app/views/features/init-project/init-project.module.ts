@@ -6,13 +6,7 @@ import { SharedModule } from '../../shared.module';
 import { InitProjectRoutingModule } from './init-project-routing.module';
 import { InitProjectComponent } from './init-project.component';
 import { PlanProjectComponent } from './plan-project/plan-project.component';
-import { ProjectViewModel } from '../../../controllers/view-models/project.view-model';
-
-// const projectViewModelFactory = new ProjectViewModel();
-
-/*const projectMainControllerFactory = (repository: ProjectRepositoryImpl, vm: ProjectViewModel): ProjectControllerFacade => {
-  return new ProjectService(repository, vm);
-};*/
+import { InitProjectViewModel } from '../../../controllers/view-models/init-project.view-model';
 
 @NgModule({
   declarations: [InitProjectComponent, PlanProjectComponent],
@@ -23,7 +17,7 @@ import { ProjectViewModel } from '../../../controllers/view-models/project.view-
   ],
   providers: [
     ProjectRestRepository,
-    ProjectViewModel,
+    InitProjectViewModel,
     ProjectService
   ]
 
