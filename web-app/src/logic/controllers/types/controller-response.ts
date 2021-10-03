@@ -9,18 +9,3 @@ export interface ControllerResponse<T> {
 export enum ControllerResponseStatus {
   OK, ERROR
 }
-
-export class ControllerResponseImplementation<T> implements ControllerResponse<T> {
-  constructor(
-    public status: ControllerResponseStatus,
-    public data: T,
-    public error: AppError,
-  ) {
-    if (status === ControllerResponseStatus.OK) {
-      this.error = null;
-    }
-  }
-}
-
-
-

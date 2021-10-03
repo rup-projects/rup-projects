@@ -20,14 +20,14 @@ export class InitProjectComponent implements OnInit {
     private router: Router,
   ) {}
 
-  ngOnInit(): void {
-    this.projectService.startSystem().then(
-      () => this.project$ = this.projectService.getViewModel().getStateValue()
-    );
+  async ngOnInit(): Promise<void> {
+    await this.projectService.startSystem();
+    this.project$ = this.projectService.getViewModel().getStateValue()
   }
 
   async deleteProject(id: Id): Promise<void>{
-    await this.projectService.deleteProject(id).then(() => this.projectService.startSystem());
+    await this.projectService.deleteProject(id)
+    await this.projectService.startSystem();
   }
 
   async toPlanProjectRoute(): Promise<void> {
