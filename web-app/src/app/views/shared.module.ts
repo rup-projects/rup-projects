@@ -6,23 +6,25 @@ import { CrudComponent } from '../../commons/components/crud/crud.component';
 import { CancelYesDialogComponent } from '../../commons/components/dialogs/cancel-yes-dialog.component';
 import { ReadDetailDialogComponent } from '../../commons/components/dialogs/read-detail.dialog.component';
 import { UppercaseWords } from '../../commons/pipes/UppercaseWordsPipe';
-import { FooterComponent } from './layout/footer/footer.component';
-import { GridLayoutComponent } from './layout/grid-layout/grid-layout.component';
-import { MenuComponent } from './layout/menu/menu.component';
-import { MaterialModule } from './material.module';
 import { ActivityService } from '../controllers/activity.service';
 import { IterationService } from '../controllers/iteration.service';
 import { MemberService } from '../controllers/member.service';
 import { PhaseService } from '../controllers/phase.service';
 import { ProjectService } from '../controllers/project.service';
 import { UseCaseService } from '../controllers/use-case.service';
-import {MembersViewModel} from '../controllers/view-models/members.view-model';
-import {MemberViewModel} from '../controllers/view-models/member.view-model';
-import {IterationsViewModel} from '../controllers/view-models/iterations-view-model';
-import {PhasesViewModel} from '../controllers/view-models/phases-view-model';
-import {IterationViewModel} from '../controllers/view-models/iteration-view-model';
-import {RealizationsViewModel} from '../controllers/view-models/realizations-view-model';
-import {ActivityViewModel} from '../controllers/view-models/activity-view-model';
+import { ActivityViewModel } from '../controllers/view-models/activity-view-model';
+import { IterationViewModel } from '../controllers/view-models/iteration-view-model';
+import { IterationsViewModel } from '../controllers/view-models/iterations-view-model';
+import { MemberViewModel } from '../controllers/view-models/member.view-model';
+import { MembersViewModel } from '../controllers/view-models/members.view-model';
+import { PhasesViewModel } from '../controllers/view-models/phases-view-model';
+import { RealizationsViewModel } from '../controllers/view-models/realizations-view-model';
+import { FooterComponent } from './layout/footer/footer.component';
+import { GridLayoutComponent } from './layout/grid-layout/grid-layout.component';
+import { MenuComponent } from './layout/menu/menu.component';
+import { TopBarComponent } from './layout/top-bar/top-bar.component';
+import { MaterialModule } from './material.module';
+import { SideBarComponent } from './layout/side-bar/side-bar.component';
 
 
 @NgModule({
@@ -40,8 +42,9 @@ import {ActivityViewModel} from '../controllers/view-models/activity-view-model'
     MenuComponent,
     FooterComponent,
     GridLayoutComponent,
-    ReadDetailDialogComponent
-
+    ReadDetailDialogComponent,
+    TopBarComponent,
+    SideBarComponent
   ],
   providers: [
     MemberService,
@@ -72,7 +75,8 @@ import {ActivityViewModel} from '../controllers/view-models/activity-view-model'
     ReactiveFormsModule,
     MaterialModule,
     UppercaseWords,
-    ReadDetailDialogComponent
+    ReadDetailDialogComponent,
+    TopBarComponent
   ]
 })
 export class SharedModule {

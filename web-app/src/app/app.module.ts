@@ -32,8 +32,9 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     SharedModule
   ],
   providers: [
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}
   ],
+  exports: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
