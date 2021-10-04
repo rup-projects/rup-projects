@@ -1,5 +1,5 @@
 <div class="container">
-  <ng-container *ngIf="project$ | async as project; else availablePlanProject">
+  <ng-container *ngIf="existingPlanProject$ | async as project; else availablePlanProject">
       <mat-accordion *ngIf="project !== null">
             <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
                 <mat-expansion-panel-header>

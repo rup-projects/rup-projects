@@ -1,47 +1,73 @@
 import { Project } from '../../../logic/models/project';
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
-import {distinctUntilChanged, first, map} from "rxjs/operators";
+import { BehaviorSubject, Observable } from 'rxjs';
+import { distinctUntilChanged, first, map } from 'rxjs/operators';
 
 interface InitProjectVmState {
-  project: Project,
+  prePlannedProject: Project;
+  existingPlannedProject: Project;
+  completedOperationPrePlanProject: boolean;
+  completedOperationPlanProject: boolean;
 }
 
 const DEFAULT_STATE: InitProjectVmState = {
-  project: null,
-}
+  prePlannedProject: null,
+  existingPlannedProject: null,
+  completedOperationPrePlanProject: false,
+  completedOperationPlanProject: false,
+};
 
 @Injectable()
 export class InitProjectViewModel {
 
   private store: BehaviorSubject<InitProjectVmState>;
   private state$: Observable<InitProjectVmState>;
-  // private _project$: Observable<Project>;
 
   constructor() {
     this.store = new BehaviorSubject(DEFAULT_STATE);
     this.state$ = this.store.asObservable();
-    // this._project$ = this.state$.pipe(map(state => state.project), distinctUntilChanged());
   }
 
-  public get project$(): Observable<Project> {
-    return this.state$.pipe(map(state => state.project), distinctUntilChanged());
+  public get existingPlannedProject$(): Observable<Project> {
+    return this.state$.pipe(map(state => state.existingPlannedProject), distinctUntilChanged());
+  }
+
+  public get prePlannedProject$(): Observable<Project> {
+    return this.state$.pipe(map(state => state.prePlannedProject), distinctUntilChanged());
+  }
+
+  public get completedOperationPrePlanProject$(): Observable<boolean> {
+    return this.state$.pipe(map(state => state.completedOperationPrePlanProject), distinctUntilChanged());
+  }
+
+  public get completedOperationPlanProject$(): Observable<boolean> {
+    return this.state$.pipe(map(state => state.completedOperationPlanProject), distinctUntilChanged());
   }
 
   public resetStore(): void {
     this.store.next(DEFAULT_STATE);
   }
 
-  public async dispatchProject(project: Project) {
+  public async dispatchExitingPlannedProject(existingPlannedProject: Project): Promise<void> {
     const currentState = await this.getCurrentState();
-    this.updateState({ ...currentState, project });
+    this.updateState({ ...currentState, existingPlannedProject });
+  }
+
+  public async dispatchSuccefullResultPrePlanProject(prePlannedProject: Project): Promise<void> {
+    const currentState = await this.getCurrentState();
+    this.updateState({ ...currentState, prePlannedProject, completedOperationPrePlanProject: true });
+  }
+
+  public async dispatchSuccefullResultPlanProjectOperation(): Promise<void> {
+    const currentState = await this.getCurrentState();
+    this.updateState({ ...currentState, completedOperationPlanProject: true });
   }
 
   private getCurrentState(): Promise<InitProjectVmState> {
     return this.state$.pipe(first()).toPromise();
   }
 
-  private updateState(state: InitProjectVmState) {
+  private updateState(state: InitProjectVmState): void {
     this.store.next(state);
   }
 

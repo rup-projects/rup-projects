@@ -19,19 +19,22 @@ export class StartSystemController implements Controller<null, ControllerRespons
     }
   }
 
-  private createSuccessResponse(projects) {
+  private createSuccessResponse(projects): ControllerResponse<Project> {
     return {
       data: projects[0],
       status: ControllerResponseStatus.OK,
     } as  ControllerResponse<Project>;
   }
 
-  private createFailResponse(systemError: Error) {
+  private createFailResponse(systemError: Error): ControllerResponse<Project> {
+    let errorMessage = 'Error desconocido';
+    if (systemError instanceof Error) {
+      errorMessage = systemError.message;
+    }
     return {
       data: null,
       status: ControllerResponseStatus.ERROR,
-      error: { message: systemError.message } as AppError,
+      error: { message: errorMessage } as AppError,
     } as  ControllerResponse<Project>;
-
   }
 }

@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
@@ -14,6 +14,7 @@ export class HttpService {
   static CONNECTION_REFUSE = 0;
   static NOT_RESPONSE = 400;
   static UNAUTHORIZED = 401;
+  static NOT_FOUND = 404;
 
   private headers: HttpHeaders;
   private params: HttpParams;
@@ -147,8 +148,7 @@ export class HttpService {
     }
   }
 
-  private handleError(response): any {
-    console.log(response);
+  private handleError(response: HttpErrorResponse): any {
     switch (response.status) {
       case HttpService.UNAUTHORIZED: {
         throw new Error('Unauthorized');
@@ -162,8 +162,12 @@ export class HttpService {
         throw new Error('Not response');
         break;
       }
+      case  HttpService.NOT_FOUND: {
+        throw new Error('Not found');
+        break;
+      }
       default: {
-        throw new Error(response.error.message);
+        throw new Error(response.message);
         break;
       }
 

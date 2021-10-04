@@ -1,7 +1,6 @@
-import {Component, ComponentFactoryResolver, Inject, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
-import {MatSnackBar} from "@angular/material/snack-bar";
-import {ErrorViewModel} from "../../services/view-models/error.view-model";
-import {filter} from "rxjs/operators";
+import { Component, OnInit } from '@angular/core';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {ErrorViewModel} from '../../services/view-models/error.view-model';
 
 @Component({
   selector: 'app-show-error',
@@ -14,18 +13,21 @@ export class ShowErrorComponent implements OnInit {
 
   constructor(
     private errorViewModel: ErrorViewModel,
-    private snackBar: MatSnackBar,) {
+    private snackBar: MatSnackBar) {
   }
 
   ngOnInit(): void {
     this.errorViewModel.errors$.pipe().subscribe(errors => {
+      console.log(errors);
       if (errors.length > 0) {
-        errors.forEach((error, index, errors) => {
-          setTimeout(() => {
-            const message = String(index+1) + ' of ' + (errors.length) + ' ' + error.message;
-            this.snackBar.open(message, 'Error', { duration: this.timeout });
-          }, index* (this.timeout+500));
-        })
+        errors.forEach((error, index, ErrorsCollection) => {
+          if (error) {
+            setTimeout(() => {
+              const message = String(index + 1) + ' of ' + (ErrorsCollection.length) + ' ' + error.message;
+              this.snackBar.open(message, 'Error', { duration: this.timeout });
+            }, index * (this.timeout + 500));
+          }
+        });
       }
 
     });

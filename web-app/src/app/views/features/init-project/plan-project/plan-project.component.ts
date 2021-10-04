@@ -7,7 +7,7 @@ import {Phase} from '../../../../../logic/models/phase';
 import {Project, CreateProjectDto} from '../../../../../logic/models/project';
 import {ProjectService} from '../../../../controllers/project.service';
 import {ProjectDateValidator} from './project-date.validator';
-import {filter, first, tap} from "rxjs/operators";
+import {filter, first, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-plan-project',
@@ -16,7 +16,7 @@ import {filter, first, tap} from "rxjs/operators";
 
 })
 export class PlanProjectComponent implements OnInit {
-  project$: Observable<Project>;
+  prePlannedProject$: Observable<Project>;
   basicInfoFormGroup: FormGroup;
   iterationSizeFormGroup: FormGroup;
   numberOfIterations: number;
@@ -29,9 +29,9 @@ export class PlanProjectComponent implements OnInit {
     private projectService: ProjectService,
     private router: Router, private formBuilder: FormBuilder
   ) {
-     this.project$ = this.projectService.getProject$();
-     this.project$.pipe(filter(project => !(!project))).subscribe(project =>
-       this.iterationSizeFormGroup.controls[this.iterationSizeFormGroupControlName].setValue(project.numberOfIterations)
+     this.prePlannedProject$ = this.projectService.getPrePlannedProject$();
+     this.prePlannedProject$.pipe(filter(prePlannedProject => !(!prePlannedProject))).subscribe(prePlannedProject =>
+       this.iterationSizeFormGroup.controls[this.iterationSizeFormGroupControlName].setValue(prePlannedProject.numberOfIterations)
      );
   }
 
@@ -58,11 +58,15 @@ export class PlanProjectComponent implements OnInit {
     await this.projectService.prePlanProject(planProject);
   }
 
-  public async toIterationsSizeStep(stepper: MatStepper): Promise<void> {
-    await this.projectService.prePlanProject(this.basicInfoFormGroup.getRawValue())
-    /*this.project$.pipe(filter(project => !(!project)), first()).subscribe(project =>
-          this.iterationSizeFormGroup.controls[this.iterationSizeFormGroupControlName].setValue(project.numberOfIterations));*/
-    stepper.next();
+  public toIterationsSizeStep(stepper: MatStepper): void {
+    this.projectService.getCompletedOperationPrePlanProject$().pipe(
+      filter(resultOperation => resultOperation === true ), first())
+      .subscribe(resultOperation => {
+      if (resultOperation === true) {
+        stepper.next();
+      }
+    });
+    this.projectService.prePlanProject(this.basicInfoFormGroup.getRawValue());
   }
 
   public backToBasicInfoStep(stepper: MatStepper): void {
@@ -73,12 +77,20 @@ export class PlanProjectComponent implements OnInit {
     await this.router.navigateByUrl('/');
   }
 
-  async planProject(): Promise<void> {
+  planProject(): void {
+    this.projectService.getCompletedOperationPlanProject$().pipe(
+      filter(resultOperation => resultOperation === true ))
+      .subscribe(resultOperation => {
+      if (resultOperation === true) {
+        this.router.navigateByUrl('/project-management');
+      }
+    });
+
     const planProject: CreateProjectDto = {
       ...this.basicInfoFormGroup.getRawValue(),
       numberOfIterations: this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number
     };
-    await this.projectService.planProject(planProject)
-    await this.router.navigateByUrl('/project-management');
+    this.projectService.planProject(planProject);
+
   }
 }

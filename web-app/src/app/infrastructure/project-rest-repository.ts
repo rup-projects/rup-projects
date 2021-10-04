@@ -34,4 +34,9 @@ export class ProjectRestRepository implements ProjectRepository {
     return httpResult.toPromise();
   }
 
+  getOne(id: Id): Promise<Project> {
+    const httpResult = this.httpService.get(`${resourceServer}/${this.RESOURCE}/${id}`);
+    return httpResult.toPromise();
+  }
+
 }
