@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, first, map } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter, first, map, tap } from 'rxjs/operators';
 import { AppError } from '../../../logic/controllers/types/app-error';
 
-interface ErrorsState {
-  errors: AppError[];
+interface ErrorState {
+  error: AppError;
 }
 
-const DEFAULT_STATE: ErrorsState = {
-  errors: [],
+const DEFAULT_STATE: ErrorState = {
+  error: null,
 };
 
 @Injectable({
@@ -16,34 +16,32 @@ const DEFAULT_STATE: ErrorsState = {
 })
 export class ErrorViewModel {
 
-  private store: BehaviorSubject<ErrorsState>;
-  private state$: Observable<ErrorsState>;
+  private store: BehaviorSubject<ErrorState>;
+  private state$: Observable<ErrorState>;
 
   constructor() {
     this.store = new BehaviorSubject(DEFAULT_STATE);
     this.state$ = this.store.asObservable();
   }
 
-  public get errors$(): Observable<AppError[]> {
-    return this.state$.pipe(map(state => state.errors),
-      filter(errors => errors.length > 0), debounceTime(500), distinctUntilChanged()
+  public get error$(): Observable<AppError> {
+    return this.state$.pipe(map(state => state.error),
+      filter(error => error !== null )
     );
   }
 
   public async dispatchAppError(appError: AppError): Promise<void> {
     if (appError) {
       const currentState = await this.getCurrentState();
-      const newState = { ...currentState };
-      newState.errors.push(appError);
-      this.updateState({ ...newState });
+      this.updateState({ ...currentState, error: appError });
     }
   }
 
-  private getCurrentState(): Promise<ErrorsState> {
+  private getCurrentState(): Promise<ErrorState> {
     return this.state$.pipe(first()).toPromise();
   }
 
-  private updateState(state: ErrorsState): void {
+  private updateState(state: ErrorState): void {
     this.store.next(state);
   }
 

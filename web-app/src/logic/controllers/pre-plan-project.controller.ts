@@ -25,8 +25,6 @@ export class PrePlanProjectController implements Controller<CreateProjectDto, Co
     }
 
     private createFailResponse(systemError: Error): ControllerResponse<Project> {
-      console.log('aqui2');
-      console.log(typeof systemError);
       return {
         data: null,
         status: ControllerResponseStatus.ERROR,

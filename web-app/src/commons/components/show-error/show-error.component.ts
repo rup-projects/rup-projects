@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {ErrorViewModel} from '../../services/view-models/error.view-model';
+import { debounceTime, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-show-error',
-  template: `<template #messagecontainer></template>`,
+  template: ``,
   styles: []
 })
 export class ShowErrorComponent implements OnInit {
@@ -17,20 +18,8 @@ export class ShowErrorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.errorViewModel.errors$.pipe().subscribe(errors => {
-      console.log(errors);
-      if (errors.length > 0) {
-        errors.forEach((error, index, ErrorsCollection) => {
-          if (error) {
-            setTimeout(() => {
-              const message = String(index + 1) + ' of ' + (ErrorsCollection.length) + ' ' + error.message;
-              this.snackBar.open(message, 'Error', { duration: this.timeout });
-            }, index * (this.timeout + 500));
-          }
-        });
-      }
-
+    this.errorViewModel.error$.subscribe(error => {
+        this.snackBar.open(error.message, 'Error', { duration: this.timeout });
     });
   }
-
 }
