@@ -3,6 +3,7 @@ import {Project, CreateProjectDto} from '../models/project';
 import {ControllerResponse, ControllerResponseStatus} from './types/controller-response';
 import {AppError} from './types/app-error';
 import { Controller } from '../../commons/services/types/controller';
+import {Error} from '../../commons/model/error.model';
 
 export class PrePlanProjectController implements Controller<CreateProjectDto, ControllerResponse<Project>>{
     constructor(private repository: ProjectRestRepository) {}
@@ -10,9 +11,13 @@ export class PrePlanProjectController implements Controller<CreateProjectDto, Co
     async execute(projectRequest: CreateProjectDto): Promise<ControllerResponse<Project>> {
       try {
         const project = await this.repository.getPlanned(projectRequest);
-        return this.createSuccessResponse(project);
+        if (project) {
+          return this.createSuccessResponse(project);
+        } else {
+          throw new Error('no project returned');
+        }
       } catch (e) {
-        return this.createFailResponse(e);
+        return this.createFailResponse(e.message);
       }
 
     }
@@ -24,12 +29,12 @@ export class PrePlanProjectController implements Controller<CreateProjectDto, Co
       } as  ControllerResponse<Project>;
     }
 
-    private createFailResponse(systemError: Error): ControllerResponse<Project> {
+    private createFailResponse(message: string): ControllerResponse<Project> {
       return {
         data: null,
         status: ControllerResponseStatus.ERROR,
-        error: { message: systemError.message } as AppError,
-      } as  ControllerResponse<Project>;
+        error: { message } as AppError,
+      } as ControllerResponse<Project>;
     }
 
 }

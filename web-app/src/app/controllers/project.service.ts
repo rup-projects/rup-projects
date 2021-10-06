@@ -51,7 +51,7 @@ export class ProjectService {
 
   public async prePlanProject(createPrePlanProjectDto: CreateProjectDto): Promise<void> {
     const result = await new PrePlanProjectController(this.repository).execute(createPrePlanProjectDto);
-    if (result.status === ControllerResponseStatus.OK && result.data) {
+    if (result.status === ControllerResponseStatus.OK) {
       const prePlannedProject = result.data;
       await this.initProjectViewModel.dispatchSuccefullResultPrePlanProject(prePlannedProject);
     } else {
