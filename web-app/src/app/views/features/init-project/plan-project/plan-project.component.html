@@ -37,7 +37,7 @@
           <mat-label>Iterations in project</mat-label>
           <input matInput type="number" min="10" max="1000" step="10" formControlName="{{ iterationSizeFormGroupControlName }}"/>
         </mat-form-field>
-        <button mat-button type="button" (click)="refreshProject()">refresh</button>
+        <button mat-button type="button" (click)="prePlanProject()">refresh</button>
 
         <mat-card *ngIf="project" class="mat-elevation-z8">Iteration duration: {{ project.iterationSize }} days</mat-card>
 

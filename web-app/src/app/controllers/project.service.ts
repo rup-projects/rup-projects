@@ -8,9 +8,8 @@ import { PrePlanProjectController } from '../../logic/controllers/pre-plan-proje
 import { PlanProjectController } from '../../logic/controllers/plan-project.controller';
 import { Id } from '../../commons/model/id';
 import { Observable } from 'rxjs';
-import { ControllerResponse, ControllerResponseStatus } from '../../logic/controllers/types/controller-response';
+import { ControllerResponseStatus } from '../../logic/controllers/types/controller-response';
 import { ErrorViewModel } from '../../commons/services/view-models/error.view-model';
-import { AppError } from '../../logic/controllers/types/app-error';
 
 @Injectable()
 export class ProjectService {
