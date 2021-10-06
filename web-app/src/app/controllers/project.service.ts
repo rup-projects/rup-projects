@@ -41,7 +41,9 @@ export class ProjectService {
     const result = await new StartSystemController(this.repository).execute();
     if (result.status === ControllerResponseStatus.OK) {
       const existingPlannedProject = result.data;
-      await this.initProjectViewModel.dispatchExitingPlannedProject(existingPlannedProject);
+      if (existingPlannedProject) {
+        await this.initProjectViewModel.dispatchExitingPlannedProject(existingPlannedProject);
+      }
     } else {
       await this.errorViewModel.dispatchAppError(result.error);
     }
