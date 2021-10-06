@@ -58,8 +58,7 @@ export class ProjectService {
   }
 
   public async planProject(planProject: CreateProjectDto): Promise<void> {
-    const controller = new PlanProjectController(this.repository);
-    const result = await controller.execute(planProject);
+    const result = await new PlanProjectController(this.repository).execute(planProject);
     if (result.status === ControllerResponseStatus.OK) {
       await this.initProjectViewModel.dispatchSuccefullResultPlanProjectOperation();
     } else {

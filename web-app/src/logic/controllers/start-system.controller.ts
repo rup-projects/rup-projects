@@ -10,7 +10,6 @@ export class StartSystemController implements Controller<null, ControllerRespons
   }
 
   public async execute(): Promise<ControllerResponse<Project>> {
-
     try {
       const projects = await this.repository.getAll();
       return this.createSuccessResponse(projects);
@@ -23,7 +22,7 @@ export class StartSystemController implements Controller<null, ControllerRespons
     return {
       data: projects[0],
       status: ControllerResponseStatus.OK,
-    } as  ControllerResponse<Project>;
+    } as ControllerResponse<Project>;
   }
 
   private createFailResponse(systemError: Error): ControllerResponse<Project> {

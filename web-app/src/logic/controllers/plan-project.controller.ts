@@ -9,7 +9,6 @@ export class PlanProjectController implements Controller<CreateProjectDto, Contr
   constructor(private repository: ProjectRepository) {}
 
   async execute(createProjectDto: CreateProjectDto): Promise<ControllerResponse<Project>> {
-
     try {
       const existentProjects = await this.repository.getAll();
       if (existentProjects.length > 0) {
