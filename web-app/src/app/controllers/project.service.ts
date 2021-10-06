@@ -41,7 +41,9 @@ export class ProjectService {
     const result = await new StartSystemController(this.repository).execute();
     if (result.status === ControllerResponseStatus.OK) {
       const existingPlannedProject = result.data;
-      await this.initProjectViewModel.dispatchExitingPlannedProject(existingPlannedProject);
+      if (existingPlannedProject) {
+        await this.initProjectViewModel.dispatchExitingPlannedProject(existingPlannedProject);
+      }
     } else {
       await this.errorViewModel.dispatchAppError(result.error);
     }
@@ -49,7 +51,7 @@ export class ProjectService {
 
   public async prePlanProject(createPrePlanProjectDto: CreateProjectDto): Promise<void> {
     const result = await new PrePlanProjectController(this.repository).execute(createPrePlanProjectDto);
-    if (result.status === ControllerResponseStatus.OK && result.data) {
+    if (result.status === ControllerResponseStatus.OK) {
       const prePlannedProject = result.data;
       await this.initProjectViewModel.dispatchSuccefullResultPrePlanProject(prePlannedProject);
     } else {
@@ -58,8 +60,7 @@ export class ProjectService {
   }
 
   public async planProject(planProject: CreateProjectDto): Promise<void> {
-    const controller = new PlanProjectController(this.repository);
-    const result = await controller.execute(planProject);
+    const result = await new PlanProjectController(this.repository).execute(planProject);
     if (result.status === ControllerResponseStatus.OK) {
       await this.initProjectViewModel.dispatchSuccefullResultPlanProjectOperation();
     } else {

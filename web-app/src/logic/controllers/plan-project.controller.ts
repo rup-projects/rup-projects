@@ -9,13 +9,7 @@ export class PlanProjectController implements Controller<CreateProjectDto, Contr
   constructor(private repository: ProjectRepository) {}
 
   async execute(createProjectDto: CreateProjectDto): Promise<ControllerResponse<Project>> {
-
     try {
-      const existentProjects = await this.repository.getAll();
-      if (existentProjects.length > 0) {
-        const projectId = existentProjects[0].id;
-        await this.repository.delete(projectId);
-      }
       const createdProject = await this.repository.create(createProjectDto);
       return this.createSuccessResponse(createdProject);
     } catch (e) {
@@ -31,12 +25,14 @@ export class PlanProjectController implements Controller<CreateProjectDto, Contr
   }
 
   private createFailResponse(systemError: Error): ControllerResponse<Project> {
-    console.log('aqui');
-    console.log(typeof systemError);
+    let errorMessage = 'Error desconocido';
+    if (systemError instanceof Error) {
+      errorMessage = systemError.message;
+    }
     return {
       data: null,
       status: ControllerResponseStatus.ERROR,
-      error: { message: systemError.message } as AppError,
+      error: { message: errorMessage } as AppError,
     } as  ControllerResponse<Project>;
   }
 }

@@ -17,24 +17,27 @@
     package front <<angular:10>>{
 
         rectangle presentation {
-            rectangle xComponent {
-               boundary XTemplate <<HTML>>
+            rectangle View {
+               entity XTemplate <<HTML>>
                boundary XStyle <<CSS>>
-               boundary XComponent <<TypeScript>>
+               control XComponent <<TypeScript>>
             }
-            control HTTPService
-            control XAngularService <<TypeScript>>
-            control XViewModel
-            entity XRestRepository
+
+            rectangle Controller {
+                control HTTPService
+                boundary XAngularService <<TypeScript>> <<in>>
+                boundary XViewModel <<out>>
+                control XRestRepository
+            }
         }
 
 
         entity XDao <<TypeScript>>
 
-        rectangle logic {
-            control XLogicService as "XController" <<TypeScript>>
+        rectangle Model {
+            boundary XLogicService as "XController" <<TypeScript>>
             entity XModel
-            entity XTSDao as "XRepository"
+            control XTSDao as "XRepository"
         }
 
 
@@ -54,9 +57,9 @@
     }
 
     package backend <<spring:5.3>> {
-        entity XResource
-        entity XBService
-        entity XRepository
+        boundary XResource
+        control XBService
+        boundary XRepository
         entity XDto
         entity XBEntity
         XResource --> XBService

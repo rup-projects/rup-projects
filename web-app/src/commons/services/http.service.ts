@@ -12,7 +12,7 @@ import { Error } from '../model/error.model';
 })
 export class HttpService {
   static CONNECTION_REFUSE = 0;
-  static NOT_RESPONSE = 400;
+  static BAD_REQUEST = 400;
   static UNAUTHORIZED = 401;
   static NOT_FOUND = 404;
 
@@ -158,8 +158,8 @@ export class HttpService {
         throw new Error('Connection Refuse');
         break;
       }
-      case HttpService.NOT_RESPONSE: {
-        throw new Error('Not response');
+      case HttpService.BAD_REQUEST: {
+        throw new Error(response.error.message);
         break;
       }
       case  HttpService.NOT_FOUND: {

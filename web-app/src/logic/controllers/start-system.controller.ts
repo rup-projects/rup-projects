@@ -10,20 +10,23 @@ export class StartSystemController implements Controller<null, ControllerRespons
   }
 
   public async execute(): Promise<ControllerResponse<Project>> {
-
     try {
       const projects = await this.repository.getAll();
-      return this.createSuccessResponse(projects);
+      if (projects.length !== 0) {
+        return this.createSuccessResponse(projects[0]);
+      } else {
+        return this.createSuccessResponse(null);
+      }
     } catch (e) {
       return this.createFailResponse(e);
     }
   }
 
-  private createSuccessResponse(projects): ControllerResponse<Project> {
+  private createSuccessResponse(project): ControllerResponse<Project> {
     return {
-      data: projects[0],
+      data: project,
       status: ControllerResponseStatus.OK,
-    } as  ControllerResponse<Project>;
+    } as ControllerResponse<Project>;
   }
 
   private createFailResponse(systemError: Error): ControllerResponse<Project> {
