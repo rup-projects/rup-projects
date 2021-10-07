@@ -1,9 +1,9 @@
 import { Controller } from '../../commons/services/types/controller';
 import { ProjectRepository } from '../repositories/project.repository';
 import {Id} from '../../commons/model/id';
-import { ControllerResponse, ControllerResponseStatus } from './types/controller-response';
+import { ControllerResponse, ControllerResponseStatus } from './core/types/controller-response';
 import { Project } from '../models/project';
-import { AppError } from './types/app-error';
+import { AppError } from './core/types/app-error';
 
 export class DeleteProjectController implements Controller<Id, ControllerResponse<null>> {
 

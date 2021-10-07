@@ -1,8 +1,8 @@
 import { Controller } from '../../commons/services/types/controller';
 import { ProjectRepository } from '../repositories/project.repository';
 import { Project } from '../models/project';
-import { ControllerResponse, ControllerResponseStatus } from "./types/controller-response";
-import {AppError} from "./types/app-error";
+import { ControllerResponse, ControllerResponseStatus } from "./core/types/controller-response";
+import {AppError} from "./core/types/app-error";
 
 export class StartSystemController implements Controller<null, ControllerResponse<Project>> {
 

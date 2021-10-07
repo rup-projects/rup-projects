@@ -8,7 +8,7 @@ import { PrePlanProjectController } from '../../logic/controllers/pre-plan-proje
 import { PlanProjectController } from '../../logic/controllers/plan-project.controller';
 import { Id } from '../../commons/model/id';
 import { Observable } from 'rxjs';
-import { ControllerResponseStatus } from '../../logic/controllers/types/controller-response';
+import { ControllerResponseStatus } from '../../logic/controllers/core/types/controller-response';
 import { ErrorViewModel } from '../../commons/services/view-models/error.view-model';
 
 @Injectable()

@@ -1,8 +1,8 @@
 import { Controller } from '../../commons/services/types/controller';
 import { Project, CreateProjectDto } from '../models/project';
 import { ProjectRepository } from '../repositories/project.repository';
-import { ControllerResponse, ControllerResponseStatus } from './types/controller-response';
-import { AppError } from './types/app-error';
+import { ControllerResponse, ControllerResponseStatus } from './core/types/controller-response';
+import {ControllerResponseFactory} from './core/controller-response.factory';
 
 export class PlanProjectController implements Controller<CreateProjectDto, ControllerResponse<Project>> {
 
@@ -13,7 +13,7 @@ export class PlanProjectController implements Controller<CreateProjectDto, Contr
       const createdProject = await this.repository.create(createProjectDto);
       return this.createSuccessResponse(createdProject);
     } catch (e) {
-      return this.createFailResponse(e);
+      return ControllerResponseFactory.failResponse(e);
     }
   }
 
@@ -21,18 +21,6 @@ export class PlanProjectController implements Controller<CreateProjectDto, Contr
     return {
       data: project,
       status: ControllerResponseStatus.OK,
-    } as  ControllerResponse<Project>;
-  }
-
-  private createFailResponse(systemError: Error): ControllerResponse<Project> {
-    let errorMessage = 'Error desconocido';
-    if (systemError instanceof Error) {
-      errorMessage = systemError.message;
-    }
-    return {
-      data: null,
-      status: ControllerResponseStatus.ERROR,
-      error: { message: errorMessage } as AppError,
     } as  ControllerResponse<Project>;
   }
 }
