@@ -50,7 +50,7 @@ export class PlanProjectComponent implements OnInit {
     });
   }
 
-  public async refreshProject(): Promise<void> {
+  public async prePlanProject(): Promise<void> {
     const planProject: CreateProjectDto = {
       ...this.basicInfoFormGroup.getRawValue(),
       numberOfIterations: this.iterationSizeFormGroup.get(this.iterationSizeFormGroupControlName).value as number
@@ -69,22 +69,14 @@ export class PlanProjectComponent implements OnInit {
     this.projectService.prePlanProject(this.basicInfoFormGroup.getRawValue());
   }
 
-  public backToBasicInfoStep(stepper: MatStepper): void {
-    stepper.previous();
-  }
-
-  async cancelPlanProject(): Promise<void> {
-    await this.router.navigateByUrl('/');
-  }
-
-  planProject(): void {
+  public planProject(): void {
     this.projectService.getCompletedOperationPlanProject$().pipe(
       filter(resultOperation => resultOperation === true ))
       .subscribe(resultOperation => {
-      if (resultOperation === true) {
-        this.router.navigateByUrl('/project-management');
-      }
-    });
+        if (resultOperation === true) {
+          this.router.navigateByUrl('/project-management');
+        }
+      });
 
     const planProject: CreateProjectDto = {
       ...this.basicInfoFormGroup.getRawValue(),
@@ -92,5 +84,13 @@ export class PlanProjectComponent implements OnInit {
     };
     this.projectService.planProject(planProject);
 
+  }
+
+  public backToBasicInfoStep(stepper: MatStepper): void {
+    stepper.previous();
+  }
+
+  async cancelPlanProject(): Promise<void> {
+    await this.router.navigateByUrl('/');
   }
 }

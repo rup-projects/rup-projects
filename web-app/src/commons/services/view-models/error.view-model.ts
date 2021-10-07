@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, first, map, tap } from 'rxjs/operators';
-import { AppError } from '../../../logic/controllers/types/app-error';
+import { AppError } from '../../../logic/controllers/core/types/app-error';
 
 interface ErrorState {
   error: AppError;

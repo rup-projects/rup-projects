@@ -13,13 +13,14 @@ user -right-> PlanProjectView
         setEndDate(date endDate)
         setCost(float cost)
         setIterationSize(int days)
-        refreshEstimatedPhases(ProjectData)
-        confirm()
+        prePlanProject(ProjectData)
+        planProject()
         cancel()
     end note
 PlanProjectView -right-> PlanProjectController
     note on link
         planProject(project)
+        prePlanProject(projectData)
     end note
 PlanProjectController -right-> ProjectDao
     note on link

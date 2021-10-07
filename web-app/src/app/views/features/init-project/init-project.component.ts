@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable, Subscription } from 'rxjs';
+import { Observable} from 'rxjs';
 import { Project } from '../../../../logic/models/project';
 import { ProjectService } from '../../../controllers/project.service';
 import { Id } from '../../../../commons/model/id';
@@ -28,7 +28,6 @@ export class InitProjectComponent implements OnInit {
 
   async deleteProject(id: Id): Promise<void>{
     await this.projectService.deleteProject(id);
-    await this.projectService.startSystem();
   }
 
   async toPlanProjectRoute(): Promise<void> {
