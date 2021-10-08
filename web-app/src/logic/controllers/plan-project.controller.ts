@@ -13,7 +13,7 @@ export class PlanProjectController implements Controller<CreateProjectDto, Contr
       const createdProject = await this.repository.create(createProjectDto);
       return this.createSuccessResponse(createdProject);
     } catch (e) {
-      return ControllerResponseFactory.failResponse(e);
+      return ControllerResponseFactory.createFail(e);
     }
   }
 
