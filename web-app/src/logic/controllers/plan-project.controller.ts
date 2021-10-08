@@ -1,7 +1,7 @@
 import { Controller } from '../../commons/services/types/controller';
 import { Project, CreateProjectDto } from '../models/project';
 import { ProjectRepository } from '../repositories/project.repository';
-import { ControllerResponse, ControllerResponseStatus } from './core/types/controller-response';
+import { ControllerResponse} from './core/types/controller-response';
 import {ControllerResponseFactory} from './core/controller-response.factory';
 
 export class PlanProjectController implements Controller<CreateProjectDto, ControllerResponse<Project>> {
@@ -11,16 +11,9 @@ export class PlanProjectController implements Controller<CreateProjectDto, Contr
   async execute(createProjectDto: CreateProjectDto): Promise<ControllerResponse<Project>> {
     try {
       const createdProject = await this.repository.create(createProjectDto);
-      return this.createSuccessResponse(createdProject);
+      return ControllerResponseFactory.createSuccess(createdProject);
     } catch (e) {
       return ControllerResponseFactory.createFail(e);
     }
-  }
-
-  private createSuccessResponse(project: Project): ControllerResponse<Project> {
-    return {
-      data: project,
-      status: ControllerResponseStatus.OK,
-    } as  ControllerResponse<Project>;
   }
 }
