@@ -1,8 +1,8 @@
 import { Controller } from '../../commons/services/types/controller';
 import { ProjectRepository } from '../repositories/project.repository';
 import { Project } from '../models/project';
-import { ControllerResponse, ControllerResponseStatus } from "./core/types/controller-response";
-import {AppError} from "./core/types/app-error";
+import { ControllerResponse } from './core/types/controller-response';
+import { ControllerResponseFactory } from './core/controller-response.factory';
 
 export class StartSystemController implements Controller<null, ControllerResponse<Project>> {
 
@@ -13,31 +13,13 @@ export class StartSystemController implements Controller<null, ControllerRespons
     try {
       const projects = await this.repository.getAll();
       if (projects.length !== 0) {
-        return this.createSuccessResponse(projects[0]);
+        return ControllerResponseFactory.createSuccess(projects[0]);
       } else {
-        return this.createSuccessResponse(null);
+        return ControllerResponseFactory.createSuccess(null);
       }
     } catch (e) {
-      return this.createFailResponse(e);
+      return ControllerResponseFactory.createFail(e);
     }
   }
 
-  private createSuccessResponse(project): ControllerResponse<Project> {
-    return {
-      data: project,
-      status: ControllerResponseStatus.OK,
-    } as ControllerResponse<Project>;
-  }
-
-  private createFailResponse(systemError: Error): ControllerResponse<Project> {
-    let errorMessage = 'Error desconocido';
-    if (systemError instanceof Error) {
-      errorMessage = systemError.message;
-    }
-    return {
-      data: null,
-      status: ControllerResponseStatus.ERROR,
-      error: { message: errorMessage } as AppError,
-    } as  ControllerResponse<Project>;
-  }
 }
