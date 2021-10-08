@@ -2,7 +2,7 @@ import { Controller } from '../../commons/services/types/controller';
 import { MemberRepository } from '../repositories/member.repository';
 import {Id} from '../../commons/model/id';
 
-export class DeleteMemberController implements Controller<number, void> {
+export class DeleteMemberController implements Controller<Id, void> {
 
   constructor(private repository: MemberRepository) {
   }
