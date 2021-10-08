@@ -16,11 +16,11 @@ export class ProjectManagementComponent implements OnInit {
   columnsToDisplay: string[] = this.displayedColumns.slice();
 
   constructor(private phaseService: PhaseService, private router: Router) {
+    this.phases$ = this.phaseService.getPhases$();
   }
-  ngOnInit(): void {
-    this.phaseService.openPhases().then(
-      () => this.phases$ = this.phaseService.getPhasesViewModel().getStateValue()
-    );
+
+  async ngOnInit(): Promise<void> {
+    await this.phaseService.openPhases();
   }
 
   openIterations(phase: Phase): void {

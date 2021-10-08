@@ -13,6 +13,7 @@ import {Observable} from 'rxjs';
 })
 export class PhaseManagementComponent implements OnInit {
 
+  private readonly PHASE_ID_PARAM = 'id';
   iterations$: Observable<Iteration[]>;
   displayedColumns: string[] = ['id', 'number', 'startDate', 'endDate'];
   columnsToDisplay: string[] = this.displayedColumns.slice();
@@ -22,11 +23,10 @@ export class PhaseManagementComponent implements OnInit {
   ) {
   }
 
-  ngOnInit(): void {
-    const phaseId = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.phaseService.openIterations(phaseId).then(
-      () => this.iterations$ = this.phaseService.getIterationsViewModel().getStateValue()
-    );
+  async ngOnInit(): Promise<void> {
+    const phaseId = this.getPhaseIdFromURI();
+    this.iterations$ = this.phaseService.getIterations$();
+    await this.phaseService.openIterations(phaseId);
   }
 
   async openIteration(iteration: Iteration): Promise<void> {
@@ -35,5 +35,9 @@ export class PhaseManagementComponent implements OnInit {
 
   async openPhases(): Promise<void> {
     await this.router.navigateByUrl('project-management');
+  }
+
+  private getPhaseIdFromURI(): number {
+    return Number(this.activatedRoute.snapshot.paramMap.get(this.PHASE_ID_PARAM));
   }
 }
