@@ -1,4 +1,4 @@
-import { AppError } from './app-error';
+import {AppError, ConcreteAppError, NullAppError} from './app-error';
 
 export abstract class ControllerResponse<T> {
   protected responseData: T;
@@ -20,4 +20,22 @@ export abstract class ControllerResponse<T> {
 
 export enum ControllerResponseStatus {
   OK, ERROR
+}
+
+export class SuccessControllerResponse<T> extends ControllerResponse<T> {
+  constructor(data: T) {
+    super();
+    this.responseData = data;
+    this.responseStatus = ControllerResponseStatus.OK;
+    this.responseError = new NullAppError();
+  }
+}
+
+export class FailControllerResponse extends ControllerResponse<null> {
+  constructor(error: Error) {
+    super();
+    this.responseData = null;
+    this.responseStatus = ControllerResponseStatus.ERROR;
+    this.responseError = new ConcreteAppError(error);
+  }
 }
