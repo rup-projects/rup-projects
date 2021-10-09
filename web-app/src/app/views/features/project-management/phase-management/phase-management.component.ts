@@ -5,6 +5,7 @@ import {PhaseService} from '../../../../controllers/phase.service';
 import {IterationService} from '../../../../controllers/iteration.service';
 import {MemberService} from '../../../../controllers/member.service';
 import {Observable} from 'rxjs';
+import { Id } from '../../../../../commons/model/id';
 
 @Component({
   selector: 'app-phase-management',
@@ -17,6 +18,7 @@ export class PhaseManagementComponent implements OnInit {
   iterations$: Observable<Iteration[]>;
   displayedColumns: string[] = ['id', 'number', 'startDate', 'endDate'];
   columnsToDisplay: string[] = this.displayedColumns.slice();
+  private phaseId: Id;
 
   constructor(private phaseService: PhaseService, private iterationService: IterationService, private membersService: MemberService,
               private router: Router, private activatedRoute: ActivatedRoute
@@ -24,20 +26,20 @@ export class PhaseManagementComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    const phaseId = this.getPhaseIdFromURI();
     this.iterations$ = this.phaseService.getIterations$();
-    await this.phaseService.openIterations(phaseId);
+    this.phaseId = this.getPhaseIdFromURI();
+    await this.phaseService.openIterations(this.phaseId);
   }
 
   async openIteration(iteration: Iteration): Promise<void> {
-    await this.router.navigateByUrl(`/iteration-management/${iteration.id}`);
+    await this.router.navigateByUrl(`project-management/phases/${this.phaseId}/iterations/${iteration.id}`);
   }
 
   async openPhases(): Promise<void> {
     await this.router.navigateByUrl('project-management');
   }
 
-  private getPhaseIdFromURI(): number {
+  private getPhaseIdFromURI(): Id {
     return Number(this.activatedRoute.snapshot.paramMap.get(this.PHASE_ID_PARAM));
   }
 }
