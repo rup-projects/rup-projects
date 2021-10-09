@@ -16,6 +16,11 @@ export abstract class ControllerResponse<T> {
   get error(): AppError {
     return this.responseError;
   }
+
+  isSuccess(): boolean {
+    return this.responseStatus === ControllerResponseStatus.OK;
+  }
+
 }
 
 export enum ControllerResponseStatus {
