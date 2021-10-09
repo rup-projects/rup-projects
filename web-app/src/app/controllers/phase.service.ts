@@ -30,7 +30,7 @@ export class PhaseService {
 
   async openPhases(): Promise<void> {
     const result = await new OpenPhasesController(this.repository).execute();
-    if (result.status === ControllerResponseStatus.OK) {
+    if (result.isSuccess()) {
       const phases = result.data;
       await this.phasesViewModel.dispatchPhases(phases);
     } else {

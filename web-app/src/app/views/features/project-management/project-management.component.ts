@@ -24,7 +24,7 @@ export class ProjectManagementComponent implements OnInit {
   }
 
   openIterations(phase: Phase): void {
-    this.router.navigate(['project-management/phase', phase.id]).then();
+    this.router.navigate(['project-management/phases', phase.id]).then();
   }
 
   closeProject(): void {

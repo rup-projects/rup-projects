@@ -62,10 +62,8 @@ export class PlanProjectComponent implements OnInit {
     this.projectService.getCompletedOperationPrePlanProject$().pipe(
       filter(resultOperation => resultOperation === true ), first())
       .subscribe(resultOperation => {
-      if (resultOperation === true) {
         stepper.next();
-      }
-    });
+      });
     this.projectService.prePlanProject(this.basicInfoFormGroup.getRawValue());
   }
 
@@ -73,9 +71,7 @@ export class PlanProjectComponent implements OnInit {
     this.projectService.getCompletedOperationPlanProject$().pipe(
       filter(resultOperation => resultOperation === true ))
       .subscribe(resultOperation => {
-        if (resultOperation === true) {
-          this.router.navigateByUrl('/project-management');
-        }
+        this.router.navigateByUrl('/project-management');
       });
 
     const planProject: CreateProjectDto = {
