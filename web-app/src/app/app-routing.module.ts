@@ -7,7 +7,7 @@ const routes: Routes = [
     path: 'init-project',
     loadChildren: () => import('./views/features/init-project/init-project.module').then(m => m.InitProjectModule)
   },
-  {path: '', pathMatch: 'full', redirectTo: 'init-project'},
+  { path: '', pathMatch: 'full', redirectTo: 'init-project'},
   {
     path: '',
     component: GridLayoutComponent,

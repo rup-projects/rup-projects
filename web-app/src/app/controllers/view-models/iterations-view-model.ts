@@ -1,14 +1,42 @@
-import { AbstractViewModelStorage } from './type/abstract-view-model-storage';
 import { Injectable } from '@angular/core';
-import { ViewModelValueStore } from '../../../commons/services/types/view-model-value-store';
 import {Iteration} from '../../../logic/models/iteration';
-import {IterationsViewModeValueStore} from './type/iterations-view-mode-value-store';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { distinctUntilChanged, first, map } from 'rxjs/operators';
+
+interface IterationsVmState {
+  iterations: Iteration[];
+}
+
+const DEFAULT_STATE: IterationsVmState = {
+  iterations: [],
+};
 
 @Injectable()
-export class IterationsViewModel extends AbstractViewModelStorage<Iteration[]> {
+export class IterationsViewModel {
 
-  public getInitialValue(): ViewModelValueStore<Iteration[]> {
-    return  new IterationsViewModeValueStore();
+  private store: BehaviorSubject<IterationsVmState>;
+  private state$: Observable<IterationsVmState>;
+
+  constructor() {
+    this.store = new BehaviorSubject(DEFAULT_STATE);
+    this.state$ = this.store.asObservable();
+  }
+
+  public get iterations$(): Observable<Iteration[]> {
+    return this.state$.pipe(map(state => state.iterations), distinctUntilChanged());
+  }
+
+  public async dispatchIterations(iterations: Iteration[]): Promise<void> {
+    const currentState = await this.getCurrentState();
+    this.updateState({ ...currentState, iterations });
+  }
+
+  private getCurrentState(): Promise<IterationsVmState> {
+    return this.state$.pipe(first()).toPromise();
+  }
+
+  private updateState(state: IterationsVmState): void {
+    this.store.next(state);
   }
 
 }
