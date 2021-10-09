@@ -7,7 +7,7 @@ import {PhaseManagementComponent} from './phase-management/phase-management.comp
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'phases'},
   {path: 'phases', component: ProjectManagementComponent},
-  {path: 'phases/:id', component: PhaseManagementComponent}
+  {path: 'phases/:id/iterations', component: PhaseManagementComponent}
 
 ];
 

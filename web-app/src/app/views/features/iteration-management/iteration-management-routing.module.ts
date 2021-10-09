@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IterationManagementComponent } from './iteration-management.component';
 
-const routes: Routes = [{ path: ':id', component: IterationManagementComponent }];
+const routes: Routes = [
+  { path: ':id', component: IterationManagementComponent }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
