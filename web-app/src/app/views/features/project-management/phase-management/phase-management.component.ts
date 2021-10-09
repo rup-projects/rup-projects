@@ -30,7 +30,7 @@ export class PhaseManagementComponent implements OnInit {
   }
 
   async openIteration(iteration: Iteration): Promise<void> {
-    await this.router.navigateByUrl(`/iteration-management/${iteration.id}`);
+    await this.router.navigateByUrl(`/iteration-management/iterations/${iteration.id}`);
   }
 
   async openPhases(): Promise<void> {

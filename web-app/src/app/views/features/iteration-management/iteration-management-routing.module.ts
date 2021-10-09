@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IterationManagementComponent } from './iteration-management.component';
 
 const routes: Routes = [
-  { path: ':id', component: IterationManagementComponent }
+  { path: 'iterations/:id', component: IterationManagementComponent }
 ];
 
 @NgModule({
