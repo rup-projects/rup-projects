@@ -10,14 +10,12 @@ export class OpenIterationsByPhaseController implements Controller<Id, Controlle
   constructor(private repository: PhaseRepository) {}
 
   async execute(id: Id): Promise<ControllerResponse<Iteration[]>> {
-
     try {
       const iterations = await this.repository.getIterations(id);
       return ControllerResponseFactory.createSuccess(iterations);
     } catch (e) {
       return ControllerResponseFactory.createFail(e);
     }
-
   }
 
 }

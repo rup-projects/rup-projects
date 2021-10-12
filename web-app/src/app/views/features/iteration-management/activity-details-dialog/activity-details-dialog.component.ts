@@ -16,7 +16,7 @@ import {ActivityViewModel} from '../../../../controllers/view-models/activity-vi
 })
 export class ActivityDetailsDialogComponent implements OnInit {
 
-  constructor(private activityService: ActivityService, private iterationProxyService: IterationService,
+  constructor(private activityService: ActivityService, private iterationService: IterationService,
               @Inject(MAT_DIALOG_DATA) public data: { activityId: string, iterationId: string },
               private formBuilder: FormBuilder, private matDialog: MatDialog,
               private realizationsViewModel: RealizationsViewModel, private activityViewModel: ActivityViewModel) {
@@ -31,8 +31,8 @@ export class ActivityDetailsDialogComponent implements OnInit {
   ngOnInit(): void {
     this.activity$ = this.activityViewModel.getStateValue();
     this.activityService.openActivity(Number(this.data.activityId));
-    this.realizations$ = this.realizationsViewModel.getStateValue();
-    this.iterationProxyService.getRealizations(Number(this.data.iterationId));
+    this.realizations$ = this.iterationService.getRealizations$();
+    this.iterationService.getRealizations(Number(this.data.iterationId));
     this.formGroup = this.formBuilder.group({
       realizationId: [1, [Validators.required, Validators.min(1)]]
     });
