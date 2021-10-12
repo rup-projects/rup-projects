@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpService } from '../../commons/services/http.service';
 import { resourceServer } from '../../environments/environment';
-import { Member } from '../../logic/models/member';
+import {Member, createMemberDto} from '../../logic/models/member';
 import { MemberRepository } from '../../logic/repositories/member.repository';
 import {Id} from '../../commons/model/id';
 
@@ -21,7 +21,7 @@ export class MemberRestRepository implements MemberRepository {
     return httpResult.toPromise();
   }
 
-  create(member: Member): Promise<void> {
+  create(member: createMemberDto): Promise<void> {
     const httpResult = this.httpService.post(`${resourceServer}/${this.RESOURCE}`, member);
     return httpResult.toPromise();
   }

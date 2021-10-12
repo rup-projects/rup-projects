@@ -24,13 +24,13 @@ export class MemberDialogComponent {
   create(): void {
     this.memberService
       .createMember(this.form.getRawValue())
-      .subscribe(() => this.marDialog.closeAll());
+      .then(() => this.marDialog.closeAll());
   }
 
   update(): void {
     this.memberService
       .updateMember(this.form.getRawValue())
-      .subscribe(() => this.marDialog.closeAll());
+      .then(() => this.marDialog.closeAll());
   }
 
   getMemberRoles(): MemberRole[] {

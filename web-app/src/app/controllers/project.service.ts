@@ -38,7 +38,7 @@ export class ProjectService {
 
   public async startSystem(): Promise<void> {
     const result = await new StartSystemController(this.repository).execute();
-    if (result.status === ControllerResponseStatus.OK) {
+    if (result.isSuccess()) {
       const existingPlannedProject = result.data;
       if (existingPlannedProject) {
         await this.initProjectViewModel.dispatchExitingPlannedProject(existingPlannedProject);
@@ -50,7 +50,7 @@ export class ProjectService {
 
   public async prePlanProject(createPrePlanProjectDto: CreateProjectDto): Promise<void> {
     const result = await new PrePlanProjectController(this.repository).execute(createPrePlanProjectDto);
-    if (result.status === ControllerResponseStatus.OK) {
+    if (result.isSuccess()) {
       const prePlannedProject = result.data;
       await this.initProjectViewModel.dispatchSuccefullResultPrePlanProject(prePlannedProject);
     } else {
@@ -60,7 +60,7 @@ export class ProjectService {
 
   public async planProject(planProject: CreateProjectDto): Promise<void> {
     const result = await new PlanProjectController(this.repository).execute(planProject);
-    if (result.status === ControllerResponseStatus.OK) {
+    if (result.isSuccess()) {
       await this.initProjectViewModel.dispatchSuccefullResultPlanProjectOperation();
     } else {
       await this.errorViewModel.dispatchAppError(result.error);
@@ -69,7 +69,7 @@ export class ProjectService {
 
   public async deleteProject(id: Id): Promise<void> {
     const result = await new DeleteProjectController(this.repository).execute(id);
-    if (result.status === ControllerResponseStatus.OK) {
+    if (result.isSuccess()) {
       await this.initProjectViewModel.resetStore();
     } else {
       await this.errorViewModel.dispatchAppError(result.error);

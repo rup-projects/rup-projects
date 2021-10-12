@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpService } from '../../commons/services/http.service';
 import { resourceServer } from '../../environments/environment';
 import {UseCaseRepository} from '../../logic/repositories/use-case.repository';
-import {UseCase} from '../../logic/models/use-case';
+import {UseCase, createUseCaseDto} from '../../logic/models/use-case';
 import {Id} from '../../commons/model/id';
 
 @Injectable({
@@ -20,7 +20,7 @@ export class UseCaseRestRepository implements UseCaseRepository {
     return httpResult.toPromise();
   }
 
-  create(useCase: UseCase): Promise<void> {
+  create(useCase: createUseCaseDto): Promise<void> {
     const httpResult = this.httpService.post(`${resourceServer}/${this.RESOURCE}`, useCase);
     return httpResult.toPromise();
   }
