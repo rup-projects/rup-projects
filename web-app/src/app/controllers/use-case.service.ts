@@ -49,10 +49,7 @@ export class UseCaseService {
 
   async createUseCase(useCase: UseCase): Promise<void> {
     const result = await new CreateUseCaseController(this.useCaseRepository).execute(useCase);
-    if (result.isSuccess()) {
-      this.useCasesViewModel.setValue(result.data);
-      await this.openUseCases();
-    } else {
+    if (!result.isSuccess()) {
       await this.errorViewModel.dispatchAppError(result.error);
     }
   }

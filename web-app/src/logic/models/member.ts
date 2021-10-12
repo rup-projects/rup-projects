@@ -1,5 +1,6 @@
 import {MemberRole} from './member-role';
 import {Id} from '../../commons/model/id';
+import {UseCase} from './use-case';
 
 export interface Member {
   id: Id;
@@ -7,6 +8,7 @@ export interface Member {
   surName: string;
   email: string;
   role: MemberRole;
-
 }
+
+export type createMemberDto = Omit<Member, 'id'>;
 
