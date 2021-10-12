@@ -46,7 +46,7 @@ export class IterationManagementComponent implements OnInit {
   openIteration(): void {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.iterationService.openIteration(id)
-      .then( () => this.iterationViewModel.getStateValue()
+      .then( () => this.iterationService.getIteration$()
         .subscribe(iteration => {
           this.iteration = iteration;
           this.initCalendar(iteration);

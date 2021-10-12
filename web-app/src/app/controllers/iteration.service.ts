@@ -1,5 +1,4 @@
 import {Injectable} from '@angular/core';
-import {from, Observable} from 'rxjs';
 import {Iteration} from '../../logic/models/iteration';
 import {IterationRestRepository} from '../infrastructure/iteration-rest-repository';
 import {OpenIterationController} from '../../logic/controllers/open-iteration.controller';
@@ -8,30 +7,50 @@ import {OpenRealizationByIterationController} from '../../logic/controllers/open
 import {IterationViewModel} from './view-models/iteration-view-model';
 import {RealizationsViewModel} from './view-models/realizations-view-model';
 import {Id} from '../../commons/model/id';
+import {ErrorViewModel} from '../../commons/services/view-models/error.view-model';
+import {Observable} from 'rxjs';
+import {Realization} from '../../logic/models/realization';
 
 @Injectable()
 export class IterationService {
 
   constructor(private repository: IterationRestRepository,
               private iterationViewModel: IterationViewModel,
+              private errorViewModel: ErrorViewModel,
               private realizationsViewModel: RealizationsViewModel) {
   }
 
-  async openIteration(id: Id): Promise<void> {
-    const command = new OpenIterationController(this.repository);
-    const result = await command.execute(id);
-    this.iterationViewModel.setValue(result);
+
+  public getIteration$(): Observable<Iteration> {
+    return this.iterationViewModel.getStateValue();
   }
 
-  updateIteration(iteration: Iteration): Observable<void> {
-    const command = new UpdateIterationController(this.repository);
-    return from(command.execute(iteration));
+  public getRealizations$(): Observable<Realization[]> {
+    return this.realizationsViewModel.getStateValue();
+  }
 
+  async openIteration(id: Id): Promise<void> {
+    const result = await new OpenIterationController(this.repository).execute(id);
+    if (result.isSuccess()) {
+      this.iterationViewModel.setValue(result.data);
+    } else {
+      await this.errorViewModel.dispatchAppError(result.error);
+    }
+  }
+
+  async updateIteration(iteration: Iteration): Promise<void> {
+    const result = await new UpdateIterationController(this.repository).execute(iteration);
+    if (!result.isSuccess()) {
+      await this.errorViewModel.dispatchAppError(result.error);
+    }
   }
 
   async getRealizations(id: Id): Promise<void> {
-    const command = new OpenRealizationByIterationController(this.repository);
-    const result = await command.execute(id);
-    this.realizationsViewModel.setValue(result);
+    const result = await new OpenRealizationByIterationController(this.repository).execute(id);
+    if (result.isSuccess()) {
+      this.realizationsViewModel.setValue(result.data);
+    } else {
+      await this.errorViewModel.dispatchAppError(result.error);
+    }
   }
 }
