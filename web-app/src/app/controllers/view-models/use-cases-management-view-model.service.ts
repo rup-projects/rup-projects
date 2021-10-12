@@ -15,7 +15,7 @@ const DEFAULT_STATE: UseCasesVmState = {
 };
 
 @Injectable()
-export class UseCasesViewModel {
+export class UseCasesManagementViewModel {
 
   private store: BehaviorSubject<UseCasesVmState>;
   private state$: Observable<UseCasesVmState>;

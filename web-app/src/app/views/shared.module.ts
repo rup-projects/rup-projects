@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CrudComponent } from '../../commons/components/crud/crud.component';
 import { CancelYesDialogComponent } from '../../commons/components/dialogs/cancel-yes-dialog.component';
 import { ReadDetailDialogComponent } from '../../commons/components/dialogs/read-detail.dialog.component';
-import { ShowErrorComponent } from "../../commons/components/show-error/show-error.component";
+import { ShowErrorComponent } from '../../commons/components/show-error/show-error.component';
 import { UppercaseWords } from '../../commons/pipes/UppercaseWordsPipe';
 import { ActivityService } from '../controllers/activity.service';
 import { IterationService } from '../controllers/iteration.service';
@@ -16,8 +16,6 @@ import { UseCaseService } from '../controllers/use-case.service';
 import { ActivityViewModel } from '../controllers/view-models/activity-view-model';
 import { IterationViewModel } from '../controllers/view-models/iteration-view-model';
 import { IterationsViewModel } from '../controllers/view-models/iterations-view-model';
-import { MemberViewModel } from '../controllers/view-models/member.view-model';
-import { MembersViewModel } from '../controllers/view-models/members.view-model';
 import { PhasesViewModel } from '../controllers/view-models/phases-view-model';
 import { RealizationsViewModel } from '../controllers/view-models/realizations-view-model';
 import { FooterComponent } from './layout/footer/footer.component';
@@ -56,8 +54,6 @@ import { MaterialModule } from './material.module';
     IterationService,
     PhaseService,
     ActivityService,
-    MembersViewModel,
-    MemberViewModel,
     IterationsViewModel,
     IterationViewModel,
     RealizationsViewModel,

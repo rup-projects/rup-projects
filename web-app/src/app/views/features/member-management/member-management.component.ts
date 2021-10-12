@@ -19,8 +19,8 @@ export class MemberManagementComponent {
 
   constructor(private memberService: MemberService,
               private matDialog: MatDialog) {
-    this.members$ = this.memberService.getMembersViewModel().getStateValue();
-    this.selectedMember$ = this.memberService.getMemberViewModel().getStateValue();
+    this.members$ = this.memberService.getMembers$();
+    this.selectedMember$ = this.memberService.getSelectedMember$();
     this.memberService.openMembers().then();
   }
 
