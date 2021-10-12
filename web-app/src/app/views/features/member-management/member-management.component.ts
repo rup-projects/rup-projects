@@ -48,7 +48,7 @@ export class MemberManagementComponent {
     // TODO Create confirmation dialog
     this.memberService
       .deleteMember(member.id)
-      .subscribe(() => this.memberService.openMembers());
+      .then(() => this.memberService.openMembers());
   }
 
   private openMemberDetailDialog(): void {
