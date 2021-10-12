@@ -25,8 +25,8 @@ export class UseCasesManagementComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.useCases$ = this.useCaseService.getUseCasesViewModel().getStateValue();
-    this.selectedUseCase$ = this.useCaseService.getUseCaseViewModel().getStateValue();
+    this.useCases$ = this.useCaseService.getUseCases$();
+    this.selectedUseCase$ = this.useCaseService.getSelectedUseCase$();
     this.useCaseService.openUseCases().then();
   }
 

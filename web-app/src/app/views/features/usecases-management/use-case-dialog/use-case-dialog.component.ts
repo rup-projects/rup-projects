@@ -23,7 +23,8 @@ export class UseCaseDialogComponent {
 
   create(): void {
     this.useCaseService.createUseCase(this.useCase)
-    .then(() => this.marDialog.closeAll());
+    .then(() => this.marDialog.closeAll())
+      .then(() => this.useCaseService.openUseCases());
   }
 
   update(): void {
