@@ -6,33 +6,31 @@ import {OpenUseCaseController} from '../../logic/controllers/open-use-case.contr
 import {CreateUseCaseController} from '../../logic/controllers/create-use-case.controller';
 import {UpdateUseCaseController} from '../../logic/controllers/update-use-case.controller';
 import {DeleteUseCaseController} from '../../logic/controllers/delete-use-case.controller';
-import {UseCaseViewModel} from './view-models/use-case.view-model';
 import {UseCasesViewModel} from './view-models/use-cases.view-model';
 import {Id} from '../../commons/model/id';
 import {ErrorViewModel} from '../../commons/services/view-models/error.view-model';
-import {ReadableViewModel} from '../../commons/services/types/readable-view-model';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class UseCaseService {
 
   constructor(private useCaseRepository: UseCaseRestRepository,
-              private useCaseViewModel: UseCaseViewModel,
               private errorViewModel: ErrorViewModel,
               private useCasesViewModel: UseCasesViewModel) {
   }
 
-  public getUseCaseViewModel(): ReadableViewModel<UseCase> {
-    return this.useCaseViewModel;
+  public getSelectedUseCase$(): Observable<UseCase> {
+    return this.useCasesViewModel.selectedUseCase$;
   }
 
-  public getUseCasesViewModel(): ReadableViewModel<UseCase[]> {
-    return this.useCasesViewModel;
+  public getUseCases$(): Observable<UseCase[]> {
+    return this.useCasesViewModel.useCases$;
   }
 
   async openUseCases(): Promise<void> {
     const result = await new OpenUseCasesController(this.useCaseRepository).execute();
     if (result.isSuccess()) {
-      this.useCasesViewModel.setValue(result.data);
+      await this.useCasesViewModel.dispatchUseCases(result.data);
     } else {
       await this.errorViewModel.dispatchAppError(result.error);
     }
@@ -41,7 +39,7 @@ export class UseCaseService {
   async openUseCase(id: Id): Promise<void> {
     const result = await new OpenUseCaseController(this.useCaseRepository).execute(id);
     if (result.isSuccess()) {
-      this.useCaseViewModel.setValue(result.data);
+      await this.useCasesViewModel.dispatchSelectedUseCase(result.data);
     } else {
       await this.errorViewModel.dispatchAppError(result.error);
     }
@@ -57,7 +55,7 @@ export class UseCaseService {
   async updateUseCase(useCase: UseCase): Promise<void> {
     const result = await new UpdateUseCaseController(this.useCaseRepository).execute(useCase);
     if (result.isSuccess()) {
-      this.useCasesViewModel.setValue(result.data);
+      await this.useCasesViewModel.dispatchSelectedUseCase(result.data);
       await this.openUseCases();
     } else {
       await this.errorViewModel.dispatchAppError(result.error);
