@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material/dialog';
 import {Observable} from 'rxjs';
 import {ReadDetailDialogComponent} from '../../../../commons/components/dialogs/read-detail.dialog.component';
@@ -11,14 +11,17 @@ import {MemberDialogComponent} from './member-dialog/member-dialog.component';
   templateUrl: './member-management.component.html',
   styleUrls: ['./member-management.component.scss']
 })
-export class MemberManagementComponent {
+export class MemberManagementComponent implements OnInit{
 
-  private readonly selectedMember$: Observable<Member>;
+  private  selectedMember$: Observable<Member>;
   members$: Observable<Member[]>;
   title: 'Members';
 
   constructor(private memberService: MemberService,
               private matDialog: MatDialog) {
+  }
+
+  ngOnInit(): void {
     this.members$ = this.memberService.getMembers$();
     this.selectedMember$ = this.memberService.getSelectedMember$();
     this.memberService.openMembers().then();
