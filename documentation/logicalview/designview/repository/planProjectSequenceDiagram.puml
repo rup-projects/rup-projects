@@ -13,29 +13,32 @@ skinparam {
 }
 
 
-'https://plantuml.com/sequence-diagram
-actor user
+box "Front End" #AliceBlue
+    actor user
 
-entity XHtml <<Template>>
-control XTypescript <<Component>>
+    entity XHtml <<Template>>
+    control XTypescript <<Component>>
 
-control XService as "XTypescript" <<Service>> <<in>>
-control XViewModel as "XTypescript" <<ViewModel>> <<out>>
-entity XState <<out>>
+    control XService as "XTypescript" <<Service>> <<in>>
+    control XViewModel as "XTypescript" <<ViewModel>> <<out>>
+    entity XState <<out>>
 
-control XLogicService as "XController" <<TypeScript>>
-entity XControllerResponse
-boundary XRestRepository
-boundary HTTPService
-entity XModel
-boundary XResource
-control XBService
-boundary XTSDao as "XRepository"
-boundary XDto
-entity XBuilder
-entity XBEntity
-control XMapper
+    control XLogicService as "XController" <<TypeScript>>
+    entity XControllerResponse
+    boundary XRestRepository
+    boundary HTTPService
+    entity XModel
+end box
 
+box "Back End" #AliceBlue
+    boundary XResource
+    control XBService
+    boundary XTSDao as "XRepository"
+    boundary XDto
+    entity XBuilder
+    entity XBEntity
+    control XMapper
+end box
 
 user -> XHtml : request \n plan project
 XHtml -> XTypescript : planProject()
@@ -43,6 +46,7 @@ XTypescript -> XService : planProject(createProjectDto)
 XService -> XLogicService : execute(createProjectDto)
 XLogicService -> XRestRepository : create(createProjectDto)
 XRestRepository -> HTTPService : post(endpoint, dto)
+
 HTTPService -> XResource : HTTP POST JSON
 XResource -> XBService :  planProject(planProjectDto)
 XBService -> XDto : createProject()
