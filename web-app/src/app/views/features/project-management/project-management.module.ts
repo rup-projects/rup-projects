@@ -7,7 +7,7 @@ import {PhaseManagementComponent} from './phase-management/phase-management.comp
 import {SharedModule} from '../../shared.module';
 import {PhasesViewModel} from '../../../controllers/view-models/phases-view-model';
 import {IterationsViewModel} from '../../../controllers/view-models/iterations-view-model';
-import {MembersManagementViewModel} from '../../../controllers/view-models/members-management-.view-model';
+import {MembersManagementViewModel} from '../../../controllers/view-models/members-management.view-model';
 
 
 
@@ -18,7 +18,7 @@ import {MembersManagementViewModel} from '../../../controllers/view-models/membe
     ProjectManagementRoutingModule,
     SharedModule
   ],
-  providers: [PhasesViewModel, IterationsViewModel, MembersManagementViewModel, ]
+  providers: [PhasesViewModel, IterationsViewModel, MembersManagementViewModel]
 })
 export class ProjectManagementModule {
 }
