@@ -8,10 +8,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-class UseCaseServiceImplTest {
+class UseCaseServiceTest {
 
     @Autowired
-    private UseCaseServiceImpl service;
+    private UseCaseService service;
 
     @Test
     void createUseCase() {
