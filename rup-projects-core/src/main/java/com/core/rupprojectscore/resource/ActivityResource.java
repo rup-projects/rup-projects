@@ -3,7 +3,6 @@ package com.core.rupprojectscore.resource;
 import com.core.rupprojectscore.dto.ActivityDto;
 import com.core.rupprojectscore.dto.ActivityHoursDto;
 import com.core.rupprojectscore.dto.ActivityMemberDto;
-import com.core.rupprojectscore.dto.IterationDto;
 import com.core.rupprojectscore.service.ActivityService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

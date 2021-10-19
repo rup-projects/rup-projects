@@ -19,14 +19,14 @@
             rectangle View <<Component>> {
                entity XHtml <<Template>>
                boundary XCss <<Style>>
-               control XTypescript <<Component>>
+               control XTypescript <<Component>><<Observer>>
             }
 
             rectangle Controller {
                 boundary HTTPService
                 control XService as "XTypescript" <<Service>> <<in>>
                 control XViewModel as "XTypescript" <<ViewModel>> <<out>>
-                entity XState <<out>>
+                entity XState <<Observable>> <<out>>
                 boundary XRestRepository
             }
 
@@ -42,7 +42,6 @@
 
 
         XTypescript -down-> XService
-        XTypescript -down-> XViewModel
         XTypescript -right-> XModel
         XTypescript -> XState
         XRestRepository ..|> XTSDao
