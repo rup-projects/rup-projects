@@ -19,6 +19,7 @@ export class MemberManagementComponent implements OnInit{
 
   constructor(private memberService: MemberService,
               private matDialog: MatDialog) {
+      console.log('here');
   }
 
   ngOnInit(): void {

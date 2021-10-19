@@ -1,0 +1,93 @@
+@startuml
+!include skinParams.puml
+
+    'analysis
+    package analysis #yellow{
+        boundary XView #9FB7E5
+        control XController #C4E4AB
+        entity XEntity #F8D987
+        entity XDao #F8D987
+
+        XView -down-> XController
+        XView -down-> XEntity
+        XController .down.> XEntity
+        XController -down-> XDao
+    }
+
+    'Design
+    package front #C7FFF1  {
+
+        package Model <<POJO TypeScript>> #89FF97 {
+                    control XLogicService as "XController"
+                    entity XModel
+                    entity XControllerResponse
+                    boundary XTSDao as "XRepository"
+                }
+
+        package angular:10 #ADE0FF {
+
+                rectangle View <<Component>> {
+                   entity XHtml <<Template>>
+                   boundary XCss <<Style>>
+                   control XTypescript <<Component>>
+                }
+
+                rectangle Controller <<Injectable>> {
+                    boundary HTTPService
+                    control XService as "XTypescript" <<Service>> <<in>>
+                    control XViewModel as "XTypescript" <<ViewModel>> <<out>>
+                    entity XState <<out>>
+                    boundary XRestRepository
+                }
+
+
+            entity XDao <<TypeScript>>
+
+            XTypescript -down-> XService
+            'XTypescript -down-> XViewModel
+            XViewModel -down-> XModel
+            XTypescript -right-> XModel
+            XTypescript -> XState
+            XRestRepository ..|> XTSDao
+            XRestRepository --> HTTPService
+            XService ..> XRestRepository
+            XService ..> XLogicService
+            XService ..> XViewModel
+            XService ..> XControllerResponse
+            XViewModel --> XState
+            XLogicService ..> XTSDao
+            XLogicService --> XModel
+            XLogicService ---> XControllerResponse
+            XControllerResponse --> XModel
+            XTSDao -down--> XModel
+            XHtml <-down- XTypescript
+            XHtml <-right-> XCss
+        }
+    }
+
+    package backend <<spring:5.3>> #FFE19F {
+        boundary XResource
+        control XBService
+        boundary XRepository
+        boundary XDto
+        entity XBEntity
+        XResource --> XBService
+        XResource --> XDto
+        XBService --> XBEntity
+        XBService --> XDto
+        XBService --> XRepository
+        XRepository --> XBEntity
+    }
+
+
+    XDao <.[#Gray].. XResource: <<trace>>
+
+
+    XEntity <.[#Gray].. XBEntity: <<trace>>
+    XEntity <.[#Gray].. XModel: <<trace>>
+
+    XController <.[#Gray].. XLogicService <<trace>>
+    XController <.[#Gray].. XService <<trace>>
+    XView <.[#Gray]. XTypescript
+    XDao <.[#Gray].. XTSDao: <<trace>>
+@enduml

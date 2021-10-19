@@ -9,7 +9,7 @@ import {Member, createMemberDto} from '../../logic/models/member';
 import { MemberRestRepository } from '../infrastructure/member-rest-repository';
 import {Id} from '../../commons/model/id';
 import {ErrorViewModel} from '../../commons/services/view-models/error.view-model';
-import {MembersManagementViewModel} from './view-models/members-management-.view-model';
+import {MembersManagementViewModel} from './view-models/members-management.view-model';
 
 @Injectable()
 export class MemberService {

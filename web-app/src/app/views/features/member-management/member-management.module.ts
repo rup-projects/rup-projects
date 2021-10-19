@@ -7,6 +7,7 @@ import { MemberDialogComponent } from './member-dialog/member-dialog.component';
 
 import { MemberManagementRoutingModule } from './member-management-routing.module';
 import { MemberManagementComponent } from './member-management.component';
+import { MembersManagementViewModel } from '../../../controllers/view-models/members-management.view-model';
 
 @NgModule({
   declarations: [MemberManagementComponent, MemberDialogComponent],
@@ -15,7 +16,7 @@ import { MemberManagementComponent } from './member-management.component';
     MemberManagementRoutingModule,
     SharedModule
   ],
-  providers: [MemberService, MemberRestRepository]
+  providers: [MemberService, MemberRestRepository, MembersManagementViewModel]
 })
 export class MemberManagementModule {
 }
