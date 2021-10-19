@@ -1,20 +1,46 @@
 package com.core.rupprojectscore.service;
 
 import com.core.rupprojectscore.dto.UseCaseDto;
+import com.core.rupprojectscore.repository.UseCaseRepository;
+import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface UseCaseService {
+import static com.core.rupprojectscore.dto.UseCaseDto.dtoToModel;
+import static com.core.rupprojectscore.dto.UseCaseDto.modelToDto;
+import static java.util.stream.Collectors.toList;
 
-    UseCaseDto createUseCase(UseCaseDto dto);
+@RequiredArgsConstructor
+@Service
+public class UseCaseService {
 
-    List<UseCaseDto> openUseCases();
+    private final UseCaseRepository repository;
+    private final ModelMapper mapper = new ModelMapper();
 
-    UseCaseDto openUseCase(Long id);
+    public UseCaseDto createUseCase(UseCaseDto dto) {
+        return mapper.map(repository.save(dtoToModel(dto)), UseCaseDto.class);
+    }
 
-    UseCaseDto updateUseCase(UseCaseDto useCaseDto);
+    public List<UseCaseDto> openUseCases() {
+        return repository.findAll().stream().map(UseCaseDto::modelToDto).collect(toList());
+    }
 
-    void deleteUseCase(Long id);
+    public UseCaseDto openUseCase(Long id) {
+        return repository.findById(id).map(UseCaseDto::modelToDto).orElse(null);
+    }
 
-    void prioritizeUseCases(List<UseCaseDto> useCasesDto);
+    public UseCaseDto updateUseCase(UseCaseDto useCaseDto) {
+        return modelToDto(repository.save(dtoToModel(useCaseDto)));
+    }
+
+    public void deleteUseCase(Long id) {
+        repository.deleteById(id);
+    }
+
+
+    public void prioritizeUseCases(List<UseCaseDto> useCasesDto) {
+        useCasesDto.stream().map(UseCaseDto::dtoToModel).forEach(repository::save);
+    }
 }
