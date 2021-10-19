@@ -42,7 +42,6 @@
 
 
         XTypescript -down-> XService
-        XTypescript -down-> XViewModel
         XTypescript -right-> XModel
         XTypescript -> XState
         XRestRepository ..|> XTSDao
