@@ -7,7 +7,7 @@ import {UseCaseDialogComponent} from './use-case-dialog/use-case-dialog.componen
 import {SharedModule} from '../../shared.module';
 import {UseCaseService} from '../../../controllers/use-case.service';
 import {UseCaseRestRepository} from '../../../infrastructure/use-case-rest-repository';
-import {UseCasesViewModel} from '../../../controllers/view-models/use-cases.view-model';
+import {UseCasesManagementViewModel} from '../../../controllers/view-models/use-cases-management-view-model.service';
 
 
 @NgModule({
@@ -17,7 +17,7 @@ import {UseCasesViewModel} from '../../../controllers/view-models/use-cases.view
     UseCasesManagementRoutingModule,
     SharedModule
   ],
-  providers: [UseCaseService, UseCaseRestRepository, UseCasesViewModel]
+  providers: [UseCaseService, UseCaseRestRepository, UseCasesManagementViewModel]
 })
 export class UseCasesManagementModule {
 }

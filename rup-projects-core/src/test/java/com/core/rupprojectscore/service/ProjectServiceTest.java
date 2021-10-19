@@ -31,7 +31,7 @@ public class ProjectServiceTest {
 
     @BeforeEach
     public void before() {
-        projectService = new ProjectServiceImpl( projectRepository);
+        projectService = new ProjectService( projectRepository);
     }
 
     @Test
