@@ -2,11 +2,11 @@
 !include skinParams.puml
 
     'analysis
-    package analysis #yellow{
+    package analysis #FDFF86{
         boundary XView #9FB7E5
         control XController #C4E4AB
         entity XEntity #F8D987
-        entity XDao #F8D987
+        boundary XDao #9FB7E5
 
         XView -down-> XController
         XView -down-> XEntity
@@ -40,11 +40,7 @@
                     boundary XRestRepository
                 }
 
-
-            entity XDao <<TypeScript>>
-
             XTypescript -down-> XService
-            'XTypescript -down-> XViewModel
             XViewModel -down-> XModel
             XTypescript -right-> XModel
             XTypescript -> XState
@@ -65,7 +61,7 @@
         }
     }
 
-    package backend <<spring:5.3>> #FFE19F {
+    package backend <<spring:5.3>> #FFDA67 {
         boundary XResource
         control XBService
         boundary XRepository
@@ -88,6 +84,6 @@
 
     XController <.[#Gray].. XLogicService <<trace>>
     XController <.[#Gray].. XService <<trace>>
-    XView <.[#Gray]. XTypescript
+    XView <.[#Gray]up. View
     XDao <.[#Gray].. XTSDao: <<trace>>
 @enduml
