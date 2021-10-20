@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1709px" preserveAspectRatio="none" style="width:1029px;height:1709px;background:#FFFFFF;" version="1.1" viewBox="0 0 1029 1709" width="1029px" zoomAndPan="magnify"><defs><filter height="300%" id="fxzkw6n836hsp" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[b2b48a4113bb64a52dfa0b58b2366cf2]
+cluster PlanProject--><rect fill="#FEFECE" filter="url(#fxzkw6n836hsp)" height="1233" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="963" x="54" y="102"/><rect fill="#FFFFFF" height="1199.3906" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="957" x="57" y="132.6094"/><line style="stroke:#A80036;stroke-width:1.5;" x1="54" x2="1017" y1="129.6094" y2="129.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="499.5" y="120.5332">PlanProject</text><rect fill="#FEFECE" filter="url(#fxzkw6n836hsp)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="232" y="266"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="259" y="291.7285"/><rect fill="#FEFECE" filter="url(#fxzkw6n836hsp)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="156" y="520.5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="183" y="546.2285"/><polygon fill="#FEFECE" filter="url(#fxzkw6n836hsp)" points="333,726,345,738,333,750,321,738,333,726" style="stroke:#A80036;stroke-width:1.5;"/><rect fill="#FEFECE" filter="url(#fxzkw6n836hsp)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="329" y="811"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="356" y="836.7285"/><rect fill="#FEFECE" filter="url(#fxzkw6n836hsp)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="219" y="1131"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="246" y="1156.7285"/><rect fill="#FEFECE" filter="url(#fxzkw6n836hsp)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="315" y="1271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="342" y="1296.7285"/><rect fill="#FEFECE" filter="url(#fxzkw6n836hsp)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="103" y="1271"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="130" y="1296.7285"/><ellipse cx="257" cy="156" fill="#000000" filter="url(#fxzkw6n836hsp)" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fxzkw6n836hsp)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="182" x="246" y="1576"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="172" x="251" y="1601.7285">:PROJECT_MANAGEMENT</text><rect fill="#FEFECE" filter="url(#fxzkw6n836hsp)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="110" x="7" y="7"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="12" y="32.7285">:INIT_PROJECT</text><rect fill="#FEFECE" filter="url(#fxzkw6n836hsp)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="110" x="97" y="1576"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="102" y="1601.7285">:INIT_PROJECT</text><ellipse cx="242" cy="1687" filter="url(#fxzkw6n836hsp)" rx="10" ry="10" style="stroke:#000000;stroke-width:1.0;fill:none;"/><ellipse cx="242.5" cy="1687.5" fill="#000000" rx="6" ry="6" style="stroke:none;stroke-width:1.0;"/><!--MD5=[7df5d9da2c4fb0cd50f91e163bccbaf4]
+link INIT_PROJECTSTART to PlanProject--><path d="M62,47.01 C62,55.73 62,66.6981 62,78.2798 C62,84.0707 62,90.015 62,95.9083 C62,97.3816 62,98.8518 62,100.3156 C62,100.6815 62,101.0471 62,101.4122 C62,101.5947 62,101.7771 62,101.9595 " fill="none" id="INIT_PROJECTSTART-to-PlanProject" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="62,101.9595,66,92.9595,62,96.9595,58,92.9595,62,101.9595" style="stroke:#008000;stroke-width:1.0;"/><!--MD5=[71d2416e5ee54d43bb85964b68021d2d]
+link *start*PlanProject to 1--><path d="M257,166.21 C257,185.74 257,231.9 257,260.59 " fill="none" id="*start*PlanProject-to-1" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="257,265.73,261,256.73,257,260.73,253,256.73,257,265.73" style="stroke:#008000;stroke-width:1.0;"/><path d="M262,201 L262,227 L450,227 L450,211 L440,201 L262,201 " fill="#F5F5F5" filter="url(#fxzkw6n836hsp)" style="stroke:#008000;stroke-width:1.0;"/><path d="M440,201 L440,211 L450,211 L440,201 " fill="#F5F5F5" style="stroke:#008000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="167" x="268" y="219.4951">User requests to plan project</text><!--MD5=[0ba0d8a0fd0e641c23f69743a446dfe6]
+link 1 to 2--><path d="M231.74,295.11 C213.21,302.55 189.38,315.55 178,336 C146.02,393.47 162.13,474.96 173.31,515.15 " fill="none" id="1-to-2" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="174.78,520.31,176.1613,510.5585,173.4102,515.5013,168.4673,512.7502,174.78,520.31" style="stroke:#008000;stroke-width:1.0;"/><path d="M183,341 L183,465 L315,465 L315,351 L305,341 L183,341 " fill="#F5F5F5" filter="url(#fxzkw6n836hsp)" style="stroke:#008000;stroke-width:1.0;"/><path d="M305,341 L305,351 L315,351 L305,341 " fill="#F5F5F5" style="stroke:#008000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="102" x="189" y="359.4951">System requires</text><ellipse cx="194.5" cy="371.2031" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="98" x="202" y="375.8467">start project date</text><ellipse cx="194.5" cy="387.5547" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="93" x="202" y="392.1982">end project date</text><ellipse cx="194.5" cy="403.9063" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="202" y="408.5498">project cost</text><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="91" x="189" y="424.9014">System allows</text><ellipse cx="194.5" cy="436.6094" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="71" x="202" y="441.2529">confirm step</text><ellipse cx="194.5" cy="452.9609" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="38" x="202" y="457.6045">cancel</text><!--MD5=[eeb69082328d10abd3b14fdeede0d8a3]
+link 2 to 3--><path d="M177.79,560.7 C173.6,592.73 170.23,657.36 203,696 C231.84,730.01 288.66,736.17 316.64,737.05 " fill="none" id="2-to-3" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="321.84,737.16,312.9338,732.9554,316.8413,737.0457,312.7509,740.9533,321.84,737.16" style="stroke:#008000;stroke-width:1.0;"/><path d="M208,612 L208,687 L315,687 L315,622 L305,612 L208,612 " fill="#F5F5F5" filter="url(#fxzkw6n836hsp)" style="stroke:#008000;stroke-width:1.0;"/><path d="M305,612 L305,622 L315,622 L305,612 " fill="#F5F5F5" style="stroke:#008000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="86" x="214" y="630.4951">User provides</text><ellipse cx="219.5" cy="642.2031" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55" x="227" y="646.8467">start date</text><ellipse cx="219.5" cy="658.5547" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="50" x="227" y="663.1982">end date</text><ellipse cx="219.5" cy="674.9063" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="68" x="227" y="679.5498">project cost</text><!--MD5=[ecc6855e18f9a45a4c7eaf523375ba95]
+link 2 to 10--><path d="M174.11,560.67 C156.13,611.84 108.09,756.21 92,881 C79.5,977.98 87.82,1003.31 92,1101 C94.67,1163.39 87.31,1180.82 104,1241 C106.35,1249.47 110.14,1258.23 114.03,1265.96 " fill="none" id="2-to-10" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="116.45,1270.63,115.8646,1260.7986,114.1513,1266.1897,108.7602,1264.4764,116.45,1270.63" style="stroke:#FF0000;stroke-width:1.0;"/><path d="M108,816 L108,842 L267,842 L267,826 L257,816 L108,816 " fill="#F5F5F5" filter="url(#fxzkw6n836hsp)" style="stroke:#FF0000;stroke-width:1.0;"/><path d="M257,816 L257,826 L267,826 L257,816 " fill="#F5F5F5" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="114" y="834.4951">User requests to cancel</text><!--MD5=[4d444cbccd26e31ce172b5718b51e4cd]
+link 3 to 1--><path d="M335.6,728.39 C348.53,683.81 402.49,475.79 328,336 C319.19,319.47 302.04,307.4 286.81,299.37 " fill="none" id="3-to-1" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="282.15,297.01,288.372,304.6446,286.6106,299.2689,291.9863,297.5075,282.15,297.01" style="stroke:#FF0000;stroke-width:1.0;"/><path d="M371,509 L371,568 L553,568 L553,519 L543,509 L371,509 " fill="#F5F5F5" filter="url(#fxzkw6n836hsp)" style="stroke:#FF0000;stroke-width:1.0;"/><path d="M543,509 L543,519 L553,519 L543,509 " fill="#F5F5F5" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="152" x="377" y="527.4951">[end date before start date</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="161" x="377" y="543.8467">OR start date after end date</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="83" x="377" y="560.1982">OR cost &lt;= 0]</text><!--MD5=[b1f22f0c97e7f2b556a5a2d67c42ac53]
+link 3 to 4--><path d="M335.09,748.06 C338.16,761.37 344.01,786.7 348.39,805.69 " fill="none" id="3-to-4" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="349.58,810.86,351.4725,801.1947,348.4651,805.9859,343.6739,802.9785,349.58,810.86" style="stroke:#008000;stroke-width:1.0;"/><!--MD5=[fb7a877824a531edc27ce1774c90edf7]
+link 4 to 5--><path d="M359.45,851.24 C371.57,898.31 395.81,1021.25 344,1101 C328.46,1124.91 297.63,1137.54 274.29,1143.94 " fill="none" id="4-to-5" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="269.43,1145.22,279.1519,1146.7964,274.2652,1143.9468,277.1148,1139.0601,269.43,1145.22" style="stroke:#008000;stroke-width:1.0;"/><path d="M380,886 L380,1092 L976,1092 L976,896 L966,886 L380,886 " fill="#F5F5F5" filter="url(#fxzkw6n836hsp)" style="stroke:#008000;stroke-width:1.0;"/><path d="M966,886 L966,896 L976,896 L966,886 " fill="#F5F5F5" style="stroke:#008000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="89" x="386" y="904.4951">System shows</text><ellipse cx="391.5" cy="916.2031" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="269" x="399" y="920.8467">nº iterations in project (10 iterations by default)</text><ellipse cx="391.5" cy="932.5547" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="150" x="399" y="937.1982">iteration duration (in days)</text><ellipse cx="391.5" cy="948.9063" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="158" x="399" y="953.5498">each phase start end dates</text><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="91" x="386" y="969.9014">System allows</text><ellipse cx="391.5" cy="981.6094" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="165" x="399" y="986.2529">change nº iteration in project</text><rect fill="#000000" height="3.5" style="stroke:#000000;stroke-width:0.0;" width="3.5" x="407" y="997.4609"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="107" x="412" y="1002.6045">[ +/- 10 iterations ]</text><rect fill="#000000" height="3.5" style="stroke:#000000;stroke-width:0.0;" width="3.5" x="407" y="1013.8125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="194" x="412" y="1018.9561">[ minimum 10 iteration in project ]</text><rect fill="#000000" height="3.5" style="stroke:#000000;stroke-width:0.0;" width="3.5" x="407" y="1030.1641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="549" x="412" y="1035.3076">[ maximum iterations as the nº iterations (10 days duration) that not exceeds project end date ]</text><rect fill="#000000" height="3.5" style="stroke:#000000;stroke-width:0.0;" width="3.5" x="407" y="1046.5156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="215" x="412" y="1051.6592">[ minimum iteration duration 10 days]</text><ellipse cx="391.5" cy="1063.3672" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="134" x="399" y="1068.0107">confirm planned project</text><ellipse cx="391.5" cy="1079.7188" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="38" x="399" y="1084.3623">cancel</text><!--MD5=[d751ff46321a373f9d0b84ddfc0dabf0]
+link 5 to 4--><path d="M218.85,1148.04 C189.7,1144.27 142.87,1133.25 121,1101 C93.56,1060.54 89.38,918.29 121,881 C147.37,849.9 262.57,861.37 302,851 C309.25,849.09 316.91,846.58 324.06,844.02 " fill="none" id="5-to-4" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="328.91,842.24,319.0825,841.5924,324.2173,843.9659,321.8439,849.1007,328.91,842.24" style="stroke:#008000;stroke-width:1.0;"/><path d="M126,968 L126,1010 L327,1010 L327,978 L317,968 L126,968 " fill="#F5F5F5" filter="url(#fxzkw6n836hsp)" style="stroke:#008000;stroke-width:1.0;"/><path d="M317,968 L317,978 L327,978 L317,968 " fill="#F5F5F5" style="stroke:#008000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="86" x="132" y="986.4951">User provides</text><ellipse cx="137.5" cy="998.2031" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="167" x="145" y="1002.8467">new nº of iterations in project</text><!--MD5=[645fb6551bc3a06bd906d4421c8afca2]
+link 5 to 10--><path d="M218.85,1153.96 C189.7,1157.73 142.87,1168.75 121,1201 C108.2,1219.88 112.43,1246.46 118.34,1265.66 " fill="none" id="5-to-10" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="120.04,1270.86,121.0418,1261.0622,118.4846,1266.1081,113.4387,1263.5509,120.04,1270.86" style="stroke:#FF0000;stroke-width:1.0;"/><path d="M126,1206 L126,1232 L285,1232 L285,1216 L275,1206 L126,1206 " fill="#F5F5F5" filter="url(#fxzkw6n836hsp)" style="stroke:#FF0000;stroke-width:1.0;"/><path d="M275,1206 L275,1216 L285,1216 L275,1206 " fill="#F5F5F5" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="132" y="1224.4951">User requests to cancel</text><!--MD5=[09f1960ca4756b1aa3b5c279734c15c6]
+link 10 to INIT_PROJECTEND--><path d="M129.54,1311.41 C133.75,1364.54 145.44,1512.22 150.08,1570.7 " fill="none" id="10-to-INIT_PROJECTEND" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="150.47,1575.75,153.7353,1566.4582,150.069,1570.7661,145.7611,1567.0998,150.47,1575.75" style="stroke:#FF0000;stroke-width:1.0;"/><path d="M152,1421 L152,1480 L264,1480 L264,1431 L254,1421 L152,1421 " fill="#F5F5F5" filter="url(#fxzkw6n836hsp)" style="stroke:#FF0000;stroke-width:1.0;"/><path d="M254,1421 L254,1431 L264,1431 L254,1421 " fill="#F5F5F5" style="stroke:#FF0000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="91" x="158" y="1439.4951">System allows</text><ellipse cx="163.5" cy="1451.2031" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="67" x="171" y="1455.8467">plan project</text><ellipse cx="163.5" cy="1467.5547" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="74" x="171" y="1472.1982">open phases</text><!--MD5=[deed8cab30c10dbe2727e65517d240f0]
+link 5 to 6--><path d="M269.2,1169.12 C280.37,1177.68 292.99,1188.81 302,1201 C316.6,1220.76 326.92,1246.99 333.09,1265.85 " fill="none" id="5-to-6" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="334.72,1270.96,335.7835,1261.1687,333.1946,1266.1984,328.1649,1263.6094,334.72,1270.96" style="stroke:#008000;stroke-width:1.0;"/><path d="M328,1206 L328,1232 L583,1232 L583,1216 L573,1206 L328,1206 " fill="#F5F5F5" filter="url(#fxzkw6n836hsp)" style="stroke:#008000;stroke-width:1.0;"/><path d="M573,1206 L573,1216 L583,1216 L573,1206 " fill="#F5F5F5" style="stroke:#008000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="234" x="334" y="1224.4951">User requests to confirm planned project</text><!--MD5=[a0c52221facf037a3dfd9e459c289d42]
+link 6 to PROJECT_MANAGEMENTEND--><path d="M339.81,1311.41 C339.28,1364.54 337.82,1512.22 337.24,1570.7 " fill="none" id="6-to-PROJECT_MANAGEMENTEND" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="337.19,1575.75,341.267,1566.7846,337.2329,1570.7502,333.2673,1566.716,337.19,1575.75" style="stroke:#008000;stroke-width:1.0;"/><path d="M344,1364 L344,1537 L591,1537 L591,1374 L581,1364 L344,1364 " fill="#F5F5F5" filter="url(#fxzkw6n836hsp)" style="stroke:#008000;stroke-width:1.0;"/><path d="M581,1364 L581,1374 L591,1374 L581,1364 " fill="#F5F5F5" style="stroke:#008000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="89" x="350" y="1382.4951">System shows</text><ellipse cx="355.5" cy="1394.2031" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="213" x="363" y="1398.8467">the project was successfully planned</text><ellipse cx="355.5" cy="1410.5547" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="363" y="1415.1982">project information</text><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="91" x="350" y="1431.5498">System allows</text><ellipse cx="355.5" cy="1443.2578" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="77" x="363" y="1447.9014">Open phases</text><ellipse cx="355.5" cy="1459.6094" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="88" x="363" y="1464.2529">Open iterations</text><ellipse cx="355.5" cy="1475.9609" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="192" x="363" y="1480.6045">Open iteration [iterations opened]</text><ellipse cx="355.5" cy="1492.3125" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="89" x="363" y="1496.9561">Open members</text><ellipse cx="355.5" cy="1508.6641" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="91" x="363" y="1513.3076">Open usecases</text><ellipse cx="355.5" cy="1525.0156" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="363" y="1529.6592">close system</text><!--MD5=[f40e6487fcf63d0460f9285ec9ba133e]
+link INIT_PROJECTEND to *end--><path d="M171.53,1616.31 C189.86,1634.44 216.61,1660.89 231.32,1675.44 " fill="none" id="INIT_PROJECTEND-to-*end" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="235.13,1679.21,231.5388,1670.0392,231.5731,1675.696,225.9164,1675.7302,235.13,1679.21" style="stroke:#FF0000;stroke-width:1.0;"/><!--MD5=[aa8ee0f9757f0419fd0e263846c0b495]
+link PROJECT_MANAGEMENTEND to *end--><path d="M316.39,1616.31 C296.83,1634.63 268.22,1661.44 252.8,1675.88 " fill="none" id="PROJECT_MANAGEMENTEND-to-*end" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="248.82,1679.61,258.122,1676.3739,252.4681,1676.1908,252.6513,1670.5369,248.82,1679.61" style="stroke:#008000;stroke-width:1.0;"/><!--MD5=[8de6bcfde11f36a6767e4d9db702372e]
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+state PROJECT_MANAGEMENTEND as ":PROJECT_MANAGEMENT"
+state INIT_PROJECTSTART as ":INIT_PROJECT"
+state INIT_PROJECTEND as ":INIT_PROJECT"
+
+INIT_PROJECTSTART - -> PlanProject
+
+state PlanProject {
+    state 1 as " "
+    state 2 as " "
+    state 3 <<choice>>
+    state 4 as " "
+    state 5 as " "
+    state 6 as " "
+    state 10 as " "
+
+    [*] - -> 1
+    note on link
+        User requests to plan project
+    end note
+
+    1 - -> 2
+    note on link
+    <b>System requires</b>
+    * start project date
+    * end project date
+    * project cost
+    <b>System allows</b>
+    * confirm step
+    * cancel
+    end note
+
+    2 - -> 3
+   note on link
+        <b>User provides</b>
+        * start date
+        * end date
+        * project cost
+    end note
+
+    2 -[#red]-> 10
+    note on link
+        User requests to cancel
+    end note
+
+
+    3 -[#red]-> 1
+    note on link
+        [end date before start date
+        OR start date after end date
+        OR cost <= 0]
+    end note
+
+    3 - -> 4
+
+    4 - -> 5
+    note on link
+        <b>System shows</b>
+        * nº iterations in project (10 iterations by default)
+        * iteration duration (in days)
+        * each phase start end dates
+        <b>System allows</b>
+        * change nº iteration in project
+        **[ +/- 10 iterations ]
+        **[ minimum 10 iteration in project ]
+        **[ maximum iterations as the nº iterations (10 days duration) that not exceeds project end date ]
+        **[ minimum iteration duration 10 days]
+        * confirm planned project
+        * cancel
+    end note
+
+    5 -[#red]-> 10
+    note on link
+        User requests to cancel
+    end note
+
+    10 -[#red]-> INIT_PROJECTEND
+    note on link
+    <b>System allows</b>
+    * plan project
+    * open phases
+    end note
+
+    5 - -> 4
+    note on link
+    <b>User provides</b>
+    * new nº of iterations in project
+    end note
+
+    5 - -> 6
+    note on link
+        User requests to confirm planned project
+    end note
+
+    6 - -> PROJECT_MANAGEMENTEND
+      note on link
+              <b>System shows</b>
+              * the project was successfully planned
+              * project information
+              <b>System allows</b>
+              * Open phases
+              * Open iterations
+              * Open iteration [iterations opened]
+              * Open members
+              * Open usecases
+              * close system
+          end note
+}
+
+INIT_PROJECTEND -[#red]-> [*]
+PROJECT_MANAGEMENTEND - -> [*]
+
+
+
+
+@enduml
+
+@startuml
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+}
+
+hide empty description
+
+state PROJECT_MANAGEMENTEND as ":PROJECT_MANAGEMENT"
+state INIT_PROJECTSTART as ":INIT_PROJECT"
+state INIT_PROJECTEND as ":INIT_PROJECT"
+
+INIT_PROJECTSTART - -> PlanProject
+
+state PlanProject {
+    state 1 as " "
+    state 2 as " "
+    state 3 <<choice>>
+    state 4 as " "
+    state 5 as " "
+    state 6 as " "
+    state 10 as " "
+
+    [*] - -> 1
+    note on link
+        User requests to plan project
+    end note
+
+    1 - -> 2
+    note on link
+    <b>System requires</b>
+    * start project date
+    * end project date
+    * project cost
+    <b>System allows</b>
+    * confirm step
+    * cancel
+    end note
+
+    2 - -> 3
+   note on link
+        <b>User provides</b>
+        * start date
+        * end date
+        * project cost
+    end note
+
+    2 -[#red]-> 10
+    note on link
+        User requests to cancel
+    end note
+
+
+    3 -[#red]-> 1
+    note on link
+        [end date before start date
+        OR start date after end date
+        OR cost <= 0]
+    end note
+
+    3 - -> 4
+
+    4 - -> 5
+    note on link
+        <b>System shows</b>
+        * nº iterations in project (10 iterations by default)
+        * iteration duration (in days)
+        * each phase start end dates
+        <b>System allows</b>
+        * change nº iteration in project
+        **[ +/- 10 iterations ]
+        **[ minimum 10 iteration in project ]
+        **[ maximum iterations as the nº iterations (10 days duration) that not exceeds project end date ]
+        **[ minimum iteration duration 10 days]
+        * confirm planned project
+        * cancel
+    end note
+
+    5 -[#red]-> 10
+    note on link
+        User requests to cancel
+    end note
+
+    10 -[#red]-> INIT_PROJECTEND
+    note on link
+    <b>System allows</b>
+    * plan project
+    * open phases
+    end note
+
+    5 - -> 4
+    note on link
+    <b>User provides</b>
+    * new nº of iterations in project
+    end note
+
+    5 - -> 6
+    note on link
+        User requests to confirm planned project
+    end note
+
+    6 - -> PROJECT_MANAGEMENTEND
+      note on link
+              <b>System shows</b>
+              * the project was successfully planned
+              * project information
+              <b>System allows</b>
+              * Open phases
+              * Open iterations
+              * Open iteration [iterations opened]
+              * Open members
+              * Open usecases
+              * close system
+          end note
+}
+
+INIT_PROJECTEND -[#red]-> [*]
+PROJECT_MANAGEMENTEND - -> [*]
+
+
+
+
+@enduml
+
+PlantUML version 1.2021.11(Sat Oct 02 15:26:11 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

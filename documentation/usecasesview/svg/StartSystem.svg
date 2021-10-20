@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="775px" preserveAspectRatio="none" style="width:488px;height:775px;background:#FFFFFF;" version="1.1" viewBox="0 0 488 775" width="488px" zoomAndPan="magnify"><defs><filter height="300%" id="fgotnbww1elhi" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FEFECE" filter="url(#fgotnbww1elhi)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="110" x="186.5" y="721"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="191.5" y="746.7285">:INIT_PROJECT</text><ellipse cx="241.5" cy="16" fill="#000000" filter="url(#fgotnbww1elhi)" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><rect fill="#FEFECE" filter="url(#fgotnbww1elhi)" height="478.6094" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="469.27" x="7" y="126"/><rect fill="#FFFFFF" height="445" rx="12.5" ry="12.5" style="stroke:#FFFFFF;stroke-width:1.0;" width="463.27" x="10" y="156.6094"/><line style="stroke:#A80036;stroke-width:1.5;" x1="7" x2="476.27" y1="153.6094" y2="153.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76" x="203.635" y="145.5332">StartSystem</text><rect fill="#FEFECE" filter="url(#fgotnbww1elhi)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="63.27" y="321.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="90.27" y="347.3379"/><rect fill="#FEFECE" filter="url(#fgotnbww1elhi)" height="40" rx="12.5" ry="12.5" style="stroke:#A80036;stroke-width:1.5;" width="50" x="310.27" y="321.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="0" x="337.27" y="347.3379"/><polygon fill="#FEFECE" filter="url(#fgotnbww1elhi)" points="225.27,221.6094,237.27,233.6094,225.27,245.6094,213.27,233.6094,225.27,221.6094" style="stroke:#A80036;stroke-width:1.5;"/><ellipse cx="225.27" cy="174.6094" fill="#000000" filter="url(#fgotnbww1elhi)" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><ellipse cx="203.27" cy="578.6094" filter="url(#fgotnbww1elhi)" rx="10" ry="10" style="stroke:#000000;stroke-width:1.0;fill:none;"/><ellipse cx="203.77" cy="579.1094" fill="#000000" rx="6" ry="6" style="stroke:none;stroke-width:1.0;"/><!--MD5=[9bc089a4f3ed73c8bf7cb2d8601644d3]
+link *start*StartSystem to 2--><path d="M225.27,184.7694 C225.27,193.2394 225.27,206.0194 225.27,216.2394 " fill="none" id="*start*StartSystem-to-2" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="225.27,221.3194,229.27,212.3194,225.27,216.3194,221.27,212.3194,225.27,221.3194" style="stroke:#008000;stroke-width:1.0;"/><!--MD5=[8d5e64f07a3a026530162c78b23a3473]
+link 2 to 6--><path d="M235.56,235.4594 C252.7,237.4194 287.21,243.7294 307.27,263.6094 C321.46,277.6794 328.5,299.4894 331.98,316.3094 " fill="none" id="2-to-6" style="stroke:#FF0000;stroke-width:1.0;"/><polygon fill="#FF0000" points="332.94,321.3594,335.1725,311.7669,331.9979,316.4489,327.3158,313.2743,332.94,321.3594" style="stroke:#FF0000;stroke-width:1.0;"/><!--MD5=[bb3effe3579fa0df2af34c9264e0e616]
+link 6 to *end*StartSystem--><path d="M340.44,361.7294 C350.08,402.0094 365.86,496.3394 319.27,550.6094 C306.26,565.7594 246.86,573.4194 218.47,576.2694 " fill="none" id="6-to-*end*StartSystem" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="213.22,576.7694,222.5663,579.8753,218.1963,576.2832,221.7884,571.9132,213.22,576.7694" style="stroke:#008000;stroke-width:1.0;"/><path d="M355.27,442.1094 L355.27,484.1094 L467.27,484.1094 L467.27,452.1094 L457.27,442.1094 L355.27,442.1094 " fill="#F5F5F5" filter="url(#fgotnbww1elhi)" style="stroke:#008000;stroke-width:1.0;"/><path d="M457.27,442.1094 L457.27,452.1094 L467.27,452.1094 L457.27,442.1094 " fill="#F5F5F5" style="stroke:#008000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="91" x="361.27" y="460.6045">System allows</text><ellipse cx="366.77" cy="472.3125" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="67" x="374.27" y="476.9561">plan project</text><!--MD5=[4e74f4bf4b09d37138dfb3a42c5ccc13]
+link 2 to 5--><path d="M215.03,235.4394 C196.77,237.3994 158.13,243.7594 133.27,263.6094 C116.01,277.3794 104.02,299.6994 96.78,316.7694 " fill="none" id="2-to-5" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="94.86,321.4394,101.9781,314.6325,96.7587,316.8139,94.5773,311.5946,94.86,321.4394" style="stroke:#008000;stroke-width:1.0;"/><path d="M138.27,268.6094 L138.27,294.6094 L294.27,294.6094 L294.27,278.6094 L284.27,268.6094 L138.27,268.6094 " fill="#F5F5F5" filter="url(#fgotnbww1elhi)" style="stroke:#008000;stroke-width:1.0;"/><path d="M284.27,268.6094 L284.27,278.6094 L294.27,278.6094 L284.27,268.6094 " fill="#F5F5F5" style="stroke:#008000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="135" x="144.27" y="287.1045">[exists planned project]</text><!--MD5=[9ad46b2782f82643fca083c8a870bd23]
+link 5 to *end*StartSystem--><path d="M74.3,361.6894 C71.01,367.1994 67.97,373.4094 66.27,379.6094 C46.12,452.8894 18,491.8994 66.27,550.6094 C81.55,569.1994 155.51,575.1894 187.96,576.9494 " fill="none" id="5-to-*end*StartSystem" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="193.15,577.2094,184.3673,572.7524,188.1566,576.9526,183.9564,580.7418,193.15,577.2094" style="stroke:#008000;stroke-width:1.0;"/><path d="M71.27,384.6094 L71.27,541.6094 L310.27,541.6094 L310.27,394.6094 L300.27,384.6094 L71.27,384.6094 " fill="#F5F5F5" filter="url(#fgotnbww1elhi)" style="stroke:#008000;stroke-width:1.0;"/><path d="M300.27,384.6094 L300.27,394.6094 L310.27,394.6094 L300.27,384.6094 " fill="#F5F5F5" style="stroke:#008000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="89" x="77.27" y="403.1045">System shows</text><ellipse cx="82.77" cy="414.8125" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="90.27" y="419.4561">project information</text><rect fill="#000000" height="3.5" style="stroke:#000000;stroke-width:0.0;" width="3.5" x="98.27" y="430.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="55" x="103.27" y="435.8076">start date</text><rect fill="#000000" height="3.5" style="stroke:#000000;stroke-width:0.0;" width="3.5" x="98.27" y="447.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="50" x="103.27" y="452.1592">end date</text><rect fill="#000000" height="3.5" style="stroke:#000000;stroke-width:0.0;" width="3.5" x="98.27" y="463.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="146" x="103.27" y="468.5107">progress (business days)</text><rect fill="#000000" height="3.5" style="stroke:#000000;stroke-width:0.0;" width="3.5" x="98.27" y="479.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="192" x="103.27" y="484.8623">iteration duration (business days)</text><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="91" x="77.27" y="501.2139">System allows</text><ellipse cx="82.77" cy="512.9219" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="74" x="90.27" y="517.5654">open phases</text><ellipse cx="82.77" cy="529.2734" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="90.27" y="533.917">delete project</text><!--MD5=[6aefb4debbc8bbf93b9ae66cbd6e7754]
+link *start to StartSystem--><path d="M241.5,26.29 C241.5,42.47 241.5,78.17 241.5,120.57 " fill="none" id="*start-to-StartSystem" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="241.5,125.77,245.5,116.77,241.5,120.77,237.5,116.77,241.5,125.77" style="stroke:#008000;stroke-width:1.0;"/><path d="M246.5,61 L246.5,87 L380.5,87 L380.5,71 L370.5,61 L246.5,61 " fill="#F5F5F5" filter="url(#fgotnbww1elhi)" style="stroke:#008000;stroke-width:1.0;"/><path d="M370.5,61 L370.5,71 L380.5,71 L370.5,61 " fill="#F5F5F5" style="stroke:#008000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="113" x="252.5" y="79.4951">User opens the app</text><!--MD5=[363b13a5a3645692829500ec5e3a1019]
+link StartSystem to 4--><path d="M241.5,605.16 C241.5,650.27 241.5,691 241.5,715.61 " fill="none" id="StartSystem-to-4" style="stroke:#008000;stroke-width:1.0;"/><polygon fill="#008000" points="241.5,720.61,245.5,711.61,241.5,715.61,237.5,711.61,241.5,720.61" style="stroke:#008000;stroke-width:1.0;"/><path d="M246.5,640 L246.5,682 L358.5,682 L358.5,650 L348.5,640 L246.5,640 " fill="#F5F5F5" filter="url(#fgotnbww1elhi)" style="stroke:#008000;stroke-width:1.0;"/><path d="M348.5,640 L348.5,650 L358.5,650 L348.5,640 " fill="#F5F5F5" style="stroke:#008000;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="91" x="252.5" y="658.4951">System allows</text><ellipse cx="258" cy="670.2031" fill="#000000" rx="2.5" ry="2.5" style="stroke:#000000;stroke-width:0.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="78" x="265.5" y="674.8467">close system</text><!--MD5=[520210b83d9e194ee48a5ffa86c11916]
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+state 4 as ":INIT_PROJECT"
+
+[*] - -> StartSystem
+note on link
+    User opens the app
+end note
+
+state StartSystem {
+    state 5 as " "
+    state 6 as " "
+    state 2 <<choice>>
+
+    [*] - -> 2
+
+    2 -[#red]-> 6
+
+    6 - -> [*]
+    note on link
+        <b>System allows</b>
+        * plan project
+    end note
+
+    2 - -> 5
+    note on link
+    [exists planned project]
+    end note
+
+    5 - -> [*]
+    note on link
+    <b>System shows</b>
+    * project information
+    ** start date
+    ** end date
+    ** progress (business days)
+    ** iteration duration (business days)
+    <b>System allows</b>
+    * open phases
+    * delete project
+    end note
+}
+
+StartSystem - -> 4
+    note on link
+    <b>System allows</b>
+    * close system
+    end note
+@enduml
+
+@startuml
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    ArrowColor #green
+    NoteBorderColor #green
+}
+
+hide empty description
+
+state 4 as ":INIT_PROJECT"
+
+[*] - -> StartSystem
+note on link
+    User opens the app
+end note
+
+state StartSystem {
+    state 5 as " "
+    state 6 as " "
+    state 2 <<choice>>
+
+    [*] - -> 2
+
+    2 -[#red]-> 6
+
+    6 - -> [*]
+    note on link
+        <b>System allows</b>
+        * plan project
+    end note
+
+    2 - -> 5
+    note on link
+    [exists planned project]
+    end note
+
+    5 - -> [*]
+    note on link
+    <b>System shows</b>
+    * project information
+    ** start date
+    ** end date
+    ** progress (business days)
+    ** iteration duration (business days)
+    <b>System allows</b>
+    * open phases
+    * delete project
+    end note
+}
+
+StartSystem - -> 4
+    note on link
+    <b>System allows</b>
+    * close system
+    end note
+@enduml
+
+PlantUML version 1.2021.11(Sat Oct 02 15:26:11 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

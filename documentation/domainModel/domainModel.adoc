@@ -7,49 +7,36 @@
 
 == Modelo de dominio
 
-image::repository/fases_del_proyecto.png[]
 <<_index>>
 
-image::repository/rup_roles.png[]
 <<_index>>
 
 [#_disciplinaRequsitos]
 == Disciplina de requisitos
 
-image::repository/discipl_requisitos/disciplina_requisitos.png[]
 
 [#_disciplinaAnalisis]
 == Disciplina de análisis
 
-image::repository/discipl_analisis/disciplina_analisis.png[]
 
-image::repository/discipl_requisitos/encontrar_actores_casos_de_uso.png[]
 <<_index>>
 
-image::repository/discipl_requisitos/priorizar_casos_de_uso.png[]
 <<_index>>
 
-image::repository/discipl_requisitos/especificar_caso_de_uso.png[]
 <<_index>>
 
-image::repository/discipl_requisitos/esctucturar_caso_de_uso.png[]
 <<_index>>
 
-image::repository/discipl_requisitos/prototipar_interfaz_usuario.png[]
 <<_index>>
 
 === Actividades
 
-image::repository/discipl_analisis/analizar_aquitectura.png[]
 <<_index>>
 
-image::repository/discipl_analisis/analizar_casodeuso.png[]
 <<_index>>
 
-image::repository/discipl_analisis/analizar_clases.png[]
 <<_index>>
 
-image::repository/discipl_analisis/analizar_paquetes.png[]
 <<_index>>
 
 
