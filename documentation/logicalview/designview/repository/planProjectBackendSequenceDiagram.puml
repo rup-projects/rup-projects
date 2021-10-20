@@ -1,0 +1,47 @@
+@startuml
+
+
+skinparam {
+    BoundaryBackgroundColor #629EF9
+    BoundaryBorderColor black
+    BoundaryFontSize 12
+    BoundarySize 10
+    ControlBackgroundColor #b5bd68
+    ControlBorderColor #718c00
+    EntityBackgroundColor #F2AC4E
+    EntityBorderColor black
+    backgroundColor white
+}
+box #DDFFE8
+    actor frontend
+end box
+box "Back End" #DDF2FF
+    boundary XResource
+    control XBService
+    boundary XTSDao as "XRepository"
+    boundary XDto
+    entity XBuilder
+    entity XBEntity
+    control XMapper
+end box
+
+frontend -> XResource : HTTP POST JSON
+XResource -> XBService :  planProject(planProjectDto)
+XBService -> XDto : createProject()
+XDto -> XBuilder : build()
+XBuilder -> XBEntity : new
+XBEntity -[#Gray]-> XBuilder
+XBuilder -[#Gray]-> XDto
+XDto -[#Gray]-> XBService : project
+XBService -> XTSDao : save(project)
+XTSDao -[#Gray]-> XBService
+XBService -> XDto : mapToDto(project)
+XDto -> XMapper : map(source, targetClass)
+XMapper -[#Gray]-> XDto
+XDto -[#Gray]-> XBService
+XBService -[#Gray]-> XResource : projectDto
+XResource -[#Gray]-> frontend : HTTP POST Response
+
+
+
+@enduml

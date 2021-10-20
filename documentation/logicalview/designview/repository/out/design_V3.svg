@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="766.77px" preserveAspectRatio="none" style="width:771px;height:766px;background:#FFFFFF;" version="1.1" viewBox="0 0 771 766" width="771.04px" zoomAndPan="magnify"><defs><filter height="300%" id="fpi7a470njh0x" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="1.22"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="2.44" dy="2.44" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[64daa5a824998c700cfb188d1583c07e]
+cluster analysis--><polygon fill="#FDFF86" filter="url(#fpi7a470njh0x)" points="452.62,81.435,494.71,81.435,498.98,95.0361,554.49,95.0361,554.49,328.485,452.62,328.485,452.62,81.435" style="stroke:#000000;stroke-width:0.915;"/><line style="stroke:#000000;stroke-width:0.915;" x1="452.62" x2="498.98" y1="95.0361" y2="95.0361"/><text fill="#000000" font-family="sans-serif" font-size="8.54" font-weight="bold" lengthAdjust="spacing" textLength="38.43" x="455.06" y="90.582">analysis</text><!--MD5=[464b8a121da435760d275ace2e6f7972]
+cluster front--><polygon fill="#C7FFF1" filter="url(#fpi7a470njh0x)" points="9.76,3.66,37.82,3.66,42.09,17.2611,437.98,17.2611,437.98,694.79,9.76,694.79,9.76,3.66" style="stroke:#000000;stroke-width:0.915;"/><line style="stroke:#000000;stroke-width:0.915;" x1="9.76" x2="42.09" y1="17.2611" y2="17.2611"/><text fill="#000000" font-family="sans-serif" font-size="8.54" font-weight="bold" lengthAdjust="spacing" textLength="24.4" x="12.2" y="12.807">front</text><!--MD5=[15636c1ca4a123c16a2a1a8e90aca7a9]
+cluster Model--><polygon fill="#89FF97" filter="url(#fpi7a470njh0x)" points="259.25,352.58,292.8,352.58,297.07,366.1811,415.41,366.1811,415.41,680.15,259.25,680.15,259.25,352.58" style="stroke:#000000;stroke-width:0.915;"/><line style="stroke:#000000;stroke-width:0.915;" x1="259.25" x2="297.07" y1="366.1811" y2="366.1811"/><text fill="#000000" font-family="sans-serif" font-size="8.54" font-weight="bold" lengthAdjust="spacing" textLength="29.89" x="261.69" y="361.727">Model</text><text fill="#000000" font-family="sans-serif" font-size="8.54" font-style="italic" lengthAdjust="spacing" textLength="80.52" x="299.51" y="375.3281">«POJO TypeScript»</text><!--MD5=[65ab56a2172d2274d20ac71edf65c969]
+cluster angular:10--><polygon fill="#ADE0FF" filter="url(#fpi7a470njh0x)" points="24.4,29.89,80.52,29.89,84.79,43.4911,244.61,43.4911,244.61,536.19,24.4,536.19,24.4,29.89" style="stroke:#000000;stroke-width:0.915;"/><line style="stroke:#000000;stroke-width:0.915;" x1="24.4" x2="84.79" y1="43.4911" y2="43.4911"/><text fill="#000000" font-family="sans-serif" font-size="8.54" font-weight="bold" lengthAdjust="spacing" textLength="52.46" x="26.84" y="39.037">angular:10</text><!--MD5=[e320b41f2d43b11d6de1346cab4ea5fc]
+cluster View--><rect fill="#ADE0FF" filter="url(#fpi7a470njh0x)" height="167.14" style="stroke:#000000;stroke-width:0.915;" width="147.62" x="77.47" y="61"/><text fill="#000000" font-family="sans-serif" font-size="8.54" font-style="italic" lengthAdjust="spacing" textLength="61.61" x="120.475" y="70.147">«Component»</text><text fill="#000000" font-family="sans-serif" font-size="8.54" font-weight="bold" lengthAdjust="spacing" textLength="23.79" x="139.385" y="80.0881">View</text><!--MD5=[1f2cfc53d9d308f53762fd0fcbaa4873]
+cluster Controller--><rect fill="#ADE0FF" filter="url(#fpi7a470njh0x)" height="268.4" style="stroke:#000000;stroke-width:0.915;" width="183" x="46.97" y="253.15"/><text fill="#000000" font-family="sans-serif" font-size="8.54" font-style="italic" lengthAdjust="spacing" textLength="53.68" x="111.63" y="262.297">«Injectable»</text><text fill="#000000" font-family="sans-serif" font-size="8.54" font-weight="bold" lengthAdjust="spacing" textLength="49.41" x="113.765" y="272.2381">Controller</text><!--MD5=[47c14c564e796a575e671c2b0469a7bb]
+cluster backend--><polygon fill="#FFDA67" filter="url(#fpi7a470njh0x)" points="575.23,446.825,619.15,446.825,623.42,460.4261,713.09,460.4261,713.09,762.5,575.23,762.5,575.23,446.825" style="stroke:#000000;stroke-width:0.915;"/><line style="stroke:#000000;stroke-width:0.915;" x1="575.23" x2="623.42" y1="460.4261" y2="460.4261"/><text fill="#000000" font-family="sans-serif" font-size="8.54" font-weight="bold" lengthAdjust="spacing" textLength="40.26" x="577.67" y="455.972">backend</text><text fill="#000000" font-family="sans-serif" font-size="8.54" font-style="italic" lengthAdjust="spacing" textLength="54.29" x="619.455" y="469.5731">«spring:5.3»</text><!--MD5=[b843a707a9d29bfe6172f1502199d263]
+entity XView--><path d="M474.885,105.225 L474.885,119.865 M474.885,112.545 L485.255,112.545 " fill="none" filter="url(#fpi7a470njh0x)" style="stroke:#000000;stroke-width:0.915;"/><ellipse cx="492.575" cy="112.545" fill="#9FB7E5" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><text fill="#000000" font-family="sans-serif" font-size="7.32" lengthAdjust="spacing" textLength="21.96" x="476.41" y="129.0996">XView</text><!--MD5=[a91319e7cfad8d66707571e19cb9c3d9]
+entity XController--><ellipse cx="487.39" cy="188.795" fill="#C4E4AB" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#718C00;stroke-width:0.915;"/><polygon fill="#718C00" points="484.95,181.475,488.61,178.425,487.39,181.475,488.61,184.525,484.95,181.475" style="stroke:#718C00;stroke-width:0.61;"/><text fill="#000000" font-family="sans-serif" font-size="8.54" lengthAdjust="spacing" textLength="49.41" x="462.685" y="206.482">XController</text><!--MD5=[d1b0dfd0ce39cb18e38dc74678584e70]
+entity XEntity--><ellipse cx="529.48" cy="299.205" fill="#F8D987" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><line style="stroke:#000000;stroke-width:0.915;" x1="522.16" x2="536.8" y1="307.745" y2="307.745"/><text fill="#000000" font-family="sans-serif" font-size="8.54" lengthAdjust="spacing" textLength="30.5" x="514.23" y="316.892">XEntity</text><!--MD5=[bb7c449e9d49406d49b3614b1de06c6d]
+entity XDao--><path d="M465.125,292.495 L465.125,307.135 M465.125,299.815 L475.495,299.815 " fill="none" filter="url(#fpi7a470njh0x)" style="stroke:#000000;stroke-width:0.915;"/><ellipse cx="482.815" cy="299.815" fill="#9FB7E5" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><text fill="#000000" font-family="sans-serif" font-size="7.32" lengthAdjust="spacing" textLength="18.91" x="468.175" y="316.3696">XDao</text><!--MD5=[922c8327e5a7b88ff7e37de711ca16f7]
+entity XLogicService--><ellipse cx="339.77" cy="393.45" fill="#B5BD68" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#718C00;stroke-width:0.915;"/><polygon fill="#718C00" points="337.33,386.13,340.99,383.08,339.77,386.13,340.99,389.18,337.33,386.13" style="stroke:#718C00;stroke-width:0.61;"/><text fill="#000000" font-family="sans-serif" font-size="8.54" lengthAdjust="spacing" textLength="49.41" x="315.065" y="411.137">XController</text><!--MD5=[fd32a81c2404801ffd3250cd88dc7b13]
+entity XModel--><ellipse cx="386.13" cy="650.87" fill="#F2AC4E" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><line style="stroke:#000000;stroke-width:0.915;" x1="378.81" x2="393.45" y1="659.41" y2="659.41"/><text fill="#000000" font-family="sans-serif" font-size="8.54" lengthAdjust="spacing" textLength="32.33" x="369.965" y="668.557">XModel</text><!--MD5=[bfa66b5f4ca4e0a289c3f19f9cd4d1da]
+entity XControllerResponse--><ellipse cx="314.76" cy="584.38" fill="#F2AC4E" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><line style="stroke:#000000;stroke-width:0.915;" x1="307.44" x2="322.08" y1="592.92" y2="592.92"/><text fill="#000000" font-family="sans-serif" font-size="8.54" lengthAdjust="spacing" textLength="91.5" x="269.01" y="602.067">XControllerResponse</text><!--MD5=[4ab9a626bde8ab789e9a3d9bb0d409a0]
+entity XTSDao--><path d="M371.185,480.375 L371.185,495.015 M371.185,487.695 L381.555,487.695 " fill="none" filter="url(#fpi7a470njh0x)" style="stroke:#000000;stroke-width:0.915;"/><ellipse cx="388.875" cy="487.695" fill="#629EF9" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><text fill="#000000" font-family="sans-serif" font-size="7.32" lengthAdjust="spacing" textLength="43.31" x="362.035" y="504.2496">XRepository</text><!--MD5=[b196388b3c2d5060379c393acdc3d123]
+entity XHtml--><ellipse cx="118.34" cy="116.6911" fill="#F2AC4E" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><line style="stroke:#000000;stroke-width:0.915;" x1="111.02" x2="125.66" y1="125.2311" y2="125.2311"/><text fill="#000000" font-family="sans-serif" font-size="8.54" lengthAdjust="spacing" textLength="26.84" x="104.92" y="134.3781">XHtml</text><text fill="#000000" font-family="sans-serif" font-size="8.54" font-style="italic" lengthAdjust="spacing" textLength="52.46" x="92.11" y="104.917">«Template»</text><!--MD5=[df1c5be6e796b6ba3b562e4245f837b6]
+entity XCss--><path d="M169.885,110.2861 L169.885,124.9261 M169.885,117.6061 L180.255,117.6061 " fill="none" filter="url(#fpi7a470njh0x)" style="stroke:#000000;stroke-width:0.915;"/><ellipse cx="187.575" cy="117.6061" fill="#629EF9" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><text fill="#000000" font-family="sans-serif" font-size="7.32" lengthAdjust="spacing" textLength="17.08" x="173.85" y="134.1607">XCss</text><text fill="#000000" font-family="sans-serif" font-size="8.54" font-style="italic" lengthAdjust="spacing" textLength="32.33" x="166.225" y="105.832">«Style»</text><!--MD5=[42a3bec06eedc51adbbe3f7826fd4aca]
+entity XTypescript--><ellipse cx="145.18" cy="193.5511" fill="#B5BD68" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#718C00;stroke-width:0.915;"/><polygon fill="#718C00" points="142.74,186.2311,146.4,183.1811,145.18,186.2311,146.4,189.2811,142.74,186.2311" style="stroke:#718C00;stroke-width:0.61;"/><text fill="#000000" font-family="sans-serif" font-size="8.54" lengthAdjust="spacing" textLength="51.24" x="119.56" y="211.2381">XTypescript</text><text fill="#000000" font-family="sans-serif" font-size="8.54" font-style="italic" lengthAdjust="spacing" textLength="61.61" x="114.375" y="181.777">«Component»</text><!--MD5=[11f4769666054cda26d2bc303b3df0b5]
+entity HTTPService--><path d="M178.425,480.375 L178.425,495.015 M178.425,487.695 L188.795,487.695 " fill="none" filter="url(#fpi7a470njh0x)" style="stroke:#000000;stroke-width:0.915;"/><ellipse cx="196.115" cy="487.695" fill="#629EF9" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><text fill="#000000" font-family="sans-serif" font-size="7.32" lengthAdjust="spacing" textLength="45.14" x="168.36" y="504.2496">HTTPService</text><!--MD5=[57e56815b43a23c42a8080287d3beacb]
+entity XService--><ellipse cx="189.1" cy="303.9611" fill="#B5BD68" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#718C00;stroke-width:0.915;"/><polygon fill="#718C00" points="186.66,296.6411,190.32,293.5911,189.1,296.6411,190.32,299.6911,186.66,296.6411" style="stroke:#718C00;stroke-width:0.61;"/><text fill="#000000" font-family="sans-serif" font-size="8.54" lengthAdjust="spacing" textLength="51.24" x="163.48" y="321.6481">XTypescript</text><text fill="#000000" font-family="sans-serif" font-size="8.54" font-style="italic" lengthAdjust="spacing" textLength="62.22" x="157.99" y="292.187">«Service»«in»</text><!--MD5=[8cdf62c0af8e0babc474dae6ce952e5b]
+entity XViewModel--><ellipse cx="98.21" cy="398.2061" fill="#B5BD68" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#718C00;stroke-width:0.915;"/><polygon fill="#718C00" points="95.77,390.8861,99.43,387.8361,98.21,390.8861,99.43,393.9361,95.77,390.8861" style="stroke:#718C00;stroke-width:0.61;"/><text fill="#000000" font-family="sans-serif" font-size="8.54" lengthAdjust="spacing" textLength="51.24" x="72.59" y="415.8931">XTypescript</text><text fill="#000000" font-family="sans-serif" font-size="8.54" font-style="italic" lengthAdjust="spacing" textLength="82.96" x="56.73" y="386.432">«ViewModel»«out»</text><!--MD5=[967daec7ba44df2c36a09dac8414c1a1]
+entity XState--><ellipse cx="78.08" cy="491.8411" fill="#F2AC4E" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><line style="stroke:#000000;stroke-width:0.915;" x1="70.76" x2="85.4" y1="500.3811" y2="500.3811"/><text fill="#000000" font-family="sans-serif" font-size="8.54" lengthAdjust="spacing" textLength="28.67" x="63.745" y="509.5281">XState</text><text fill="#000000" font-family="sans-serif" font-size="8.54" font-style="italic" lengthAdjust="spacing" textLength="25.01" x="65.575" y="480.067">«out»</text><!--MD5=[dc973d4431f9f7c50f25a96b9d879e9e]
+entity XRestRepository--><path d="M178.425,386.74 L178.425,401.38 M178.425,394.06 L188.795,394.06 " fill="none" filter="url(#fpi7a470njh0x)" style="stroke:#000000;stroke-width:0.915;"/><ellipse cx="196.115" cy="394.06" fill="#629EF9" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><text fill="#000000" font-family="sans-serif" font-size="7.32" lengthAdjust="spacing" textLength="59.17" x="161.345" y="410.6146">XRestRepository</text><!--MD5=[bb17d34f2c88c84908f7dff7bf4083c8]
+entity XResource--><path d="M593.835,480.375 L593.835,495.015 M593.835,487.695 L604.205,487.695 " fill="none" filter="url(#fpi7a470njh0x)" style="stroke:#000000;stroke-width:0.915;"/><ellipse cx="611.525" cy="487.695" fill="#629EF9" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><text fill="#000000" font-family="sans-serif" font-size="7.32" lengthAdjust="spacing" textLength="38.43" x="587.125" y="504.2496">XResource</text><!--MD5=[ccce6889d4fdc01e858ee44d7e0badb4]
+entity XBService--><ellipse cx="641.11" cy="584.38" fill="#B5BD68" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#718C00;stroke-width:0.915;"/><polygon fill="#718C00" points="638.67,577.06,642.33,574.01,641.11,577.06,642.33,580.11,638.67,577.06" style="stroke:#718C00;stroke-width:0.61;"/><text fill="#000000" font-family="sans-serif" font-size="8.54" lengthAdjust="spacing" textLength="44.53" x="618.845" y="602.067">XBService</text><!--MD5=[05036ce6d6c9b577392936eef34b75e2]
+entity XRepository--><path d="M668.865,644.16 L668.865,658.8 M668.865,651.48 L679.235,651.48 " fill="none" filter="url(#fpi7a470njh0x)" style="stroke:#000000;stroke-width:0.915;"/><ellipse cx="686.555" cy="651.48" fill="#629EF9" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><text fill="#000000" font-family="sans-serif" font-size="7.32" lengthAdjust="spacing" textLength="43.31" x="659.715" y="668.0346">XRepository</text><!--MD5=[69e49715a4c359aea4a800f263690fc5]
+entity XDto--><path d="M587.735,644.16 L587.735,658.8 M587.735,651.48 L598.105,651.48 " fill="none" filter="url(#fpi7a470njh0x)" style="stroke:#000000;stroke-width:0.915;"/><ellipse cx="605.425" cy="651.48" fill="#629EF9" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><text fill="#000000" font-family="sans-serif" font-size="7.32" lengthAdjust="spacing" textLength="17.69" x="591.395" y="668.0346">XDto</text><!--MD5=[f27662de14fb41cf485fda8c468f257e]
+entity XBEntity--><ellipse cx="681.37" cy="733.22" fill="#F2AC4E" filter="url(#fpi7a470njh0x)" rx="7.32" ry="7.32" style="stroke:#000000;stroke-width:0.915;"/><line style="stroke:#000000;stroke-width:0.915;" x1="674.05" x2="688.69" y1="741.76" y2="741.76"/><text fill="#000000" font-family="sans-serif" font-size="8.54" lengthAdjust="spacing" textLength="36.6" x="663.07" y="750.907">XBEntity</text><!--MD5=[50a2f9fbc7f4e317ae9a157602683354]
+link XView to XController--><path d="M487.39,130.9487 C487.39,143.4598 487.39,162.1197 487.39,175.7227 " fill="none" id="XView-to-XController" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="487.39,178.8886,489.83,173.3986,487.39,175.8386,484.95,173.3986,487.39,178.8886" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[4de373271ed25b31c9e00bfbe01109ae]
+link XView to XEntity--><path d="M498.7299,131.0341 C507.0442,141.886 517.7192,157.8619 522.77,173.85 C534.97,212.4874 533.3413,260.7994 531.2917,286.1327 " fill="none" id="XView-to-XEntity" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="531.0294,289.2559,533.9169,283.9875,531.2827,286.2164,529.0537,283.5822,531.0294,289.2559" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[c96254998bffdc37543dfcfe42650edb]
+link XController to XEntity--><path d="M492.8068,208.3333 C500.4867,228.262 514.535,264.7034 522.8371,286.2364 " fill="none" id="XController-to-XEntity" style="stroke:#A80036;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="524.0205,289.3047,524.3394,283.3054,522.9315,286.4558,519.7811,285.0478,524.0205,289.3047" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[01ef51406f1113a2f9dd6ec63a0d16e4]
+link XController to XDao--><path d="M486.1334,208.3333 C484.3339,228.4816 481.0216,265.5086 479.1062,286.944 " fill="none" id="XController-to-XDao" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="478.8378,289.994,481.7553,284.7422,479.1084,286.956,476.8945,284.3092,478.8378,289.994" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[e6016e13497335346173808713f74703]
+link XTypescript to XService--><path d="M152.9331,213.5549 C160.5581,232.5198 172.1969,261.4521 180.2001,281.3442 " fill="none" id="XTypescript-to-XService" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="181.353,284.2173,181.5636,278.2132,180.2128,281.3885,177.0375,280.0376,181.353,284.2173" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[33bfefb6f1b7905b624108c17e68a57e]
+link XViewModel to XModel--><path d="M70.9613,418.2221 C63.7755,424.8406 56.9496,432.8926 53.07,441.945 C35.7216,482.4429 27.4561,505.2264 53.07,541.07 C128.4721,646.6 307.7206,655.5548 366.8418,655.5304 " fill="none" id="XViewModel-to-XModel" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="369.8979,655.5243,364.401,653.1,366.8479,655.533,364.4149,657.98,369.8979,655.5243" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[db5d3e48cc4ef1522ecfbe36c95add28]
+link XTypescript to XModel--><path d="M176.2107,199.4761 C249.5815,212.6277 427.61,250.0512 427.61,303.475 C427.61,303.475 427.61,303.475 427.61,589.87 C427.61,608.6275 415.2575,626.348 404.0396,638.5785 " fill="none" id="XTypescript-to-XModel" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="401.8131,640.9514,407.348,638.6151,403.8991,638.7263,403.7879,635.2774,401.8131,640.9514" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[c8e3ea43a121b50d9a76b89397b9396f]
+link XTypescript to XState--><path d="M127.1667,213.7074 C103.1144,241.1147 61.6832,293.8248 45.75,347.7 C36.8684,377.7303 39.284,387.5147 45.75,418.155 C49.5442,436.1256 58.0354,455.0539 65.3676,469.1571 " fill="none" id="XTypescript-to-XState" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="66.8194,471.9143,66.424,465.9195,65.4,469.2147,62.1047,468.1906,66.8194,471.9143" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[10579fe4617908fae10c69616715ee55]
+link XRestRepository to XTSDao--><path d="M218.9595,412.3783 C253.9125,429.135 313.5827,457.744 350.7073,475.5438 " fill="none" id="XRestRepository-to-XTSDao" style="stroke:#A80036;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="none" points="352.7508,471.7862,361.9069,480.9118,349.0603,479.4844,352.7508,471.7862" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[9bf29e20a8b391bd19b5f238dbfdccaf]
+link XRestRepository to HTTPService--><path d="M190.93,412.3783 C190.93,428.8727 190.93,456.8473 190.93,474.6898 " fill="none" id="XRestRepository-to-HTTPService" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="190.93,477.8984,193.37,472.4084,190.93,474.8484,188.49,472.4084,190.93,477.8984" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[c8fe1b3dc1ee4c0fba70c5c2bf209427]
+link XService to XRestRepository--><path d="M189.4782,323.971 C189.8137,340.8314 190.2895,365.0728 190.6006,381.0975 " fill="none" id="XService-to-XRestRepository" style="stroke:#A80036;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="190.6616,384.1902,192.991,378.6524,190.6004,381.1408,188.112,378.7502,190.6616,384.1902" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[777a0e6db8b07667e2ddf678180f2799]
+link XService to XLogicService--><path d="M220.3686,316.7181 C236.1737,323.3427 255.3582,332.2365 271.45,342.21 C289.9147,353.6536 308.9406,369.5075 322.2081,381.3415 " fill="none" id="XService-to-XLogicService" style="stroke:#A80036;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="324.6176,383.5009,322.1692,378.0146,322.3506,381.4606,318.9046,381.6419,324.6176,383.5009" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[c94ba7a2932f0153172a49c917fd3ec7]
+link XService to XViewModel--><path d="M170.2693,323.971 C155.3975,339.1844 134.6636,360.4063 119.255,376.1809 " fill="none" id="XService-to-XViewModel" style="stroke:#A80036;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="117.0163,378.4684,122.6016,376.2552,119.1511,376.2901,119.1162,372.8395,117.0163,378.4684" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[96cb14d0aabebb35a09bccb39406015f]
+link XService to XControllerResponse--><path d="M211.6883,324.0991 C218.6728,330.9921 225.9135,339.1722 231.19,347.7 C278.3186,423.8341 303.1395,530.0473 311.4843,571.3016 " fill="none" id="XService-to-XControllerResponse" style="stroke:#A80036;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="312.1065,574.3943,313.4159,568.5309,311.505,571.4042,308.6317,569.4933,312.1065,574.3943" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[4d01d774c6319c129a864c90100ec514]
+link XViewModel to XState--><path d="M93.9888,418.3136 C90.768,433.1 86.3272,453.4984 82.9539,468.9802 " fill="none" id="XViewModel-to-XState" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="82.2951,472.0058,85.8545,467.1659,82.9484,469.0266,81.0877,466.1206,82.2951,472.0058" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[7e02dc465a890decb2aa92ced9624340]
+link XLogicService to XTSDao--><path d="M346.4434,412.9761 C354.3368,429.5864 367.464,457.2072 375.8393,474.8362 " fill="none" id="XLogicService-to-XTSDao" style="stroke:#A80036;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="377.2423,477.7886,377.0997,471.7825,375.9378,475.0317,372.6886,473.8698,377.2423,477.7886" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[87175fb25edbe7dc40788f0c281b27b1]
+link XLogicService to XModel--><path d="M338.8367,413.0676 C337.5618,439.0902 336.8969,496.052 351.36,541.07 C356.6792,557.6254 365.3595,558.3452 371.49,574.62 C379.3773,595.5613 383.0983,621.2118 384.8002,637.8526 " fill="none" id="XLogicService-to-XModel" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="385.1113,641.0551,387.0075,635.3544,384.8156,638.0195,382.1505,635.8276,385.1113,641.0551" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[aa5c57ab41220947b93c6ad50f314303]
+link XLogicService to XControllerResponse--><path d="M337.6533,413.0066 C336.6041,420.0399 335.3475,428.6958 334.28,436.455 C327.5639,485.3709 320.3415,543.2416 316.8645,571.4541 " fill="none" id="XLogicService-to-XControllerResponse" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="316.4802,574.5834,319.575,569.4341,316.8542,571.5564,314.7319,568.8356,316.4802,574.5834" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[9dfa528a1604ae48abaeb0bc23da47df]
+link XControllerResponse to XModel--><path d="M330.2479,604.0342 C341.4719,614.2944 356.667,628.1963 368.379,638.9079 " fill="none" id="XControllerResponse-to-XModel" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="370.6726,641.0063,368.2686,635.5004,368.4221,638.9477,364.9748,639.1012,370.6726,641.0063" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[121e226ff49fadcd53a542422806705a]
+link XTSDao to XModel--><path d="M384.6172,506.2146 C385.6725,522.4833 387.3317,550.525 387.96,574.62 C388.5151,596.031 388.5639,601.399 387.96,622.81 C387.8258,627.6473 387.5696,632.8933 387.2951,637.7184 " fill="none" id="XTSDao-to-XModel" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="387.106,640.9819,389.8561,635.6405,387.2805,637.9369,384.9841,635.3613,387.106,640.9819" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[7f66b363ff28c68475c91915bfb2c45c]
+reverse link XHtml to XTypescript--><path d="M126.2456,139.7022 C130.0886,150.5358 134.6636,163.419 138.348,173.8195 " fill="none" id="XHtml-backto-XTypescript" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="125.1842,136.7071,124.719,142.6969,126.2034,139.5818,129.3185,141.0661,125.1842,136.7071" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[031f08ab75606846af0689898867e59c]
+link XHtml to XCss--><path d="M147.8091,116.815 C152.8721,116.815 157.9412,116.815 163.0042,116.815 " fill="none" id="XHtml-XCss" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="166.1579,116.815,160.6679,114.375,163.1079,116.815,160.6679,119.255,166.1579,116.815" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="144.6127,116.815,150.1027,119.255,147.6627,116.815,150.1027,114.375,144.6127,116.815" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[16ad87df452d398c3abb1710c7c7cb93]
+link XResource to XBService--><path d="M611.2505,506.1353 C617.4664,523.319 628.1902,552.9467 634.949,571.631 " fill="none" id="XResource-to-XBService" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="635.9982,574.5346,636.4254,568.542,634.9608,571.6665,631.8363,570.2019,635.9982,574.5346" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[2ed89d7bd2d415c96ad5285baf23b615]
+link XResource to XDto--><path d="M605.8276,506.1536 C604.7174,535.8118 602.07,606.2912 600.8622,638.5297 " fill="none" id="XResource-to-XDto" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="600.7463,641.7139,603.3884,636.3182,600.8595,638.666,598.5118,636.1371,600.7463,641.7139" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[fec86ead0a66a52ae7271b52a59370f3]
+link XBService to XBEntity--><path d="M639.402,604.022 C637.3951,625.5733 635.8274,667.4925 649.04,699.67 C652.2547,707.5024 657.7447,714.8773 663.3018,721.0017 " fill="none" id="XBService-to-XBEntity" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="665.51,723.3685,663.5471,717.6904,663.4286,721.1391,659.98,721.0206,665.51,723.3685" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[0b9b3aca1c94d3f97008084bfa851a77]
+link XBService to XDto--><path d="M632.2406,604.0342 C625.7929,614.331 617.0516,628.2939 610.3355,639.0177 " fill="none" id="XBService-to-XDto" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="608.6702,641.6712,613.6521,638.3134,610.289,639.0863,609.5162,635.7233,608.6702,641.6712" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[bc7385ce18d82f502bb5b8b840f98c9a]
+link XBService to XRepository--><path d="M649.8452,604.0342 C656.2014,614.331 664.8085,628.2939 671.427,639.0177 " fill="none" id="XBService-to-XRepository" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="673.0618,641.6712,672.2536,635.718,671.4594,639.076,668.1014,638.2818,673.0618,641.6712" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[28ea02b14ea59d6bcb98c001c6456233]
+link XRepository to XBEntity--><path d="M681.37,669.9386 C681.37,683.7551 681.37,705.2088 681.37,720.2209 " fill="none" id="XRepository-to-XBEntity" style="stroke:#A80036;stroke-width:0.61;"/><polygon fill="#A80036" points="681.37,723.3197,683.81,717.8297,681.37,720.2697,678.93,717.8297,681.37,723.3197" style="stroke:#A80036;stroke-width:0.61;"/><!--MD5=[47db925154689a17d718f234982188d9]
+reverse link XDao to XResource--><path d="M488.7625,320.8417 C513.7298,357.0513 573.8087,444.1776 596.9948,477.8008 " fill="none" id="XDao-backto-XResource" style="stroke:#808080;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#808080" points="486.8837,318.1211,487.9972,324.0248,488.6175,320.6304,492.012,321.2507,486.8837,318.1211" style="stroke:#808080;stroke-width:0.61;"/><text fill="#000000" font-family="sans-serif" font-size="7.93" lengthAdjust="spacing" textLength="29.89" x="556.32" y="401.1158">«trace»</text><!--MD5=[56c98f83017d4394861449c8a85a2c0a]
+reverse link XEntity to XBEntity--><path d="M548.0179,304.6584 C598.6723,305.61 735.66,315.7787 735.66,397.72 C735.66,397.72 735.66,397.72 735.66,656.36 C735.66,683.4745 714.4503,708.3869 698.5476,723.2587 " fill="none" id="XEntity-backto-XBEntity" style="stroke:#808080;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#808080" points="544.8093,304.6035,550.2567,307.1372,547.8589,304.6558,550.3403,302.258,544.8093,304.6035" style="stroke:#808080;stroke-width:0.61;"/><text fill="#000000" font-family="sans-serif" font-size="7.93" lengthAdjust="spacing" textLength="29.89" x="736.27" y="553.9208">«trace»</text><!--MD5=[841edb66dd8576d57f059c082709cc7f]
+reverse link XEntity to XModel--><path d="M530.9318,321.9824 C532.3714,340.6545 534.36,371.2704 534.36,397.72 C534.36,397.72 534.36,397.72 534.36,589.87 C534.36,646.9538 441.152,654.5483 402.5573,655.2437 " fill="none" id="XEntity-backto-XModel" style="stroke:#808080;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#808080" points="530.6878,318.8653,528.6785,324.5271,530.9231,321.9062,533.544,324.1507,530.6878,318.8653" style="stroke:#808080;stroke-width:0.61;"/><text fill="#000000" font-family="sans-serif" font-size="7.93" lengthAdjust="spacing" textLength="29.89" x="534.97" y="494.7508">«trace»</text><!--MD5=[2e8991a667134f071271ec41557de727]
+reverse link XController to XLogicService--><path d="M514.8827,208.01 C529.9375,217.1539 547.2127,230.7203 555.71,248.27 C572.1983,282.308 581.0555,305.2989 555.71,333.365 C534.7077,356.6243 444.9218,337.1592 415.41,347.7 C392.8766,355.752 370.4347,371.8743 355.9228,383.6473 " fill="none" id="XController-backto-XLogicService" style="stroke:#808080;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#808080" points="512.1011,206.3508,515.5654,211.2592,514.7203,207.9136,518.0659,207.0685,512.1011,206.3508" style="stroke:#808080;stroke-width:0.61;"/><!--MD5=[eaa25494c005b94527eb46c51b73df1a]
+reverse link XController to XService--><path d="M459.5435,204.4781 C403.7895,224.8887 278.7822,270.6448 220.3381,292.0436 " fill="none" id="XController-backto-XService" style="stroke:#808080;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#808080" points="462.4715,203.4045,456.4767,203.0095,459.609,204.4573,458.1612,207.5896,462.4715,203.4045" style="stroke:#808080;stroke-width:0.61;"/><!--MD5=[12088f7db4589e246919a7cfa5bcc083]
+link View to XView--><path d="M225.3279,116.815 C225.6516,116.815 225.9753,116.815 226.299,116.815 C226.9464,116.815 227.5938,116.815 228.2412,116.815 C230.8309,116.815 233.4205,116.815 236.0101,116.815 C241.1894,116.815 246.3687,116.815 251.548,116.815 C261.9066,116.815 272.2651,116.815 282.6237,116.815 C303.3408,116.815 324.0579,116.815 344.775,116.815 C386.2093,116.815 427.6436,116.815 469.0778,116.815 " fill="none" id="View-to-XView" style="stroke:#808080;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#808080" points="472.2742,116.815,466.7842,114.375,469.2242,116.815,466.7842,119.255,472.2742,116.815" style="stroke:#808080;stroke-width:0.61;"/><!--MD5=[157a605cbcf58840d690741037899c6e]
+reverse link XDao to XTSDao--><path d="M469.395,321.0613 C451.1072,357.399 407.4007,444.2447 390.5098,477.8008 " fill="none" id="XDao-backto-XTSDao" style="stroke:#808080;stroke-width:0.61;stroke-dasharray:7.0,7.0;"/><polygon fill="#808080" points="470.8712,318.1211,466.2287,321.9344,469.5037,320.8474,470.5907,324.1224,470.8712,318.1211" style="stroke:#808080;stroke-width:0.61;"/><text fill="#000000" font-family="sans-serif" font-size="7.93" lengthAdjust="spacing" textLength="29.89" x="456.28" y="401.1158">«trace»</text><!--MD5=[1216af311215e67128aa1b00e6a02c19]
+@startuml
+!include skinParams.puml
+
+    'analysis
+    package analysis #FDFF86{
+        boundary XView #9FB7E5
+        control XController #C4E4AB
+        entity XEntity #F8D987
+        boundary XDao #9FB7E5
+
+        XView -down-> XController
+        XView -down-> XEntity
+        XController .down.> XEntity
+        XController -down-> XDao
+    }
+
+    'Design
+    package front #C7FFF1  {
+
+        package Model <<POJO TypeScript>> #89FF97 {
+                    control XLogicService as "XController"
+                    entity XModel
+                    entity XControllerResponse
+                    boundary XTSDao as "XRepository"
+                }
+
+        package angular:10 #ADE0FF {
+
+                rectangle View <<Component>> {
+                   entity XHtml <<Template>>
+                   boundary XCss <<Style>>
+                   control XTypescript <<Component>>
+                }
+
+                rectangle Controller <<Injectable>> {
+                    boundary HTTPService
+                    control XService as "XTypescript" <<Service>> <<in>>
+                    control XViewModel as "XTypescript" <<ViewModel>> <<out>>
+                    entity XState <<out>>
+                    boundary XRestRepository
+                }
+
+            XTypescript -down-> XService
+            XViewModel -down-> XModel
+            XTypescript -right-> XModel
+            XTypescript -> XState
+            XRestRepository ..|> XTSDao
+            XRestRepository - -> HTTPService
+            XService ..> XRestRepository
+            XService ..> XLogicService
+            XService ..> XViewModel
+            XService ..> XControllerResponse
+            XViewModel - -> XState
+            XLogicService ..> XTSDao
+            XLogicService - -> XModel
+            XLogicService - - -> XControllerResponse
+            XControllerResponse - -> XModel
+            XTSDao -down- -> XModel
+            XHtml <-down- XTypescript
+            XHtml <-right-> XCss
+        }
+    }
+
+    package backend <<spring:5.3>> #FFDA67 {
+        boundary XResource
+        control XBService
+        boundary XRepository
+        boundary XDto
+        entity XBEntity
+        XResource - -> XBService
+        XResource - -> XDto
+        XBService - -> XBEntity
+        XBService - -> XDto
+        XBService - -> XRepository
+        XRepository - -> XBEntity
+    }
+
+
+    XDao <.[#Gray].. XResource: <<trace>>
+
+
+    XEntity <.[#Gray].. XBEntity: <<trace>>
+    XEntity <.[#Gray].. XModel: <<trace>>
+
+    XController <.[#Gray].. XLogicService <<trace>>
+    XController <.[#Gray].. XService <<trace>>
+    XView <.[#Gray]up. View
+    XDao <.[#Gray].. XTSDao: <<trace>>
+@enduml
+
+@startuml
+
+skinparam {
+    BoundaryBackgroundColor #629EF9
+    BoundaryBorderColor black
+    BoundaryFontSize 12
+    BoundarySize 10
+    ControlBackgroundColor #b5bd68
+    ControlBorderColor #718c00
+    EntityBackgroundColor #F2AC4E
+    EntityBorderColor black
+}
+
+
+    package analysis #FDFF86{
+        boundary XView #9FB7E5
+        control XController #C4E4AB
+        entity XEntity #F8D987
+        boundary XDao #9FB7E5
+
+        XView -down-> XController
+        XView -down-> XEntity
+        XController .down.> XEntity
+        XController -down-> XDao
+    }
+
+    package front #C7FFF1  {
+
+        package Model <<POJO TypeScript>> #89FF97 {
+                    control XLogicService as "XController"
+                    entity XModel
+                    entity XControllerResponse
+                    boundary XTSDao as "XRepository"
+                }
+
+        package angular:10 #ADE0FF {
+
+                rectangle View <<Component>> {
+                   entity XHtml <<Template>>
+                   boundary XCss <<Style>>
+                   control XTypescript <<Component>>
+                }
+
+                rectangle Controller <<Injectable>> {
+                    boundary HTTPService
+                    control XService as "XTypescript" <<Service>> <<in>>
+                    control XViewModel as "XTypescript" <<ViewModel>> <<out>>
+                    entity XState <<out>>
+                    boundary XRestRepository
+                }
+
+            XTypescript -down-> XService
+            XViewModel -down-> XModel
+            XTypescript -right-> XModel
+            XTypescript -> XState
+            XRestRepository ..|> XTSDao
+            XRestRepository - -> HTTPService
+            XService ..> XRestRepository
+            XService ..> XLogicService
+            XService ..> XViewModel
+            XService ..> XControllerResponse
+            XViewModel - -> XState
+            XLogicService ..> XTSDao
+            XLogicService - -> XModel
+            XLogicService - - -> XControllerResponse
+            XControllerResponse - -> XModel
+            XTSDao -down- -> XModel
+            XHtml <-down- XTypescript
+            XHtml <-right-> XCss
+        }
+    }
+
+    package backend <<spring:5.3>> #FFDA67 {
+        boundary XResource
+        control XBService
+        boundary XRepository
+        boundary XDto
+        entity XBEntity
+        XResource - -> XBService
+        XResource - -> XDto
+        XBService - -> XBEntity
+        XBService - -> XDto
+        XBService - -> XRepository
+        XRepository - -> XBEntity
+    }
+
+
+    XDao <.[#Gray].. XResource: <<trace>>
+
+
+    XEntity <.[#Gray].. XBEntity: <<trace>>
+    XEntity <.[#Gray].. XModel: <<trace>>
+
+    XController <.[#Gray].. XLogicService <<trace>>
+    XController <.[#Gray].. XService <<trace>>
+    XView <.[#Gray]up. View
+    XDao <.[#Gray].. XTSDao: <<trace>>
+@enduml
+
+PlantUML version 1.2021.11(Sat Oct 02 15:26:11 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
