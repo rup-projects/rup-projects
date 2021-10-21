@@ -18,6 +18,8 @@
 		<java.version>11</java.version>
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
 		<org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
+		<sonar.organization>rup-projects</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
 	<dependencies>
