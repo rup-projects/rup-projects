@@ -1,0 +1,29 @@
+<ng-container *ngIf="realizations$ | async as realizations">
+
+  <div mat-dialog-content>
+    <p>Available {{data.notAssignedCost.type}} Cost {{data.notAssignedCost.hours}}h</p>
+    <mat-form-field appearance="fill">
+      <mat-label>Member</mat-label>
+      <mat-select [(value)]="selectedRealization">
+        <mat-option *ngFor="let realization of realizations" [value]="realization.id">
+          {{realization.member.name}}
+        </mat-option>
+      </mat-select>
+     </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Start day and hour</mat-label>
+      <mat-select [(value)]="selectedHour">
+        <mat-option *ngFor="let datetime of getAvailableHours(data.iteration)" [value]="datetime">
+          {{datetime}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button (click)="assignActivity()">confirm</button>
+  </div>
+
+</ng-container>

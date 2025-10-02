@@ -1,0 +1,10 @@
+<h1 class="h3 mb-2 text-gray-800">Use cases</h1>
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <div class="table-responsive">
+      <app-crud [data]="useCases$" [title]="title"
+                (create)="createUseCase()" (read)="openUsecase($event)"
+                (update)="updateUseCase($event)" (delete)="deleteUseCase($event)"></app-crud>
+    </div>
+  </div>
+</div>

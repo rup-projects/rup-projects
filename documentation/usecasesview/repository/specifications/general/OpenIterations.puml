@@ -1,0 +1,35 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+state PROJECT_MANAGEMENT as ":PROJECT_MANAGEMENT"
+state 2 as ":PROJECT_MANAGEMENT"
+
+PROJECT_MANAGEMENT --> OpenIterations
+note on link
+    <b>User requests to</b>
+    * Open Iterations
+end note
+
+ITERATION_MANAGEMENT --> OpenIterations
+
+state OpenIterations {
+    [*] --> [*]
+}
+
+OpenIterations --> 2
+    note on link
+        <b>System shows</b>
+        * for each iteration in project ordered by number (ASC)
+        ** start date
+        ** end date
+        ** duration (bussiness days)
+        ** <color:red>dias transcurridos (bussiness days) and his percentage</color>
+        ** <color:red>//traducirlo al ingles//</color>
+        <b>System allows</b>
+        * Open openPhases
+        * Open iteration
+        * Open usecases
+        * Open members
+        * Close system
+    end note
+@enduml

@@ -1,0 +1,33 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+state INIT_PROJECT as ":INIT_PROJECT"
+state PROJECT_MANAGEMENT as ":PROJECT_MANAGEMENT"
+state USE_CASES_MANAGEMENT as ":USE_CASES_MANAGEMENT"
+state ITERATION_MANAGEMENT as ":ITERATION_MANAGEMENT"
+state MEMBER_MANAGEMENT as ":MEMBER_MANAGEMENT"
+
+INIT_PROJECT --> CloseSystem
+PROJECT_MANAGEMENT --> CloseSystem
+USE_CASES_MANAGEMENT --> CloseSystem
+note on link
+User requests to close the app
+end note
+ITERATION_MANAGEMENT --> CloseSystem
+MEMBER_MANAGEMENT --> CloseSystem
+
+
+state CloseSystem {
+    state 1 as " "
+
+    [*] --> 1
+
+    1 --> [*]
+        note on link
+    <b>System shows</b>
+    * Good bye
+    end note
+}
+
+CloseSystem --> [*]
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+	class OpenIterationController {
+	+get(iterationId)
+	}
+
+	IterationView --> OpenIterationController
+	OpenIterationController --> IterationDao
+	OpenIterationController ..> Iteration
+@enduml

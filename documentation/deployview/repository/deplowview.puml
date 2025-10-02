@@ -1,0 +1,49 @@
+@startuml
+
+node webClient
+node server {
+
+node webAppContainer <<docker-container>> as "WebApp" {
+
+component webApp as "web-app" <<angular>>
+component angular as "Angular"
+}
+
+
+node webServerContainer <<docker-container>>  as "rup-project-core" {
+component webServerApp as "rup-project-core.jar" <<Spring>>
+component Spring as "Spring"
+}
+
+
+
+node databaseContainer <<docker-container>>  as "BBDD" {
+database rupProjectsDataBase as "rupProjectsDataBase" <<MariaDB>>
+component MariaDB as "MariaDB"
+
+}
+
+}
+
+'together con todas las del servidor
+' '' con las del cliente
+
+
+webAppContainer .[hidden]down. webServerApp
+webServerApp .[hidden]down. databaseContainer
+
+webClient -right-> server
+
+'server --> webAppContainer
+'server --> webServerContainer
+'server --> databaseContainer
+'webAppContainer *--> webApp
+'webAppContainer *--> angular
+'webApp .down.>angular
+'webServerContainer --> webServerApp
+'webServerContainer --> pumlGenerator
+'webServerApp -left-> pumlGenerator
+'databaseContainer --> rupProjectsDataBase
+'webServerApp -right-> rupProjectsDataBase
+
+@enduml

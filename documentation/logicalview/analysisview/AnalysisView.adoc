@@ -1,0 +1,35 @@
+= Analysis View
+
+[#_index]
+== Index
+
+* <<_Architecture>>
+* <<_UserCaseAnalysis>>
+* <<_PackageAnalysis>>
+
+[#_Architecture]
+== Architecture Analysis
+[plantuml,svg,align="center"]
+----
+include::repository/PackageDiagram.puml[]
+----
+
+<<_index>>
+
+
+[#_UserCaseAnalysis]
+== Use cases analysis
+
+include::{docdir}/repository/usecaseanalysis/collaboration/index-collaboration-diagrams.adoc[]
+
+<<_index>>
+
+
+[#_PackageAnalysis]
+== Package analysis
+[plantuml,svg,align="center"]
+----
+include::repository/AnalysisArchitecture.puml[]
+----
+
+<<_index>>

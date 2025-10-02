@@ -1,0 +1,87 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+    state 5 as ":ITERATION_MANAGEMENT"
+    state 13 as ":ITERATION_MANAGEMENT"
+    state showIteration as ":ShowIteration"
+
+
+    5 --> ReestimateActivity
+    note on link
+        User requests to re estimate NotAssignedActivity
+    end note
+
+    state ReestimateActivity {
+        state 2 as " "
+        state 0 as " "
+        state 4 as " "
+        state 8 as " "
+        state 10 as " "
+
+
+    [*] --> 2
+    note on link
+    <b>System shows</b>
+    * for each discipline (requirements, analysis, design, implementation)
+    ** NotAssignedActivities
+    <b>System requires</b>
+    * NotAssignedActivity to re-estimate
+    <b>System allows</b>
+    * cancel re-estimate activity
+    end note
+
+    2 -[#red]-> 10
+    note on link
+        User requests to cancel re-estimate
+    end note
+
+    2 --> 4
+    note on link
+        User provides NotAssignedActivity to re-estimate
+    end note
+
+    4 --> 0
+    note on link
+        <b>System shows</b>
+        * NotAssignedCost
+        ** total available cost (hours)
+        * NotAssignedActivity
+        ** duration (hours)
+        ** discipline
+        ** type
+        <b>System requires</b>
+        * NotAssignedActivity duration (min as 1 hours) max as NotAssignedCost total available cost)
+        <b>System allows</b>
+        * cancel re-estimate
+    end note
+
+    0 -[#red]-> 10
+    note on link
+        User requests to cancel re-estimate
+    end note
+
+    0 --> 8
+    note on link
+        User provides NotAssignedActivity duration
+    end note
+
+    10 -[#red]-> [*]
+    note on link
+         <b>System shows</b>
+         * re-estimate activity was cancelled
+    end note
+
+    8 --> [*]
+    note on link
+        <b>System shows</b>
+        * NotAssignedCost re-estimate successful
+    end note
+
+}
+
+ReestimateActivity --> showIteration
+
+showIteration --> 13
+
+
+@enduml

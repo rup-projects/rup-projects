@@ -1,0 +1,11 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="db.203.create-member-table.xml" relativeToChangelogFile="true"/>
+    <include file="db.205.create-use_case-table.xml" relativeToChangelogFile="true"/>
+    <include file="db.211.create-project-phase-iteration-table.xml" relativeToChangelogFile="true"/>
+    <include file="db.231.create-notAssignedCost-activity-table.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

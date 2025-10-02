@@ -1,0 +1,44 @@
+@startuml
+
+rectangle gitSubmodule as "git-submodule"
+
+cloud typology1 <<typology 1>> as "GitHub"{
+    rectangle typology1.parent <<repository>> as "rup-projects"
+
+    rectangle typology1.documentation <<repository>>
+    rectangle typology1.core <<repository>> as "rup-projects-core"
+    rectangle typology1.webApp <<repository>> as "rup-projects-web-app"
+
+    gitSubmodule <|.... typology1.documentation
+    gitSubmodule <|.... typology1.core
+    gitSubmodule <|.... typology1.webApp
+
+    typology1.parent --> typology1.documentation
+    typology1.parent --> typology1.core
+    typology1.parent --> typology1.webApp
+}
+
+cloud typology2 <<typology 2>> as "GitHub"{
+    rectangle typology2.core <<repository>> as "rup-projects-core"
+    rectangle typology2.webApp <<repository>> as "rup-projects-web-app"
+
+    rectangle typology2.documentation <<repository>> as "rup-project-documentation"
+
+    gitSubmodule <|.... typology2.documentation
+
+    typology2.core --> typology2.documentation
+    typology2.webApp --> typology2.documentation
+}
+
+cloud typology3 <<typology 3>> as "GitHub"{
+    rectangle typology3.parent <<repository>> as "rup-projects"
+    artifact core as "rup-projects-core" <<source-code>>
+    artifact webApp as "rup-projects-web-app" <<source-code>>
+    artifact documentation as "documentation" <<source-code>>
+
+   typology3.parent --> core
+   typology3.parent --> webApp
+   typology3.parent --> documentation
+}
+
+@enduml

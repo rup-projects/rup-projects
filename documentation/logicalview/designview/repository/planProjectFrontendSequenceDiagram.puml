@@ -1,0 +1,65 @@
+planProjectSequenceDiagram.puml@startuml
+
+
+skinparam {
+    BoundaryBackgroundColor #629EF9
+    BoundaryBorderColor black
+    BoundaryFontSize 12
+    BoundarySize 10
+    ControlBackgroundColor #b5bd68
+    ControlBorderColor #718c00
+    EntityBackgroundColor #F2AC4E
+    EntityBorderColor black
+    backgroundColor white
+}
+
+box #white
+    actor user
+end box
+box "Front End" #DDFFE8
+
+
+    entity XHtml <<Template>>
+    control XTypescript <<Component>>
+
+    control XService as "XTypescript" <<Service>> <<in>>
+    control XViewModel as "XTypescript" <<ViewModel>> <<out>>
+    entity XState <<out>>
+
+    control XLogicService as "XController" <<TypeScript>>
+    entity XControllerResponse
+    boundary XRestRepository
+    boundary HTTPService
+    entity XModel
+end box
+
+box "Backend" #DDF2FF
+    boundary Backend
+
+
+
+user -> XHtml : request \n plan project
+XHtml -> XTypescript : planProject()
+XTypescript -> XService : planProject(createProjectDto)
+XService -> XLogicService : execute(createProjectDto)
+XLogicService -> XRestRepository : create(createProjectDto)
+XRestRepository -> HTTPService : post(endpoint, dto)
+HTTPService --> Backend : HTTP POST JSON
+
+Backend -[#Gray]-> HTTPService : HTTP POST Response
+HTTPService -> XModel : JSON.parse(response.body)
+XModel -[#Gray]-> HTTPService : project
+HTTPService -[#Gray]-> XRestRepository
+XRestRepository -[#Gray]-> XLogicService
+XLogicService -> XControllerResponse : createSuccess(project)
+XControllerResponse -[#Gray]-> XLogicService : controllerResponse
+XLogicService -[#Gray]-> XService
+XService -> XViewModel : dispatchSuccefullResultPlanProjectOperation()
+XViewModel -> XState : next(state)
+XState -[#Gray]-> XViewModel
+XViewModel -[#Gray]-> XService
+XService -[#Gray]-> XTypescript
+XTypescript -> XTypescript : navigateByUrl("/project-management")
+XTypescript -[#Gray]-> user : redirect to /project-management
+
+@enduml

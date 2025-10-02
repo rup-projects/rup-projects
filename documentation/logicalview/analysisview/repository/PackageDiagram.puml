@@ -1,0 +1,16 @@
+@startuml
+
+namespace model {
+}
+
+namespace view {
+}
+
+namespace controllers {
+}
+
+view --> model
+view --> controllers
+controllers --> model
+
+@enduml

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1263px" preserveAspectRatio="none" style="width:976px;height:1263px;background:#FFFFFF;" version="1.1" viewBox="0 0 976 1263" width="976px" zoomAndPan="magnify"><defs><filter height="300%" id="fpdacrkfo6mnc" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--MD5=[7914b04aec008c64a90eebee73fb9d36]
+cluster project--><polygon fill="#FFFFFF" filter="url(#fpdacrkfo6mnc)" points="102.58,1003,158.58,1003,165.58,1026.6094,502.08,1026.6094,502.08,1256,102.58,1256,102.58,1003" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="102.58" x2="165.58" y1="1026.6094" y2="1026.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="50" x="106.58" y="1019.5332">project</text><!--MD5=[29d0c7b761b11dd40226538170515efd]
+cluster members--><polygon fill="#FFFFFF" filter="url(#fpdacrkfo6mnc)" points="96.58,235,167.58,235,174.58,258.6094,505.08,258.6094,505.08,494,96.58,494,96.58,235" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="96.58" x2="174.58" y1="258.6094" y2="258.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="65" x="100.58" y="251.5332">members</text><!--MD5=[8e3352d1df8de79dfe88814080b2ef0b]
+cluster usecases--><polygon fill="#FFFFFF" filter="url(#fpdacrkfo6mnc)" points="88.08,534,161.08,534,168.08,557.6094,507.08,557.6094,507.08,868,88.08,868,88.08,534" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="88.08" x2="168.08" y1="557.6094" y2="557.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="67" x="92.08" y="550.5332">usecases</text><!--MD5=[7b79463016902f9313b711d0d2afe48e]
+cluster iterations--><polygon fill="#FFFFFF" filter="url(#fpdacrkfo6mnc)" points="98.58,6,171.58,6,178.58,29.6094,502.58,29.6094,502.58,195,98.58,195,98.58,6" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="98.58" x2="178.58" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="67" x="102.58" y="22.5332">iterations</text><!--MD5=[5aa7a8dd712ac3f9bb1b36d5ed373eb6]
+cluster activities--><polygon fill="#FFFFFF" filter="url(#fpdacrkfo6mnc)" points="547.08,943,617.08,943,624.08,966.6094,959.58,966.6094,959.58,1204,547.08,1204,547.08,943" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="547.08" x2="624.08" y1="966.6094" y2="966.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="64" x="551.08" y="959.5332">activities</text><!--MD5=[b5a46adee0a6c444c0ec3c2dea84309e]
+cluster generic-subsequences--><polygon fill="#FFFFFF" filter="url(#fpdacrkfo6mnc)" points="553.58,600,722.58,600,729.58,623.6094,753.58,623.6094,753.58,779,553.58,779,553.58,600" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="553.58" x2="729.58" y1="623.6094" y2="623.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="163" x="557.58" y="616.5332">generic-subsequences</text><ellipse cx="193.682" cy="1197.1136" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="64.602" ry="15.6136" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="74" x="153.682" y="1201.6302">startSystem</text><ellipse cx="193.6642" cy="1129.8168" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="67.0842" ry="15.8168" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="151.1642" y="1134.3334">closeSystem</text><ellipse cx="193.6642" cy="1062.8168" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="67.0842" ry="15.8168" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="151.1642" y="1067.3334">OpenProject</text><ellipse cx="409.1642" cy="1196.8168" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="67.0842" ry="15.8168" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="79" x="366.6642" y="1201.3334">openPhases</text><ellipse cx="409.2042" cy="1130.1042" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="63.1242" ry="15.6042" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="72" x="370.2042" y="1134.6208">PlanProject</text><ellipse cx="409.1919" cy="1063.2224" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="69.1119" ry="16.2224" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="85" x="363.6919" y="1067.739">DeleteProject</text><ellipse cx="409.0059" cy="379.7852" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="71.9259" ry="16.7852" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="359.5059" y="384.3018">OpenMembers</text><ellipse cx="193.3659" cy="295.8572" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="72.2859" ry="16.8572" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="94" x="143.3659" y="300.3738">CreateMember</text><ellipse cx="193.5909" cy="365.0022" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="73.0109" ry="17.0022" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96" x="142.5909" y="369.5188">UpdateMember</text><ellipse cx="193.6477" cy="434.2135" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="71.5677" ry="16.7135" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92" x="144.6477" y="438.7301">DeleteMember</text><ellipse cx="409.1911" cy="668.2222" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="74.1111" ry="17.2222" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="99" x="356.6911" y="672.7388">OpenUseCases</text><ellipse cx="193.561" cy="667.7962" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="74.481" ry="17.2962" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100" x="140.561" y="672.3128">CreateUseCase</text><ellipse cx="193.8227" cy="808.1485" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="73.7427" ry="17.1485" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="98" x="141.8227" y="812.6651">DeleteUseCase</text><ellipse cx="193.8056" cy="737.9451" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="75.2256" ry="17.4451" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102" x="139.8056" y="742.4617">UpdateUseCase</text><ellipse cx="193.5875" cy="597.2015" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="81.5075" ry="18.7015" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118" x="134.2475" y="601.0304">PrioritizeUseCases</text><ellipse cx="193.4367" cy="135.0713" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="70.8567" ry="16.5713" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="90" x="145.4367" y="139.5879">openIterations</text><ellipse cx="193.3841" cy="66.8608" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="69.8041" ry="16.3608" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="87" x="146.8841" y="71.3774">CloseIteration</text><ellipse cx="409.037" cy="134.7914" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="69.457" ry="16.2914" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="363.037" y="139.308">OpenIteration</text><ellipse cx="653.537" cy="1162.7914" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="69.457" ry="16.2914" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86" x="607.537" y="1167.308">AssignActivity</text><ellipse cx="653.4151" cy="1091.867" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="82.3351" ry="18.867" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="593.4151" y="1095.5955">Re-estimateActivity</text><ellipse cx="653.4652" cy="1022.0992" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="62.3852" ry="15.5992" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="71" x="614.9652" y="1026.6158">SplitActivity</text><ellipse cx="866.4969" cy="1162.8834" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="67.4169" ry="15.8834" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="80" x="823.4969" y="1167.4">CloseActivity</text><ellipse cx="866.3488" cy="1096.1538" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="68.7688" ry="16.1538" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="84" x="821.3488" y="1100.6704">MergeActivity</text><ellipse cx="653.5866" cy="744.2013" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="84.0066" ry="19.2013" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124" x="591.5866" y="747.9298">ConfirmationCancel</text><ellipse cx="653.5226" cy="663.215" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="61.4426" ry="27.215" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" font-style="italic" lengthAdjust="spacing" textLength="67" x="615.5226" y="658.9269">«abstract»</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73" x="612.5226" y="676.5363">OpenModel</text><!--MD5=[8fc3522a43f8c7199df5e09e5bb0188e]
+entity user--><ellipse cx="193.58" cy="905" fill="#FEFECE" filter="url(#fpdacrkfo6mnc)" rx="8" ry="8" style="stroke:#A80036;stroke-width:1.5;"/><path d="M193.58,913 L193.58,940 M180.58,921 L206.58,921 M193.58,940 L180.58,955 M193.58,940 L206.58,955 " fill="none" filter="url(#fpdacrkfo6mnc)" style="stroke:#A80036;stroke-width:1.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29" x="179.08" y="975.0332">User</text><!--MD5=[9c58aec7ebe30a57abb60dad222d6c0c]
+link user to project--><path d="M178.76,942.5 C146.69,955.3 71.41,990.5 42.08,1048.5 C9.39,1113.15 6,1148.68 42.08,1211.5 C50.3,1225.81 63.205,1235.3725 78.0955,1241.6375 C85.5407,1244.77 93.4823,1247.0781 101.5828,1248.7431 C101.836,1248.7952 102.0893,1248.8466 102.3427,1248.8973 " fill="none" id="user-to-project" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="102.3427,1248.8973,94.3039,1243.2072,97.4402,1247.915,92.7323,1251.0513,102.3427,1248.8973" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[4cf68d75667284d1a9536e91a7f35b86]
+link user to members--><path d="M178.76,934.66 C146.71,928.7 71.45,909.62 42.08,858.5 C11.2,804.74 11.88,633.64 42.08,579.5 C60.455,546.57 95.725,523.7925 127.6138,508.9688 C135.5859,505.2628 143.3468,502.054 150.5795,499.3079 C154.1959,497.9349 157.6802,496.6775 160.9929,495.5316 C161.821,495.2451 162.6385,494.9656 163.4446,494.6929 C163.8476,494.5566 164.2478,494.422 164.6451,494.2891 C164.8438,494.2227 165.0417,494.1567 165.2389,494.0911 " fill="none" id="user-to-members" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="165.2389,494.0911,155.4365,493.1359,160.4944,495.6691,157.9612,500.727,165.2389,494.0911" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[357c552986950d4b0d041db908034a07]
+link user to usecases--><path d="M193.58,895.49 C193.58,889.67 193.58,883.8475 193.58,878.0238 C193.58,875.1119 193.58,872.1997 193.58,869.2873 C193.58,868.9233 193.58,868.5593 193.58,868.1952 C193.58,868.1497 193.58,868.1042 193.58,868.0587 " fill="none" id="user-to-usecases" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="193.58,868.0587,189.58,877.0587,193.58,873.0587,197.58,877.0587,193.58,868.0587" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[8f317b2642f427aa0db1457e23860081]
+link user to iterations--><path d="M178.76,934.66 C146.71,928.7 71.45,909.62 42.08,858.5 C10.1,802.81 10.79,336.58 42.08,280.5 C60.455,247.57 95.725,224.7925 127.6138,209.9688 C135.5859,206.2628 143.3468,203.054 150.5795,200.3079 C154.1959,198.9349 157.6802,197.6775 160.9929,196.5316 C161.821,196.2451 162.6385,195.9656 163.4446,195.6929 C163.8476,195.5566 164.2478,195.422 164.6451,195.2891 C164.8438,195.2227 165.0417,195.1567 165.2389,195.0911 " fill="none" id="user-to-iterations" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="165.2389,195.0911,155.4365,194.1359,160.4944,196.6691,157.9612,201.727,165.2389,195.0911" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[5d552820f4942491f9ed788f86b67812]
+link user to activities--><path d="M208.29,938.02 C246.095,940.825 355.735,948.9625 456.6325,956.4525 C481.8569,958.325 506.5348,960.157 529.4074,961.8552 C535.1255,962.2797 540.7308,962.6958 546.2036,963.1022 " fill="none" id="user-to-activities" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="#A80036" points="546.2036,963.1022,537.5245,958.4468,541.2173,962.732,536.9321,966.4248,546.2036,963.1022" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[d5e199995704472d7e65a9649853e33f]
+link CreateMember to OpenMembers--><path d="M231.77,310.63 C269.31,325.4 327.18,348.17 366.29,363.56 " fill="none" id="CreateMember-to-OpenMembers" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="370.96,365.4,364.0519,358.3802,366.3078,363.5678,361.1203,365.8237,370.96,365.4" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[9358f082d3ab8936c0b051e68e1f6e73]
+link UpdateMember to OpenMembers--><path d="M263.61,369.85 C286.26,371.44 311.51,373.22 334.49,374.83 " fill="none" id="UpdateMember-to-OpenMembers" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="339.66,375.19,330.9688,370.5572,334.6728,374.8327,330.3972,378.5367,339.66,375.19" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[5e317443f1aeabbb05d4b0e27cab849e]
+link DeleteMember to OpenMembers--><path d="M242.5,421.88 C275.66,413.49 319.84,402.32 354.22,393.62 " fill="none" id="DeleteMember-to-OpenMembers" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="359.22,392.36,349.5127,390.6959,354.3735,393.5895,351.4799,398.4503,359.22,392.36" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[3da52e67b220ad32e78aa8097f8714f4]
+link CreateUseCase to OpenUseCases--><path d="M268.36,668 C288.25,668 309.83,668 329.95,668 " fill="none" id="CreateUseCase-to-OpenUseCases" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="335.03,668,326.03,664,330.03,668,326.03,672,335.03,668" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[d30bcfcaab9417e1b3b175347aa8bb76]
+link DeleteUseCase to OpenUseCases--><path d="M233.26,793.57 C246.86,787.88 262.01,780.82 275.08,773 C317.26,747.76 361.03,710.75 386.35,688.08 " fill="none" id="DeleteUseCase-to-OpenUseCases" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="390.25,684.56,380.8845,687.6075,386.5335,687.9048,386.2362,693.5539,390.25,684.56" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[febab2f60186fa2d0f7b0baeb10f3a94]
+link UpdateUseCase to OpenUseCases--><path d="M237.79,723.83 C273.47,712.14 324.05,695.55 360.81,683.5 " fill="none" id="UpdateUseCase-to-OpenUseCases" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="365.67,681.91,355.8722,680.9082,360.9181,683.4654,358.3609,688.5113,365.67,681.91" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[49581a8b96d8903ae2c70c78db1aa0bf]
+link PrioritizeUseCases to OpenUseCases--><path d="M240.39,612.23 C276.15,624.12 325.64,640.58 361.58,652.54 " fill="none" id="PrioritizeUseCases-to-OpenUseCases" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="366.34,654.12,359.0728,647.4726,361.598,652.5346,356.5361,655.0598,366.34,654.12" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[7e83c1fa951b9df624c6c036de3524e5]
+link DeleteUseCase to ConfirmationCancel--><path d="M256.83,799.3 C340,787.68 487.28,767.1 576.81,754.59 " fill="none" id="DeleteUseCase-to-ConfirmationCancel" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="581.83,753.89,572.3657,751.1647,576.8774,754.5771,573.465,759.0888,581.83,753.89" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[aefbaba523a75962d7a87b967af2003d]
+link DeleteMember to ConfirmationCancel--><path d="M262.16,438.88 C339.78,448.49 464.03,477.07 523.08,562 C541.51,588.5 511.17,681.61 531.08,707 C541.44,720.21 556.39,728.83 572.27,734.43 " fill="none" id="DeleteMember-to-ConfirmationCancel" style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#A80036" points="577.23,736.07,569.9448,729.4424,572.4837,734.4974,567.4287,737.0364,577.23,736.07" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[679a7248317028e8b9dc8d6c961b0cb7]
+link OpenMembers to OpenModel--><path d="M450.45,394.06 C473.74,403.69 502.41,418.3 523.08,438 C576.99,489.38 615.26,568.17 635.62,617.58 " fill="none" id="OpenMembers-to-OpenModel" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="642.13,615.01,643.01,636.18,629.12,620.18,642.13,615.01" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[c2a3d30181f56a9f238b1ae3b1c63fab]
+link OpenUseCases to OpenModel--><path d="M482.84,666.5 C510.91,665.92 543.12,665.26 571.9,664.66 " fill="none" id="OpenUseCases-to-OpenModel" style="stroke:#A80036;stroke-width:1.0;"/><polygon fill="none" points="571.99,657.66,592.13,664.25,572.28,671.66,571.99,657.66" style="stroke:#A80036;stroke-width:1.0;"/><!--MD5=[68dbddac7127874f81d151aaa6faec9f]
+link startSystem to closeSystem--><!--MD5=[8d36bdd6016ca67fb714559fdbdd26f6]
+link closeSystem to OpenProject--><!--MD5=[762e7ccca820cb72d14fde7504cec5eb]
+link startSystem to openPhases--><!--MD5=[3b4432797da8175a6f2a2b29aa3db839]
+link openPhases to PlanProject--><!--MD5=[c06a29995e2abb5af869d004d7d9b81a]
+link PlanProject to DeleteProject--><!--MD5=[785827c658e205c8341397c277e62448]
+link openIterations to CloseIteration--><!--MD5=[30a91839cff7c237260232f3b48d79db]
+link openIterations to OpenIteration--><!--MD5=[7a8817d9516762bf6c25712bbc7c8712]
+link AssignActivity to Re-estimateActivity--><!--MD5=[20648d1ac5466d4be58da1a68af7252e]
+link Re-estimateActivity to SplitActivity--><!--MD5=[0b716ff8871969c5c85bd5a21ef8e6f2]
+link AssignActivity to CloseActivity--><!--MD5=[28c5fa55bdbf323c3010fcec9892e234]
+link CloseActivity to MergeActivity--><!--MD5=[d0bb3cfa73ec51f020afcb4bb06da060]
+link OpenProject to openIterations--><!--MD5=[1fbd69afa06b1a60565c29782987e282]
+link openPhases to AssignActivity--><!--MD5=[b8fefbc5237fa256064f538d4272fd50]
+@startuml
+left to right direction
+
+actor "User" as user
+
+user -> project
+user -> members
+user -> usecases
+user -> iterations
+user -> activities
+
+package project {
+    (startSystem)
+    (closeSystem)
+    (OpenProject)
+    (openPhases)
+    (PlanProject)
+    (DeleteProject)
+}
+
+package members {
+    (OpenMembers)
+    (CreateMember)
+    (UpdateMember)
+    (DeleteMember)
+
+    (CreateMember) ..> (OpenMembers)
+    (UpdateMember) ..> (OpenMembers)
+    (DeleteMember) ..> (OpenMembers)
+}
+
+package usecases {
+    (OpenUseCases)
+    (CreateUseCase)
+    (DeleteUseCase)
+    (UpdateUseCase)
+    (PrioritizeUseCases)
+
+    (CreateUseCase) ..> (OpenUseCases)
+    (DeleteUseCase) ..> (OpenUseCases)
+    (UpdateUseCase) ..> (OpenUseCases)
+    (PrioritizeUseCases) ..> (OpenUseCases)
+}
+
+package iterations {
+    (openIterations)
+    (CloseIteration)
+    (OpenIteration)
+}
+
+package activities {
+    (AssignActivity)
+    (Re-estimateActivity)
+    (SplitActivity)
+    (CloseActivity)
+    (MergeActivity)
+}
+
+package generic-subsequences {
+    (ConfirmationCancel)
+    usecase OpenModel <<abstract>>
+
+    (DeleteUseCase) ..> (ConfirmationCancel)
+    (DeleteMember) ..> (ConfirmationCancel)
+
+    (OpenMembers) - -|> (OpenModel)
+    (OpenUseCases) - -|> (OpenModel)
+}
+
+@enduml
+
+PlantUML version 1.2021.11(Sat Oct 02 15:26:11 CEST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: en
+Country: GB
+--></g></svg>

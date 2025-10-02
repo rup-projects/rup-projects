@@ -1,0 +1,40 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+state 6 as " :MEMBER_MANAGEMENT"
+
+[*] --> createMember
+
+state createMember {
+
+[*] --> Form
+note on link
+    User requests to create Member
+end note
+
+note right of Form
+      <b>Fields</b>
+      * name [required] [unique] [length > 5 && < 25 ]
+      * List<role> [required] [not empty]
+end note
+
+Form --> SaveConfirmation
+SaveConfirmation --> OpenMembers
+OpenMembers --> [*]
+
+}
+
+createMember --> 6
+note on link
+    <b>System shows</b>
+    * all members in the project, his names and roles
+    <b>System allows</b>
+    * create member
+    * update member
+    * delete member
+    * open project
+    * open iteration
+    * open use cases
+end note
+
+@enduml

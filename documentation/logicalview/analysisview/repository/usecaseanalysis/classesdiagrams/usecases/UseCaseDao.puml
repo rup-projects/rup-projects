@@ -1,0 +1,15 @@
+@startuml
+	class UseCaseDao {
+	+update(useCase)
+	+create(useCase)
+	+getAllUseCases()
+	+delete(useCaseId)
+	}
+
+	PrioritizeUseCaseController --> UseCaseDao
+	CreateUseCaseController --> UseCaseDao
+	UpdateUseCaseController --> UseCaseDao
+	UseCaseDao ..> UseCase
+	DeleteUseCaseController --> UseCaseDao
+	OpenUseCasesController --> UseCaseDao
+@enduml

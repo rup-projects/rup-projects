@@ -1,0 +1,34 @@
+@startuml
+
+actor user
+
+boundary PlanProjectView
+entity ProjectDao
+control PlanProjectController
+entity Project
+
+user -right-> PlanProjectView
+    note on link
+        setStartDate(date startDate)
+        setEndDate(date endDate)
+        setCost(float cost)
+        setIterationSize(int days)
+        prePlanProject(ProjectData)
+        planProject()
+        cancel()
+    end note
+PlanProjectView -right-> PlanProjectController
+    note on link
+        planProject(project)
+        prePlanProject(projectData)
+    end note
+PlanProjectController -right-> ProjectDao
+    note on link
+        create(project)
+    end note
+
+ProjectDao .down.> Project
+PlanProjectController ..> Project
+PlanProjectView ..> Project
+
+@enduml

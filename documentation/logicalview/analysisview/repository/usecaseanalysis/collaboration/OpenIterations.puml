@@ -1,0 +1,40 @@
+@startuml
+
+skinparam linetype polyline
+
+actor user
+
+boundary IterationsView
+boundary PhasesView
+
+control OpenPhasesController
+
+entity Phase
+entity Iteration
+entity PhaseDao
+
+user -right-> PhasesView
+    note on link
+        openPhase(phaseId)
+    end note
+
+PhasesView -down-> IterationsView
+note on link
+    new IterationsView(phaseId)
+end note
+IterationsView -right-> OpenPhasesController
+    note on link
+        getPhase(phaseId)
+    end note
+
+OpenPhasesController ..> Phase
+OpenPhasesController -right-> PhaseDao
+    note on link
+        getPhase(phaseId)
+    end note
+
+IterationsView -> Phase
+IterationsView .> Iteration
+Phase o--> Iteration
+PhaseDao ..> Phase
+@enduml

@@ -1,0 +1,107 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="create-notAsignedCost-activity-table.xml" author="ruskab">
+
+        <createTable tableName="notassignedcost">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="type" type="varchar(50)"/>
+            <column name="hours" type="int" defaultValue="0"/>
+            <column name="iteration_id" type="int"/>
+        </createTable>
+
+        <createTable tableName="realization">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="member_id" type="int"/>
+            <column name="iteration_id" type="int"/>
+        </createTable>
+
+        <createTable tableName="activity">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="description" type="varchar(50)"/>
+            <column name="hours" type="int" defaultValue="0"/>
+            <column name="notassignedcost_id" type="int"/>
+            <column name="realization_id" type="int"/>
+            <column name="discipline_type" type="varchar(50)"/>
+            <column name="startdatetime" type="varchar(50)"/>
+        </createTable>
+
+
+
+        <!--        <createTable tableName="iteration_not_assigned_costs">-->
+        <!--            <column name="iteration_id" type="int">-->
+        <!--                <constraints primaryKey="true" nullable="false" />-->
+        <!--            </column>-->
+        <!--            <column name="not_assigned_costs_id" type="int">-->
+        <!--                <constraints primaryKey="true" nullable="false" />-->
+        <!--            </column>-->
+        <!--        </createTable>-->
+
+        <!--        <createTable tableName="notassignedcost_activities">-->
+        <!--            <column name="not_assigned_cost_id" type="int">-->
+        <!--                <constraints primaryKey="true" nullable="false" />-->
+        <!--            </column>-->
+        <!--            <column name="activities_id" type="int">-->
+        <!--                <constraints primaryKey="true" nullable="false" />-->
+        <!--            </column>-->
+        <!--        </createTable>-->
+
+        <!--        <createTable tableName="member_activities">-->
+        <!--            <column name="member_id" type="int">-->
+        <!--                <constraints primaryKey="true" nullable="false" />-->
+        <!--            </column>-->
+        <!--            <column name="activities_id" type="int">-->
+        <!--                <constraints primaryKey="true" nullable="false" />-->
+        <!--            </column>-->
+        <!--        </createTable>-->
+
+
+    </changeSet>
+
+    <changeSet author="ruskab" id="addForeignKeyConstraint">
+        <addForeignKeyConstraint baseColumnNames="iteration_id"
+                                 baseTableName="notassignedcost"
+                                 constraintName="fk_iteration_notassignedcost"
+                                 referencedColumnNames="id"
+                                 referencedTableName="iteration"/>
+
+        <addForeignKeyConstraint baseColumnNames="notassignedcost_id"
+                                 baseTableName="activity"
+                                 constraintName="fk_notassignedcost_activity"
+                                 referencedColumnNames="id"
+                                 referencedTableName="notassignedcost"/>
+
+        <!--        <addForeignKeyConstraint baseColumnNames="realization_id"-->
+        <!--                                 baseTableName="activity"-->
+        <!--                                 constraintName="fk_realization_activity"-->
+        <!--                                 referencedColumnNames="id"-->
+        <!--                                 referencedTableName="realization"/>-->
+
+    </changeSet>
+
+    <changeSet author="ruskab" id="addFakeData">
+        <insert tableName="member">
+            <column  name="name"  value="member1"/>
+            <column  name="surname"  value="member1"/>
+            <column  name="email"  value="member@mail.com"/>
+            <column  name="role"  value="0"/>
+        </insert>
+        <insert tableName="member">
+            <column  name="name"  value="member2"/>
+            <column  name="surname"  value="member2"/>
+            <column  name="email"  value="member2@mail.com"/>
+            <column  name="role"  value="0"/>
+        </insert>
+
+    </changeSet>
+
+
+</databaseChangeLog>

@@ -1,0 +1,9 @@
+@startuml
+	class OpenUseCasesController {
+	+getAllUseCases()
+	}
+
+	OpenUseCasesController o..> UseCase
+	UseCasesManagementView --> OpenUseCasesController
+	OpenUseCasesController --> UseCaseDao
+@enduml

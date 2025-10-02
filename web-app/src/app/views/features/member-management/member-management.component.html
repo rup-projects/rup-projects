@@ -1,0 +1,14 @@
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Members</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <div class="table-responsive">
+        <app-crud [data]="members$" [title]="title"
+                  (create)="createMember()" (read)="openMember($event)"
+                  (update)="updateMember($event)" (delete)="deleteMember($event)"></app-crud>
+    </div>
+  </div>
+</div>
+

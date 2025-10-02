@@ -1,0 +1,57 @@
+@startuml
+
+rectangle server {
+    package resource
+    package service
+    package repository
+    package entity
+    package dto
+
+    artifact ModelMapper
+
+    resource -down-> service
+    resource .down.> dto
+    service .down..> dto
+    service .down.> entity
+    service -down-> repository
+    service -left-> ModelMapper
+    repository .down.> entity
+}
+
+rectangle frontend {
+    package ui <<angular>> {
+        package components{
+        }
+        package services{
+        }
+        package infrastructure{
+            package rest_repositories{
+            }
+        }
+
+    }
+
+
+
+    package logic {
+        package models {
+        }
+        package controllers {
+        }
+        package repositories {
+        }
+    }
+
+
+
+
+
+    services --> controllers
+    components -down-> services
+    services -down-> rest_repositories
+    controllers -down-> repositories
+
+
+}
+
+@enduml

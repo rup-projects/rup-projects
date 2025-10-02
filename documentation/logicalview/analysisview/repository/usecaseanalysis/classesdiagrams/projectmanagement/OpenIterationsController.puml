@@ -1,0 +1,9 @@
+@startuml
+	class OpenIterationsController {
+	+getPhase(phaseId)
+	}
+
+	OpenIterationsController ..> Phase
+	OpenIterationsController --> PhaseDao
+	IterationsView --> OpenIterationsController
+@enduml

@@ -1,0 +1,61 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+USECASE_MANAGEMENT --> prioritizeUseCases
+
+state prioritizeUseCases {
+
+state 1 as " "
+state 2 as " "
+state 12 as " "
+state 13 as " "
+
+[*] --> 1
+note on link
+    User requests to prioritize use cases
+end note
+
+1 --> 2
+note on link
+<b>System shows</b>
+* all useCases
+** name
+** prioritization
+<b>System allows</b>
+* provide usecase prioritization
+* confirm prioritization
+* cancel
+end note
+
+2 --> 1
+note on link
+<b>User provides</b>
+* usecase prioritization
+end note
+
+2 --> 12
+note on link
+    <b> User requests to </b>
+    * confirm
+end note
+
+12 --> [*]
+note on link
+    <b>System shows</b>
+    * Use cases has been prioritized
+end note
+
+'Variation path
+2 -[#red]-> 13
+note on link
+    <b>User requests to</b>
+    * cancel
+end note
+
+13 -[#red]-> [*]
+note on link
+<b>System shows</b>
+* prioritization cancelled
+end note
+
+@enduml

@@ -1,0 +1,15 @@
+<form [formGroup]="formGroup">
+  <div mat-dialog-content>
+    <p>Available {{data.notAssignedCost.type}} Cost {{data.notAssignedCost.hours}}h</p>
+
+    <mat-form-field>
+      <mat-label>Duration</mat-label>
+      <input matInput formControlName="duration">
+    </mat-form-field>
+
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button (click)="reEstimate()" [disabled]="!formGroup.valid">confirm</button>
+  </div>
+</form>

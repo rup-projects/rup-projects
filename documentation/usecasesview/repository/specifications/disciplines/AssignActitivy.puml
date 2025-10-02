@@ -1,0 +1,185 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+    state ITERATION_MANAGEMENT_START as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_END as ":ITERATION_MANAGEMENT"
+    state showIteration as ":ShowIteration"
+
+
+    ITERATION_MANAGEMENT_START -[#Green]-> AssignActivity
+
+    state AssignActivity {
+        state 1 as " "
+        state 13 as " "
+        state 14 as " "
+        state 21 as " "
+        state 22 as " "
+        state 23 as " "
+        state 24 as " "
+        state 25 as " "
+        state 26 as " "
+        state 20 as " "
+        state 27 <<choice>>
+        state 2 <<choice>>
+        state 15 <<choice>>
+
+
+    [*] --> 1
+    note on link
+        User requests to assign Activity
+    end note
+
+    1 --> 13
+    note on link
+     <b>System shows</b>
+    * iteration
+    ** identifier
+    ** start date
+    ** end date
+    * for each member
+    **assignedActivities in his datetime until end of current iteration
+    *** activity type
+    **** type as one of the existent RUP activities.
+    *** activity description
+    * for each discipline (requirements, analysis, design, implementation)
+    ** NotAssignedCost
+    ** NotAssignedActivities (with activity type)
+    <b>System requires</b>
+    * Activity to be assigned
+    <b>System allows</b>
+    * cancel assign activity
+    end note
+
+    13 --> 2
+    note on link
+        User provides Activity to be assigned
+    end note
+
+    2 --> 23
+    note on link
+    [NotAssignedActivity provided]
+    end note
+
+    2 --> 24
+    note on link
+    [AssignedActivity provided]
+    end note
+
+    24 --> 25
+    note on link
+    <b>System shows</b>
+    * AssignActivity
+    ** member
+    ** duration
+    ** discipline
+    ** type
+    <b>System requires</b>
+    * activity destination
+    ** member schedule
+    ** activity associated NotAssignedCost
+    <b>System allows</b>
+    * cancel assign activity
+    end note
+
+
+    13 -[#red]-> 20
+    note on link
+        <b>User requests to</b>
+        * cancel assign activity
+    end note
+
+    25 -[#red]-> 20
+    note on link
+    <b>User requests to</b>
+    * cancel assign activity
+    end note
+
+    25 --> 27
+    note on link
+    <b>User provides</b>
+    * assign destination
+    end note
+
+    27 --> 26
+    note on link
+        [activity associated NotAssignedCost destination]
+    end note
+
+    27 --> 15
+    note on link
+    [member schedule destination]
+    end note
+
+
+    26 --> [*]
+    note on link
+    <b>System shows</b>
+    * Activity as NotAssignedActivity in the top of the associated NotAssignedCost
+    end note
+
+
+    23 --> 14
+    note on link
+    <b>System shows</b>
+    * NotAssignedActivity
+    ** discipline
+    ** activity type
+    ** duration (in hours)
+    * available members for assign Activity
+    ** (if members overlaps his iteration capacity,
+            this will be shown)
+    <b>System requires</b>
+    * Assign destination
+    ** member
+    *** (required only one member and must be provided)
+    <b>System allows</b>
+    * cancel assign activity
+    end note
+
+    14 -down---> 15
+    note on link
+        User provides assign destination
+    end note
+
+    15 -[#red]-> 21
+    note on link
+    [members assigned activity duration exceeds members max capacity]
+    end note
+
+    21 ---down[#red]-> [*]
+    note on link
+    <b>System shows</b>
+    * maximum members capacity exceeded for this iteration
+    ** members schedule column background in red
+    * all member AssignActivities after the end datetime of the activity to be assigned displaced downwards
+    * <color:red>¿cuando asignamos las actividades se van apilando una encima de otra sin dejar hueco?</color>
+    end note
+
+    14 -[#red]-> 20
+    note on link
+                <b>User requests to</b>
+                * cancel assign activity
+    end note
+
+    20 -[#red]-> [*]
+    note on link
+         <b>System shows</b>
+         * assign activity cancelled
+    end note
+
+
+    15 --> 22
+
+
+    22 --> [*]
+    note on link
+    <b>System shows</b>
+    * NotAssignedActivity was assigned to member
+     end note
+
+}
+
+     AssignActivity --> showIteration
+     showIteration --> ITERATION_MANAGEMENT_END
+
+@enduml

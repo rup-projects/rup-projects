@@ -1,0 +1,27 @@
+@startuml
+
+actor user
+
+boundary InitProjectView
+control StartSystemController
+
+entity Project
+entity ProjectDao
+
+user --> InitProjectView
+    note on link
+        startSystem()
+    end note
+InitProjectView -right-> StartSystemController
+    note on link
+        getOpenedProject()
+    end note
+StartSystemController -right-> ProjectDao
+    note on link
+        getProject()
+    end note
+
+InitProjectView -down-> Project
+StartSystemController .down.> Project
+ProjectDao ..> Project
+@enduml

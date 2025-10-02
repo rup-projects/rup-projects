@@ -1,0 +1,89 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+    state ITERATION_MANAGEMENT_STARTS as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_ENDS as ":ITERATION_MANAGEMENT"
+    state showIteration as ":ShowIteration"
+
+
+    ITERATION_MANAGEMENT_STARTS --> MergeActivity
+    note on link
+        User requests to merge AssignedActivity
+    end note
+
+    state MergeActivity {
+        state 13 as " "
+        state 5 as " "
+        state 14 as " "
+        state 20 as " "
+        state 15 as " "
+
+    [*] --> 13
+    note on link
+    <b>System shows</b>
+    * for each member
+    **assignedActivities in his datetime until end of current iteration
+    * for each discipline (requirements, analysis, design, implementation)
+    ** NotAssignedCost
+    <b>System requires</b>
+    * AssignedActivity to be merged
+    <b>System allows</b>
+    * cancel merge activity
+    end note
+
+    13 --> 5
+    note on link
+        User provides AssignedActivity
+    end note
+
+    13 -[#red]-> 20
+    note on link
+        User requests to cancel merge activity
+    end note
+
+    5 --> 14
+    note on link
+    <b>System shows</b>
+    * activity description
+    * alert message
+    ** activity duration
+    ** NotAssignedCost associated
+    ** ¿Are you sure to merge this activity?
+    <b>System allows</b>
+    * confirm merge activity
+    * cancel merge activity
+    end note
+
+    14 -[#red]-> 20
+    note on link
+        User requests to cancel merge activity
+    end note
+
+    14 -down-> 15
+    note on link
+        <b>User requests to</b>
+        * confirm merge
+    end note
+
+    20 -[#red]-> [*]
+    note on link
+         <b>System shows</b>
+         * Merge activity cancelled
+    end note
+
+    15 --> [*]
+    note on link
+     <b>System shows</b>
+     * AssignedActivity was returned to NotAssignedCost
+     end note
+}
+
+MergeActivity --> ShowIteration
+
+ShowIteration --> ITERATION_MANAGEMENT_ENDS
+
+
+
+
+
+@enduml

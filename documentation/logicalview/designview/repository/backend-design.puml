@@ -1,0 +1,59 @@
+@startuml
+skinparam linetype polyline
+
+resource -[hidden]down> service
+resource .[hidden]down> dto
+service -[hidden]down> repository
+service .[hidden]down> dto
+service .[hidden]down> entity
+repository -[hidden]down> entity
+
+interface JpaRepository<ENTITY, ID>
+class ModelMapper
+
+namespace resource {
+    class MemberResource
+    class UseCaseResource
+    class PhaseResource
+    class ProjectResource
+    class SystemResource
+    class IterationResource
+    class ActivityResource
+
+
+    MemberResource .down.> XResource
+    UseCaseResource .down.> XResource
+    PhaseResource .down.> XResource
+    ProjectResource .down.> XResource
+    SystemResource .down.> XResource
+    IterationResource .down.> XResource
+    ActivityResource .down.> XResource
+}
+
+namespace service {
+    class XService
+    class MapperFacade
+
+    XService --> MapperFacade
+}
+namespace repository {
+    interface XRepository<X, Long> extends .JpaRepository
+}
+namespace entity {
+    class X
+}
+namespace dto {
+    class XDto
+}
+
+    resource.XResource -down--> service.XService
+    resource.XResource .down.> dto.XDto
+
+    service.XService -down-> repository.XRepository
+    service.XService .down.> dto.XDto
+    service.XService .down> entity.X
+    service.MapperFacade --> ModelMapper
+
+    repository.XRepository ..> entity.X
+
+@enduml

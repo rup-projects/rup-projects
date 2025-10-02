@@ -1,0 +1,8 @@
+@startuml
+	class UseCaseDao {
+	+getAllUseCases()
+	}
+
+	UseCaseDao ..> UseCase
+	SplitActivityController --> UseCaseDao
+@enduml

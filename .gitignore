@@ -9,3 +9,8 @@ buildNumber.properties
 .mvn/timing.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
 .mvn/wrapper/maven-wrapper.jar
+/.idea/workspace.xml
+/.idea/
+/rup-projects-core/.mvn/wrapper/maven-wrapper.jar
+/out/
+web-app/cypress/videos

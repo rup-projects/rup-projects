@@ -1,0 +1,70 @@
+@startuml
+left to right direction
+
+actor "User" as user
+
+user -> project
+user -> members
+user -> usecases
+user -> iterations
+user -> activities
+
+package project {
+    (startSystem)
+    (closeSystem)
+    (OpenProject)
+    (openPhases)
+    (PlanProject)
+    (DeleteProject)
+}
+
+package members {
+    (OpenMembers)
+    (CreateMember)
+    (UpdateMember)
+    (DeleteMember)
+
+    (CreateMember) ..> (OpenMembers)
+    (UpdateMember) ..> (OpenMembers)
+    (DeleteMember) ..> (OpenMembers)
+}
+
+package usecases {
+    (OpenUseCases)
+    (CreateUseCase)
+    (DeleteUseCase)
+    (UpdateUseCase)
+    (PrioritizeUseCases)
+
+    (CreateUseCase) ..> (OpenUseCases)
+    (DeleteUseCase) ..> (OpenUseCases)
+    (UpdateUseCase) ..> (OpenUseCases)
+    (PrioritizeUseCases) ..> (OpenUseCases)
+}
+
+package iterations {
+    (openIterations)
+    (CloseIteration)
+    (OpenIteration)
+}
+
+package activities {
+    (AssignActivity)
+    (Re-estimateActivity)
+    (SplitActivity)
+    (CloseActivity)
+    (MergeActivity)
+}
+
+package generic-subsequences {
+    (ConfirmationCancel)
+    usecase OpenModel <<abstract>>
+
+    (DeleteUseCase) ..> (ConfirmationCancel)
+    (DeleteMember) ..> (ConfirmationCancel)
+
+    (OpenMembers) --|> (OpenModel)
+    (OpenUseCases) --|> (OpenModel)
+}
+
+@enduml

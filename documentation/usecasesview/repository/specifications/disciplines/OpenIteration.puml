@@ -1,0 +1,117 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+state 12 as ":PROJECT_MANAGEMENT"
+state showIteration as ":ShowIteration"
+
+    0 --> OpenIteration
+    note on link
+        User requests to open iteration
+    end note
+
+state ITERATION_MANAGEMENT as ":ITERATION_MANAGEMENT"
+
+    state 0 as ":PROJECT_MANAGEMENT"
+state OpenIteration {
+
+    state 1  <<choice>>
+    state 4 as " "
+    state 6 as " "
+    state 7 <<choice>>
+    state 9 as " "
+    state 20 as " "
+    state 10 as " "
+    state 11 as " "
+
+    [*] --> 1
+
+    1 --> 4
+    note on link
+        [pending use cases assignation for the current iteration ]
+    end note
+    4 --> 6
+    note on link
+        <b>System shows</b>
+        ** use cases ordered by prioritization
+        <b>System requires</b>
+        * use cases for the current iteration
+        ** and his desired realization
+        *** REQUIREMENTS | ANALYSIS | DESIGN | IMPLEMENTATION
+        <b>System allows</b>
+        * Confirm open iteration
+        * cancel
+    end note
+
+    6 -[#red]down-> 11
+    note on link
+        User requests to cancel
+    end note
+
+    6 --> 4
+    note on link
+        User provides
+        * use case for the current iteration
+        * his desired realization
+    end note
+    6 --> 7
+    note on link
+        User requests to confirm open iteration
+    end note
+
+    7 --> 9
+    note on link
+    [usecases introduced >= 1
+    AND
+    all use cases introduced have desired realization]
+    end note
+
+    9--> 20
+    note on link
+        <b>System shows</b>
+        * NotAssignedCost for each discipline have been generated
+    end note
+
+    7 --> 10
+
+    10 -[#red]-> 4
+    note on link
+        <b>System shows</b>
+        * more than one usecases should be introduced
+        * some use case has not desired realization
+    end note
+
+    1 --> 20
+    note on link
+        [Iteration opened]
+    end note
+
+}
+    11 -[#red]down-> 12
+    note on link
+            <b>System shows</b>
+            * operation cancelled
+            * for each iteration in project ordered by number ASC
+            ** start date
+            ** end date
+            ** duration (bussiness days)
+            ** dias transcurridos (bussiness days) and his percentage
+            <b>System allows</b>
+            * Open project
+            * Open openPhases
+            * Open iteration
+            * Open usecases
+            * Open members
+            * Close system
+    end note
+
+
+
+    20 --> showIteration
+
+   showIteration --> ITERATION_MANAGEMENT
+
+    ITERATION_MANAGEMENT --> [*]
+
+    12 -[#red]-> [*]
+
+@enduml

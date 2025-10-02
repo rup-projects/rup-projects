@@ -1,0 +1,89 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+    state ITERATION_MANAGEMENT_STARTS as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_ENDS as ":ITERATION_MANAGEMENT"
+    state showIteration as ":ShowIteration"
+
+
+    ITERATION_MANAGEMENT_STARTS --> SplitActivity
+    note on link
+        User requests to split activity
+    end note
+
+    state SplitActivity {
+        state 2 as " "
+        state 0 as " "
+        state 4 as " "
+        state 8 as " "
+        state 10 as " "
+
+
+    [*] --> 2
+    note on link
+    <b>System shows</b>
+    * for each discipline (requirements, analysis, design, implementation)
+    ** NotAssignedCost
+    <b>System requires</b>
+    * NotAssignedCost to split
+    ** [NotAssignedCost should be higher than 1 hour]
+    <b>System allows</b>
+    * cancel split activity
+    end note
+
+    2 -[#red]-> 10
+    note on link
+        User requests to cancel split
+    end note
+
+    2 --> 4
+    note on link
+        User provides NotAssignedCost to split
+    end note
+
+    4 --> 0
+    note on link
+        <b>System shows</b>
+        * NotAssignedCost available hours
+        <b>System requires</b>
+        * NotAssignedActivity information
+        ** Activity type: one of the RUP identified activities of the introduced NotAssignedCost discipline
+        ** NotAssignedActivity description
+        <b>System allows</b>
+        * cancel split activity
+    end note
+
+    0 -[#red]-> 10
+    note on link
+        User requests to cancel split
+    end note
+
+    0 --> 8
+    note on link
+        User provides
+        * NotAssignedActivity type
+        * NotAssignedActivity description
+    end note
+
+    8 --> [*]
+    note on link
+        <b>System shows</b>
+        * NotAssignedCost split successful
+        * new 1 hour NotAssignedActivity in the top of the "splitted" NotAssignedCost
+        * 1 hour smaller "splitted" NotAssignedCost
+    end note
+
+    10 -[#red]-> [*]
+    note on link
+         <b>System shows</b>
+         * split activity was cancelled
+    end note
+
+    }
+
+
+    SplitActivity --> showIteration
+
+    showIteration --> ITERATION_MANAGEMENT_ENDS
+
+@enduml

@@ -1,0 +1,34 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+state PROJECT_MANAGEMENTSTART as ":PROJECT_MANAGEMENT"
+state PROJECT_MANAGEMENTEND as ":PROJECT_MANAGEMENT"
+
+
+PROJECT_MANAGEMENTSTART --> OpenPhases
+note on link
+    User requests to Open Phases
+end note
+
+state OpenPhases{
+    [*] --> [*]
+
+}
+
+OpenPhases --> PROJECT_MANAGEMENTEND
+    note on link
+        <b>System shows</b>
+        * for each Phase
+        * (INICIO | ELABORACION | CONSTRUCCION | TRANSICION)
+        ** start date
+        ** end date
+        ** duration (bussiness days)
+        ** dias transcurridos (bussiness days) and his percentage
+        <b>System allows</b>
+        * Open iterations
+        * Open usecases
+        * Open members
+        * Close system
+    end note
+
+@enduml

@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Use case</h2>
+<mat-dialog-content>
+
+  <mat-form-field class="full-width">
+    <mat-label>Name</mat-label>
+    <input [(ngModel)]="useCase.name" matInput required type="text"/>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Description</mat-label>
+    <input [(ngModel)]="useCase.description" matInput required type="text"/>
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Priority</mat-label>
+    <input [(ngModel)]="useCase.priority" matInput required type="number"/>
+  </mat-form-field>
+
+  <mat-dialog-actions>
+    <button cdkFocusInitial mat-dialog-close mat-raised-button>Close</button>
+
+    <button *ngIf="useCase.id === undefined; else updateUsecase" (click)="create()" [disabled]=invalid() color="primary" mat-raised-button>Create
+    </button>
+    <ng-template #updateUsecase>
+      <button (click)="update()" [disabled]=invalid() color="primary" mat-raised-button>Update</button>
+    </ng-template>
+
+  </mat-dialog-actions>
+
+</mat-dialog-content>
+
+
+
+

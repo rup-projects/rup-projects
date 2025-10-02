@@ -1,0 +1,39 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+PROJECT_MANAGEMENT --> OpenUsecases
+note on link
+        User requests to open usecases
+    end note
+MEMBERS_MANAGEMENT --> OpenUsecases
+note on link
+        User requests to open usecases
+    end note
+DISCIPLINES_MANAGEMENT --> OpenUsecases
+note on link
+        User requests to open usecases
+    end note
+
+    USE_CASES_MANAGEMENT --> OpenUsecases
+
+state OpenUsecases {
+    [*] --> [*]
+    note on link
+        <b>System shows</b>
+        * all use cases sorted by priority
+        end note
+}
+
+OpenUsecases --> USECASES_MANAGEMENT
+    note on link
+    <b>System allows</b>
+    * prioritize usecases
+    * create usecase
+    * update usecase
+    * delete usecase
+    * open iterations
+    * open iteration
+    * open members
+    end note
+
+@enduml

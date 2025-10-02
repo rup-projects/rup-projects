@@ -1,0 +1,42 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+state init as "MEMBER_MANAGEMENT"
+state end as "MEMBER_MANAGEMENT"
+init ---> DeleteMemberUseCase
+
+note on link
+    User request delete Member
+end note
+
+state DeleteMemberUseCase {
+    state initial as " "
+
+    [*] --> initial
+    note on link
+    <b>System required</b>
+    * member to delete (without AssignActivities)
+    end note
+
+    initial --> DeleteConfirmation
+    note on link
+    <b>User provides</b>
+    * member to delete
+    end note
+
+    DeleteConfirmation --> OpenMembers
+    OpenMembers --> [*]
+}
+
+DeleteMemberUseCase --> end
+note on link
+    <b>System allows</b>
+    * create member
+    * update member
+    * delete member
+    * open project
+    * open iteration
+    * open use cases
+end note
+
+@enduml

@@ -1,0 +1,45 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+    state 0 as ":PROJECT_MANAGEMENT"
+    state 2 as ":USE_CASES_MANAGEMENT"
+    state 3 as ":DISCIPLINES_MANAGEMENT"
+    state 4 as ":MEMBERS_MANAGEMENT"
+
+    0 --> OpenMembers
+    note on link
+        User requests to open members
+    end note
+
+    2 --> OpenMembers
+    note on link
+        User requests to open members
+    end note
+
+    3 --> OpenMembers
+    note on link
+        User requests to open members
+    end note
+
+4 --> OpenMembers
+
+state OpenMembers{
+
+    [*] --> [*]
+
+}
+
+OpenMembers --> MEMBERS_MANAGEMENT
+    note on link
+        <b>System shows</b>
+        * all members in the project, his names and roles
+        <b>System allows</b>
+        * create member
+        * update member
+        * delete member
+        * open iterations
+        * open iteration
+        * open use cases
+    end note
+
+@enduml

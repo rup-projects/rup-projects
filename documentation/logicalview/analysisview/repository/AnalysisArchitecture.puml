@@ -1,0 +1,67 @@
+@startuml
+left to right direction
+
+namespace controllers {
+        class StartSystemController
+        class CloseSystemController
+        class PlanProjectController
+        class OpenPhasesController
+        class OpenIterationsController
+        class OpenIterationController
+        class AssignActivityController
+        class RestimateActivityController
+        class MergeActivityController
+        class SplitActivityController
+        class CloseActivityController
+        class OpenMembersController
+        class CreateMemberController
+        class UpdateMemberController
+        class DeleteMemberController
+        class OpenUseCasesController
+        class CreateUseCaseController
+        class UpdateUseCaseController
+        class DeleteUseCaseController
+        class PrioritizeUseCaseController
+}
+
+namespace views {
+    class MenuView
+    class ProjectManagementView
+    class InitProjectView
+    class PlanProjectView
+    class IterationView
+    class PhaseView
+    class AssignActivityView
+    class MembersManagementView
+    class CreateMemberView
+    class UpdateMemberView
+    class UseCasesManagementView
+    class CreateUseCaseView
+    class UpdateUseCaseView
+}
+
+namespace entities {
+    class Member {
+        name
+        surname
+        email
+        roles: { Architect, Developer}
+    }
+    class UseCase
+    class Iteration
+    Class Activity
+    class Project
+    class Phase
+    class Discipline
+    
+    Iteration *-> Member
+    Iteration *-> Activity
+    
+    Member *--> Activity
+    Activity --> Discipline
+    Activity --> UseCase
+    Phase *--> Iteration
+    Project *--> Phase
+}
+
+@enduml

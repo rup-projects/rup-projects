@@ -1,0 +1,41 @@
+@startuml
+
+!include ../configuration/skinParams.puml
+!include ../configuration/definitions.puml
+
+actor user
+boundary IterationView
+boundary CloseActivityView
+control CloseActivityController
+entity Activity
+entity ActivitiesDao
+
+user -right-> IterationView
+note on link
+    closeActivity(activityId)
+end note
+
+user -down-> CloseActivityView
+note on link
+    setRealDuration(numberOfHours)
+end note
+
+IterationView -down-> CloseActivityView
+note on link
+    new CloseActivityView(activityId)
+end note
+
+CloseActivityView -right-> CloseActivityController
+note on link
+    close(activity)
+end note
+
+CloseActivityController -right-> ActivitiesDao
+note on link
+    update(activity)
+end note
+
+CloseActivityView ..> Activity
+CloseActivityController ..> Activity
+ActivitiesDao ..> Activity
+@enduml

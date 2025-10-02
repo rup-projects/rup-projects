@@ -1,0 +1,54 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+'Initial/end states
+state init as "USE_CASE_MANAGEMENT"
+
+init ---> UpdateUseCase
+
+'Use case specfication
+state UpdateUseCase {
+    state updateOrdered as " "
+    state requiredUseCaseToUpdate as " "
+
+    'Main path
+    [*] --> updateOrdered
+    note on link
+        <b>User request</b>
+        * to update a use case
+    end note
+    updateOrdered --> requiredUseCaseToUpdate
+    note on link
+        <b>System require</b>
+        * The use case to be updated
+    end note
+    requiredUseCaseToUpdate --> Form
+    note on link
+        <b>User provide</b>
+        * The use case to update
+    end note
+
+    Form --> SaveConfirmation
+    note right of Form
+          <b>Fields</b>
+          * name [required] [unique] [length > 5 && < 25 ]
+          * description [optional] [length > 5 && < 200 ]
+        end note
+    SaveConfirmation --> OpenUseCases
+
+    OpenUseCases --> [*]
+}
+
+UpdateUseCase --> USECASES_MANAGEMENT
+    note on link
+    <b>System allows</b>
+    * prioritize usecases
+    * create usecase
+    * update usecase
+    * delete usecase
+    * open iterations
+    * open iteration
+    * open members
+    end note
+
+@enduml

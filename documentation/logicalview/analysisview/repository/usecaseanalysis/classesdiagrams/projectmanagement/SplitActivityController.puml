@@ -1,0 +1,11 @@
+@startuml
+	class SplitActivityController {
+	+getAllUseCases()
+	+splitActivity(activity)
+	}
+
+	SplitActivityView --> SplitActivityController
+	SplitActivityController --> ActivitiesDao
+	SplitActivityController ..> Activity
+	SplitActivityController --> UseCaseDao
+@enduml

@@ -1,0 +1,46 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+USE_CASE_MANAGEMENT ---> DeleteUseCase
+
+state DeleteUseCase {
+    state initial as " "
+    state askedForWhichOneDelete as " "
+
+    'Main path
+    [*] --> initial
+    note on link
+        <b>User request</b>
+        * delete a use case
+    end note
+    initial --> askedForWhichOneDelete
+    note on link
+    <b>System shows</b>
+    * all use cases
+    <b>System require</b>
+    * A use case to delete
+    end note
+    askedForWhichOneDelete --> DeleteConfirmation
+    note on link
+        <b>User provide</b>
+        * the use case to delete
+    end note
+
+    DeleteConfirmation --> OpenUseCases
+    OpenUseCases --> [*]
+
+}
+
+DeleteUseCase --> USECASES_MANAGEMENT
+    note on link
+    <b>System allows</b>
+    * prioritize usecases
+    * create usecase
+    * update usecase
+    * delete usecase
+    * open iterations
+    * open iteration
+    * open members
+    end note
+
+@enduml

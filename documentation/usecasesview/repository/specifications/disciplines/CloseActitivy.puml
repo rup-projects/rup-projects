@@ -1,0 +1,112 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+    state ITERATION_MANAGEMENT_START as ":ITERATION_MANAGEMENT"
+    state ITERATION_MANAGEMENT_END as ":ITERATION_MANAGEMENT"
+    state showIteration as ":ShowIteration"
+
+
+    ITERATION_MANAGEMENT_START --> CloseActivity
+    note on link
+        User requests to close activity
+    end note
+
+
+    state CloseActivity {
+        state 5 as " "
+        state 13 as " "
+        state 14 as " "
+        state 16 as " "
+        state 17 as " "
+        state alternativeWay as " "
+        state 15 as " "
+
+    [*] --> 13
+    note on link
+    <b>System shows</b>
+    * for each member
+    **assignedActivities in his datetime until end of current iteration
+    <b>System requires</b>
+    * AssignedActivity to be closed
+    <b>System allows</b>
+    * cancel close activity
+    end note
+
+    13 -[#red]-> alternativeWay
+    note on link
+        User requests to cancel close activity
+    end note
+
+    13 --> 5
+    note on link
+        User provides AssignedActivity
+    end note
+
+    5 --> 14
+    note on link
+    <b>System shows</b>
+    * AssignedActivity information
+    ** discipline
+    ** member name
+    ** member rol
+    ** start datetime
+    ** expected end datetime
+    ** expected duration in hours
+    *** (if it exceeds the current date, shown in red)
+    <b>System requires</b>
+    * real AssignedActivity duration in hours
+    ** only positive numbers, max 100 hours
+    <b>System allows</b>
+    * cancel close activity
+    end note
+
+    14 -[#red]-> alternativeWay
+    note on link
+        User requests to cancel close activity
+    end note
+
+    14 --> 16
+    note on link
+        User provides real AssignedActivity duration in hours
+    end note
+
+    16 --> 17
+    note on link
+    <b>System shows</b>
+    * message
+    **closed activity can't be re-opened ¿Are you sure?
+    <b>System allows</b>
+    *confirm close activity
+    *cancel close activity
+    end note
+
+    17 --> 15
+    note on link
+    User requests to confirm close activity
+    end note
+
+    17 -[#red]-> alternativeWay
+    note on link
+    User requests to cancel close activity
+    end note
+
+    alternativeWay -[#red]-> [*]
+    note on link
+         <b>System shows</b>
+         * Close activity operation cancelled
+    end note
+
+    15 --> [*]
+    note on link
+     <b>System shows</b>
+     * AssignedActivity has been closed
+     end note
+
+     }
+
+    CloseActivity -down-> showIteration
+
+     showIteration -down-> ITERATION_MANAGEMENT_END
+
+
+@enduml

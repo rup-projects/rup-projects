@@ -1,0 +1,14 @@
+@startuml
+	class ShowIterationController {
+	+getAllMembers()
+	+getIteration(iterationId)
+	}
+
+	ShowIterationController --> IterationDao
+	ShowIterationController o..> Member
+	ShowIterationController --> MemberDao
+	IterationView --> ShowIterationController
+	ShowIterationController ..> Iteration
+	ShowIterationController o..> Discipline
+	ShowIterationController o..> Activity
+@enduml

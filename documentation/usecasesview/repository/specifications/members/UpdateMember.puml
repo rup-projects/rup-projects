@@ -1,0 +1,46 @@
+@startuml
+!include ../StateDiagramsSetUp.puml
+
+state 0 as " :MEMBER:MANAGEMENT"
+state 7 as " :MEMBER:MANAGEMENT"
+
+0 --> updateMember
+
+state updateMember {
+
+state 2 as " "
+state 1 as " "
+
+[*] --> 1
+note on link
+    User requests to update member
+end note
+
+1 --> 2
+note on link
+<b>System shows</b>
+* all members
+<b>System requests</b>
+* Member to update
+end note
+
+2 --> Form
+note on link
+    User provides a member to update
+end note
+
+note right of Form
+      <b>Fields</b>
+      * name [required] [unique] [length > 5 && < 25 ]
+      * List<role> [required] [not empty]
+end note
+
+Form --> SaveConfirmation
+
+SaveConfirmation --> OpenMembers
+OpenMembers --> [*]
+
+}
+
+updateMember --> 7
+@enduml

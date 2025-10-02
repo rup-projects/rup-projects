@@ -1,0 +1,62 @@
+@startuml
+!include skinParams.puml
+
+    'analysis
+    package analysis {
+        boundary XView #9FB7E5
+        control XController #C4E4AB
+        entity XEntity #F8D987
+        entity XDao #F8D987
+
+        XView -down-> XController
+        XView -down-> XEntity
+        XController .down.> XEntity
+        XController -down-> XDao
+    }
+    'Design
+    package front <<angular:10>>{
+        rectangle xComponent {
+           boundary XTemplate <<HTML>>
+           boundary XStyle <<CSS>>
+           boundary XComponent <<TypeScript>>
+           XTemplate -left-> XStyle
+           XComponent <-> XTemplate
+        }
+        boundary XModel
+        control XService <<TypeScript>>
+        entity HTTPService
+        XComponent -left-> XService
+        XComponent --> XModel
+        XService --> XModel
+        XService o-- HTTPService
+    }
+
+    package backend <<spring:5.3>> {
+        control XResource
+        control XBService
+        entity XRepository
+        entity XDto
+        entity XBEntity
+        XResource --> XBService
+        XResource --> XDto
+        XBService --> XBEntity
+        XBService --> XDto
+        XBService --> XRepository
+        XRepository --> XBEntity
+    }
+
+    XView <.[#Gray].. XTemplate : <<trace>>
+    XView <.[#Gray].. XStyle : <<trace>>
+    XView <.[#Gray].. XComponent : <<trace>>
+
+    XController <.[#Gray].. XResource: <<trace>>
+    XController <.[#Gray].. XService : <<trace>>
+    XController <.[#Gray].. XBService : <<trace>>
+
+    XDao <.[#Gray].. XRepository: <<trace>>
+
+    XEntity <.[#Gray].. XDto : <<trace>>
+    XEntity <.[#Gray].. XBEntity: <<trace>>
+    XEntity <.[#Gray].. XModel: <<trace>>
+
+@enduml

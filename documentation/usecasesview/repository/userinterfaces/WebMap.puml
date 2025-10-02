@@ -1,0 +1,116 @@
+@startuml
+
+
+skinparam {
+    NoteBackgroundColor #whiteSmoke
+    StateBackgroundColor #green
+}
+
+(*) -down-> "<img:https://share.balsamiq.com/c/riuCQFtjDogoQoA2p7YgUB.png>" as initProject #LawnGreen
+
+initProject -down-> "<img:https://share.balsamiq.com/c/dsbQacGeZgtcfZhQpgesHi.png>" as planProject
+    note on link
+        plan project
+    end note
+
+planProject -down-> "<img:https://share.balsamiq.com/c/qJoFTguYy77vzgiYemSEj6.png>" as planProjectTwo
+
+planProjectTwo -down-> "<img:https://share.balsamiq.com/c/iZj7bpXJVoWa47qPr5dMwV.png>" as projectManagementPhases #LawnGreen
+note on link
+    openPhases
+end note
+
+projectManagementPhases -left-> "<img:https://share.balsamiq.com/c/o6eJ12SWA1sigq7na7iuEg.png>" as projectManagementIterations #LawnGreen
+note on link
+    openIterations
+end note
+
+projectManagementIterations -right-> projectManagementPhases
+
+initProject -down--> projectManagementPhases
+note on link
+    openProject
+end note
+
+projectManagementPhases --------right-------> "<img:https://share.balsamiq.com/c/m8ZYkthpBqcxEXcjKaZuHk.png>" as memberManagement #LawnGreen
+    note on link
+        openMembers
+    end note
+
+memberManagement -up-> "<img:https://share.balsamiq.com/c/7aJRpBgnz4N7WsgLdi3hZ7.png>" as createMemberUI
+note on link
+    create member
+end note
+
+memberManagement -right-> "<img:https://share.balsamiq.com/c/btEKp7cr1fhW4R21ZW5xnc.png>" as deleteMemberUI
+note on link
+    delete member
+end note
+
+memberManagement --> "<img:https://share.balsamiq.com/c/m6SaY4badmmHRonaNua71p.png>" as updateMemberUI
+note on link
+    update member
+end note
+
+projectManagementIterations -----------left----------> "<img:https://share.balsamiq.com/c/gViP8S2Mu926xNmkKzMXp9.png>" as usacasesManagement #LawnGreen
+note on link
+    openUsecases
+end note
+
+usacasesManagement -up-> "<img:https://share.balsamiq.com/c/mtCBbTkSqcrP9tr4TC1sg6.png>" as createUsecase
+note on link
+    create usecase
+end note
+
+usacasesManagement --> "<img:https://share.balsamiq.com/c/i75aDY9RXfxsqjkSvGAy8P.png>" as deleteUsecase
+note on link
+    delete usecase
+end note
+
+usacasesManagement -left-> "<img:https://share.balsamiq.com/c/rNCGG3X8q7y4uckZTpmdN2.png>" as updateUsecase
+note on link
+    update usecase
+end note
+
+usacasesManagement --> "<img:https://share.balsamiq.com/c/3Dt74XPi2QoyBPuNYfEuxg.png>" as  prioritizeUseCases
+note on link
+ prioritize Usecases
+end note
+
+projectManagementPhases -down-------> "<img:https://share.balsamiq.com/c/6e6SMgKPvjCdVPsDgyFv5w.png>" as iterationManagement #LawnGreen
+note on link
+    open iteration
+end note
+
+iterationManagement -left-> "<img:https://share.balsamiq.com/c/qJYZaLz8NqAdeFjKJASEVB.png>" as splitActivity
+note on link
+    split activity
+end note
+
+iterationManagement -down-> "<img:https://share.balsamiq.com/c/9uQNnhyt3rtyhKqaxBxSAt.png>" as reestimaeteActivity
+note on link
+    re estimate activity
+end note
+
+iterationManagement -down-> "<img:https://share.balsamiq.com/c/qNLm4uBkSCzAhXH9ZkoT5B.png>" as mergeActivity
+note on link
+    merge activity
+end note
+
+iterationManagement -down-> "<img:https://share.balsamiq.com/c/9gJgaXEo55Z6VXgciWYB49.png>" as assignActivity
+note on link
+    assign activity
+end note
+
+
+iterationManagement -right-> "<img:https://share.balsamiq.com/c/gJ7qYvK2VEuuNAFAFjJtwo.png>" as closeActivity
+note on link
+    close activity
+end note
+
+
+closeActivity -right-> "<img:https://share.balsamiq.com/c/nPUu3xKwZ4epXSKbip5RYs.png>" as closeActivity3
+
+@enduml
+
+

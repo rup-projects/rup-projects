@@ -1,0 +1,30 @@
+<div class="container">
+  <ng-container *ngIf="existingPlanProject$ | async as project; else availablePlanProject">
+      <mat-accordion *ngIf="project !== null">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        Project
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <mat-list>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Start date : {{ project.startDate | date }}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>End date : {{ project.endDate | date}}</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Progress : NA</mat-list-item>
+                    <mat-divider></mat-divider>
+                    <mat-list-item>Iteration size : {{ project.iterationSize }} days</mat-list-item>
+                </mat-list>
+                <button mat-button color="primary" type="button" (click)="toProjectManagementRoute()">Open</button>
+                <button mat-button color="red" type="button" (click)="deleteProject(project.id)">Delete</button>
+            </mat-expansion-panel>
+        </mat-accordion>
+  </ng-container>
+
+  <ng-template #availablePlanProject>
+    <button  id="planProject" mat-button color="primary" type="button" (click)="toPlanProjectRoute()">Plan project</button>
+  </ng-template>
+
+</div>

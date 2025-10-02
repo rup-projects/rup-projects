@@ -1,0 +1,72 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+
+class Project {
+    startDate
+    endDate
+    cost
+    iterationSize
+    numberOfIterations
+}
+
+class Phase
+enum PhaseType {
+    Init
+    Elaboration
+    Construction
+    Transition
+}
+class Iteration {
+    number
+    startDate
+    endDate
+}
+
+class NotAssignedCost {
+    hours
+}
+
+enum DisciplineType {
+    Requirements
+    Analysis
+    Design
+    Implementation
+}
+
+class Realization {
+
+}
+
+class Activity{
+    startDateTime
+    hours
+    description
+}
+
+class Member {
+    name
+    surname
+    email
+}
+
+enum MemberRole {
+    Developer,
+    Architect
+}
+
+Project *-- "4" Phase
+Phase *-- PhaseType
+Phase *-- "*" Iteration
+Iteration *-- "4" NotAssignedCost
+Iteration *-- "*" Realization
+NotAssignedCost *-- "1" DisciplineType
+NotAssignedCost *-- "*" Activity
+Realization o-- "1" Member
+Realization o-- "*" Activity
+Member *-- "1" MemberRole
+
+
+
+@enduml
