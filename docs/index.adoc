@@ -1,4 +1,4 @@
-pero tio= RUP Projects - Architecture Documentation
+= RUP Projects - Architecture Documentation
 :toc: left
 :toclevels: 2
 :sectnums:
