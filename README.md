@@ -10,8 +10,8 @@ resources, timelines, and team collaboration through an intuitive web interface 
 
 ### Backend (rup-projects-core)
 
-- **Java 11**
-- **Spring Boot 2.3.3** - Application framework
+- **Java 17**
+- **Spring Boot 3.2.0** - Application framework
 - **Spring Data JPA** - Database access and ORM
 - **Spring Cloud Hoxton.SR8** - Microservices architecture
 - **Liquibase** - Database migration management
@@ -39,7 +39,7 @@ resources, timelines, and team collaboration through an intuitive web interface 
 
 ### Prerequisites
 
-- **Java 11** or higher
+- **Java 17** or higher
 - **Node.js** (v18 or higher recommended)
 - **npm** or **yarn**
 - **Maven 3.6+**
@@ -108,7 +108,30 @@ resources, timelines, and team collaboration through an intuitive web interface 
 
 - **Docker** and **Docker Compose** installed on your system
 
-### Quick Start with Docker Compose
+### Quick Start with OCI Artifact (Recommended)
+
+The easiest way to run the application is using the pre-built OCI artifact from Docker Hub:
+
+```bash
+docker compose -f oci://rupprojectstile392/rup-projects-compose:latest up -d
+```
+
+This single command will:
+- Pull the compose file as an OCI artifact
+- Pull the latest application image
+- Start both frontend and backend services
+- Expose the application on ports 80 and 8080
+
+Access the application:
+- **Frontend**: `http://localhost`
+- **Backend API**: `http://localhost:8080`
+
+To stop the application:
+```bash
+docker compose down
+```
+
+### Alternative: Build and Run Locally
 
 1. Build the frontend:
    ```bash
@@ -139,22 +162,22 @@ resources, timelines, and team collaboration through an intuitive web interface 
    docker-compose down
    ```
 
-### Alternative: Using Docker directly
+### Alternative: Using Docker Image Directly
 
-1. Build the Docker image:
-   ```bash
-   docker build -t rup-projects .
-   ```
+You can also pull and run the pre-built image directly:
 
-2. Run the container:
-   ```bash
-   docker run -p 80:80 -p 8080:8080 rup-projects
-   ```
+```bash
+docker pull rupprojectstile392/rup-projects:latest
+docker run -p 80:80 -p 8080:8080 rupprojectstile392/rup-projects:latest
+```
+
+### Docker Setup Details
 
 The Docker setup:
 - Serves the Angular frontend via Nginx on port 80
 - Runs the Spring Boot backend on port 8080
 - Automatically proxies API requests from `/api/` to the backend
+- Uses Java 17 with Eclipse Temurin runtime
 
 ### Notes
 
