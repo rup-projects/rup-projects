@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 2.0.23">
-<title>Analysis View</title>
+<title>Overview</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
@@ -436,236 +436,111 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article">
 <div id="header">
-<h1>Analysis View</h1>
 </div>
 <div id="content">
+<div class="paragraph">
+<p>pero tio= RUP Projects - Architecture Documentation
+:toc: left
+:toclevels: 2
+:sectnums:
+:icons: font</p>
+</div>
 <div class="sect1">
-<h2 id="_index">Index</h2>
+<h2 id="_overview">Overview</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>This documentation follows the <strong>4+1 architectural view model</strong> proposed by Philippe Kruchten, providing a comprehensive description of the RUP Projects system architecture.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_architectural_views">Architectural Views</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_use_cases_view">Use Cases View</h3>
+<div class="paragraph">
+<p>The Use Cases view describes the system&#8217;s functionality as seen by its external actors.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#_Architecture">Architecture Analysis</a></p>
+<p><a href="usecasesview/UsecasesView.html">Use Cases View</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_logical_view">Logical View</h3>
+<div class="paragraph">
+<p>The Logical view describes the system&#8217;s object model and design.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="logicalview/analysisview/AnalysisView.html">Analysis View</a></p>
 </li>
 <li>
-<p><a href="#_UserCaseAnalysis">Use cases analysis</a></p>
+<p><a href="logicalview/designview/DesignView.html">Design View</a></p>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_implementation_view">Implementation View</h3>
+<div class="paragraph">
+<p>The Implementation view describes the organization of the static software modules.</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p><a href="#_PackageAnalysis">Package analysis</a></p>
+<p><a href="implementationview/ImplementationView.html">Implementation View</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deployment_view">Deployment View</h3>
+<div class="paragraph">
+<p>The Deployment view describes the mapping of software to hardware and shows the system&#8217;s distributed aspects.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="deployview/DeployView.html">Deployment View</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_domain_model">Domain Model</h3>
+<div class="paragraph">
+<p>The domain model represents the key concepts and their relationships in the problem domain.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="domainModel/domainModel.html">Domain Model</a></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_Architecture">Architecture Analysis</h2>
-<div class="sectionbody">
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="151" height="289">
-</div>
-</div>
-<div class="paragraph">
-<p><a href="#_index">Index</a></p>
-</div>
-</div>
 </div>
 <div class="sect1">
-<h2 id="_UserCaseAnalysis">Use cases analysis</h2>
+<h2 id="_about_rup_projects">About RUP Projects</h2>
 <div class="sectionbody">
-<div class="sect3">
-<h4 id="_assign_activity">Assign activity</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="909" height="372">
-</div>
+<div class="paragraph">
+<p>RUP Projects is a project management application designed to facilitate the organization and tracking of projects using the Rational Unified Process (RUP) methodology.</p>
 </div>
 <div class="paragraph">
-<p><a href="#_index">Index</a></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_close_activity">Close activity</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="810" height="338">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_merge_activity">Merge activity</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="973" height="244">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_reestimate_activity">Reestimate activity</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="876" height="338">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_split_activity">Split activity</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="649" height="541">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_open_iterations">Open iterations</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="929" height="447">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_open_iteration">Open iteration</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="948" height="338">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_show_iteration">Show iteration</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="773" height="444">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_open_phases">Open phases</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="1088" height="338">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_plan_project">Plan project</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="1038" height="280">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_start_system">Start system</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="681" height="338">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_close_system">Close system</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="272" height="85">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_create_member">Create member</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="905" height="383">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_delete_member">Delete member</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="883" height="244">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_open_members">Open members</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="891" height="338">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_update_member">Update member</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="986" height="383">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_create_usecase">Create UseCase</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="908" height="383">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_delete_usecase">Delete UseCase</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="798" height="244">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_open_usecases">Open UseCases</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="959" height="338">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_prioritize_usecases">Prioritize UseCases</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="917" height="402">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_update_usecase">Update UseCase</h4>
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="935" height="383">
-</div>
-</div>
-<div class="paragraph">
-<p><a href="#_index">Index</a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_PackageAnalysis">Package analysis</h2>
-<div class="sectionbody">
-<div class="imageblock text-center">
-<div class="content">
-<img src="svg.png" alt="svg" width="1263" height="1087">
-</div>
-</div>
-<div class="paragraph">
-<p><a href="#_index">Index</a></p>
+<p>For more information, visit the <a href="../README.html">project README</a>.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-10-02 08:00:20 UTC
+Last updated 2025-10-02 23:29:05 UTC
 </div>
 </div>
 </body>

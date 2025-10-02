@@ -1,5 +1,4 @@
 @startuml
-!include ../StateDiagramsSetUp.puml
 
 state SaveConfirmation {
     state confirmationRequired <<choice>>

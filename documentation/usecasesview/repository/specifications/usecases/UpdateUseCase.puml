@@ -1,5 +1,4 @@
 @startuml
-!include ../StateDiagramsSetUp.puml
 
 'Initial/end states
 state init as "USE_CASE_MANAGEMENT"

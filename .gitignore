@@ -14,3 +14,4 @@ buildNumber.properties
 /rup-projects-core/.mvn/wrapper/maven-wrapper.jar
 /out/
 web-app/cypress/videos
+*.png.cache

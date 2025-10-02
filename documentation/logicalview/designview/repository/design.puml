@@ -1,5 +1,4 @@
 @startuml
-!include skinParams.puml
 
     'analysis
     package analysis {

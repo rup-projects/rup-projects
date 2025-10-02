@@ -1,0 +1,7 @@
+@startuml
+' Configuración global de PlantUML
+skinparam backgroundColor #FFFFFF
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+@enduml

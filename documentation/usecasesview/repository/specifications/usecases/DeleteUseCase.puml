@@ -1,5 +1,4 @@
 @startuml
-!include ../StateDiagramsSetUp.puml
 
 USE_CASE_MANAGEMENT ---> DeleteUseCase
 

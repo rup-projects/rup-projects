@@ -1,5 +1,4 @@
 @startuml
-!include ../StateDiagramsSetUp.puml
 
 PROJECT_MANAGEMENT --> OpenUsecases
 note on link

@@ -1,5 +1,4 @@
 @startuml
-!include ../StateDiagramsSetUp.puml
 
 state init as "MEMBER_MANAGEMENT"
 state end as "MEMBER_MANAGEMENT"
