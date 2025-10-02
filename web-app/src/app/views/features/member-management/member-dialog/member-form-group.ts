@@ -1,14 +1,14 @@
-import {FormControl, FormGroup} from '@angular/forms';
+import {UntypedFormControl, UntypedFormGroup} from '@angular/forms';
 import {Member} from '../../../../../logic/models/member';
 
-export class MemberFormGroup extends FormGroup {
+export class MemberFormGroup extends UntypedFormGroup {
   constructor() {
     super({
-      id: new FormControl(),
-      name: new FormControl(),
-      surName: new FormControl(),
-      email: new FormControl(),
-      role: new FormControl()
+      id: new UntypedFormControl(),
+      name: new UntypedFormControl(),
+      surName: new UntypedFormControl(),
+      email: new UntypedFormControl(),
+      role: new UntypedFormControl()
     });
   }
 
@@ -16,24 +16,24 @@ export class MemberFormGroup extends FormGroup {
     return super.getRawValue();
   }
 
-  get name(): FormControl {
-    return this.get('name') as FormControl;
+  get name(): UntypedFormControl {
+    return this.get('name') as UntypedFormControl;
   }
 
-  get surName(): FormControl {
-    return this.get('surName') as FormControl;
+  get surName(): UntypedFormControl {
+    return this.get('surName') as UntypedFormControl;
   }
 
-  get email(): FormControl {
-    return this.get('email') as FormControl;
+  get email(): UntypedFormControl {
+    return this.get('email') as UntypedFormControl;
   }
 
-  get role(): FormControl {
-    return this.get('role') as FormControl;
+  get role(): UntypedFormControl {
+    return this.get('role') as UntypedFormControl;
   }
 
-  get id(): FormControl {
-    return this.get('id') as FormControl;
+  get id(): UntypedFormControl {
+    return this.get('id') as UntypedFormControl;
   }
 
 }

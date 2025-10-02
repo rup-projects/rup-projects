@@ -3,7 +3,7 @@ import {ActivityService} from '../../../../controllers/activity.service';
 import {IterationService} from '../../../../controllers/iteration.service';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 import {Activity} from '../../../../../logic/models/activity';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {Realization} from '../../../../../logic/models/realization';
 import {RealizationsViewModel} from '../../../../controllers/view-models/realizations-view-model';
@@ -18,13 +18,13 @@ export class ActivityDetailsDialogComponent implements OnInit {
 
   constructor(private activityService: ActivityService, private iterationService: IterationService,
               @Inject(MAT_DIALOG_DATA) public data: { activityId: string, iterationId: string },
-              private formBuilder: FormBuilder, private matDialog: MatDialog,
+              private formBuilder: UntypedFormBuilder, private matDialog: MatDialog,
               private realizationsViewModel: RealizationsViewModel, private activityViewModel: ActivityViewModel) {
   }
 
   activity$: Observable<Activity>;
   realizations$: Observable<Realization[]>;
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
   selectedRealization: number;
   selectedHour: Date;
 

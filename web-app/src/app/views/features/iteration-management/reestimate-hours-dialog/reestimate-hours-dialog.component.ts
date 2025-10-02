@@ -3,7 +3,7 @@ import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 import {ActivityService} from '../../../../controllers/activity.service';
 import {Activity} from '../../../../../logic/models/activity';
 import {NotAssignedCost} from '../../../../../logic/models/not-assigned-cost';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -13,11 +13,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class ReestimateHoursDialogComponent implements OnInit {
 
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
 
   constructor(private activityService: ActivityService, private matDialog: MatDialog,
               @Inject(MAT_DIALOG_DATA) public data: { activity: Activity, notAssignedCost: NotAssignedCost },
-              private formBuilder: FormBuilder) {
+              private formBuilder: UntypedFormBuilder) {
   }
 
   ngOnInit(): void {

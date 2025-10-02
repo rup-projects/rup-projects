@@ -44,7 +44,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -67,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "web-app:build"
+            "buildTarget": "web-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "web-app:build:production"
+              "buildTarget": "web-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "web-app:build"
+            "buildTarget": "web-app:build"
           }
         },
         "test": {
@@ -95,19 +94,6 @@
               "src/styles.scss"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "cypress/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         },
         "e2e": {
@@ -150,7 +136,6 @@
       }
     }
   },
-  "defaultProject": "web-app",
   "cli": {
     "analytics": "457bae1d-f431-4168-81b2-75309c09d5b8"
   }

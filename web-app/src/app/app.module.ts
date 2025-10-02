@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -14,29 +14,19 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './views/shared.module';
 import {ErrorViewModel} from "../commons/services/view-models/error.view-model";
 
-FullCalendarModule.registerPlugins([ // register FullCalendar plugins
-  dayGridPlugin,
-  interactionPlugin,
-  resourceTimelinePlugin
-]);
+// FullCalendar v6 plugins are now registered automatically or in components
 
-@NgModule({
-  declarations: [AppComponent],
-  imports: [
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    CommonModule,
-    FullCalendarModule, // register FullCalendar with you app
-    HttpClientModule,
-    MatSnackBarModule,
-    SharedModule
-  ],
-  providers: [
-    {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}
-  ],
-  exports: [],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [AppComponent],
+    exports: [],
+    bootstrap: [AppComponent], imports: [AppRoutingModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        CommonModule,
+        FullCalendarModule,
+        MatSnackBarModule,
+        SharedModule], providers: [
+        { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule {
 }

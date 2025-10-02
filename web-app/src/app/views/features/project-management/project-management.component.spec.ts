@@ -8,8 +8,9 @@ describe('ProjectManagementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProjectManagementComponent ]
-    })
+    declarations: [ProjectManagementComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

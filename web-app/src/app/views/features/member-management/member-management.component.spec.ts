@@ -8,8 +8,9 @@ describe('MemberManagementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MemberManagementComponent ]
-    })
+    declarations: [MemberManagementComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

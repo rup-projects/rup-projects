@@ -8,8 +8,9 @@ describe('PhaseManagementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PhaseManagementComponent ]
-    })
+    declarations: [PhaseManagementComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

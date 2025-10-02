@@ -8,8 +8,9 @@ describe('GridLayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GridLayoutComponent ]
-    })
+    declarations: [GridLayoutComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

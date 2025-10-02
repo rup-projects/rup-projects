@@ -7,7 +7,7 @@ import {Observable} from 'rxjs';
 import {Iteration} from '../../../../../logic/models/iteration';
 import {Realization} from '../../../../../logic/models/realization';
 import {IterationService} from '../../../../controllers/iteration.service';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {RealizationsViewModel} from '../../../../controllers/view-models/realizations-view-model';
 
 @Component({
@@ -19,13 +19,13 @@ export class AssignMemberDialogComponent implements OnInit {
 
   constructor(private activityService: ActivityService, private iterationProxyService: IterationService, private matDialog: MatDialog,
               private realizationsViewModel: RealizationsViewModel,
-              @Inject(MAT_DIALOG_DATA) public data: { activity: Activity, notAssignedCost: NotAssignedCost, iteration: Iteration }, private formBuilder: FormBuilder) {
+              @Inject(MAT_DIALOG_DATA) public data: { activity: Activity, notAssignedCost: NotAssignedCost, iteration: Iteration }, private formBuilder: UntypedFormBuilder) {
   }
 
   realizations$: Observable<Realization[]>;
   selectedRealization: number;
   selectedHour: Date;
-  formGroup: FormGroup;
+  formGroup: UntypedFormGroup;
 
   ngOnInit(): void {
     this.realizations$ = this.realizationsViewModel.getStateValue();

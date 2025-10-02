@@ -8,8 +8,9 @@ describe('IterationManagementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IterationManagementComponent ]
-    })
+    declarations: [IterationManagementComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

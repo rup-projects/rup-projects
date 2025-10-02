@@ -8,8 +8,9 @@ describe('ReestimateHoursDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ReestimateHoursDialogComponent ]
-    })
+    declarations: [ReestimateHoursDialogComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 
