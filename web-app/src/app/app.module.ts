@@ -14,11 +14,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './views/shared.module';
 import {ErrorViewModel} from "../commons/services/view-models/error.view-model";
 
-FullCalendarModule.registerPlugins([ // register FullCalendar plugins
-  dayGridPlugin,
-  interactionPlugin,
-  resourceTimelinePlugin
-]);
+// FullCalendar v6 plugins are now registered automatically or in components
 
 @NgModule({ declarations: [AppComponent],
     exports: [],
