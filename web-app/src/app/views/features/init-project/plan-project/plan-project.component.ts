@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {MatStepper} from '@angular/material/stepper';
 import {Router} from '@angular/router';
 import {Observable} from 'rxjs';
@@ -17,8 +17,8 @@ import {filter, first, tap} from 'rxjs/operators';
 })
 export class PlanProjectComponent implements OnInit {
   prePlannedProject$: Observable<Project>;
-  basicInfoFormGroup: FormGroup;
-  iterationSizeFormGroup: FormGroup;
+  basicInfoFormGroup: UntypedFormGroup;
+  iterationSizeFormGroup: UntypedFormGroup;
   numberOfIterations: number;
   phases: Observable<Phase[]>;
   displayedColumns: string[] = ['type', 'startDate', 'endDate'];
@@ -27,7 +27,7 @@ export class PlanProjectComponent implements OnInit {
 
   constructor(
     private projectService: ProjectService,
-    private router: Router, private formBuilder: FormBuilder
+    private router: Router, private formBuilder: UntypedFormBuilder
   ) {
      this.prePlannedProject$ = this.projectService.getPrePlannedProject$();
      this.prePlannedProject$.pipe(filter(prePlannedProject => !(!prePlannedProject))).subscribe(prePlannedProject =>

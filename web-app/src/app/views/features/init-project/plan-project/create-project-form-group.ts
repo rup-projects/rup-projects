@@ -1,12 +1,12 @@
-import  { FormControl, FormGroup, Validators } from '@angular/forms';
+import  { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { Project } from '../../../../../logic/models/project';
 
-export class CreateProjectFormGroup extends FormGroup {
+export class CreateProjectFormGroup extends UntypedFormGroup {
   constructor() {
     super({
-      startDate: new FormControl(null, Validators.required),
-      endDate: new FormControl(null, Validators.required),
-      cost: new FormControl(1000, Validators.required),
+      startDate: new UntypedFormControl(null, Validators.required),
+      endDate: new UntypedFormControl(null, Validators.required),
+      cost: new UntypedFormControl(1000, Validators.required),
     });
   }
 
@@ -14,16 +14,16 @@ export class CreateProjectFormGroup extends FormGroup {
     return super.getRawValue();
   }
 
-  get startDate(): FormControl {
-    return this.get('startDate') as FormControl;
+  get startDate(): UntypedFormControl {
+    return this.get('startDate') as UntypedFormControl;
   }
 
-  get endDate(): FormControl {
-    return this.get('endDate') as FormControl;
+  get endDate(): UntypedFormControl {
+    return this.get('endDate') as UntypedFormControl;
   }
 
-  get cost(): FormControl {
-    return this.get('cost') as FormControl;
+  get cost(): UntypedFormControl {
+    return this.get('cost') as UntypedFormControl;
   }
 
 }
