@@ -51,4 +51,22 @@ jobs:
           push: true
           tags: rupprojectstile392/rup-projects:${{ github.sha }},rupprojectstile392/rup-projects:latest
 
+      - name: Create compose file for distribution
+        run: |
+          cat > compose.yaml <<EOF
+          services:
+            rup-projects:
+              image: rupprojectstile392/rup-projects:latest
+              container_name: rup-projects-app
+              ports:
+                - "80:80"
+                - "8080:8080"
+              restart: unless-stopped
+          EOF
+
+      - name: Publish Docker Compose as OCI artifact
+        run: |
+          docker compose -f compose.yaml publish rupprojectstile392/rup-projects-compose:latest
+          docker compose -f compose.yaml publish rupprojectstile392/rup-projects-compose:${{ github.sha }}
+
 
