@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  rup-projects:
+    build: .
+    container_name: rup-projects-app
+    ports:
+      - "80:80"
+      - "8080:8080"
+    restart: unless-stopped

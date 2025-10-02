@@ -102,6 +102,66 @@ resources, timelines, and team collaboration through an intuitive web interface 
 - **Run tests**: `./mvnw test`
 - **Package**: `./mvnw package`
 
+## Running with Docker
+
+### Prerequisites
+
+- **Docker** and **Docker Compose** installed on your system
+
+### Quick Start with Docker Compose
+
+1. Build the frontend:
+   ```bash
+   cd web-app
+   npm install
+   npm run build
+   cd ..
+   ```
+
+2. Build the backend:
+   ```bash
+   cd rup-projects-core
+   ./mvnw clean package
+   cd ..
+   ```
+
+3. Run with Docker Compose:
+   ```bash
+   docker-compose up -d
+   ```
+
+4. Access the application:
+   - **Frontend**: `http://localhost`
+   - **Backend API**: `http://localhost:8080`
+
+5. Stop the application:
+   ```bash
+   docker-compose down
+   ```
+
+### Alternative: Using Docker directly
+
+1. Build the Docker image:
+   ```bash
+   docker build -t rup-projects .
+   ```
+
+2. Run the container:
+   ```bash
+   docker run -p 80:80 -p 8080:8080 rup-projects
+   ```
+
+The Docker setup:
+- Serves the Angular frontend via Nginx on port 80
+- Runs the Spring Boot backend on port 8080
+- Automatically proxies API requests from `/api/` to the backend
+
+### Notes
+
+- The application uses H2 in-memory database by default
+- To use MySQL, you can extend the docker-compose setup or modify the application properties
+- Frontend and backend run in the same container for simplified deployment
+
 ## License
 
 This project is licensed under the terms specified in the [LICENSE](LICENSE) file.
