@@ -4,13 +4,13 @@ import com.core.rupprojectscore.entity.Project;
 import com.core.rupprojectscore.entity.ProjectBuilder;
 import com.core.rupprojectscore.exceptions.BadRequestException;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sun.istack.NotNull;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.validation.constraints.Min;
+import jakarta.validation.constraints.Min;
 import java.time.LocalDateTime;
 
 @Getter
