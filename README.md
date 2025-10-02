@@ -2,11 +2,14 @@
 
 ## Overview
 
-Rup-Projects is a project management application designed to facilitate the organization and tracking of projects using Rational Unified Process (RUP) methodology. The application provides a comprehensive solution for managing project resources, timelines, and team collaboration through an intuitive web interface backed by a robust REST API.
+Rup-Projects is a project management application designed to facilitate the organization and tracking of projects using
+Rational Unified Process (RUP) methodology. The application provides a comprehensive solution for managing project
+resources, timelines, and team collaboration through an intuitive web interface backed by a robust REST API.
 
 ## Stack
 
 ### Backend (rup-projects-core)
+
 - **Java 11**
 - **Spring Boot 2.3.3** - Application framework
 - **Spring Data JPA** - Database access and ORM
@@ -18,6 +21,7 @@ Rup-Projects is a project management application designed to facilitate the orga
 - **Maven** - Build and dependency management
 
 ### Frontend (web-app)
+
 - **Angular 18** - Frontend framework
 - **Angular Material** - UI component library
 - **RxJS** - Reactive programming
@@ -26,6 +30,7 @@ Rup-Projects is a project management application designed to facilitate the orga
 - **FontAwesome** - Icon library
 
 ### Testing
+
 - **Jest** - Unit testing for frontend
 - **Cypress** - E2E testing
 - **JUnit & AssertJ** - Backend testing
@@ -86,12 +91,14 @@ Rup-Projects is a project management application designed to facilitate the orga
 ### Additional Commands
 
 #### Frontend
+
 - **Run tests**: `npm test`
 - **Build for production**: `npm run build`
 - **Run E2E tests**: `npm run cy:run`
 - **Lint**: `npm run lint`
 
 #### Backend
+
 - **Run tests**: `./mvnw test`
 - **Package**: `./mvnw package`
 
