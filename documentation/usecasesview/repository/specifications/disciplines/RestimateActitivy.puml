@@ -1,5 +1,4 @@
 @startuml
-!include ../StateDiagramsSetUp.puml
 
     state 5 as ":ITERATION_MANAGEMENT"
     state 13 as ":ITERATION_MANAGEMENT"

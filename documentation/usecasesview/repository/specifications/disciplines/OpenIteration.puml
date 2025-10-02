@@ -1,5 +1,4 @@
 @startuml
-!include ../StateDiagramsSetUp.puml
 
 state 12 as ":PROJECT_MANAGEMENT"
 state showIteration as ":ShowIteration"

@@ -1,5 +1,4 @@
 @startuml
-!include ../StateDiagramsSetUp.puml
 
 state PROJECT_MANAGEMENTEND as ":PROJECT_MANAGEMENT"
 state INIT_PROJECTSTART as ":INIT_PROJECT"

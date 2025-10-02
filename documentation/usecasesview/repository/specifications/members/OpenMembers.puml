@@ -1,5 +1,4 @@
 @startuml
-!include ../StateDiagramsSetUp.puml
 
     state 0 as ":PROJECT_MANAGEMENT"
     state 2 as ":USE_CASES_MANAGEMENT"

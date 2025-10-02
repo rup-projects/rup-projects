@@ -1,5 +1,4 @@
 @startuml
-!include ../StateDiagramsSetUp.puml
 
 state 0 as " :MEMBER:MANAGEMENT"
 state 7 as " :MEMBER:MANAGEMENT"

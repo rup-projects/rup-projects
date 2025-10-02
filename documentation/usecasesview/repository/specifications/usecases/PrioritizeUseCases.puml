@@ -1,5 +1,4 @@
 @startuml
-!include ../StateDiagramsSetUp.puml
 
 USECASE_MANAGEMENT --> prioritizeUseCases
 

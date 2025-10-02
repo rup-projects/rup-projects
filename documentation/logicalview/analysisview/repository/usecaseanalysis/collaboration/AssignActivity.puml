@@ -1,7 +1,5 @@
 @startuml
 
-!include ../configuration/skinParams.puml
-!include ../configuration/definitions.puml
 
 actor user
 boundary IterationView
