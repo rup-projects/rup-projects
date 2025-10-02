@@ -8,8 +8,9 @@ describe('AssignMemberDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AssignMemberDialogComponent ]
-    })
+    declarations: [AssignMemberDialogComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

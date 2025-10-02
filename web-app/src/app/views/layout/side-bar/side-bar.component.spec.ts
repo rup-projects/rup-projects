@@ -8,8 +8,9 @@ describe('SideBarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SideBarComponent ]
-    })
+    declarations: [SideBarComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

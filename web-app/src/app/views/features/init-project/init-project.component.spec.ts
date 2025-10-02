@@ -8,8 +8,9 @@ describe('InitProjectComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ InitProjectComponent ]
-    })
+    declarations: [InitProjectComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

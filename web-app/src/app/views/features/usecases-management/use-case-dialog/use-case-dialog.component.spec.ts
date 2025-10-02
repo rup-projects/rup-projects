@@ -8,8 +8,9 @@ describe('UseCaseDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UseCaseDialogComponent ]
-    })
+    declarations: [UseCaseDialogComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 

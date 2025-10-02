@@ -8,8 +8,9 @@ describe('UseCasesManagementComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UseCasesManagementComponent ]
-    })
+    declarations: [UseCasesManagementComponent],
+    teardown: { destroyAfterEach: false }
+})
     .compileComponents();
   });
 
