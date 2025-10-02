@@ -1,0 +1,48 @@
+pero tio= RUP Projects - Architecture Documentation
+:toc: left
+:toclevels: 2
+:sectnums:
+:icons: font
+
+== Overview
+
+This documentation follows the **4+1 architectural view model** proposed by Philippe Kruchten, providing a comprehensive description of the RUP Projects system architecture.
+
+== Architectural Views
+
+=== Use Cases View
+
+The Use Cases view describes the system's functionality as seen by its external actors.
+
+* link:usecasesview/UsecasesView.html[Use Cases View]
+
+=== Logical View
+
+The Logical view describes the system's object model and design.
+
+* link:logicalview/analysisview/AnalysisView.html[Analysis View]
+* link:logicalview/designview/DesignView.html[Design View]
+
+=== Implementation View
+
+The Implementation view describes the organization of the static software modules.
+
+* link:implementationview/ImplementationView.html[Implementation View]
+
+=== Deployment View
+
+The Deployment view describes the mapping of software to hardware and shows the system's distributed aspects.
+
+* link:deployview/DeployView.html[Deployment View]
+
+=== Domain Model
+
+The domain model represents the key concepts and their relationships in the problem domain.
+
+* link:domainModel/domainModel.html[Domain Model]
+
+== About RUP Projects
+
+RUP Projects is a project management application designed to facilitate the organization and tracking of projects using the Rational Unified Process (RUP) methodology.
+
+For more information, visit the link:../README.html[project README].
